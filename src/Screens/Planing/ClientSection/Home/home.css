@@ -1,9 +1,11 @@
-.container {
+.container-homeClient {
     display: flex;
     justify-content: center;
     justify-items: center;
     flex-direction: column;
     margin-bottom: 120px;
+    align-items: center;
+    /* width: 90%; */
   }
   
   .reservation {

@@ -7,7 +7,7 @@ import "./home.css";
 function Home() {
   return (
     <div>
-      <div className="container">
+      <div className="container-homeClient">
         <div className="welcome-page">
           <p className="look-coach">I’m looking for a coach</p>
           <CalendarIcon />

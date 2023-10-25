@@ -5,22 +5,23 @@ import MyProfile from '../../Screens/Profile/MyProfile/Myprofile'
 import PersonalInformation from '../../Screens/Profile/PersonalInformation/PersonalInfo'
 import SessionHistory from '../../Screens/Profile/SessionHistory/SessionHistory'
 import Settings from '../../Screens/Profile/Settings/Settings'
+import Availability from '../../Screens/Profile/Availability/Availability'
 import UpdateAge from '../../Screens/Profile/PersonalInformation/updateAge/UpdateAge'
 import UpdateName from '../../Screens/Profile/PersonalInformation/updateName/UpdateName'
 
-function Route() {
+function RouteProfile() {
   return (
     <Routes>
         <Route path="/" exact element={<MyProfile />} />
         <Route path="/PersonalInformation"  element={<PersonalInformation />} />
         <Route path="/SessionHistory" element={<SessionHistory/>} />
         <Route path="/Settings" element={<Settings/>} />
-        <Route path="/SoloGame" element={<SoloGame/>} />
         <Route path="/CardDetail" element={<CardDetail/>} />
+        <Route path="/Availability" element={<Availability/>} />
         <Route path="/UpdateAge" element={<UpdateAge/>} />
         <Route path="/UpdateName" element={<UpdateName/>} />
       </Routes>
   )
 }
 
-export default Route
+export default RouteProfile

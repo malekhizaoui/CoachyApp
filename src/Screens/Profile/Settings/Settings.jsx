@@ -4,11 +4,15 @@ import BackIcon from "../../../assets/icons/BackIcon";
 import ArrowrightIcon from "../../../assets/icons/ArrowrightIcon";
 import LogoutIcon from "../../../assets/icons/Profile/LogoutIcon";
 import DeleteAccountIcon from "../../../assets/icons/Profile/DeleteAccountIcon";
+import { useNavigate } from "react-router-dom";
+
 function Settings() {
+  const navigate = useNavigate();
+
   return (
     <div className="perso-info-container">
       <div className="container-settings">
-        <div className="navigate">
+        <div className="navigate"  onClick={()=>{navigate(-1)}}>
           <BackIcon />
 
           <p className="name-page">Settings</p>

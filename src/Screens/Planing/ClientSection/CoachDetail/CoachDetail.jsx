@@ -3,7 +3,7 @@ import "./coachDetail.css";
 
 function CoachDetail() {
   return (
-    <div className="container">
+    <div className="container-coachDetail">
       <div className="couverture-image"></div>
       <div className="image-container">
         <div className="profile-image"></div>

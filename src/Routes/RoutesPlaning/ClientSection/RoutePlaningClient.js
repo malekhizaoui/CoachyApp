@@ -9,7 +9,7 @@ import AllCoachs from '../../../Screens/Planing/ClientSection/LookAllCoachs/AllC
 import PaymentScreen from '../../../Screens/Planing/ClientSection/Payment/PaymentScreen'
 import Reservation from '../../../Screens/Planing/ClientSection/Reservation/Reservation'
 
-function Route() {
+function RoutePlaningClient() {
   return (
     <Routes>
         <Route path="/" exact element={<Home />} />
@@ -23,4 +23,4 @@ function Route() {
   )
 }
 
-export default Route
+export default RoutePlaningClient

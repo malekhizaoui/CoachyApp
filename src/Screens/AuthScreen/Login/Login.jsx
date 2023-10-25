@@ -1,50 +1,70 @@
-import React from 'react'
-import '../auth.css'
-function Login() {
-    return (
-        <div class="container">
-        <div class="screen">
-            <div class="screen__content">
-                <form class="login">
-                    <div class="login__field">
-                        <i class="login__icon fas fa-user"></i>
-                        <input type="text" class="login__input" placeholder="User name / Email"/>
-                    </div>
-                    <div class="login__field">
-                        <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Password"/>
-                    </div>
-                    {/* <div class="login__field">
-                        <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Password"/>
-                    </div>
-                    <div class="login__field">
-                        <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Password"/>
-                    </div> */}
-                    <button class="button login__submit">
-                        <span class="button__text">Log In</span>
-                        <i class="button__icon fas fa-chevron-right"></i>
-                    </button>				
-                </form>
-                {/* <div class="social-login">
-                    <h3>log in via</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-login__icon fab fa-instagram"></a>
-                        <a href="#" class="social-login__icon fab fa-facebook"></a>
-                        <a href="#" class="social-login__icon fab fa-twitter"></a>
-                    </div>
-                </div> */}
-            </div>
-            <div class="screen__background">
-                <span class="screen__background__shape screen__background__shape4"></span>
-                <span class="screen__background__shape screen__background__shape3"></span>		
-                <span class="screen__background__shape screen__background__shape2"></span>
-                <span class="screen__background__shape screen__background__shape1"></span>
-            </div>		
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "../auth.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import { StreamChat } from "stream-chat";
+import Cookies from "universal-cookie";
+
+function Login({setIsLoggedIn}) {
+  const navigate = useNavigate();
+  const api_key = "dcqq9m3xdtzr";
+  const client = StreamChat.getInstance(api_key);
+  const [username, setusername] = useState("");
+  const [password, setPassword] = useState("");
+  const cookies = new Cookies();
+
+  const login = () => {
+    setIsLoggedIn(true)
+    navigate('/')
+    // cookies.set('token',"daljgljhg")
+    // axios.post("https://memorixappgameserver.onrender.com/login", {
+    //   username,
+    //   password,
+    // }).then((res) => {
+    //   const { firstName, lastName, username, token, userId } = res.data;
+    //   console.log('data',res);
+    //   client.connectUser(
+    //     {
+    //       id: userId,
+    //       name: username,
+    //       firstName: firstName,
+    //       lastName: lastName,
+    //       // hashedPassword: cookies.get("hashedPassword"),
+    //     },
+    //     token
+    //   );
+    //   cookies.set("token", token);
+    //   cookies.set("userId", userId);
+    //   cookies.set("username", username);
+    //   cookies.set("firstName", firstName);
+    //   cookies.set("lastName", lastName);
+    // });
+  };
+
+  return (
+    <div className="container-auth">
+      <div className="container-page-auth">
+        <img
+          className="logo-img"
+          src={require("../Screenshot 2023-10-21 123137.png")}
+        />
+        <div className="form-login">
+          <input type="text" className="input" placeholder="Phone Number" 
+           onChange={(event) => {
+            setusername(event.target.value);
+          }}
+          />
+          <input type="password" className="input" placeholder="Password" 
+          onChange={(event) => {
+            setPassword(event.target.value);
+          }}
+          />
         </div>
+
+        <button className="btn-auth" onClick={login}>Log in</button>
+      </div>
     </div>
-      )
+  );
 }
 
-export default Login
+export default Login;

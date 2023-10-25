@@ -3,11 +3,15 @@ import './persoInfo.css'
 import BackIcon from '../../../assets/icons/BackIcon'
 import ArrowrightIcon from '../../../assets/icons/ArrowrightIcon'
 import AddPicIcon from '../../../assets/icons/Profile/AddPicIcon'
+import { useNavigate } from "react-router-dom";
+
 function PersonalInfo() {
+  const navigate = useNavigate();
+
   return (
     <div className="perso-info-container">
       <div className="container-perso">
-        <div className="navigate">
+        <div className="navigate" onClick={()=>{navigate(-1)}}>
           <BackIcon/>
 
           <p className="name-page">Personal information</p>
