@@ -1,0 +1,94 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container-page {
+    width: 97%;
+    height: 100%;
+    flex-direction: column;
+  }
+  
+  .title-page {
+    margin-top: 15px;
+  }
+  .container-coach {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 13px;
+  }
+  .detail-coach {
+    display: flex;
+    align-items: center;
+    width: 168px;
+    height: 136px;
+    border-radius: 10px;
+    margin: 4px;
+    border-radius: 12px;
+    border: 1px solid var(--Purple-1, #5d54a0);
+    background: #fff;
+    box-shadow: 8px 8px 4px 0px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    flex-direction: column;
+  }
+  
+  .header-coach {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .image-user {
+    margin: 9px;
+    width: 45px;
+    height: 45px;
+    border-radius: 43px;
+    /* background-image: url("./MalekPhoto.jpg"); */
+    background-size: cover;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: relative; /* Set the position to relative to contain pseudo-element */
+  }
+  .domaine-coaching {
+    color: #3a3838;
+    text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .noChecked::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(
+      169,
+      169,
+      169,
+      0.5
+    ); /* Gray overlay color with transparency */
+    border-radius: 43px;
+  }
+  
+  .info-coach {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    justify-content: center;
+  }
+  .icon-X {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    margin-top: 25px;
+  }
+  
