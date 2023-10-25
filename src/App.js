@@ -7,10 +7,13 @@ import DomaineCoaching from './Screens/Planing/ClientSection/DomaineCoaching/Dom
 import AllCoachs from './Screens/Planing/ClientSection/LookAllCoachs/AllCoachs';
 import CoachDetail from './Screens/Planing/ClientSection/CoachDetail/CoachDetail';
 import Reservation from './Screens/Planing/ClientSection/Reservation/Reservation';
+import Myprofile from './Screens/Profile/MyProfile/Myprofile';
+import PersonalInfo from './Screens/Profile/PersonalInformation/PersonalInfo';
+import Settings from './Screens/Profile/Settings/Settings';
 function App() {
   return (
     <div className="App">
-     <Reservation/>
+     <Settings/>
      <TabBar/>
     </div>
   );
