@@ -28,22 +28,24 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [tabItem, setTabItem] = useState("Planing");
   const retrieveUserSession = () => {
-      if (token) {
-        console.log("helloToken");
-        client
-          .connectUser(
-            {
-              id: cookies.get("userId"),
-              name: cookies.get("username"),
-              firstName: cookies.get("firstName"),
-              lastName: cookies.get("lastName"),
-              hashedPassword: cookies.get("hashedPassword"),
-            },
-            token
-          )   .then(()=>{
-            setIsLoggedIn(true)
-          })   
-    }
+    setIsLoggedIn(true)
+
+    //   if (token) {
+    //     console.log("helloToken");
+    //     client
+    //       .connectUser(
+    //         {
+    //           id: cookies.get("userId"),
+    //           name: cookies.get("username"),
+    //           firstName: cookies.get("firstName"),
+    //           lastName: cookies.get("lastName"),
+    //           hashedPassword: cookies.get("hashedPassword"),
+    //         },
+    //         token
+    //       )   .then(()=>{
+    //         setIsLoggedIn(true)
+    //       })   
+    // }
   };
   const handleTabItem = (name) => {
     setTabItem(name);

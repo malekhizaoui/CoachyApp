@@ -1,13 +1,27 @@
 import React from 'react'
 import './domaine.css'
+import { useNavigate } from "react-router-dom";
+import BackIcon from '../../../../assets/icons/BackIcon';
+import {data} from '../../../../DataBase/coachDB/Data'
 function DomaineCoaching() {
+    const navigate = useNavigate();
+
+    const sendData=(domain,data)=>{
+        if(domain==="fitness"){
+            navigate("AllCoachs",{state:data})
+        }
+    }
   return (
     <div className='Domain-container'>
-        <div className='header-domain'>
-            <p>Domaine</p>
-            <div className="line"></div>
+        <div className="navigate-fromDomain" onClick={()=>{navigate(-1)}}>
+          <BackIcon/>
 
+          <p className="name-page">Personal information</p>
+          
         </div>
+        <div className="line"></div>
+
+      
         <div className='allDoamin'>
             <div className='domain'>
                 <p>Fitness</p>
@@ -25,22 +39,13 @@ function DomaineCoaching() {
             {/* <div className='domain'></div>   */}
         </div>
         <div className='content-domain'>
-            
-            <div className='img-domain'>
-                <img className='img-background' />
-            </div>
-            <div className='img-domain'>
-            <img className='img-background' />
-
-            </div>
-            <div className='img-domain'>
-            <img className='img-background' />
-
-            </div>
-            <div className='img-domain'>
-            <img className='img-background' />
-
-            </div>
+            {data.map((element,index)=>{
+                return(
+                    <div className='img-domain' onClick={()=>{navigate('/AllCoachs',{state:element.coachs})}}>
+                    <img className='img-background' src={element.picDomaine} />
+                </div>
+                )
+            })}
             <div style={{height:150}}></div>
         </div>
     </div>

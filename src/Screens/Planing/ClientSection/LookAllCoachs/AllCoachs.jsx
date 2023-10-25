@@ -60,6 +60,8 @@ function AllCoachs() {
                   fontStyle: "normal",
                   fontWeight: 600,
                   lineHeight: "normal",
+                  margin: 1,
+                  padding: 1,
                 }}
               >
                 Malek Hizaoui
@@ -72,13 +74,15 @@ function AllCoachs() {
                   fontStyle: "normal",
                   fontWeight: 600,
                   lineHeight: "normal",
+                  margin: 1,
+                  padding: 1,
                 }}
               >
                 disponible
               </p>
               <div style={{ flexDirection: "row", display: "flex" }}>
                 {/* <PinIcon/> */}
-                <PinIcon/>
+                <PinIcon />
                 <p
                   style={{
                     color: "var(--grey-2, rgba(119, 114, 114, 0.60))",
@@ -87,7 +91,8 @@ function AllCoachs() {
                     fontStyle: "normal",
                     fontWeight: 700, // Use 700 for "font-weight" to set it to bold
                     lineHeight: "normal",
-                    marginLeft: 4,
+                    margin: 1,
+                  padding: 1,
                   }}
                 >
                   genève
@@ -101,7 +106,61 @@ function AllCoachs() {
           <div className="detail-coach">
             <div className="header-coach">
               <div className="image-user noChecked"></div>
-              <Unchecked/>
+              <Unchecked />
+            </div>
+            <div className="info-coach">
+              <p
+                style={{
+                  color: "var(--Black, #3F3C3C)",
+                  fontFamily: "Inter",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "normal",
+                  margin: 1,
+                  padding: 1,
+                }}
+              >
+                Malek Hizaoui
+              </p>
+              <p
+                style={{
+                  color: "var(--Green, #519750)",
+                  fontFamily: "Inter",
+                  fontSize: "13px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "normal",
+                  margin: 1,
+                  padding: 1,
+                }}
+              >
+                disponible
+              </p>
+              <div style={{ flexDirection: "row", display: "flex" }}>
+                <PinIcon />
+                <p
+                  style={{
+                    color: "var(--grey-2, rgba(119, 114, 114, 0.60))",
+                    fontFamily: "Inter",
+                    fontSize: "13px",
+                    fontStyle: "normal",
+                    fontWeight: 700, // Use 700 for "font-weight" to set it to bold
+                    lineHeight: "normal",
+                    marginLeft: 4,
+                    margin: 1,
+                    padding: 1,
+                  }}
+                >
+                  genève
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* <div className="detail-coach">
+            <div className="header-coach">
+              <div className="image-user noChecked"></div>
+              <Unchecked />
             </div>
             <div className="info-coach">
               <p
@@ -129,7 +188,7 @@ function AllCoachs() {
                 disponible
               </p>
               <div style={{ flexDirection: "row", display: "flex" }}>
-                <PinIcon/>
+                <PinIcon />
                 <p
                   style={{
                     color: "var(--grey-2, rgba(119, 114, 114, 0.60))",
@@ -149,7 +208,7 @@ function AllCoachs() {
           <div className="detail-coach">
             <div className="header-coach">
               <div className="image-user noChecked"></div>
-              <Unchecked/>
+              <Unchecked />
             </div>
             <div className="info-coach">
               <p
@@ -177,7 +236,7 @@ function AllCoachs() {
                 disponible
               </p>
               <div style={{ flexDirection: "row", display: "flex" }}>
-                <PinIcon/>
+                <PinIcon />
                 <p
                   style={{
                     color: "var(--grey-2, rgba(119, 114, 114, 0.60))",
@@ -197,7 +256,7 @@ function AllCoachs() {
           <div className="detail-coach">
             <div className="header-coach">
               <div className="image-user noChecked"></div>
-              <Unchecked/>
+              <Unchecked />
             </div>
             <div className="info-coach">
               <p
@@ -220,12 +279,22 @@ function AllCoachs() {
                   fontStyle: "normal",
                   fontWeight: 600,
                   lineHeight: "normal",
+                  margin: 0,
+                  padding: 0,
                 }}
               >
                 disponible
               </p>
-              <div style={{ flexDirection: "row", display: "flex" }}>
-                <PinIcon/>
+              <div
+                style={{
+                  flexDirection: "row",
+                  display: "flex",
+                  justifyContent: "center",
+                  margin: 0,
+                  padding: 0,
+                }}
+              >
+                <PinIcon />
                 <p
                   style={{
                     color: "var(--grey-2, rgba(119, 114, 114, 0.60))",
@@ -234,62 +303,15 @@ function AllCoachs() {
                     fontStyle: "normal",
                     fontWeight: 700, // Use 700 for "font-weight" to set it to bold
                     lineHeight: "normal",
-                    marginLeft: 4,
+                    margin: 0,
+                    padding: 0,
                   }}
                 >
                   genève
                 </p>
               </div>
             </div>
-          </div>
-          <div className="detail-coach">
-            <div className="header-coach">
-              <div className="image-user noChecked"></div>
-              <Unchecked/>
-            </div>
-            <div className="info-coach">
-              <p
-                style={{
-                  color: "var(--Black, #3F3C3C)",
-                  fontFamily: "Inter",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "normal",
-                }}
-              >
-                Malek Hizaoui
-              </p>
-              <p
-                style={{
-                  color: "var(--Green, #519750)",
-                  fontFamily: "Inter",
-                  fontSize: "13px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "normal",
-                }}
-              >
-                disponible
-              </p>
-              <div style={{ flexDirection: "row", display: "flex" }}>
-                <PinIcon/>
-                <p
-                  style={{
-                    color: "var(--grey-2, rgba(119, 114, 114, 0.60))",
-                    fontFamily: "Inter",
-                    fontSize: "13px",
-                    fontStyle: "normal",
-                    fontWeight: 700, // Use 700 for "font-weight" to set it to bold
-                    lineHeight: "normal",
-                    marginLeft: 4,
-                  }}
-                >
-                  genève
-                </p>
-              </div>
-            </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <footer style={{ width: "100%" }}>
