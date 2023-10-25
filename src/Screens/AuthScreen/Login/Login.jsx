@@ -5,7 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { StreamChat } from "stream-chat";
 import Cookies from "universal-cookie";
 
-function Login({setIsLoggedIn}) {
+function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
   const api_key = "dcqq9m3xdtzr";
   const client = StreamChat.getInstance(api_key);
@@ -14,31 +14,33 @@ function Login({setIsLoggedIn}) {
   const cookies = new Cookies();
 
   const login = () => {
-    setIsLoggedIn(true)
-    navigate('/')
-    // cookies.set('token',"daljgljhg")
-    // axios.post("https://memorixappgameserver.onrender.com/login", {
-    //   username,
-    //   password,
-    // }).then((res) => {
-    //   const { firstName, lastName, username, token, userId } = res.data;
-    //   console.log('data',res);
-    //   client.connectUser(
-    //     {
-    //       id: userId,
-    //       name: username,
-    //       firstName: firstName,
-    //       lastName: lastName,
-    //       // hashedPassword: cookies.get("hashedPassword"),
-    //     },
-    //     token
-    //   );
-    //   cookies.set("token", token);
-    //   cookies.set("userId", userId);
-    //   cookies.set("username", username);
-    //   cookies.set("firstName", firstName);
-    //   cookies.set("lastName", lastName);
-    // });
+    cookies.set("token", "daljgljhg");
+    axios
+      .post("https://memorixappgameserver.onrender.com/login", {
+        username,
+        password,
+      })
+      .then((res) => {
+        const { firstName, lastName, username, token, userId } = res.data;
+        console.log("data", res);
+        client.connectUser(
+          {
+            id: userId,
+            name: username,
+            firstName: firstName,
+            lastName: lastName,
+            // hashedPassword: cookies.get("hashedPassword"),
+          },
+          token
+        );
+        cookies.set("token", token);
+        cookies.set("userId", userId);
+        cookies.set("username", username);
+        cookies.set("firstName", firstName);
+        cookies.set("lastName", lastName);
+        setIsLoggedIn(true);
+        navigate("/");
+      });
   };
 
   return (
@@ -49,19 +51,27 @@ function Login({setIsLoggedIn}) {
           src={require("../Screenshot 2023-10-21 123137.png")}
         />
         <div className="form-login">
-          <input type="text" className="input" placeholder="Phone Number" 
-           onChange={(event) => {
-            setusername(event.target.value);
-          }}
+          <input
+            type="text"
+            className="input"
+            placeholder="Phone Number"
+            onChange={(event) => {
+              setusername(event.target.value);
+            }}
           />
-          <input type="password" className="input" placeholder="Password" 
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
+          <input
+            type="password"
+            className="input"
+            placeholder="Password"
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
           />
         </div>
 
-        <button className="btn-auth" onClick={login}>Log in</button>
+        <button className="btn-auth" onClick={login}>
+          Log in
+        </button>
       </div>
     </div>
   );

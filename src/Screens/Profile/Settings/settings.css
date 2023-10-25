@@ -17,11 +17,11 @@
     margin-left: -12px;
 }
 
-.detail-info{
+.detail-info-settings{
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .container-settings{
     width: 90%;
@@ -46,12 +46,7 @@
     margin-left: -12px;
 }
 
-.detail-info{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 30px;
-}
+
 .container-settings{
     width: 90%;
     display: flex;

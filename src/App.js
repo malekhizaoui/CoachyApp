@@ -26,9 +26,10 @@ function App() {
   const token = cookies.get("token");
   const client = StreamChat.getInstance(api_key);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [tabItem, setTabItem] = useState("planing");
+  const [tabItem, setTabItem] = useState("Planing");
   const retrieveUserSession = () => {
       if (token) {
+        console.log("helloToken");
         client
           .connectUser(
             {
@@ -39,21 +40,17 @@ function App() {
               hashedPassword: cookies.get("hashedPassword"),
             },
             token
-          )
-          .then((user) => {
-            console.log("user", user);
-            setIsLoggedIn(true);
-          });
-      
+          )   .then(()=>{
+            setIsLoggedIn(true)
+          })   
     }
   };
   const handleTabItem = (name) => {
     setTabItem(name);
   };
 
+  console.log("tabItem,",tabItem);
   useEffect(() => {
-    console.log("isLoggedIn,", isLoggedIn);
-
     retrieveUserSession();
   },[]);
 
@@ -69,7 +66,6 @@ function App() {
             ) : tabItem === "Profile" ? (
               <RouteProfile />
             ) : null}
-            <RouteProfile />
             <TabBar tabItem={tabItem} handleTabItem={handleTabItem} />
           </div>
         )}

@@ -3,7 +3,6 @@ import CalendarIcon from "../../../../assets/icons/Planing/CalendarIcon";
 import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
 import "./home.css";
 
-
 function Home() {
   return (
     <div>
@@ -13,29 +12,63 @@ function Home() {
           <CalendarIcon />
         </div>
         {/*  RESERVATION ACCEPTED */}
-        <p className="day">Today</p>
-        <div className="reservation">
-          <div className="line-check"></div>
+        <div style={{ width: "100%",display:"flex",flexDirection:"column",alignItems:"center" }}>
+          <p className="day">Today</p>
 
-          <div className="rectangle-content">
-            <div className="time">
-              <p className="text">17:00 pm</p>
-              <p className="text">18:00 pm</p>
-            </div>
-            <div className="detail-user">
-              <div className="image-user"></div>
-              <div className="style-user-detail">
-                <p className="text-name">Malek hizaoui</p>
-                <p className="text-location">genève</p>
+          <div className="reservation">
+          <div className="line-check"></div>
+    
+            <div className="rectangle-content">
+              <div className="time">
+                <p className="text">17:00 pm</p>
+                <p className="text">18:00 pm</p>
+              </div>
+              <div className="detail-user">
+                <div className="image-user"></div>
+                <div className="style-user-detail">
+                  <p className="text-name">Malek hizaoui</p>
+                  <p className="text-location">genève</p>
+                </div>
+              </div>
+              <div style={{ alignSelf: "center", flex: 0.5 }}>
+                <ArrowrightIcon />
               </div>
             </div>
-            <div style={{ alignSelf: "center", flex: 0.5 }}>
-              <ArrowrightIcon/>
-            </div>
+            <p className="text-checkReservation">Check reservation</p>
           </div>
-          <p className="text-checkReservation">check your reservation</p>
         </div>
+        {/* <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <p className="day">Toay</p>
 
+          <div className="reservation">
+            <div className="line-check"></div>
+
+            <div className="rectangle-content">
+              <div className="time">
+                <p className="text">17:00 pm</p>
+                <p className="text">18:00 pm</p>
+              </div>
+              <div className="detail-user">
+                <div className="image-user"></div>
+                <div className="style-user-detail">
+                  <p className="text-name">Malek hizaoui</p>
+                  <p className="text-location">genève</p>
+                </div>
+              </div>
+              <div style={{ alignSelf: "center", flex: 0.5 }}>
+                <ArrowrightIcon />
+              </div>
+            </div>
+            <p className="text-checkReservation">Pending reservation</p>
+          </div>
+        </div> */}
         {/* NO RESERVATION */}
 
         <p className="day">Tomorow</p>
@@ -63,30 +96,38 @@ function Home() {
         </div>
 
         {/*  RESERVATION DECLINED */}
-        <p className="day">Wednesday, 20 Novembre</p>
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <p className="day">Wednesday, 20 Novembre</p>
 
-        <div className="reservation">
-          <div className="line-pending"></div>
+          <div className="reservation">
+            <div className="line-pending"></div>
 
-          <div className="rectangle-content">
-            <div className="time">
-              <p className="text">17:00 pm</p>
-              <p className="text">18:00 pm</p>
-            </div>
-            <div className="detail-user">
-              <div className="image-user"></div>
-              <div className="style-user-detail">
-                <p className="text-name">Malek hizaoui</p>
-                <p className="text-location">genève</p>
+            <div className="rectangle-content">
+              <div className="time">
+                <p className="text">17:00 pm</p>
+                <p className="text">18:00 pm</p>
+              </div>
+              <div className="detail-user">
+                <div className="image-user"></div>
+                <div className="style-user-detail">
+                  <p className="text-name">Malek hizaoui</p>
+                  <p className="text-location">genève</p>
+                </div>
+              </div>
+              <div style={{ alignSelf: "center", flex: 0.5 }}>
+                <ArrowrightIcon />
               </div>
             </div>
-            <div style={{ alignSelf: "center", flex: 0.5 }}>
-              <ArrowrightIcon/>
-            </div>
+            <p className="text-pendingReservation">Pending reservation</p>
           </div>
-          <p className="text-pendingReservation">Pending reservation</p>
         </div>
-
         <p className="day">Thursday, 21 Novembre</p>
 
         <div className="noReservation">
@@ -151,7 +192,7 @@ function Home() {
               </div>
             </div>
             <div style={{ alignSelf: "center", flex: 0.5 }}>
-              <ArrowrightIcon/>
+              <ArrowrightIcon />
             </div>
           </div>
           <p className="text-checkReservation">check your reservation</p>
