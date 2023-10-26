@@ -4,7 +4,7 @@ export const data =[
         "firstName": "Malek",
         "lastName": "Hizaoui",
         "phoneNumber": 21345350,
-        "pic":"",
+        "pic":require('../MalekPhoto.jpg'),
         "age": 23,
         "email": "",
         "reservation": [
@@ -17,7 +17,7 @@ export const data =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "pic": ""
+                        "pic":require('../MalekPhoto.jpg')
                     }
                 },
                 {
@@ -28,7 +28,7 @@ export const data =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "pic": ""
+                        "pic":require('../MalekPhoto.jpg')
                     }
                 }
                
@@ -43,7 +43,7 @@ export const data =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "pic": ""
+                        "pic":require('../MalekPhoto.jpg')
                     }
                 }
             ],
@@ -58,7 +58,7 @@ export const data =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "pic": ""
+                        "pic":require('../MalekPhoto.jpg')
                     }
                 }
             ],

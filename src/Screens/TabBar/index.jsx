@@ -36,7 +36,7 @@ function TabBar({ handleTabItem, tabItem }) {
             }}
           >
             {tabItem !== "Planing" ? <PlaningIcon /> : <PlaningFocusedIcon />}
-            <p className="p-tabBar" style={tabItem === "Planing"?{color:"#5D54A0"}:null}>Profile</p>
+            <p className="p-tabBar" style={tabItem === "Planing"?{color:"#5D54A0"}:null}>Planing</p>
           </div>
           <div
             className="tabItem3"

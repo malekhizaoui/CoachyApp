@@ -8,7 +8,8 @@ import Home from '../../../Screens/Planing/ClientSection/Home/Home'
 import AllCoachs from '../../../Screens/Planing/ClientSection/LookAllCoachs/AllCoachs'
 import PaymentScreen from '../../../Screens/Planing/ClientSection/Payment/PaymentScreen'
 import Reservation from '../../../Screens/Planing/ClientSection/Reservation/Reservation'
-
+import Availability from '../../../Screens/Profile/Availability/Availability';
+import SessionHistory from '../../../Screens/Profile/SessionHistory/SessionHistory';
 function RoutePlaningClient() {
   return (
     <Routes>
@@ -19,6 +20,8 @@ function RoutePlaningClient() {
         <Route path="/DomaineCoaching" element={<DomaineCoaching/>} />
         <Route path="/CoachLocation" element={<CoachLocation/>} />
         <Route path="/CoachDetail" element={<CoachDetail/>} />
+        <Route path="/Availability" element={<Availability/>} />
+        <Route path="/SessionHistory" element={<SessionHistory/>} />
       </Routes>
   )
 }

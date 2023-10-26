@@ -11,7 +11,7 @@ function PersonalInfo() {
   return (
     <div className="perso-info-container">
       <div className="container-perso">
-        <div className="navigate" onClick={()=>{navigate(-1)}}>
+        <div className="navigate" >
           <BackIcon/>
 
           <p className="name-page">Personal information</p>

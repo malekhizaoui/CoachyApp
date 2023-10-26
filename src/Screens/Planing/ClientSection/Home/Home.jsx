@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 function Home() {
   const navigate = useNavigate();
 
-  console.log("data", data[0].reservation[0][0].coach);
+  console.log("data", data);
   const days = [
     "Monday",
     "Tuesday",
@@ -52,7 +52,6 @@ function Home() {
                   <>
                     {element.map((elem, i) => {
                       if (elem.reservation === "accepted") {
-                        console.log("elem", elem);
                         return (
                           <div className="reservation">
                             <div className="line-check"></div>
@@ -63,7 +62,7 @@ function Home() {
                                 <p className="text">{elem.to}:00 pm</p>
                               </div>
                               <div className="detail-user">
-                                <div className="image-user"></div>
+                                <img className="image-user" src={elem.coach.pic}/>
                                 <div className="style-user-detail">
                                   <p className="text-name">
                                     {elem.coach.firstName} {elem.coach.lastName}
@@ -93,7 +92,7 @@ function Home() {
                                 <p className="text">{elem.to}:00 pm</p>
                               </div>
                               <div className="detail-user">
-                                <div className="image-user"></div>
+                              <img className="image-user" src={elem.coach.pic}/>
                                 <div className="style-user-detail">
                                   <p className="text-name">
                                     {elem.coach.firstName} {elem.coach.lastName}

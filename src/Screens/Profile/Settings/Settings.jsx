@@ -12,7 +12,7 @@ function Settings() {
   return (
     <div className="perso-info-container">
       <div className="container-settings">
-        <div className="navigate"  onClick={()=>{navigate(-1)}}>
+        <div className="navigate" >
           <BackIcon />
 
           <p className="name-page">Settings</p>

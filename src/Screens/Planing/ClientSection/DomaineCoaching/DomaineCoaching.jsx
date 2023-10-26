@@ -13,7 +13,7 @@ function DomaineCoaching() {
     }
   return (
     <div className='Domain-container'>
-        <div className="navigate-fromDomain" onClick={()=>{navigate(-1)}}>
+        <div className="navigate-fromDomain">
           <BackIcon/>
 
           <p className="name-page">Personal information</p>

@@ -49,6 +49,8 @@
       display: flex;
       flex-direction: row;
       margin-left: 10px;
+      justify-content: center;
+      align-items: center;
   }
   .txt-time{
       color: #000;
@@ -69,3 +71,20 @@
       margin-right: 10px;
       margin-left: 10px;
   }
+
+  .book-Horaire{
+    position: relative;
+    width: 100%;
+    height: 75px;
+    border-radius: 10px;
+    border: 1px solid var(--grey-2, rgba(119, 114, 114, 0.6));
+    background: var(--white, #ebe8ed);
+    box-shadow: -12px 6px 4px 0px rgba(0, 0, 0, 0.2);
+    margin-top: 7px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  
