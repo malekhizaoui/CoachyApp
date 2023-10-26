@@ -1,6 +1,6 @@
 import React from "react";
 
-function messageIcon() {
+function MessageIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,4 +17,4 @@ function messageIcon() {
   );
 }
 
-export default messageIcon;
+export default MessageIcon;

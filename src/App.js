@@ -18,7 +18,8 @@ import Myprofile from "./Screens/Profile/MyProfile/Myprofile";
 import PersonalInfo from "./Screens/Profile/PersonalInformation/PersonalInfo";
 import Settings from "./Screens/Profile/Settings/Settings";
 import Cookies from "universal-cookie";
-
+import BackIconComponent from "./Components/componentBack/BackIconComponent";
+import DirectionMap from "./Components/directionMap/DirectionMap";
 function App() {
   const cookies = new Cookies();
 
@@ -26,9 +27,13 @@ function App() {
   const token = cookies.get("token");
   const client = StreamChat.getInstance(api_key);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [hideTabBar, setHideTabBar] = useState(true);
+  const [hideTabBarforCoachDetail, sethideTabBarforCoachDetail] = useState(false);
   const [tabItem, setTabItem] = useState("Planing");
+  const [lat,setlat]=useState([])
+  const [long,setlong]=useState([])
   const retrieveUserSession = () => {
-    setIsLoggedIn(true)
+    setIsLoggedIn(true);
 
     //   if (token) {
     //     console.log("helloToken");
@@ -44,31 +49,49 @@ function App() {
     //         token
     //       )   .then(()=>{
     //         setIsLoggedIn(true)
-    //       })   
+    //       })
     // }
+    
+  };
+  const openGoogleMaps = () => {
+    console.log("lat",lat);
+    console.log("long",long);
+      const googleMapsUrl = `https://www.google.com/maps?q=${long},${lat}`;
+      window.open(googleMapsUrl, "_blank");
+    
   };
   const handleTabItem = (name) => {
     setTabItem(name);
   };
 
-  console.log("tabItem,",tabItem);
+  console.log("hideTabBar,", hideTabBar);
   useEffect(() => {
     retrieveUserSession();
-  },[]);
+  }, []);
 
   return (
     <div className="App">
       <Router>
+        {hideTabBar ? <div>
+          
+          {hideTabBarforCoachDetail?(
+          <div style={{ height: 0 }}>
+            <DirectionMap openGoogleMaps={openGoogleMaps}/>
+            <BackIconComponent setHideTabBar={setHideTabBar} sethideTabBarforCoachDetail={sethideTabBarforCoachDetail} />
+          </div>
+        ):null} </div>: null}
         {!isLoggedIn ? (
           <RouteAuth setIsLoggedIn={setIsLoggedIn} />
         ) : (
-          <div style={{ height: "100%" }}>
+          <div style={{ height: "100%", position: "relative", zIndex: 1 }}>
             {tabItem === "Planing" ? (
-              <RoutePlaningClient />
+              <RoutePlaningClient setHideTabBar={setHideTabBar} sethideTabBarforCoachDetail={sethideTabBarforCoachDetail} setlat={setlat} setlong={setlong} />
             ) : tabItem === "Profile" ? (
               <RouteProfile />
             ) : null}
-            <TabBar tabItem={tabItem} handleTabItem={handleTabItem} />
+            {!hideTabBar ? (
+              <TabBar tabItem={tabItem} handleTabItem={handleTabItem} />
+            ) : null}
           </div>
         )}
       </Router>

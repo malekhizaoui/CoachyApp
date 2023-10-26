@@ -14,8 +14,8 @@ export const  data=[
                 "image_user":require('../MalekPhoto.jpg'),
                 "location":{
                     "city":"genéve",
-                    "longitude":"",
-                    "latitude":""
+                    "longitude":"47.183322",
+                    "latitude":"8.500463"
                 },
                
                 "experience": "",
@@ -202,8 +202,8 @@ export const  data=[
                 "image_user":require('../MalekPhoto.jpg'),
                 "location":{
                     "city":"genéve",
-                    "longitude":"",
-                    "latitude":""
+                    "longitude":"47.183322",
+                    "latitude":"8.500463"
                 },
                
                 "experience": "",
@@ -299,8 +299,8 @@ export const  data=[
                 "image_user":require('../MalekPhoto.jpg'),
                 "location":{
                     "city":"genéve",
-                    "longitude":"",
-                    "latitude":""
+                    "longitude":"47.183322",
+                    "latitude":"8.500463"
                 },
                
                 "experience": "",
@@ -396,8 +396,8 @@ export const  data=[
                 "image_user":require('../MalekPhoto.jpg'),
                 "location":{
                     "city":"genéve",
-                    "longitude":"",
-                    "latitude":""
+                    "longitude":"47.183322",
+                    "latitude":"8.500463"
                 },
                
                 "experience": "",

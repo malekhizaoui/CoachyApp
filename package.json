@@ -6,6 +6,7 @@
     "@capacitor/android": "^5.5.0",
     "@capacitor/cli": "^5.5.0",
     "@capacitor/core": "^5.5.0",
+    "@capacitor/geolocation": "^5.0.6",
     "@react-leaflet/core": "^2.1.0",
     "@react-navigation/native": "^6.1.9",
     "@testing-library/jest-dom": "^5.17.0",

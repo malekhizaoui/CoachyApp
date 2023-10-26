@@ -10,15 +10,15 @@ import PaymentScreen from '../../../Screens/Planing/ClientSection/Payment/Paymen
 import Reservation from '../../../Screens/Planing/ClientSection/Reservation/Reservation'
 import Availability from '../../../Screens/Profile/Availability/Availability';
 import SessionHistory from '../../../Screens/Profile/SessionHistory/SessionHistory';
-function RoutePlaningClient() {
+function RoutePlaningClient({setHideTabBar,setlong,setlat,sethideTabBarforCoachDetail}) {
   return (
     <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/Reservation"  element={<Reservation />} />
         <Route path="/PaymentScreen" element={<PaymentScreen/>} />
-        <Route path="/AllCoachs" element={<AllCoachs/>} />
+        <Route path="/AllCoachs" element={<AllCoachs setHideTabBar={setHideTabBar} sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}/>} />
         <Route path="/DomaineCoaching" element={<DomaineCoaching/>} />
-        <Route path="/CoachLocation" element={<CoachLocation/>} />
+        <Route path="/CoachLocation" element={<CoachLocation setlat={setlat} setlong={setlong} setHideTabBar={setHideTabBar} />} />
         <Route path="/CoachDetail" element={<CoachDetail/>} />
         <Route path="/Availability" element={<Availability/>} />
         <Route path="/SessionHistory" element={<SessionHistory/>} />

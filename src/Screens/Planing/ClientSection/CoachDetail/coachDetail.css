@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Align children to the top */
-  display: flex; /* This line is redundant and can be removed */
+  align-items: center;
 }
 
 .profile-image {
