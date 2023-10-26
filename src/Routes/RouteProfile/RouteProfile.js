@@ -9,13 +9,13 @@ import Availability from '../../Screens/Profile/Availability/Availability'
 import UpdateAge from '../../Screens/Profile/PersonalInformation/updateAge/UpdateAge'
 import UpdateName from '../../Screens/Profile/PersonalInformation/updateName/UpdateName'
 
-function RouteProfile() {
+function RouteProfile({logOut}) {
   return (
     <Routes>
         <Route path="/" exact element={<MyProfile />} />
         <Route path="/PersonalInformation"  element={<PersonalInformation />} />
         <Route path="/SessionHistory" element={<SessionHistory/>} />
-        <Route path="/Settings" element={<Settings/>} />
+        <Route path="/Settings" element={<Settings logOut={logOut}/>} />
         <Route path="/CardDetail" element={<CardDetail/>} />
         <Route path="/Availability" element={<Availability/>} />
         <Route path="/UpdateAge" element={<UpdateAge/>} />

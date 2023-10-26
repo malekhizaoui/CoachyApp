@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Navigate, BrowserRouter as Router } from "react-router-dom";
 import { StreamChat } from "stream-chat";
 
 import RouteAuth from "./Routes/RouteAuth/RouteAuth";
@@ -21,36 +21,53 @@ import Cookies from "universal-cookie";
 import BackIconComponent from "./Components/componentBack/BackIconComponent";
 import DirectionMap from "./Components/directionMap/DirectionMap";
 function App() {
+
   const cookies = new Cookies();
 
   const api_key = "ja2mczkz2wf7";
   const token = cookies.get("token");
   const client = StreamChat.getInstance(api_key);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [hideTabBar, setHideTabBar] = useState(true);
+  const [hideTabBar, setHideTabBar] = useState(false);
   const [hideTabBarforCoachDetail, sethideTabBarforCoachDetail] = useState(false);
   const [tabItem, setTabItem] = useState("Planing");
   const [lat,setlat]=useState([])
   const [long,setlong]=useState([])
-  const retrieveUserSession = () => {
-    setIsLoggedIn(true);
 
-    //   if (token) {
-    //     console.log("helloToken");
-    //     client
-    //       .connectUser(
-    //         {
-    //           id: cookies.get("userId"),
-    //           name: cookies.get("username"),
-    //           firstName: cookies.get("firstName"),
-    //           lastName: cookies.get("lastName"),
-    //           hashedPassword: cookies.get("hashedPassword"),
-    //         },
-    //         token
-    //       )   .then(()=>{
-    //         setIsLoggedIn(true)
-    //       })
-    // }
+
+  const logOut=()=>{
+    cookies.remove("token")
+    cookies.remove("userId")
+    cookies.remove("firstName")
+    cookies.remove("lastName")
+    cookies.remove("hashedPassword")
+    setIsLoggedIn(false)
+  }
+  
+  const retrieveUserSession = () => {
+    // setIsLoggedIn(true);
+    // setIsLoggedIn(true);
+
+      if (token) {
+        console.log("helloToken");
+        client
+          .connectUser(
+            {
+              id: cookies.get("userId"),
+              name: cookies.get("username"),
+              firstName: cookies.get("firstName"),
+              lastName: cookies.get("lastName"),
+              hashedPassword: cookies.get("hashedPassword"),
+            },
+            token
+          )   .then((res)=>{
+            console.log(res);
+            setIsLoggedIn(true)
+          })
+    }
+
+
+    
     
   };
   const openGoogleMaps = () => {
@@ -64,10 +81,13 @@ function App() {
     setTabItem(name);
   };
 
-  console.log("hideTabBar,", hideTabBar);
+  console.log("token,", token);
+  console.log("userId,", cookies.get("userId"));
+  console.log("hideTabBarforCoachDetail,", hideTabBarforCoachDetail,hideTabBar);
+
   useEffect(() => {
     retrieveUserSession();
-  }, []);
+  });
 
   return (
     <div className="App">
@@ -87,7 +107,7 @@ function App() {
             {tabItem === "Planing" ? (
               <RoutePlaningClient setHideTabBar={setHideTabBar} sethideTabBarforCoachDetail={sethideTabBarforCoachDetail} setlat={setlat} setlong={setlong} />
             ) : tabItem === "Profile" ? (
-              <RouteProfile />
+              <RouteProfile logOut={logOut} />
             ) : null}
             {!hideTabBar ? (
               <TabBar tabItem={tabItem} handleTabItem={handleTabItem} />

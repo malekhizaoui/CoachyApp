@@ -152,11 +152,7 @@ function CoachLocation({setlong,setlat,setHideTabBar}) {
         </div>
         <div className="descirption-coach">
           <p className="bioCoach">
-            {" "}
-            Je suis un coach professionnel chevronné, spécialisé dans le
-            développement personnel et professionnel, guidant ses clients vers
-            la réussite et l'épanouissement grâce à des années d'expérience et
-            d'expertise en coaching .
+            {dataCoach.bio}
           </p>
           <button
           onClick={()=>{navigate('/CoachDetail',{state:dataCoach});setHideTabBar(false)}}

@@ -6,13 +6,13 @@ import LogoutIcon from "../../../assets/icons/Profile/LogoutIcon";
 import DeleteAccountIcon from "../../../assets/icons/Profile/DeleteAccountIcon";
 import { useNavigate } from "react-router-dom";
 
-function Settings() {
+function Settings({ logOut }) {
   const navigate = useNavigate();
 
   return (
     <div className="perso-info-container">
       <div className="container-settings">
-        <div className="navigate" >
+        <div className="navigate">
           <BackIcon />
 
           <p className="name-page">Settings</p>
@@ -41,7 +41,13 @@ function Settings() {
           <div className="line-settings"></div>
 
           {/* <p className="attribute-info">E-mail</p> */}
-          <div className="detail-info-settings" onClick={()=>{}}>
+          <div
+            className="detail-info-settings"
+            onClick={() => {
+              logOut();
+              navigate("/");
+            }}
+          >
             <p className="value-info">Log out</p>
             <LogoutIcon />
           </div>

@@ -15,38 +15,40 @@ function Login({ setIsLoggedIn }) {
 
   const login = () => {
     console.log("here i am");
+    // const userId=cookies.get("userId")
 
     setIsLoggedIn(true);
     navigate("/");
-    // axios
-      // .post("http://localhost:3001/login", {
-      //   username,
-      //   password,
-      // })
-      // .then((res) => {
-      //   const { firstName, lastName, username, token, userId } = res.data;
-      //   console.log("data", res);
-      //   client.connectUser(
-      //     {
-      //       id: userId,
-      //       name: username,
-      //       firstName: firstName,
-      //       lastName: lastName,
-      //       // hashedPassword: cookies.get("hashedPassword"),
-      //     },
-      //     token
-      //   );
-      //   cookies.set("token", token);
-      //   cookies.set("userId", userId);
-      //   cookies.set("username", username);
-      //   cookies.set("firstName", firstName);
-      //   cookies.set("lastName", lastName);
-      //   setIsLoggedIn(true);
-      //   navigate("/");
-      // })
-      //   .catch((err)=>{
-      //     console.log("errr",err);
-      //   })
+    axios
+      .post("https://memorixappgameserver.onrender.com/login", {
+        username,
+        password,
+      })
+      .then((res) => {
+
+        const { firstName, lastName, username, token, userId } = res.data;
+        console.log("data", res);
+        client.connectUser(
+          {
+            id: userId,
+            name: username,
+            firstName: firstName,
+            lastName: lastName,
+            // hashedPassword: cookies.get("hashedPassword"),
+          },
+          token
+        );
+        cookies.set("token", token);
+        cookies.set("userId", userId);
+        cookies.set("username", username);
+        cookies.set("firstName", firstName);
+        cookies.set("lastName", lastName);
+        setIsLoggedIn(true);
+        navigate("/");
+      })
+        .catch((err)=>{
+          console.log("errr",err);
+        })
       ;
   };
 

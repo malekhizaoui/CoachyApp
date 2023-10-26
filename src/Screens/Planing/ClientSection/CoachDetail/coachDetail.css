@@ -66,3 +66,14 @@
   font-weight: 400;
   line-height: normal;
 }
+
+.container-backIcon{
+  width:45px;
+  height:45px ;
+  border-radius: 50px;
+  background-color: #f9f7f7c6;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

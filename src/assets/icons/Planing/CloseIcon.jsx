@@ -1,8 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function CloseIcon() {
+  const navigate = useNavigate();
+
   return (
     <svg
+    onClick={()=>{navigate(-1)}}
       xmlns="http://www.w3.org/2000/svg"
       width="30"
       height="30"

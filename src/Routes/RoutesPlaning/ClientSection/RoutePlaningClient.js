@@ -19,7 +19,7 @@ function RoutePlaningClient({setHideTabBar,setlong,setlat,sethideTabBarforCoachD
         <Route path="/AllCoachs" element={<AllCoachs setHideTabBar={setHideTabBar} sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}/>} />
         <Route path="/DomaineCoaching" element={<DomaineCoaching/>} />
         <Route path="/CoachLocation" element={<CoachLocation setlat={setlat} setlong={setlong} setHideTabBar={setHideTabBar} />} />
-        <Route path="/CoachDetail" element={<CoachDetail/>} />
+        <Route path="/CoachDetail" element={<CoachDetail sethideTabBarforCoachDetail={sethideTabBarforCoachDetail} setHideTabBar={setHideTabBar}/>} />
         <Route path="/Availability" element={<Availability/>} />
         <Route path="/SessionHistory" element={<SessionHistory/>} />
       </Routes>
