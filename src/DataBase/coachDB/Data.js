@@ -28,7 +28,7 @@ export const dataCoach = [
         reservation:  [
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
                 reservationState:"accepted",
                 client:{
@@ -36,8 +36,12 @@ export const dataCoach = [
                     lastName:"Hizaoui",
                     location:"Genève",
                     image_user:require('../MalekPhoto.jpg'),
-
-
+                },
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
                 }
               },
               {
@@ -77,9 +81,15 @@ export const dataCoach = [
             [],
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
                 reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                },
                 client:{
                     firstName:"Malek",
                     lastName:"Hizaoui",
@@ -148,7 +158,7 @@ export const dataCoach = [
         type: "Coach",
         lastName: "Walker",
         phoneNumber: "76879809",
-        password: "davi",
+        password: "david",
         Tarification: " David's expertise comes at a rate of $75 per session.",
         modeDePaiment:
           " can pay David using Venmo or Cash, ensuring flexible payment options.",
@@ -166,14 +176,36 @@ export const dataCoach = [
         reservation:  [
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
-                reservationState:"accepted"
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                },
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+
+
+              }
               },
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+
+
+              }
               },
               {
                 from: 20,
@@ -186,20 +218,41 @@ export const dataCoach = [
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+
+
+              }
               },
             ],
             [],
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
-                reservationState:"accepted"
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                }
               },
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
+
               },
             ],
             [],
@@ -268,8 +321,14 @@ export const dataCoach = [
           [
             {
               from: 8,
-              reservationState:"accepted",
-              to: 12,
+                to: 12,
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                }
             },
             {
               from: 14,
@@ -278,9 +337,15 @@ export const dataCoach = [
 
             },
             {
-              from: 20,
-              to: 24,
-              reservationState:"Pending",
+              from: 14,
+                to: 16,
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
 
             },
           ],
@@ -487,16 +552,27 @@ export const dataCoach = [
                 
             },
             {
-              from: 14,
-              to: 15,
-              reservationState:"Accepted",
+              from: 8,
+                to: 12,
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                }
 
             },
             {
-              from: 20,
+              from: 14,
+              to: 16,
               reservationState:"Pending",
-
-              to: 21,
+              client:{
+                firstName:"Malek",
+                lastName:"Hizaoui",
+                location:"Genève",
+                image_user:require('../MalekPhoto.jpg'),
+            }
             },
           ],
           [],
@@ -593,14 +669,26 @@ export const dataCoach = [
         reservation: [
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
-                reservationState:"accepted"
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                }
               },
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
               {
                 from: 20,
@@ -613,20 +701,38 @@ export const dataCoach = [
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
             ],
             [],
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
-                reservationState:"accepted"
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                }
               },
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
             ],
             [],
@@ -692,14 +798,26 @@ export const dataCoach = [
         reservation: [
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
-                reservationState:"accepted"
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                }
               },
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
               {
                 from: 20,
@@ -712,20 +830,38 @@ export const dataCoach = [
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
             ],
             [],
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
-                reservationState:"accepted"
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                }
               },
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
             ],
             [],
@@ -791,14 +927,26 @@ export const dataCoach = [
         reservation: [
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
-                reservationState:"accepted"
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                }
               },
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
               {
                 from: 20,
@@ -811,20 +959,38 @@ export const dataCoach = [
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
             ],
             [],
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
-                reservationState:"accepted"
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                }
               },
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
             ],
             [],
@@ -1108,14 +1274,26 @@ export const dataCoach = [
         reservation:  [
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
-                reservationState:"accepted"
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                }
               },
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
               {
                 from: 20,
@@ -1128,20 +1306,38 @@ export const dataCoach = [
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
             ],
             [],
             [
               {
-                from: 8,
+                 from: 8,
                 to: 12,
-                reservationState:"accepted"
+                reservationState:"accepted",
+                client:{
+                    firstName:"Malek",
+                    lastName:"Hizaoui",
+                    location:"Genève",
+                    image_user:require('../MalekPhoto.jpg'),
+                }
               },
               {
                 from: 14,
                 to: 16,
-                reservationState:"Pending"
+                reservationState:"Pending",
+                client:{
+                  firstName:"Malek",
+                  lastName:"Hizaoui",
+                  location:"Genève",
+                  image_user:require('../MalekPhoto.jpg'),
+              }
               },
             ],
             [],
