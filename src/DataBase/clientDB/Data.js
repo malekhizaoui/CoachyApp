@@ -1,12 +1,19 @@
-export const data =[
+export const dataClient =[
     {
         "id": 1,
+        "type":"Client",
         "firstName": "Malek",
         "lastName": "Hizaoui",
-        "phoneNumber": 21345350,
-        "pic":require('../MalekPhoto.jpg'),
+        "phoneNumber": "21345350",
+        "Password":"hello",
+        "email":"hizaoui.malek.habib@gmail.com",
+        "image_user":require('../MalekPhoto.jpg'),
+        "location":{
+            city:"Genève",
+            latitude:"",
+            longitude:""
+        },
         "age": 23,
-        "email": "",
         "reservation": [
             [
                 {
@@ -17,7 +24,7 @@ export const data =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "pic":require('../MalekPhoto.jpg')
+                        "image_user":require('../MalekPhoto.jpg')
                     }
                 },
                 {
@@ -28,7 +35,7 @@ export const data =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "pic":require('../MalekPhoto.jpg')
+                        "image_user":require('../MalekPhoto.jpg')
                     }
                 }
                
@@ -43,7 +50,7 @@ export const data =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "pic":require('../MalekPhoto.jpg')
+                        "image_user":require('../MalekPhoto.jpg')
                     }
                 }
             ],
@@ -58,7 +65,7 @@ export const data =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "pic":require('../MalekPhoto.jpg')
+                        "image_user":require('../MalekPhoto.jpg')
                     }
                 }
             ],

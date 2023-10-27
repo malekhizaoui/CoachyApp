@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import CalendarIcon from "../../../../assets/icons/Planing/CalendarIcon";
 import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
 import "./home.css";
-import { data } from "../../../../DataBase/clientDB/Data";
+import Cookies from "universal-cookie";
+// import { data } from "../../../../DataBase/clientDB/Data";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
-
-  console.log("data", data);
+  const cookies = new Cookies();
+  const dataUser=cookies.get('dataUser')
+  // const dataParsed=JSON.parse(dataUser)
+  const [data,setData]=useState(dataUser.reservation)
+  // console.log("data.id", dataMe.reservation);
+  console.log("data.id", data);
+  console.log("dataUser", dataUser.reservation);
   const days = [
     "Monday",
     "Tuesday",
@@ -34,7 +40,7 @@ function Home() {
             alignItems: "center",
           }}
         >
-          {data[0].reservation.map((element, index) => {
+          {data.map((element, index) => {
             return (
               <>
                 <p className="day">{days[index]}</p>
@@ -56,13 +62,13 @@ function Home() {
                           <div className="reservation">
                             <div className="line-check"></div>
 
-                            <div className="rectangle-content">
+                            <div className="rectangle-content" >
                               <div className="time">
                                 <p className="text">{elem.from}:00 pm</p>
                                 <p className="text">{elem.to}:00 pm</p>
                               </div>
                               <div className="detail-user">
-                                <img className="image-user" src={elem.coach.pic}/>
+                                <img className="image-user" src={elem.coach.image_user}/>
                                 <div className="style-user-detail">
                                   <p className="text-name">
                                     {elem.coach.firstName} {elem.coach.lastName}
@@ -86,13 +92,13 @@ function Home() {
                           <div className="reservation">
                             <div className="line-pending"></div>
 
-                            <div className="rectangle-content">
+                            <div className="rectangle-content" onClick={()=>{}}>
                               <div className="time">
                                 <p className="text">{elem.from}:00 pm</p>
                                 <p className="text">{elem.to}:00 pm</p>
                               </div>
                               <div className="detail-user">
-                              <img className="image-user" src={elem.coach.pic}/>
+                              <img className="image-user" src={elem.coach.image_user}/>
                                 <div className="style-user-detail">
                                   <p className="text-name">
                                     {elem.coach.firstName} {elem.coach.lastName}

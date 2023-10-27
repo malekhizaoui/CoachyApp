@@ -30,13 +30,11 @@
 .profile-imag {
   width: 90px;
   height: 90px;
-  background-image: url("./MalekPhoto.jpg");
   border-radius: 60px;
   border: 2px solid white;
   position: relative;
   background-size: cover;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
-  margin-left: 15px;
 }
 
 .camera-icon {
@@ -64,7 +62,7 @@
 .attribute-info {
   color: #a5a5a5;
   text-align: left;
-  margin-top: 20px;
+  margin-top: 10px;
   font-family: Inter;
   font-size: 15px;
   font-style: normal;
@@ -79,7 +77,6 @@
   font-weight: 500;
   line-height: normal;
   text-align: left;
-  margin-top: 0px;
   width: 100%;
 }
 
@@ -87,4 +84,5 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }

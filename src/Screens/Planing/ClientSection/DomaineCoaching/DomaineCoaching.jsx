@@ -2,13 +2,13 @@ import React from 'react'
 import './domaine.css'
 import { useNavigate } from "react-router-dom";
 import BackIcon from '../../../../assets/icons/BackIcon';
-import {data} from '../../../../DataBase/coachDB/Data'
+import {dataCoach} from '../../../../DataBase/coachDB/Data'
 function DomaineCoaching() {
     const navigate = useNavigate();
 
-    const sendData=(domain,data)=>{
+    const sendData=(domain,dataCoach)=>{
         if(domain==="fitness"){
-            navigate("AllCoachs",{state:data})
+            navigate("AllCoachs",{state:dataCoach})
         }
     }
   return (
@@ -39,7 +39,7 @@ function DomaineCoaching() {
             {/* <div className='domain'></div>   */}
         </div>
         <div className='content-domain'>
-            {data.map((element,index)=>{
+            {dataCoach.map((element,index)=>{
                 return(
                     <div className='img-domain' onClick={()=>{navigate('/AllCoachs',{state:element.coachs})}}>
                     <img className='img-background' src={element.picDomaine} />

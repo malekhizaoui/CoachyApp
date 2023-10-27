@@ -3,10 +3,11 @@ import './persoInfo.css'
 import BackIcon from '../../../assets/icons/BackIcon'
 import ArrowrightIcon from '../../../assets/icons/ArrowrightIcon'
 import AddPicIcon from '../../../assets/icons/Profile/AddPicIcon'
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 
 function PersonalInfo() {
   const navigate = useNavigate();
+  const Location = useLocation();
 
   return (
     <div className="perso-info-container">
@@ -19,6 +20,7 @@ function PersonalInfo() {
 
         <div className="img-container">
           <div className="profile-imag">
+            <img src={Location.state.image_user} className="profile-imag"/>
             <div className='camera-icon'>
             <AddPicIcon/>
             </div>
@@ -29,27 +31,27 @@ function PersonalInfo() {
           <div className="line"></div>
           <p className="attribute-info">Full Name</p>
           <div className="detail-info">
-            <p className="value-info">Malek Habib Hizaoui</p>
+            <p className="value-info">{Location.state.firstName} {Location.state.lastName}</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
 
           <p className="attribute-info">Age</p>
           <div className="detail-info">
-            <p className="value-info">22 yo</p>
+            <p className="value-info">{Location.state.age} yo</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
           <p className="attribute-info">Phone number</p>
           <div className="detail-info">
-            <p className="value-info">+41 78 306 34 68</p>
+            <p className="value-info">+41 {Location.state.phoneNumber}</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
 
           <p className="attribute-info">E-mail</p>
           <div className="detail-info">
-            <p className="value-info">hizaoui.malek.habib@gmail.com</p>
+            <p className="value-info">{Location.state.email}</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>

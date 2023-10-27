@@ -4,7 +4,8 @@ import "../auth.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import { StreamChat } from "stream-chat";
 import Cookies from "universal-cookie";
-
+import { dataClient } from "../../../DataBase/clientDB/Data";
+import { dataCoach } from "../../../DataBase/coachDB/Data";
 function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
   const api_key = "dcqq9m3xdtzr";
@@ -14,44 +15,72 @@ function Login({ setIsLoggedIn }) {
   const cookies = new Cookies();
 
   const login = () => {
-    console.log("here i am");
-    // const userId=cookies.get("userId")
-
-    setIsLoggedIn(true);
-    navigate("/");
-    axios
-      .post("https://memorixappgameserver.onrender.com/login", {
-        username,
-        password,
-      })
-      .then((res) => {
-
-        const { firstName, lastName, username, token, userId } = res.data;
-        console.log("data", res);
-        client.connectUser(
-          {
-            id: userId,
-            name: username,
-            firstName: firstName,
-            lastName: lastName,
-            // hashedPassword: cookies.get("hashedPassword"),
-          },
-          token
-        );
-        cookies.set("token", token);
-        cookies.set("userId", userId);
-        cookies.set("username", username);
-        cookies.set("firstName", firstName);
-        cookies.set("lastName", lastName);
+    dataClient.map((element, index) => {
+      if (username === element.phoneNumber && password === element.Password) {
         setIsLoggedIn(true);
         navigate("/");
-      })
-        .catch((err)=>{
-          console.log("errr",err);
-        })
-      ;
-  };
+        // Convert the element object to a JSON string and save it in cookies
+        cookies.set('dataUser', JSON.stringify(element));
+        cookies.set('token', "kqjhdbmkqsjhdmqksjhdmsqkjhd");
+        cookies.set('typeUser',element.type)
+      }
+    });
+    dataCoach.map((element,index)=>{
 
+      element.coachs.map((coach,place)=>{
+        
+        // console.log("password",coach.password ,"number",coach.phoneNumber);
+        // console.log("password",password ,"number",username);
+
+        if (username === coach.phoneNumber && password === coach.password) {
+          console.log("donnnnne");
+          setIsLoggedIn(true);
+          navigate("/");
+          // Convert the element object to a JSON string and save it in cookies
+          cookies.set('dataUser', JSON.stringify(coach));
+          cookies.set('token', "kqjhdbmkqsjhdmqksjhdmsqkjhd");
+          cookies.set('typeUser',element.type)
+
+        }
+      })
+    })
+    
+   
+  };
+ // const userId=cookies.get("userId")
+    // setIsLoggedIn(true);
+    // navigate("/");
+    // axios
+    //   .post("https://memorixappgameserver.onrender.com/login", {
+    //     username,
+    //     password,
+    //   })
+    //   .then((res) => {
+
+    //     const { firstName, lastName, username, token, userId } = res.data;
+    //     console.log("data", res);
+    //     client.connectUser(
+    //       {
+    //         id: userId,
+    //         name: username,
+    //         firstName: firstName,
+    //         lastName: lastName,
+    //         // hashedPassword: cookies.get("hashedPassword"),
+    //       },
+    //       token
+    //     );
+    //     cookies.set("token", token);
+    //     cookies.set("userId", userId);
+    //     cookies.set("username", username);
+    //     cookies.set("firstName", firstName);
+    //     cookies.set("lastName", lastName);
+    //     setIsLoggedIn(true);
+    //     navigate("/");
+    //   })
+    //     .catch((err)=>{
+    //       console.log("errr",err);
+    //     })
+    //   ;
   return (
     <div className="container-auth">
       <div className="container-page-auth">
@@ -78,7 +107,12 @@ function Login({ setIsLoggedIn }) {
           />
         </div>
 
-        <button className="btn-auth" onClick={()=>{login()}}>
+        <button
+          className="btn-auth"
+          onClick={() => {
+            login();
+          }}
+        >
           Log in
         </button>
       </div>
