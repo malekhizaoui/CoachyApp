@@ -10,8 +10,8 @@ export const dataClient =[
         "image_user":require('../MalekPhoto.jpg'),
         "location":{
             city:"Genève",
-            latitude:"",
-            longitude:""
+            latitude:"47.183706",
+            longitude:"8.547383"
         },
         "age": 23,
         "reservation": [
@@ -24,7 +24,9 @@ export const dataClient =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "image_user":require('../MalekPhoto.jpg')
+                        "image_user":require('../MalekPhoto.jpg'),
+                        latitude:"47.183706",
+                        longitude:"8.547383"
                     }
                 },
                 {
@@ -35,7 +37,9 @@ export const dataClient =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "image_user":require('../MalekPhoto.jpg')
+                        "image_user":require('../MalekPhoto.jpg'),
+                        latitude:"47.183706",
+                        longitude:"8.547383"
                     }
                 }
                
@@ -50,7 +54,9 @@ export const dataClient =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "image_user":require('../MalekPhoto.jpg')
+                        "image_user":require('../MalekPhoto.jpg'),
+                        latitude:"47.183706",
+                        longitude:"8.547383"
                     }
                 }
             ],
@@ -65,7 +71,9 @@ export const dataClient =[
                         "firstName": "Fedi",
                         "lastName": "dghim",
                         "location": "Genéve",
-                        "image_user":require('../MalekPhoto.jpg')
+                        "image_user":require('../MalekPhoto.jpg'),
+                        latitude:"47.183706",
+                        longitude:"8.547383"
                     }
                 }
             ],

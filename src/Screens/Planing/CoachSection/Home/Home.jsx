@@ -6,10 +6,10 @@ import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
 import ArrowTime from "../../../../assets/icons/Planing/ArrowTime";
 // import { data } from "../../../../DataBase/clientDB/Data";
 import { useNavigate } from "react-router-dom";
-function Home() {
+function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const cookies = new Cookies();
   const dataUser = cookies.get("dataUser");
-
+  const navigate = useNavigate();
   const days = [
     "Monday",
     "Tuesday",
@@ -68,7 +68,6 @@ function Home() {
                   </div> */}
                   {element.map((booking, i) => {
                     if (i === 0) {
-                      // console.log(booking.reservationState);
                     }
                     if (booking.reservationState === "noRequest") {
                       return (
@@ -133,7 +132,7 @@ function Home() {
                                   {booking.client.lastName}
                                 </p>
                                 <p className="text-location">
-                                  {booking.client.location}
+                                  {booking.client.location.city}
                                 </p>
                               </div>
                             </div>
@@ -149,7 +148,21 @@ function Home() {
                     }
                     {
                       return (
-                        <div className="reservation">
+                        <div
+                          className="reservation"
+                          onClick={() => {
+                            navigate("/ClientLocation", {
+                              state: {
+                                dataCoach: booking.client,
+                                reservationState: "pending",
+                                indexReservation:index,
+                                indexsession:i
+                              },
+                            });
+                            setHideTabBar(true);
+                            sethideTabBarforCoachDetail(true);
+                          }}
+                        >
                           <div className="line-pending"></div>
 
                           <div className="rectangle-content">
@@ -177,12 +190,12 @@ function Home() {
                                 </p>
                                 <p className="text-location">
                                   {" "}
-                                  {booking.client.location}
+                                  {booking.client.location.city}
                                 </p>
                               </div>
                             </div>
                             <div style={{ alignSelf: "center", flex: 0.4 }}>
-                              <ArrowrightIcon/>
+                              <ArrowrightIcon />
                             </div>
                           </div>
                           <p className="text-pendingReservation">
@@ -192,8 +205,6 @@ function Home() {
                       );
                     }
                   })}
-
-              
                 </>
               );
             }

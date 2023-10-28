@@ -28,12 +28,13 @@ function App() {
 
   const api_key = "ja2mczkz2wf7";
   const token = cookies.get("token");
-  const typeOfUser=cookies.get('typeUser')
+  const typeOfUser = cookies.get("typeUser");
 
   const client = StreamChat.getInstance(api_key);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [hideTabBar, setHideTabBar] = useState(false);
-  const [hideTabBarforCoachDetail, sethideTabBarforCoachDetail] =useState(false);
+  const [hideTabBarforCoachDetail, sethideTabBarforCoachDetail] =
+    useState(false);
   const [tabItem, setTabItem] = useState("Planing");
   const [lat, setlat] = useState([]);
   const [long, setlong] = useState([]);
@@ -46,12 +47,12 @@ function App() {
     setIsLoggedIn(false);
   };
 
-console.log("typeUser",typeUser);
+  console.log("typeUser", typeUser);
 
   const retrieveUserSession = () => {
     if (token) {
       setIsLoggedIn(true);
-      setTypeUser(typeOfUser)
+      setTypeUser(typeOfUser);
       // console.log("helloToken");
       // client
       //   .connectUser(
@@ -113,7 +114,12 @@ console.log("typeUser",typeUser);
                     setlong={setlong}
                   />
                 ) : (
-                  <RoutePlaningCaoch />
+                  <RoutePlaningCaoch
+                    setHideTabBar={setHideTabBar}
+                    sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}
+                    setlat={setlat}
+                    setlong={setlong}
+                  />
                 )}
               </>
             ) : tabItem === "Profile" ? (

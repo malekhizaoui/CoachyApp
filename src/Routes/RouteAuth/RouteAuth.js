@@ -7,7 +7,7 @@ import Login from '../../Screens/AuthScreen/Login/Login';
 function RouteAuth({setIsLoggedIn}) {
   return (
     <Routes>
-    <Route path="/" exact element={<SignUp />} />
+    <Route path="/" exact element={<Login setIsLoggedIn={setIsLoggedIn} />} />
     <Route path="/Login"  element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
   </Routes>
   )
