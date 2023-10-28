@@ -18,6 +18,7 @@ function CoachLocation({setlong,setlat,setHideTabBar}) {
   const navigate = useNavigate();
   const dataCoach = locationForstate.state;
 
+  console.log("dataCoach.location.longitude,dataCoach.location.latitude",dataCoach.location.longitude,dataCoach.location.latitude);
   useEffect(() => {
     getCurrentPosition();
     setlong(dataCoach.location.longitude)
@@ -93,11 +94,11 @@ function CoachLocation({setlong,setlat,setHideTabBar}) {
       >
         <TileLayer url="https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=TNPJ9dvE72iHCMuBVwD7" />
 
-        <Marker position={position} icon={customIcon}>
+        {/* <Marker position={position} icon={customIcon}>
           <Popup>
             destination <br />
           </Popup>
-        </Marker>
+        </Marker> */}
 
         <Marker
           position={[dataCoach.location.longitude,dataCoach.location.latitude]}

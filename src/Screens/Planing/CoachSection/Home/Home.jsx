@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./coach.css";
 import Cookies from "universal-cookie";
 import CalendarIcon from "../../../../assets/icons/Planing/CalendarIcon";
@@ -10,17 +10,85 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const cookies = new Cookies();
   const dataUser = cookies.get("dataUser");
   const navigate = useNavigate();
-  const days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
+  const [newData, setNewData] = useState([]);
+  // const [days,setDays]=useState()
+  // const days = [
+  //   "Monday",
+  //   "Tuesday",
+  //   "Wednesday",
+  //   "Thursday",
+  //   "Friday",
+  //   "Saturday",
+  //   "Sunday",
+  // ];
+  useEffect(() => {
+    // getWeekDaysInfo();
+    reorganizeReservation();
+    console.log("newData",newData);
+  },[]);
+  const days = getWeekDaysInfo();
+  
+  function getWeekDaysInfo() {
+    const today = new Date();
+    const daysInfo = [];
+    daysInfo.push(
+      `Today,${today.getDate()} ${today.toLocaleDateString("en-US", {
+        month: "long",
+      })}`
+    );
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    daysInfo.push(
+      `Tomorrow, ${tomorrow.getDate()} ${tomorrow.toLocaleDateString("en-US", {
+        month: "long",
+      })}`
+    );
 
-  console.log("dataUser", dataUser.reservation);
+    for (let i = 2; i < 7; i++) {
+      const nextDay = new Date(today);
+      nextDay.setDate(today.getDate() + i);
+      daysInfo.push(
+        `${nextDay.toLocaleDateString("en-US", {
+          weekday: "long",
+        })}, ${nextDay.getDate()} ${nextDay.toLocaleDateString("en-US", {
+          month: "long",
+        })}`
+      );
+    }
+
+    return daysInfo;
+  }
+
+
+  function getFutureDates(array,inputNumber ) {
+    // if (inputNumber < 0 || inputNumber > 6) {
+    //   console.log('ljhksgdlhgdsqj');
+    //   return [];
+    // }
+    console.log("number",inputNumber);
+    console.log("array",array);
+    const result = [];
+    for (let i = inputNumber; i < array.length; i++) {
+      result.push(array[i]);
+    }
+
+    for (let i = 0; i < inputNumber; i++) {
+      result.push(array[i]);
+    }
+    console.log("result",result);
+    return result;
+  }
+
+  const reorganizeReservation = () => {
+    const today = new Date();
+    const dayOfWeek = today.getDay();
+    console.log("hello");
+    const newDataReservation = getFutureDates(dataUser.reservation, dayOfWeek-1);
+    setNewData(newDataReservation);
+  };
+
+  // console.log("daysInfo", days);
+  console.log("dataUser.reservation", dataUser.reservation);
   // console.log("startinngg");
   return (
     <div>
@@ -38,7 +106,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
             alignItems: "center",
           }}
         >
-          {dataUser.reservation.map((element, index) => {
+          {newData.map((element, index) => {
             if (element.length === 0) {
               return (
                 <>
@@ -105,7 +173,21 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                     }
                     if (booking.reservationState === "accepted") {
                       return (
-                        <div className="reservation">
+                        <div
+                          className="reservation"
+                          onClick={() => {
+                            navigate("/ClientLocation", {
+                              state: {
+                                dataCoach: booking.client,
+                                reservationState: "accepted",
+                                indexReservation: index,
+                                indexsession: i,
+                              },
+                            });
+                            setHideTabBar(true);
+                            sethideTabBarforCoachDetail(true);
+                          }}
+                        >
                           <div className="line-check"></div>
 
                           <div className="rectangle-content">
@@ -155,8 +237,8 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                               state: {
                                 dataCoach: booking.client,
                                 reservationState: "pending",
-                                indexReservation:index,
-                                indexsession:i
+                                indexReservation: index,
+                                indexsession: i,
                               },
                             });
                             setHideTabBar(true);

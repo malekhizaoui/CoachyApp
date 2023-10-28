@@ -13,7 +13,7 @@ import SessionHistory from '../../../Screens/Profile/SessionHistory/SessionHisto
 function RoutePlaningClient({setHideTabBar,setlong,setlat,sethideTabBarforCoachDetail}) {
   return (
     <Routes>
-        <Route path="/" exact element={<Home />} />
+        <Route path="/" exact element={<Home setHideTabBar={setHideTabBar} sethideTabBarforCoachDetail={sethideTabBarforCoachDetail} />} />
         <Route path="/Reservation"  element={<Reservation />} />
         <Route path="/PaymentScreen" element={<PaymentScreen/>} />
         <Route path="/AllCoachs" element={<AllCoachs setHideTabBar={setHideTabBar} sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}/>} />

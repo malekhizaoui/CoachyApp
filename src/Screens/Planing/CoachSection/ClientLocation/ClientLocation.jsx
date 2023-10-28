@@ -26,13 +26,13 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
   console.log("newDataa", newDataa);
 
   const acceptReservation = () => {
-    const newDataUser = dataUser.reservation.map((element, index) => {
+    const newReservation = dataUser.reservation.map((element, index) => {
       if (index === locationForstate.state.indexReservation) {
         const result = [];
 
         element.map((elem, i) => {
           if (i === locationForstate.state.indexsession) {
-            result.push({ ...elem, reservationState: "Accepted" });
+            result.push({ ...elem, reservationState: "accepted" });
             return;
           }
           result.push({ ...elem });
@@ -42,8 +42,32 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
       }
       return [...element];
     });
+    const newDataUser = { ...dataUser, reservation: newReservation };
+    cookies.set("dataUser", newDataUser);
+    navigate("/");
+    setHideTabBar(false);
+  };
+  const cancelReservation = () => {
+    const newReservation = dataUser.reservation.map((element, index) => {
+      if (index === locationForstate.state.indexReservation) {
+        const result = [];
 
-    setnewDataa(newDataUser);
+        element.map((elem, i) => {
+          if (i === locationForstate.state.indexsession) {
+            result.push({ ...elem, reservationState: "noRequest" });
+            return;
+          }
+          result.push({ ...elem });
+          return;
+        });
+        return result;
+      }
+      return [...element];
+    });
+    const newDataUser = { ...dataUser, reservation: newReservation };
+    cookies.set("dataUser", newDataUser);
+    navigate("/");
+    setHideTabBar(false);
   };
   useEffect(() => {
     getCurrentPosition();
@@ -177,16 +201,35 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
         </div>
         <div className="descirption-coach">
           <p className="bioCoach">{dataCoach.bio}</p>
-          <button
-            className="btn-location"
-            onClick={() => {
-              acceptReservation();
-            }}
-          >
-            {locationForstate.state.reservationState === "pending"
-              ? "Accept"
-              : ""}
-          </button>
+          {locationForstate.state.reservationState === "pending" ? (
+            <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
+              <button
+                className="btn-location"
+                onClick={() => {
+                  cancelReservation();
+                }}
+              >
+                Cancel Request
+              </button>
+              <button
+                className="btn-location"
+                onClick={() => {
+                  acceptReservation();
+                }}
+              >
+                Accept Request
+              </button>
+            </div>
+          ) : (
+            <button
+              className="btn-location"
+              onClick={() => {
+                cancelReservation();
+              }}
+            >
+              Cancel Request
+            </button>
+          )}
         </div>
       </div>
     </div>
