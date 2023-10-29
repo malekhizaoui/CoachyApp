@@ -16,7 +16,7 @@ function DomaineCoaching() {
         <div className="navigate-fromDomain">
           <BackIcon/>
 
-          <p className="name-page">Personal information</p>
+          <p className="name-page">Domaine</p>
           
         </div>
         <div className="line"></div>

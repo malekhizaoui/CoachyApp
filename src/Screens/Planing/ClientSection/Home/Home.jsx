@@ -6,7 +6,7 @@ import Cookies from "universal-cookie";
 // import { data } from "../../../../DataBase/clientDB/Data";
 import { useNavigate } from "react-router-dom";
 
-function Home({setHideTabBar,sethideTabBarforCoachDetail}) {
+function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const navigate = useNavigate();
   const cookies = new Cookies();
   const dataUser = cookies.get("dataUser");
@@ -84,10 +84,11 @@ function Home({setHideTabBar,sethideTabBarforCoachDetail}) {
     const today = new Date();
     const dayOfWeek = today.getDay();
     console.log("hello");
-    const newDataReservation = getFutureDates(
-      dataUser.reservation,
-      dayOfWeek - 1
-    );
+    const newDataReservation =
+      dayOfWeek === 0
+        ? getFutureDates(dataUser.reservation, 6)
+        : getFutureDates(dataUser.reservation, dayOfWeek);
+
     setNewData(newDataReservation);
   };
   return (

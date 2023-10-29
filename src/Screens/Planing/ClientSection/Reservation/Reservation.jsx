@@ -87,11 +87,12 @@ function Reservation() {
                           fontWeight: 600,  
                           lineHeight: "normal",
                           margin:0,
-                          marginTop:15
+                          marginTop:15,
+                          textAlign:"left"
                          
                         }}
                       >
-                        Disponible for today 
+                        Disponible 
                       </p>
                     ) : (
                       <p
@@ -103,11 +104,14 @@ function Reservation() {
                           fontWeight: 600,
                           lineHeight: "normal",
                           margin:0,
-                          marginTop:15
+                          marginTop:15,
+                          textAlign:"left"
+
+
 
                         }}
                       >
-                        not disponible for today
+                        not disponible 
                       </p>
                     )}
                   </div>
