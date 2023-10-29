@@ -29,7 +29,7 @@ function Myprofile() {
           <ArrowrightIcon />
         </div>
         {data.type==="Coach"?(<><div className="line"></div>
-        <div className="session-history" onClick={()=>{navigate("/SessionHistory")}}>
+        <div className="session-history" onClick={()=>{navigate("/Availability")}}>
           <AvailablityIcon />
           <p className="info">Availibilty</p>
           <ArrowrightIcon />

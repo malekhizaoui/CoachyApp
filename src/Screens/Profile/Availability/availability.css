@@ -1,0 +1,29 @@
+.Availablity-container{
+    width: 90%;
+  height: 70px;
+  border-radius: 10px;
+  border: 1px solid var(--grey-2, rgba(119, 114, 114, 0.6));
+  background: var(--white, #fffbfb);
+  box-shadow: -12px 6px 4px 0px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.day-available{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 88%;
+}
+
+.navigate-Available{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 88%;
+}

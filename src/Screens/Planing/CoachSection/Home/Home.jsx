@@ -10,7 +10,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const cookies = new Cookies();
   const dataUser = cookies.get("dataUser");
   const navigate = useNavigate();
-  const [newData, setNewData] = useState([]);
+  const [newData, setNewData] = useState(dataUser.reservation);
   // const [days,setDays]=useState()
   // const days = [
   //   "Monday",
@@ -82,8 +82,9 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const reorganizeReservation = () => {
     const today = new Date();
     const dayOfWeek = today.getDay();
-    console.log("hello");
-    const newDataReservation = getFutureDates(dataUser.reservation, dayOfWeek-1);
+    const newDataReservation =dayOfWeek===0? getFutureDates(dataUser.reservation, 6):getFutureDates(dataUser.reservation, dayOfWeek);
+    console.log("hello",newDataReservation);
+
     setNewData(newDataReservation);
   };
 

@@ -4,6 +4,7 @@ import ProfileFocusedIcon from "../../assets/icons/TabBar/ProfileFocusedIcon";
 import ProfileIcon from "../../assets/icons/TabBar/ProfileIcon";
 import PlaningFocusedIcon from "../../assets/icons/TabBar/PlaningFocusedIcon";
 import PlaningIcon from "../../assets/icons/TabBar/PlaningIcon";
+import MessageFocusedIcon from "../../assets/icons/TabBar/MessageFocusedIcon";
 import { useNavigate } from "react-router-dom";
 
 import "./tabBar.css";
@@ -23,9 +24,9 @@ function TabBar({ handleTabItem, tabItem }) {
             }}
           >
             <div style={{ marginLeft: 15 }}>
-              <MessagesIcon />
+            {tabItem !== "Messages" ? <MessagesIcon /> : <MessageFocusedIcon />}
             </div>
-            <p className="p-tabBar">Messages</p>
+            <p className="p-tabBar" style={tabItem === "Messages"?{color:"#5D54A0"}:null}>Messages</p>
           </div>
           <div
             className="tabItem2"
