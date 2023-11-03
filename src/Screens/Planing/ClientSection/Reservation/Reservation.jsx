@@ -70,9 +70,8 @@ function Reservation() {
                         fontStyle: "normal",
                         fontWeight: 600,
                         lineHeight: "normal",
-                        margin:0,
+                        margin: 0,
                         // marginTop:16
-                       
                       }}
                     >
                       Check my availablility
@@ -84,15 +83,14 @@ function Reservation() {
                           fontFamily: "Inter",
                           fontSize: "13px",
                           fontStyle: "normal",
-                          fontWeight: 600,  
+                          fontWeight: 600,
                           lineHeight: "normal",
-                          margin:0,
-                          marginTop:15,
-                          textAlign:"left"
-                         
+                          margin: 0,
+                          marginTop: 15,
+                          textAlign: "left",
                         }}
                       >
-                        Disponible 
+                        Disponible
                       </p>
                     ) : (
                       <p
@@ -103,15 +101,12 @@ function Reservation() {
                           fontStyle: "normal",
                           fontWeight: 600,
                           lineHeight: "normal",
-                          margin:0,
-                          marginTop:15,
-                          textAlign:"left"
-
-
-
+                          margin: 0,
+                          marginTop: 15,
+                          textAlign: "left",
                         }}
                       >
-                        not disponible 
+                        not disponible
                       </p>
                     )}
                   </div>
@@ -126,6 +121,7 @@ function Reservation() {
                     <div>
                       {element.map((elem, i) => {
                         return (
+                          
                           <div className="book-Horaire">
                             <div className="time-book">
                               <p className="txt-time">
@@ -140,8 +136,8 @@ function Reservation() {
                                   : `${elem.to}:00 Am`}
                               </p>
                             </div>
-                            <div className="btn-reserve">
-                              <p className="txt-reserve">Reserve</p>
+                            <div style={{ marginRight: 10 }}>
+                              <ArrowrightIcon />
                             </div>
                           </div>
                         );

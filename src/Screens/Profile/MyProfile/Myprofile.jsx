@@ -10,45 +10,71 @@ import ArrowrightIcon from "../../../assets/icons/ArrowrightIcon";
 import Cookies from "universal-cookie";
 function Myprofile() {
   const navigate = useNavigate();
-    const cookies=new Cookies()
-    const data=cookies.get('dataUser')
+  const cookies = new Cookies();
+  const userData = localStorage.getItem("dataUser");
+  const data= JSON.parse(userData)
+  const typeUser = localStorage.getItem("typeUser");
   return (
     <div className="container">
-      <div className="couverture-image">
-     
-      </div>
+      <div className="couverture-image"></div>
       <div className="image-container">
-        <img className="profile-image" src={data.image_user}/>
-        <p>{data.firstName} {data.lastName}</p>
+        <img className="profile-image" src={data.image_user} />
+        <p>
+          {data.firstName} {data.lastName}
+        </p>
       </div>
       <div className="profile-info">
         <p style={{ marginTop: 5 }}>My profile</p>
-        <div className="session-history" onClick={()=>{navigate("/SessionHistory");}}>
+        <div
+          className="session-history"
+          onClick={() => {
+            navigate("/SessionHistory");
+          }}
+        >
           <HistorySessionIcon />
           <p className="info">Session history </p>
           <ArrowrightIcon />
         </div>
-        {data.type==="Coach"?(<><div className="line"></div>
-        <div className="session-history" onClick={()=>{navigate("/Availability")}}>
-          <AvailablityIcon />
-          <p className="info">Availibilty</p>
-          <ArrowrightIcon />
-        </div></>):null}
+        {typeUser === "coach" ? (
+          <>
+            <div className="line"></div>
+            <div
+              className="session-history"
+              onClick={() => {
+                navigate("/Availability");
+              }}
+            >
+              <AvailablityIcon />
+              <p className="info">Availibilty</p>
+              <ArrowrightIcon />
+            </div>
+          </>
+        ) : null}
         <div className="line"></div>
         <p style={{ marginTop: 5 }}>Prefernces</p>
-        <div className="session-history" onClick={()=>{navigate("/Settings")}}>
+        <div
+          className="session-history"
+          onClick={() => {
+            navigate("/Settings");
+          }}
+        >
           <SettingsIcon />
           <p className="info">Settings </p>
           <ArrowrightIcon />
         </div>
         <div className="line"></div>
-        <div className="session-history" onClick={()=>{navigate("/PersonalInformation",{state:data})}}>
+        <div
+          className="session-history"
+          onClick={() => {
+            navigate("/PersonalInformation", { state: data });
+          }}
+        >
           <ProfileIcon />
           <p className="info">Personal information </p>
           <ArrowrightIcon />
         </div>
         <div className="line"></div>
-        <div className="session-history" >
+        <div className="session-history">
           <Wallet />
           <p className="info">Bank Card </p>
           <ArrowrightIcon />

@@ -48,13 +48,13 @@ function SignUp() {
             hashedPassword,
           } = res.data;
           console.log("dataa",res.data);
-          cookies.set("token", token);
-          cookies.set("userId", userId);
-          cookies.set("username", username);
-          cookies.set("firstName", firstName);
-          cookies.set("lastName", lastName);
-          cookies.set("hashedPassword", hashedPassword);
-          cookies.set("typeUser", typeUser);
+          localStorage.setItem("token", token);
+          localStorage.setItem("userId", userId);
+          localStorage.setItem("username", username);
+          localStorage.setItem("firstName", firstName);
+          localStorage.setItem("lastName", lastName);
+          localStorage.setItem("hashedPassword", hashedPassword);
+          localStorage.setItem("typeUser", typeUser);
 
           navigate("/Login");
         }

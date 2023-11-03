@@ -27,8 +27,8 @@ function App() {
   const cookies = new Cookies();
 
   const api_key = "ja2mczkz2wf7";
-  const token = cookies.get("token");
-  const typeOfUser = cookies.get("typeUser");
+  const token = localStorage.getItem("token");
+  const typeOfUser = localStorage.getItem("typeUser");
 
   const client = StreamChat.getInstance(api_key);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,14 +40,17 @@ function App() {
   const [long, setlong] = useState([]);
   const [typeUser, setTypeUser] = useState(typeOfUser);
 
+  console.log("typeUser",typeUser);
+
   const logOut = () => {
-    cookies.remove("token");
-    cookies.remove("dataUser");
+    localStorage.removeItem("token");
+    localStorage.removeItem("dataUser");
+    localStorage.removeItem("typeUser");
+    localStorage.removeItem("today");
 
     setIsLoggedIn(false);
   };
 
-  console.log("typeUser", typeUser);
 
   const retrieveUserSession = () => {
     if (token) {
@@ -106,15 +109,15 @@ function App() {
           <div style={{ height: "100%", position: "relative", zIndex: 1 }}>
             {tabItem === "Planing" ? (
               <>
-                {typeUser === "Client" ? (
-                  <RoutePlaningClient
+                {typeUser !== "client" ? (
+                  <RoutePlaningCaoch
                     setHideTabBar={setHideTabBar}
                     sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}
                     setlat={setlat}
                     setlong={setlong}
                   />
                 ) : (
-                  <RoutePlaningCaoch
+                  <RoutePlaningClient
                     setHideTabBar={setHideTabBar}
                     sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}
                     setlat={setlat}

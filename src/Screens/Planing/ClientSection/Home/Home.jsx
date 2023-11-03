@@ -9,35 +9,17 @@ import { useNavigate } from "react-router-dom";
 function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const navigate = useNavigate();
   const cookies = new Cookies();
-  const dataUser = cookies.get("dataUser");
-  // const dataParsed=JSON.parse(dataUser)
-  // const [data,setData]=useState(dataUser.reservation)
-  const [newData, setNewData] = useState([]);
+  const data = localStorage.getItem("dataUser");
+  const dataUser=JSON.parse(data)
+  const [newData, setNewData] = useState(dataUser.reservation);
   useEffect(() => {
-    // getWeekDaysInfo();
     reorganizeReservation();
-    console.log("newData", newData);
   }, []);
-  // console.log("data.id", dataMe.reservation);
-  // console.log("data.id", data);
-  console.log("dataUser", dataUser.reservation);
-  // const days = [
-  //   "Monday",
-  //   "Tuesday",
-  //   "Wednesday",
-  //   "Thursday",
-  //   "Friday",
-  //   "Saturday",
-  //   "Sunday",
-  // ];
+  console.log("dataUserClient", dataUser.reservation);
+  console.log("newData", newData);
+
   const days = getWeekDaysInfo();
   function getFutureDates(array, inputNumber) {
-    // if (inputNumber < 0 || inputNumber > 6) {
-    //   console.log('ljhksgdlhgdsqj');
-    //   return [];
-    // }
-    console.log("number", inputNumber);
-    console.log("array", array);
     const result = [];
     for (let i = inputNumber; i < array.length; i++) {
       result.push(array[i]);
@@ -46,7 +28,6 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
     for (let i = 0; i < inputNumber; i++) {
       result.push(array[i]);
     }
-    console.log("result", result);
     return result;
   }
 
@@ -83,7 +64,6 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const reorganizeReservation = () => {
     const today = new Date();
     const dayOfWeek = today.getDay();
-    console.log("hello");
     const newDataReservation =
       dayOfWeek === 0
         ? getFutureDates(dataUser.reservation, 6)
@@ -113,10 +93,10 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                 {element.length <= 0 ? (
                   <div className="noReservation">
                     <div style={{ flex: 0.5 }}></div>
-                    <div
+                    <div  
                       className="available"
                       onClick={() => {
-                        navigate("/DomaineCoaching");
+                        navigate("/DomaineCoaching",{state:index});
                       }}
                     >
                       <p className="see-coachs">SEE THE AVAILABLE COACHS</p>
@@ -184,7 +164,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                               <div className="detail-user">
                                 <img
                                   className="image-user"
-                                  src={elem.coach.image_user}
+                                  // src={elem.coach.image_user}
                                 />
                                 <div className="style-user-detail">
                                   <p className="text-name">

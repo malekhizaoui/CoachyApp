@@ -1,16 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './domaine.css'
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import BackIcon from '../../../../assets/icons/BackIcon';
 import {dataCoach} from '../../../../DataBase/coachDB/Data'
 function DomaineCoaching() {
     const navigate = useNavigate();
+    const location = useLocation();
+    const [dataCoachFiltredbyDay,setDataCoachFiltredbyDay]=useState([])
+    console.log("datacoach",dataCoach);
+    console.log("location.state",location.state);
+    
 
-    const sendData=(domain,dataCoach)=>{
-        if(domain==="fitness"){
-            navigate("AllCoachs",{state:dataCoach})
-        }
-    }
+    
+
+
+    // const getFiltredCoach=()=>{
+    //    const newData= dataCoach.map((element,index)=>{
+    //         element.coachs.map((ele,i)=>{
+    //             if(ele.availability[location.state].length!== 0){
+    //                 console.log("hereee");
+    //                 return {...ele}
+    //             }
+    //         })
+    //         return {...element}
+    //     })
+
+    //     return newData
+    // }
+
+
+    // const x= getFiltredCoach()
+    // console.log("mkajzhdmjhad",x);
+
   return (
     <div className='Domain-container'>
         <div className="navigate-fromDomain">

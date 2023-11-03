@@ -9,7 +9,7 @@ export const dataCoach = [
         firstName: "John",
         type: "Coach",
         lastName: "Smith",
-        phoneNumber: "76879809",
+        phoneNumber: "1234567",
         password: "heyhey",
         Tarification:
           " John offers his coaching services at a competitive rate of $60 per session.",

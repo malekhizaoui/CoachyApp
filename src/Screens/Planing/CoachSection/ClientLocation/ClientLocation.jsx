@@ -19,14 +19,15 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
   const locationForstate = useLocation();
   const navigate = useNavigate();
   const cookies = new Cookies();
-  const dataUser = cookies.get("dataUser");
+  const data = localStorage.getItem("dataUser");
+  const dataUser=JSON.parse(data)
   const dataCoach = locationForstate.state.dataCoach;
 
   console.log("dataUser", dataUser);
-  console.log("newDataa", newDataa);
+  console.log("newDataa", locationForstate.state.dataUsers);
 
   const acceptReservation = () => {
-    const newReservation = dataUser.reservation.map((element, index) => {
+    const newReservation = locationForstate.state.dataUsers.map((element, index) => {
       if (index === locationForstate.state.indexReservation) {
         const result = [];
 
@@ -43,12 +44,15 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
       return [...element];
     });
     const newDataUser = { ...dataUser, reservation: newReservation };
-    cookies.set("dataUser", newDataUser);
-    navigate("/");
+    console.log("newReservation//////newReservation",newReservation);
+    console.log("newDataUser//////newDataUser",newDataUser);
+
+    localStorage.setItem("dataUser", JSON.stringify(newDataUser));
+    navigate("/",{state:"true"});
     setHideTabBar(false);
   };
   const cancelReservation = () => {
-    const newReservation = dataUser.reservation.map((element, index) => {
+    const newReservation = locationForstate.state.dataUsers.map((element, index) => {
       if (index === locationForstate.state.indexReservation) {
         const result = [];
 
@@ -65,8 +69,10 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
       return [...element];
     });
     const newDataUser = { ...dataUser, reservation: newReservation };
-    cookies.set("dataUser", newDataUser);
-    navigate("/");
+    console.log("newReservation//////newReservation",newReservation);
+    console.log("newDataUser//////newDataUser",newDataUser);;
+    localStorage.setItem("dataUser", JSON.stringify(newDataUser));
+    navigate("/",{state:"true"});
     setHideTabBar(false);
   };
   useEffect(() => {
@@ -137,7 +143,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
     <div className="hole-map">
       <MapContainer
         center={location !== null ? location : position}
-        zoom={13.5}
+        zoom={15}
         className="map-container"
       >
         <TileLayer url="https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=TNPJ9dvE72iHCMuBVwD7" />

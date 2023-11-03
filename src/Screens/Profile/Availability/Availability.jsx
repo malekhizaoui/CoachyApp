@@ -7,8 +7,9 @@ import BackIcon from "../../../assets/icons/BackIcon";
 import "./availability.css";
 function Availability() {
   const cookies = new Cookies();
-  const dataUser = cookies.get("dataUser");
-  console.log("dataUser.availability", dataUser.availability);
+  const data = localStorage.getItem("dataUser");
+  const dataUser=JSON.parse(data)
+  console.log("dataUser.availability", dataUser);
   const days = [
     "Monday",
     "Tuesday",
@@ -58,6 +59,7 @@ function Availability() {
                   <div style={{ flex: 0.5, alignSelf: "center" }}>
                     <ArrowrightIcon />
                   </div>
+                  
                 </div>
               ))}
             </>

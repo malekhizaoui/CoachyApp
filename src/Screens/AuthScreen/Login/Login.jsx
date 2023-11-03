@@ -20,9 +20,9 @@ function Login({ setIsLoggedIn }) {
         setIsLoggedIn(true);
         navigate("/");
         // Convert the element object to a JSON string and save it in cookies
-        cookies.set('dataUser', JSON.stringify(element));
-        cookies.set('token', "kqjhdbmkqsjhdmqksjhdmsqkjhd");
-        cookies.set('typeUser',element.type)
+        localStorage.setItem('dataUser', JSON.stringify(element));
+        localStorage.setItem('token', "kqjhdbmkqsjhdmqksjhdmsqkjhd");
+        localStorage.setItem('typeUser',"client")
       }
     });
     dataCoach.map((element,index)=>{
@@ -36,10 +36,11 @@ function Login({ setIsLoggedIn }) {
           console.log("donnnnne");
           setIsLoggedIn(true);
           navigate("/");
-          // Convert the element object to a JSON string and save it in cookies
-          cookies.set('dataUser', JSON.stringify(coach));
-          cookies.set('token', "kqjhdbmkqsjhdmqksjhdmsqkjhd");
-          cookies.set('typeUser',element.type)
+          // Convert the element object to a JSON string and save it in localStorage
+          console.log("elementttt",element);
+          localStorage.setItem('dataUser', JSON.stringify(coach));
+          localStorage.setItem('token', "kqjhdbmkqsjhdmqksjhdmsqkjhd");
+          localStorage.setItem('typeUser',"coach")
 
         }
       })

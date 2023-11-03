@@ -5,27 +5,21 @@ import CalendarIcon from "../../../../assets/icons/Planing/CalendarIcon";
 import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
 import ArrowTime from "../../../../assets/icons/Planing/ArrowTime";
 // import { data } from "../../../../DataBase/clientDB/Data";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const cookies = new Cookies();
-  const dataUser = cookies.get("dataUser");
+  const data = localStorage.getItem("dataUser");
+  const dataUser=JSON.parse(data)
   const navigate = useNavigate();
+  const location = useLocation();
   const [newData, setNewData] = useState(dataUser.reservation);
-  // const [days,setDays]=useState()
-  // const days = [
-  //   "Monday",
-  //   "Tuesday",
-  //   "Wednesday",
-  //   "Thursday",
-  //   "Friday",
-  //   "Saturday",
-  //   "Sunday",
-  // ];
+ 
   useEffect(() => {
-    // getWeekDaysInfo();
     reorganizeReservation();
-    console.log("newData",newData);
   },[]);
+  // console.log("location",location.state);
+  console.log("dataUserCoachhh", newData);
+
   const days = getWeekDaysInfo();
   
   function getWeekDaysInfo() {
@@ -80,16 +74,22 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   }
 
   const reorganizeReservation = () => {
-    const today = new Date();
+  const data=  localStorage.getItem("today");
+  const getToday= JSON.parse(data)
+    console.log("getToday",getToday);
+    if(!getToday){
+      const today = new Date();
     const dayOfWeek = today.getDay();
-    const newDataReservation =dayOfWeek===0? getFutureDates(dataUser.reservation, 6):getFutureDates(dataUser.reservation, dayOfWeek);
+    const newDataReservation =dayOfWeek===0? getFutureDates(dataUser.reservation, 6):getFutureDates(dataUser.reservation, dayOfWeek-1);
     console.log("hello",newDataReservation);
-
     setNewData(newDataReservation);
+    localStorage.setItem("dataUser",JSON.stringify({...dataUser,reservation:newDataReservation}))
+    localStorage.setItem("today",JSON.stringify(days[0]))
+    }
+    
   };
 
   // console.log("daysInfo", days);
-  console.log("dataUser.reservation", dataUser.reservation);
   // console.log("startinngg");
   return (
     <div>
@@ -136,8 +136,6 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                     </div>
                   </div> */}
                   {element.map((booking, i) => {
-                    if (i === 0) {
-                    }
                     if (booking.reservationState === "noRequest") {
                       return (
                         <div className="RestDayContainer">
@@ -177,12 +175,14 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                         <div
                           className="reservation"
                           onClick={() => {
+                            console.log("days[index]",days[index]);
                             navigate("/ClientLocation", {
                               state: {
                                 dataCoach: booking.client,
                                 reservationState: "accepted",
                                 indexReservation: index,
                                 indexsession: i,
+                                dataUsers:newData
                               },
                             });
                             setHideTabBar(true);
@@ -234,12 +234,17 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                         <div
                           className="reservation"
                           onClick={() => {
+                            console.log("days[index]",days[index]);
+                            console.log("indexReservation",index);
+                            console.log("indexsession",i);
                             navigate("/ClientLocation", {
                               state: {
                                 dataCoach: booking.client,
                                 reservationState: "pending",
                                 indexReservation: index,
                                 indexsession: i,
+                                dataUsers:newData
+
                               },
                             });
                             setHideTabBar(true);
