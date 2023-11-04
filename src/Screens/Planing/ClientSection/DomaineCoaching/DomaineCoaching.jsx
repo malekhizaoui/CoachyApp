@@ -62,7 +62,7 @@ function DomaineCoaching() {
         <div className='content-domain'>
             {dataCoach.map((element,index)=>{
                 return(
-                    <div className='img-domain' onClick={()=>{navigate('/AllCoachs',{state:element.coachs})}}>
+                    <div key={index} className='img-domain' onClick={()=>{navigate('/AllCoachs',{state:element.coachs})}}>
                     <img className='img-background' src={element.picDomaine} />
                 </div>
                 )

@@ -8,12 +8,44 @@ import { useNavigate, useLocation } from "react-router-dom";
 function Reservation() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [seeAvailableDay, setSeeAvailableDay] = useState(999);
+  const [seeAvailableDay, setSeeAvailableDay] = useState(999);  
+  const [pickTime, setPickTime] = useState(null);
+  const [show, setShow] = useState(false);
+  const data = location.state;
+  const dataClient=localStorage.getItem('dataUser')
+  const dataParsed=JSON.parse(dataClient)
+  console.log("dataParsed",dataParsed);
+  console.log("data",location.state);
 
-  const data = location.state.availability;
-  console.log("data", data);
+  const bookSession=(day)=>{
+   const newReservation= dataParsed.reservation.map((element,index)=>{
+      if(day===index){
+        return[...element,
+          {
+          from:pickTime,
+          to:pickTime+1,
+          reservation:"pending",
+          coach: {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            location: {
+              city: data.location.city,
+              latitude: data.location.latitude,
+              longitude: data.location.longitude,
+            },
+            // image_user: require(data.location.image_user),
+          },
+        }
+      ]
+      }
+      else{
+        return [...element]
+      }
+    })
+    return {...dataParsed,reservation:newReservation}
+  }
 
-  const [openDay, setOpenDay] = useState(false);
+
   const days = [
     "Monday",
     "Tuesday",
@@ -34,10 +66,10 @@ function Reservation() {
           <p className="name-page">Reservation</p>
         </div>
 
-        {data.map((element, index) => {
+        {data.availability.map((element, index) => {
           console.log("element.image_user", location.state.image_user);
           return (
-            <div>
+            <div key={index}>
               <p className="day">{days[index]}</p>
               <div
                 className="bookDay"
@@ -121,265 +153,110 @@ function Reservation() {
                     <div>
                       {element.map((elem, i) => {
                         return (
-                          
-                          <div className="book-Horaire">
-                            <div className="time-book">
-                              <p className="txt-time">
-                                {elem.from > 12
-                                  ? `${elem.from}:00 Pm`
-                                  : `${elem.from}:00 Am`}
-                              </p>
-                              <ArrowTime />
-                              <p className="txt-time">
-                                {elem.to > 12
-                                  ? `${elem.to}:00 Pm`
-                                  : `${elem.to}:00 Am`}
-                              </p>
+                          <div key={i}>
+                            <div
+                              className="book-Horaire"
+                              onClick={() => {
+                                if (show === i) {
+                                  setShow(null);
+                                  setPickTime(null);
+                                } else {
+                                  setShow(i);
+                                  setPickTime(null);
+                                }
+                              }}
+                            >
+                              <div className="time-book">
+                                <p className="txt-time">
+                                  {elem.from > 12
+                                    ? `${elem.from}:00 Pm`
+                                    : `${elem.from}:00 Am`}
+                                </p>
+                                <ArrowTime />
+                                <p className="txt-time">
+                                  {elem.to > 12
+                                    ? `${elem.to}:00 Pm`
+                                    : `${elem.to}:00 Am`}
+                                </p>
+                              </div>
+                              <div style={{ marginRight: 10 }}>
+                                <ArrowrightIcon />
+                              </div>
                             </div>
-                            <div style={{ marginRight: 10 }}>
-                              <ArrowrightIcon />
+                            <div
+                              style={{
+                                display: "flex",
+                                flexWrap: "wrap",
+                                justifyContent: "space-around",
+                              }}
+                            >
+                              {show === i &&
+                                (() => {
+                                  const elements = [];
+                                  for (let i = elem.from; i < elem.to; i++) {
+                                    elements.push(
+                                      <div
+                                        onClick={() => {
+                                          setPickTime(i);
+                                          if (pickTime && pickTime === i) {
+                                            console.log("dd");
+                                            setPickTime(null);
+                                          } else {
+                                            setPickTime(i);
+                                          }
+                                        }}
+                                        style={{
+                                          backgroundColor:
+                                            pickTime === i
+                                              ? "#5D54A0"
+                                              : "#DCDCDC",
+                                          color:
+                                            pickTime === i ? "white" : "black",
+                                        }}
+                                        key={i}
+                                        className="time-style"
+                                        color="#5D54A0"
+                                      >
+                                        <p>
+                                          {i > 12 ? `${i}:00 Pm` : `${i}:00 Am`}
+                                        </p>
+                                      </div>
+                                    );
+                                  }
+                                  return elements;
+                                })()}
                             </div>
+                            {show === i && (
+                              <button
+                                onClick={()=>{
+                                  const result = bookSession(index)
+                                  localStorage.setItem('dataUser',JSON.stringify(result))
+                                }}
+                                style={{
+                                  backgroundColor: pickTime
+                                    ? "#5D54A0"
+                                    : "#DCDCDC",
+                                  width: 70,
+                                  height: 30,
+                                  borderRadius: 10,
+                                  color: "white",
+                                  border: "none",
+                                }}
+                              >
+                                Save
+                              </button>
+                            )}
                           </div>
                         );
                       })}
                     </div>
-                  ) : null}
+                  ) : <p>Rest Day</p>}
                 </div>
               ) : null}
             </div>
           );
         })}
-        {/* booking Day */}
-        {/* <div>
-          <p className="day">Today</p>
-          <div className="bookDay">
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div className="image-user"></div>
-              <p
-                style={{
-                  color: "#000",
-                  fontFamily: "Inter",
-                  fontSize: "13px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "normal",
-                }}
-              >
-                Check my availablility
-              </p>
-            </div>
-            <div style={{ marginRight: 10 }}>
-              <ArrowrightIcon />
-            </div>
-          </div>
 
-
-          <div className="bookDay">
-            <div className="time-book">
-              <p className="txt-time">17:00 Pm</p>
-              <ArrowTime />
-              <p className="txt-time">18:00 Pm</p>
-            </div>
-            <div className="btn-reserve">
-              <p className="txt-reserve">Reserve</p>
-            </div>
-          </div>
-          <div className="bookDay">
-            <div className="time-book">
-              <p className="txt-time">17:00 Pm</p>
-              <ArrowTime />
-              <p className="txt-time">18:00 Pm</p>
-            </div>
-            <div className="btn-reserve">
-              <p className="txt-reserve">Reserve</p>
-            </div>
-          </div>
-          <div className="bookDay">
-            <div className="time-book">
-              <p className="txt-time">17:00 Pm</p>
-              <ArrowTime />
-              <p className="txt-time">18:00 Pm</p>
-            </div>
-            <div className="btn-reserve">
-              <p className="txt-reserve">Reserve</p>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <p className="day">Tomorow</p>
-          <div
-            className="bookDay"
-            onClick={() => {
-              setOpenDay(!openDay);
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div className="image-user"></div>
-              <p
-                style={{
-                  color: "#000",
-                  fontFamily: "Inter",
-                  fontSize: "13px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "normal",
-                }}
-              >
-                Check my availablility
-              </p>
-            </div>
-            <div style={{ marginRight: 10 }}>
-              <ArrowrightIcon />
-            </div>
-          </div>
-          {openDay ? (
-            <div>
-              <div className="bookDay">
-                <div className="time-book">
-                  <p className="txt-time">17:00 Pm</p>
-                  <ArrowTime />
-
-                  <p className="txt-time">18:00 Pm</p>
-                </div>
-                <div className="btn-reserve">
-                  <p className="txt-reserve">Reserve</p>
-                </div>
-              </div>
-              <div className="bookDay">
-                <div className="time-book">
-                  <p className="txt-time">17:00 Pm</p>
-                  <ArrowTime />
-
-                  <p className="txt-time">18:00 Pm</p>
-                </div>
-                <div className="btn-reserve">
-                  <p className="txt-reserve">Reserve</p>
-                </div>
-              </div>
-              <div className="bookDay">
-                <div className="time-book">
-                  <p className="txt-time">17:00 Pm</p>
-                  <ArrowTime />
-
-                  <p className="txt-time">18:00 Pm</p>
-                </div>
-                <div className="btn-reserve">
-                  <p className="txt-reserve">Reserve</p>
-                </div>
-              </div>
-            </div>
-          ) : null}
-        </div>
-
-        <div>
-          <p className="day">Tomorow</p>
-          <div className="bookDay">
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div className="image-user"></div>
-              <p
-                style={{
-                  color: "#000",
-                  fontFamily: "Inter",
-                  fontSize: "13px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "normal",
-                }}
-              >
-                Check my availablility
-              </p>
-            </div>
-            <div style={{ marginRight: 10 }}>
-              <ArrowrightIcon />
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <p className="day">Tomorow</p>
-
-          <div className="bookDay">
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div className="image-user"></div>
-              <p
-                style={{
-                  color: "#000",
-                  fontFamily: "Inter",
-                  fontSize: "13px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "normal",
-                }}
-              >
-                Check my availablility
-              </p>
-            </div>
-            <div style={{ marginRight: 10 }}>
-              <ArrowrightIcon />
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <p className="day">Tomorow</p>
-
-          <div className="bookDay" onClick={() => {}}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div className="image-user"></div>
-              <p
-                style={{
-                  color: "#000",
-                  fontFamily: "Inter",
-                  fontSize: "13px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "normal",
-                }}
-              >
-                Check my availablility
-              </p>
-            </div>
-            <div style={{ marginRight: 10 }}>
-              <ArrowrightIcon />
-            </div>
-          </div>
-        </div> */}
 
         <div style={{ height: 120 }}></div>
       </div>

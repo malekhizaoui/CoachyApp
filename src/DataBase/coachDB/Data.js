@@ -173,8 +173,141 @@ export const dataCoach = [
           [],
           [],
         ],
+        sessionHistory:[
+          {
+            day:"Thursday , 17 septembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "¨Pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "declined",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 October",
+            from: 17,
+            to: 18,
+            reservation: "decline",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Friday , 2 Novembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+        ]
       },
       {
+        
         id: 2,
         bio: "dedicated fitness enthusiast and certified personal trainer. He has a passion for helping individuals of all fitness levels achieve their health and wellness goals.",
         firstName: "David",
@@ -334,6 +467,138 @@ export const dataCoach = [
           [],
           [],
         ],
+        sessionHistory:[
+          {
+            day:"Thursday , 17 septembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "¨Pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "declined",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 October",
+            from: 17,
+            to: 18,
+            reservation: "decline",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Friday , 2 Novembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+        ]
       },
       {
         id: 3,
@@ -456,6 +721,138 @@ export const dataCoach = [
           [],
           [],
         ],
+        sessionHistory:[
+          {
+            day:"Thursday , 17 septembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "¨Pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "declined",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 October",
+            from: 17,
+            to: 18,
+            reservation: "decline",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Friday , 2 Novembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+        ]
       },
       {
         id: 4,
@@ -558,6 +955,138 @@ export const dataCoach = [
           [],
           [],
         ],
+        sessionHistory:[
+          {
+            day:"Thursday , 17 septembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "¨Pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "declined",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 October",
+            from: 17,
+            to: 18,
+            reservation: "decline",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Friday , 2 Novembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+        ]
       },
       {
         id: 5,
@@ -683,6 +1212,138 @@ export const dataCoach = [
         ],
       },
     ],
+    sessionHistory:[
+      {
+        day:"Thursday , 17 septembre",
+        from: 17,
+        to: 18,
+        reservation: "accepted",
+        coach: {
+          firstName: "Fedi",
+          lastName: "dghim",
+          location: {
+            city: "Genéve",
+            latitude: "47.183706",
+            longitude: "8.547383",
+          },
+          image_user: require("../MalekPhoto.jpg"),
+        },
+      },
+      {
+        day:"Thursday , 17 septembre",
+
+        from: 17,
+        to: 18,
+        reservation: "¨Pending",
+        coach: {
+          firstName: "Fedi",
+          lastName: "dghim",
+          location: {
+            city: "Genéve",
+            latitude: "47.183706",
+            longitude: "8.547383",
+          },
+          image_user: require("../MalekPhoto.jpg"),
+        },
+      },
+      {
+        day:"Thursday , 17 septembre",
+
+        from: 17,
+        to: 18,
+        reservation: "declined",
+        coach: {
+          firstName: "Fedi",
+          lastName: "dghim",
+          location: {
+            city: "Genéve",
+            latitude: "47.183706",
+            longitude: "8.547383",
+          },
+          image_user: require("../MalekPhoto.jpg"),
+        },
+      },
+      {
+        day:"Monday , 11 October",
+        from: 17,
+        to: 18,
+        reservation: "decline",
+        coach: {
+          firstName: "Fedi",
+          lastName: "dghim",
+          location: {
+            city: "Genéve",
+            latitude: "47.183706",
+            longitude: "8.547383",
+          },
+          image_user: require("../MalekPhoto.jpg"),
+        },
+      },
+      {
+        day:"Friday , 2 Novembre",
+        from: 17,
+        to: 18,
+        reservation: "accepted",
+        coach: {
+          firstName: "Fedi",
+          lastName: "dghim",
+          location: {
+            city: "Genéve",
+            latitude: "47.183706",
+            longitude: "8.547383",
+          },
+          image_user: require("../MalekPhoto.jpg"),
+        },
+      },
+      {
+        day:"Monday , 11 october",
+        from: 17,
+        to: 18,
+        reservation: "accepted",
+        coach: {
+          firstName: "Fedi",
+          lastName: "dghim",
+          location: {
+            city: "Genéve",
+            latitude: "47.183706",
+            longitude: "8.547383",
+          },
+          image_user: require("../MalekPhoto.jpg"),
+        },
+      },
+      {
+        day:"Monday , 11 october",
+        from: 17,
+        to: 18,
+        reservation: "pending",
+        coach: {
+          firstName: "Fedi",
+          lastName: "dghim",
+          location: {
+            city: "Genéve",
+            latitude: "47.183706",
+            longitude: "8.547383",
+          },
+          image_user: require("../MalekPhoto.jpg"),
+        },
+      },
+      {
+        day:"Monday , 11 october",
+        from: 17,
+        to: 18,
+        reservation: "pending",
+        coach: {
+          firstName: "Fedi",
+          lastName: "dghim",
+          location: {
+            city: "Genéve",
+            latitude: "47.183706",
+            longitude: "8.547383",
+          },
+          image_user: require("../MalekPhoto.jpg"),
+        },
+      },
+    ]
   },
   {
     domaine: "Diet",
@@ -837,6 +1498,138 @@ export const dataCoach = [
           [],
           [],
         ],
+        sessionHistory:[
+          {
+            day:"Thursday , 17 septembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "¨Pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "declined",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 October",
+            from: 17,
+            to: 18,
+            reservation: "decline",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Friday , 2 Novembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+        ]
       },
       {
         id: 2,
@@ -986,6 +1779,138 @@ export const dataCoach = [
           [],
           [],
         ],
+        sessionHistory:[
+          {
+            day:"Thursday , 17 septembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "¨Pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "declined",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 October",
+            from: 17,
+            to: 18,
+            reservation: "decline",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Friday , 2 Novembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+        ]
       },
       {
         id: 3,
@@ -1135,6 +2060,138 @@ export const dataCoach = [
           [],
           [],
         ],
+        sessionHistory:[
+          {
+            day:"Thursday , 17 septembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "¨Pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "declined",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 October",
+            from: 17,
+            to: 18,
+            reservation: "decline",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Friday , 2 Novembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+        ]
       },
     ],
   },
@@ -1244,6 +2301,138 @@ export const dataCoach = [
           [],
           [],
         ],
+        sessionHistory:[
+          {
+            day:"Thursday , 17 septembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "¨Pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "declined",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 October",
+            from: 17,
+            to: 18,
+            reservation: "decline",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Friday , 2 Novembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+        ]
       },
       {
         id: 2,
@@ -1496,6 +2685,138 @@ export const dataCoach = [
           [],
           [],
         ],
+        sessionHistory:[
+          {
+            day:"Thursday , 17 septembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "¨Pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "declined",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 October",
+            from: 17,
+            to: 18,
+            reservation: "decline",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Friday , 2 Novembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+        ]
       },
     ],
   },

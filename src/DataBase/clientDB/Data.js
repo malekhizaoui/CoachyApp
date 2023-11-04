@@ -16,78 +16,63 @@ export const dataClient = [
     age: 23,
     reservation: [
       [
-        {
-          from: 17,
-          to: 18,
-          reservation: "accepted",
-          coach: {
-            firstName: "Fedi",
-            lastName: "dghim",
-            location: {
-              city: "Genéve",
-              latitude: "47.183706",
-              longitude: "8.547383",
-            },
-            image_user: require("../MalekPhoto.jpg"),
-          },
-        },
-        {
-          from: 17,
-          to: 18,
-          reservation: "accepted",
-          coach: {
-            firstName: "Fedi",
-            lastName: "dghim",
-            location: {
-              city: "Genéve",
-              latitude: "47.183706",
-              longitude: "8.547383",
-            },
-            image_user: require("../MalekPhoto.jpg"),
-          },
-        },
+        // {
+        //   from: 17,
+        //   to: 18,
+        //   reservation: "accepted",
+        //   coach: {
+        //     firstName: "Fedi",
+        //     lastName: "dghim",
+        //     location: {
+        //       city: "Genéve",
+        //       latitude: "47.183706",
+        //       longitude: "8.547383",
+        //     },
+        //     image_user: require("../MalekPhoto.jpg"),
+        //   },
+        // },
+        // {
+        //   from: 17,
+        //   to: 18,
+        //   reservation: "accepted",
+        //   coach: {
+        //     firstName: "Fedi",
+        //     lastName: "dghim",
+        //     location: {
+        //       city: "Genéve",
+        //       latitude: "47.183706",
+        //       longitude: "8.547383",
+        //     },
+        //     image_user: require("../MalekPhoto.jpg"),
+        //   },
+        // },
       ],
       [],
       [
-        {
-          from: 17,
-          to: 18,
-          reservation: "pending",
-          coach: {
-            firstName: "Fedi",
-            lastName: "dghim",
-            location: {
-              city: "Genéve",
-              latitude: "47.183706",
-              longitude: "8.547383",
-            },
-            image_user: require("../MalekPhoto.jpg"),
-          },
-        },
+        // {
+        //   from: 17,
+        //   to: 18,
+        //   reservation: "pending",
+          // coach: {
+          //   firstName: "Fedi",
+          //   lastName: "dghim",
+          //   location: {
+          //     city: "Genéve",
+          //     latitude: "47.183706",
+          //     longitude: "8.547383",
+          //   },
+          //   image_user: require("../MalekPhoto.jpg"),
+          // },
+        // },
       ],
       [],
       [],
-      [
-        {
-          from: 17,
-          to: 18,
-          reservation: "accepted",
-          coach: {
-            firstName: "Fedi",
-            lastName: "dghim",
-            location: {
-              city: "Genéve",
-              latitude: "47.183706",
-              longitude: "8.547383",
-            },
-            image_user: require("../MalekPhoto.jpg"),
-          },
-        },
-      ],
+      [],
       [],
     ],
     sessionHistory:[
       {
+        day:"Thursday , 17 septembre",
         from: 17,
         to: 18,
         reservation: "accepted",
@@ -103,6 +88,8 @@ export const dataClient = [
         },
       },
       {
+        day:"Thursday , 17 septembre",
+
         from: 17,
         to: 18,
         reservation: "¨Pending",
@@ -118,6 +105,8 @@ export const dataClient = [
         },
       },
       {
+        day:"Thursday , 17 septembre",
+
         from: 17,
         to: 18,
         reservation: "declined",
@@ -133,6 +122,7 @@ export const dataClient = [
         },
       },
       {
+        day:"Monday , 11 October",
         from: 17,
         to: 18,
         reservation: "decline",
@@ -148,6 +138,7 @@ export const dataClient = [
         },
       },
       {
+        day:"Friday , 2 Novembre",
         from: 17,
         to: 18,
         reservation: "accepted",
@@ -163,6 +154,7 @@ export const dataClient = [
         },
       },
       {
+        day:"Monday , 11 october",
         from: 17,
         to: 18,
         reservation: "accepted",
@@ -178,6 +170,7 @@ export const dataClient = [
         },
       },
       {
+        day:"Monday , 11 october",
         from: 17,
         to: 18,
         reservation: "pending",
@@ -193,6 +186,7 @@ export const dataClient = [
         },
       },
       {
+        day:"Monday , 11 october",
         from: 17,
         to: 18,
         reservation: "pending",

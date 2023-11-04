@@ -156,6 +156,13 @@
     background-color: #d18326;
     border-radius: 10px;
   }
+  .line-refused {
+    flex: 1;
+    width: 99%;
+    max-height: 7px;
+    background-color: rgb(148, 1, 1), 98, 38;
+    border-radius: 10px;
+  }
   
   .noReservation {
     width: 90%;

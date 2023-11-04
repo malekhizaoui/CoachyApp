@@ -67,7 +67,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
     const newDataReservation =
       dayOfWeek === 0
         ? getFutureDates(dataUser.reservation, 6)
-        : getFutureDates(dataUser.reservation, dayOfWeek);
+        : getFutureDates(dataUser.reservation, dayOfWeek-1);
 
     setNewData(newDataReservation);
   };
@@ -88,7 +88,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
         >
           {newData.map((element, index) => {
             return (
-              <>
+              < >
                 <p className="day">{days[index]}</p>
                 {element.length <= 0 ? (
                   <div className="noReservation">
@@ -111,6 +111,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                       if (elem.reservation === "accepted") {
                         return (
                           <div
+                          key={i}
                             className="reservation"
                             onClick={() => {
                               navigate("/CoachLocation", { state: elem.coach });
@@ -150,7 +151,10 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                         );
                       } else {
                         return (
-                          <div className="reservation">
+                          <div className="reservation"
+                          key={i}
+
+                          >
                             <div className="line-pending"></div>
 
                             <div

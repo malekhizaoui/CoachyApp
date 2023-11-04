@@ -20,9 +20,7 @@ function AllCoachs({setHideTabBar,sethideTabBarforCoachDetail}) {
       console.log("Choose Coach");
     }
   }
-  console.log("coachData", data);
-  console.log("checkedOrNot", checkedOrNot);
-  console.log("chooseCoach", chooseCoach);
+
   return (
     <div className="container">
       <div className="container-page">
@@ -63,7 +61,7 @@ function AllCoachs({setHideTabBar,sethideTabBarforCoachDetail}) {
           {/* coach checked */}
           {data.map((element, index) => {
             return (
-              <div className="detail-coach" >
+              <div key={index} className="detail-coach" >
                 <div className="header-coach">
                   <div
                   onClick={()=>{navigate('/CoachLocation',{state:element}); setHideTabBar(true);sethideTabBarforCoachDetail(true)}}

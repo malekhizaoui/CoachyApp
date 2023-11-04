@@ -81,7 +81,6 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
       const today = new Date();
     const dayOfWeek = today.getDay();
     const newDataReservation =dayOfWeek===0? getFutureDates(dataUser.reservation, 6):getFutureDates(dataUser.reservation, dayOfWeek-1);
-    console.log("hello",newDataReservation);
     setNewData(newDataReservation);
     localStorage.setItem("dataUser",JSON.stringify({...dataUser,reservation:newDataReservation}))
     localStorage.setItem("today",JSON.stringify(days[0]))

@@ -160,12 +160,18 @@ line-height: normal;
   line-height: normal;
   margin: 0;
 }
-
+.line-refused {
+  flex: 1;
+  width: 99%;
+  max-height: 7px;
+  background-color: #c30c0c;
+  border-radius: 10px;
+}
 .line-pending {
   flex: 1;
   width: 99%;
   max-height: 7px;
-  background-color: #d18326;
+  background-color: #c3710c;
   border-radius: 10px;
 }
 
