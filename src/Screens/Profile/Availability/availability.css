@@ -27,3 +27,85 @@
     align-items: center;
     width: 88%;
 }
+
+.session-style-container{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    flex-direction: column;
+}
+.dayavailability-container{
+    flex: 1.5;
+  flex-direction: row;
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+  height: 65px;
+}
+.text-hour{
+    text-align: left;
+    margin-left: 15px;
+    color: ""; 
+    font-size: 15px;
+}
+
+.edit-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bookFrom-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.edit-book{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 130px;
+    height: 50px;
+    border-radius: 15px;
+    margin: 10px;
+    border: 0.4px solid black;
+    background: var(--white, #FFFBFB);
+}
+.time-editing{
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+}
+.edit-hour{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px;
+}
+
+.edit-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.edit-am{
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex: 1;
+  background-color: #5D54A0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.btn-edit{
+    background-color: #5D54A0;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+}
