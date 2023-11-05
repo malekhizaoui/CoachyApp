@@ -231,6 +231,7 @@ function Reservation() {
                                 onClick={()=>{
                                   const result = bookSession(index)
                                   localStorage.setItem('dataUser',JSON.stringify(result))
+                                  navigate('/')
                                 }}
                                 style={{
                                   backgroundColor: pickTime
