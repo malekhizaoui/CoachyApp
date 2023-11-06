@@ -8,7 +8,6 @@ import "leaflet-routing-machine";
 import "./clientLocation.css";
 import BackIconComponent from "../../../../Components/componentBack/BackIconComponent";
 import CallIcon from "../../../../assets/icons/Planing/CallIcon";
-import MessageIcon from "../../../../assets/icons/Planing/MessageIcon";
 import { useNavigate, useLocation } from "react-router-dom";
 import Cookies from "universal-cookie";
 
@@ -202,7 +201,6 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
           </div>
           <div className="design-icons">
             <CallIcon />
-            <MessageIcon />
           </div>
         </div>
         <div className="descirption-coach">
