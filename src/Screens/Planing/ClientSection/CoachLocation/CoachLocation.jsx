@@ -8,7 +8,7 @@ import "leaflet-routing-machine";
 import "./coachLocation.css";
 import BackIconComponent from "../../../../Components/componentBack/BackIconComponent";
 import CallIcon from "../../../../assets/icons/Planing/CallIcon";
-import MessageIcon from "../../../../assets/icons/Planing/MessageIcon"
+// import MessageIcon from "../../../../assets/icons/Planing/MessageIcon"
 import { useNavigate, useLocation } from "react-router-dom";
 
 function CoachLocation({setlong,setlat,setHideTabBar}) {
@@ -148,7 +148,7 @@ function CoachLocation({setlong,setlat,setHideTabBar}) {
           </div>
           <div className="design-icons">
             <CallIcon />
-            <MessageIcon />
+            {/* <MessageIcon /> */}
           </div>
         </div>
         <div className="descirption-coach">
