@@ -4,9 +4,9 @@ function MessagesIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="30"
-      viewBox="0 0 30 30"
+      width="38"
+      height="43"
+      viewBox="0 0 35 36"
       fill="none"
     >
       <path

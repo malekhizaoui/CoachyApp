@@ -88,7 +88,7 @@ line-height: normal;
 .text {
   color: #000;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 14px;
+  font-size: 75%;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -96,11 +96,13 @@ line-height: normal;
 }
 .time {
   align-self: center;
-  flex: 0.5;
+  flex: 0.6;
+  width: auto;
+  height: 100%;
 }
 
 .detail-user {
-  margin-left: 20px;
+  /* margin-left: 20px; */
   align-self: center;
   display: flex;
   flex-direction: row;
@@ -110,6 +112,7 @@ line-height: normal;
 
 .image-user {
   width: 45px;
+  margin-left: 0;
   /* height: 45px;
   border-radius: 43px;
   background-size: cover;
@@ -126,7 +129,7 @@ line-height: normal;
 .text-name {
   color: #000;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 16px;
+  font-size: 70%;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -145,7 +148,7 @@ line-height: normal;
 .text-checkReservation {
   color: var(--grey-2, rgba(119, 114, 114, 0.6));
   font-family: Inter;
-  font-size: 16px;
+  font-size: 70%;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -154,11 +157,12 @@ line-height: normal;
 .text-pendingReservation {
   color: #d18326;
   font-family: Inter;
-  font-size: 16px;
+  font-size: 70%;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   margin: 0;
+  
 }
 .line-refused {
   flex: 1;

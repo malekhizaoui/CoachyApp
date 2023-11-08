@@ -12,16 +12,18 @@ function Myprofile() {
   const navigate = useNavigate();
   const cookies = new Cookies();
   const userData = localStorage.getItem("dataUser");
-  const data= JSON.parse(userData)
+  const data = JSON.parse(userData);
   const typeUser = localStorage.getItem("typeUser");
   return (
     <div className="container">
-      <div className="couverture-image"></div>
-      <div className="image-container">
-        <img className="profile-image" src={data.image_user} />
-        <p>
-          {data.firstName} {data.lastName}
-        </p>
+      <div style={{display:"flex",flexDirection:"column",justifyContent:"center",height:"30%",width:"100%"}}>
+        <div className="couverture-image"></div>
+        <div className="image-container">
+          <img className="profile-image" src={data.image_user} />
+          <p>
+            {data.firstName} {data.lastName}
+          </p>
+        </div>
       </div>
       <div className="profile-info">
         <p style={{ marginTop: 5 }}>My profile</p>

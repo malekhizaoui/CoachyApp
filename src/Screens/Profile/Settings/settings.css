@@ -3,18 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 70px;
-    
-}
-
-.line-settings{
-    align-self: center;
-    width: 106%;
-    height: 0.5px;
-    background-color: black;
-    border-radius: 10px;
-    margin-top: 25px;
-    margin-left: -12px;
+    align-items: center;
 }
 
 .detail-info-settings{
@@ -27,13 +16,6 @@
     width: 90%;
     display: flex;
     flex-direction: column;
-}.settings-conatiner{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 60px;
-    
 }
 
 .line-settings{
@@ -46,7 +28,10 @@
     margin-left: -12px;
 }
 
-
+.container-value-settings{
+    width: 100%;
+    height: 17%;
+}
 .container-settings{
     width: 90%;
     display: flex;

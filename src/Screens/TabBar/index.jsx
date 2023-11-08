@@ -14,41 +14,28 @@ function TabBar({ handleTabItem, tabItem }) {
   const navigate = useNavigate();
 
   return (
-    <footer>
+    <footer className="tabBar">
       <div className="tabBar">
         <div className="tabList">
-          <div
-            className="tabItem1"
-            onClick={() => {
-              handleTabItem("Messages");
-            }}
-          >
-            <div style={{ marginLeft: 15 }}>
+
+        {/* Tab Messages */}
+
+        <div className="tabItem1" onClick={() => {handleTabItem("Messages")}}>
             {tabItem !== "Messages" ? <MessagesIcon /> : <MessageFocusedIcon />}
-            </div>
             <p className="p-tabBar" style={tabItem === "Messages"?{color:"#5D54A0"}:null}>Messages</p>
           </div>
-          <div
-            className="tabItem2"
-            onClick={() => {
-              handleTabItem("Planing");
-              navigate('/')
 
-            }}
-          >
+        {/* Tab Planing */}
+
+        <div className="tabItem2" onClick={() => {handleTabItem("Planing");navigate('/')}}  >
             {tabItem !== "Planing" ? <PlaningIcon /> : <PlaningFocusedIcon />}
             <p className="p-tabBar" style={tabItem === "Planing"?{color:"#5D54A0"}:null}>Planing</p>
           </div>
-          <div
-            className="tabItem3"
-            onClick={() => {
-              handleTabItem("Profile");
-              navigate('/')
 
-            }}
-          >
+        {/* Tab Profile */}
+
+          <div className="tabItem3" onClick={() => {handleTabItem("Profile");navigate('/')}}>
             {tabItem !== "Profile" ? <ProfileIcon /> : <ProfileFocusedIcon />}
-
             <p className="p-tabBar" style={tabItem === "Profile"?{color:"#5D54A0"}:null}>Profile</p>
           </div>
         </div>

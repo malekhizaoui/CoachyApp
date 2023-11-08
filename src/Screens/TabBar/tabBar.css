@@ -1,6 +1,7 @@
 .tabBar {
     display: flex;
     justify-content: center;
+    align-items: center;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -10,41 +11,47 @@
     color: #777272;
     padding: 10px;
     border: 2px solid #555; /* Add a top border */
-
+    padding:0.5px  
     /* border-radius: 10px; */
   }
   .tabList {
     display: flex;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
   
   .tabItem1 {
+    display: flex;
     align-self: center;
     flex: 1;
     cursor: pointer;
-    text-align: left;
-    padding-left: 20px;
     flex-direction: column;
-    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
   .tabItem2 {
-    flex: 1;
+    display: flex;
     align-self: center;
-    /* margin-top: 12px; */
+    flex: 1;
     cursor: pointer;
-    text-align: center;
     flex-direction: column;
-  
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
   .tabItem3 {
-    flex: 1;
+    display: flex;
     align-self: center;
-    text-align: right;
-  padding-right: 20px;
+    flex: 1;
     cursor: pointer;
     flex-direction: column;
-  
-  }
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  } 
   
   .tabItem:hover {
     background-color: #555;
@@ -55,4 +62,6 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin: 0;
+    padding: 0;
   }

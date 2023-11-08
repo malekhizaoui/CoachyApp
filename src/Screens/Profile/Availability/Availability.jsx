@@ -25,14 +25,10 @@ function Availability() {
   ];
 
   const editTime = (day, session) => {
-    // console.log("day",day);
-    // console.log("session",session);
     const newDataAvailibility = dataUser.availability.map((element, index) => {
       if (day === index) {
         return element.map((elem, i) => {
           if (session === i) {
-            console.log("bookFrom.hour", bookFrom.hour);
-            console.log("bookTo.hour", bookTo.hour);
             return { from: bookFrom.hour, to: bookTo.hour };
           }
           return { ...elem };
@@ -40,17 +36,12 @@ function Availability() {
       }
       return [...element];
     });
-    console.log("datta", newDataAvailibility);
-    localStorage.setItem(
-      "dataUser",
-      JSON.stringify({ ...dataUser, availability: newDataAvailibility })
-    );
+    localStorage.setItem("dataUser",JSON.stringify({ ...dataUser, availability: newDataAvailibility }));
     setDataUser({ ...dataUser, availability: newDataAvailibility });
   };
 
-  console.log("dataUser", dataUser);
   return (
-    <div className="container">
+    <div className="container-avail-profile">
       <div className="navigate-Available">
         <BackIcon />
         <p className="name-page">My availability</p>
@@ -74,13 +65,13 @@ function Availability() {
                     }}
                   >
                     <div className="dayavailability-container">
-                      <p style={{ fontSize: 12 }}>
+                      <p style={{ fontSize: "100%" }}>
                         {day.from > 12
                           ? day.from + ":00 Pm"
                           : day.from + ":00 Am"}
                       </p>
                       <ArrowTime />
-                      <p style={{ fontSize: 12 }}>
+                      <p style={{ fontSize: "100%" }}>
                         {day.to > 12 ? day.to + ":00 Pm" : day.to + ":00 Am"}
                       </p>
                     </div>
@@ -263,6 +254,7 @@ function Availability() {
           )}
         </div>
       ))}
+      <div style={{marginBottom:120,height:"100%"}}></div>
     </div>
   );
 }

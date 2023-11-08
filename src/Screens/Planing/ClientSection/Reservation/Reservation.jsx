@@ -14,10 +14,18 @@ function Reservation() {
   const data = location.state;
   const dataClient=localStorage.getItem('dataUser')
   const dataParsed=JSON.parse(dataClient)
-  console.log("dataParsed",dataParsed);
-  console.log("data",location.state);
+  const days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
 
   const bookSession=(day)=>{
+    console.log("data.location.image_user",data.location.image_user);
    const newReservation= dataParsed.reservation.map((element,index)=>{
       if(day===index){
         return[...element,
@@ -33,7 +41,7 @@ function Reservation() {
               latitude: data.location.latitude,
               longitude: data.location.longitude,
             },
-            // image_user: require(data.location.image_user),
+            image_user: location.state.image_user,
           },
         }
       ]
@@ -46,15 +54,7 @@ function Reservation() {
   }
 
 
-  const days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
+ 
   return (
     <div className="reservation-container">
       <div className="page-container">
@@ -230,6 +230,8 @@ function Reservation() {
                               <button
                                 onClick={()=>{
                                   const result = bookSession(index)
+                                  console.log("result",result);
+
                                   localStorage.setItem('dataUser',JSON.stringify(result))
                                   navigate('/')
                                 }}

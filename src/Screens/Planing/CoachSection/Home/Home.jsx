@@ -1,27 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./coach.css";
-import Cookies from "universal-cookie";
 import CalendarIcon from "../../../../assets/icons/Planing/CalendarIcon";
 import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
 import ArrowTime from "../../../../assets/icons/Planing/ArrowTime";
-// import { data } from "../../../../DataBase/clientDB/Data";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
-  const cookies = new Cookies();
   const data = localStorage.getItem("dataUser");
-  const dataUser=JSON.parse(data)
+  const dataUser = JSON.parse(data);
   const navigate = useNavigate();
-  const location = useLocation();
   const [newData, setNewData] = useState(dataUser.reservation);
- 
+
   useEffect(() => {
     reorganizeReservation();
-  },[]);
-  // console.log("location",location.state);
-  console.log("dataUserCoachhh", newData);
+  }, []);
 
   const days = getWeekDaysInfo();
-  
+
   function getWeekDaysInfo() {
     const today = new Date();
     const daysInfo = [];
@@ -53,14 +47,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
     return daysInfo;
   }
 
-
-  function getFutureDates(array,inputNumber ) {
-    // if (inputNumber < 0 || inputNumber > 6) {
-    //   console.log('ljhksgdlhgdsqj');
-    //   return [];
-    // }
-    console.log("number",inputNumber);
-    console.log("array",array);
+  function getFutureDates(array, inputNumber) {
     const result = [];
     for (let i = inputNumber; i < array.length; i++) {
       result.push(array[i]);
@@ -69,27 +56,29 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
     for (let i = 0; i < inputNumber; i++) {
       result.push(array[i]);
     }
-    console.log("result",result);
+    console.log("result", result);
     return result;
   }
 
   const reorganizeReservation = () => {
-  const data=  localStorage.getItem("today");
-  const getToday= JSON.parse(data)
-    console.log("getToday",getToday);
-    if(!getToday){
+    const data = localStorage.getItem("today");
+    const getToday = JSON.parse(data);
+    if (!getToday) {
       const today = new Date();
-    const dayOfWeek = today.getDay();
-    const newDataReservation =dayOfWeek===0? getFutureDates(dataUser.reservation, 6):getFutureDates(dataUser.reservation, dayOfWeek-1);
-    setNewData(newDataReservation);
-    localStorage.setItem("dataUser",JSON.stringify({...dataUser,reservation:newDataReservation}))
-    localStorage.setItem("today",JSON.stringify(days[0]))
+      const dayOfWeek = today.getDay();
+      const newDataReservation =
+        dayOfWeek === 0
+          ? getFutureDates(dataUser.reservation, 6)
+          : getFutureDates(dataUser.reservation, dayOfWeek - 1);
+      setNewData(newDataReservation);
+      localStorage.setItem(
+        "dataUser",
+        JSON.stringify({ ...dataUser, reservation: newDataReservation })
+      );
+      localStorage.setItem("today", JSON.stringify(days[0]));
     }
-    
   };
 
-  // console.log("daysInfo", days);
-  // console.log("startinngg");
   return (
     <div>
       <div className="container">
@@ -140,20 +129,20 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                         <div className="RestDayContainer">
                           <div
                             style={{
-                              flex: 1.5,
+                              flex: 1.8,
                               flexDirection: "row",
                               display: "flex",
                               marginLeft: 10,
                               alignItems: "center",
                             }}
                           >
-                            <p style={{ fontSize: 12 }}>
+                            <p style={{ fontSize: "60%" }}>
                               {booking.from > 12
                                 ? booking.from + ":00 Pm"
                                 : booking.from + ":00 Am"}
                             </p>
                             <ArrowTime />
-                            <p style={{ fontSize: 12 }}>
+                            <p style={{ fontSize: "60%" }}>
                               {booking.to > 12
                                 ? booking.to + ":00 Pm"
                                 : booking.to + ":00 Am"}
@@ -174,14 +163,14 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                         <div
                           className="reservation"
                           onClick={() => {
-                            console.log("days[index]",days[index]);
+                            console.log("days[index]", days[index]);
                             navigate("/ClientLocation", {
                               state: {
                                 dataCoach: booking.client,
                                 reservationState: "accepted",
                                 indexReservation: index,
                                 indexsession: i,
-                                dataUsers:newData
+                                dataUsers: newData,
                               },
                             });
                             setHideTabBar(true);
@@ -233,17 +222,13 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                         <div
                           className="reservation"
                           onClick={() => {
-                            console.log("days[index]",days[index]);
-                            console.log("indexReservation",index);
-                            console.log("indexsession",i);
                             navigate("/ClientLocation", {
                               state: {
                                 dataCoach: booking.client,
                                 reservationState: "pending",
                                 indexReservation: index,
                                 indexsession: i,
-                                dataUsers:newData
-
+                                dataUsers: newData,
                               },
                             });
                             setHideTabBar(true);
@@ -276,7 +261,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                                   {booking.client.lastName}
                                 </p>
                                 <p className="text-location">
-                                  {" "}
+                                
                                   {booking.client.location.city}
                                 </p>
                               </div>

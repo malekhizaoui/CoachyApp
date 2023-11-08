@@ -43,11 +43,8 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
       return [...element];
     });
     const newDataUser = { ...dataUser, reservation: newReservation };
-    console.log("newReservation//////newReservation",newReservation);
-    console.log("newDataUser//////newDataUser",newDataUser);
-
     localStorage.setItem("dataUser", JSON.stringify(newDataUser));
-    navigate("/",{state:"true"});
+    navigate("/");
     setHideTabBar(false);
   };
   const cancelReservation = () => {
@@ -68,10 +65,8 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
       return [...element];
     });
     const newDataUser = { ...dataUser, reservation: newReservation };
-    console.log("newReservation//////newReservation",newReservation);
-    console.log("newDataUser//////newDataUser",newDataUser);;
     localStorage.setItem("dataUser", JSON.stringify(newDataUser));
-    navigate("/",{state:"true"});
+    navigate("/");
     setHideTabBar(false);
   };
   useEffect(() => {
@@ -161,14 +156,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
             Mylocation <br />
           </Popup>
         </Marker>
-
-        {/* Add a routing itinerary between position and location */}
-        {/* {waypoints[0] && waypoints[1] && (
-          <L.Routing.Itinerary waypoints={waypoints} />
-        )} */}
       </MapContainer>
-      {/* <button onClick={openGoogleMaps}>ss</button>
-      <div></div> */}
       <div className="user-detail-location">
         <div className="header-detail-user">
           <div
@@ -181,17 +169,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
           >
             <img className="img-user" src={dataCoach.image_user} />
             <div className="train-name-user">
-              <p
-                style={{
-                  margin: 4,
-                  color: "var(--grey-2, rgba(119, 114, 114, 0.60))",
-                  fontFamily: "Inter",
-                  fontSize: "16px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "normal",
-                }}
-              >
+              <p className="txt-train">
                 train with
               </p>
               <p style={{ margin: 2 }}>
@@ -207,30 +185,16 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
           <p className="bioCoach">{dataCoach.bio}</p>
           {locationForstate.state.reservationState === "pending" ? (
             <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
-              <button
-                className="btn-location"
-                onClick={() => {
-                  cancelReservation();
-                }}
-              >
+              <button className="btn-location" onClick={() => { cancelReservation()}}>
                 Cancel Request
               </button>
               <button
-                className="btn-location"
-                onClick={() => {
-                  acceptReservation();
-                }}
-              >
+                className="btn-location" onClick={() => {acceptReservation()}}>
                 Accept Request
               </button>
             </div>
           ) : (
-            <button
-              className="btn-location"
-              onClick={() => {
-                cancelReservation();
-              }}
-            >
+            <button className="btn-location" onClick={() => { cancelReservation()}}>
               Cancel Request
             </button>
           )}

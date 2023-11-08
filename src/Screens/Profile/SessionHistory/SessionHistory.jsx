@@ -47,6 +47,7 @@ function SessionHistory() {
           
           
         })}
+        <div style={{marginBottom:120}}></div>
       </div>
       </div>
     </div>

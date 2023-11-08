@@ -19,28 +19,32 @@ function Settings({ logOut }) {
         </div>
 
         <div className="settings-conatiner">
+          <div className="container-value-settings">
           <div className="line-settings"></div>
-          {/* <p className="attribute-info">Full Name</p> */}
           <div className="detail-info-settings">
             <p className="value-info">Langue</p>
             <ArrowrightIcon />
           </div>
-          <div className="line-settings"></div>
+          </div>
+          <div className="container-value-settings">
 
-          {/* <p className="attribute-info">Age</p> */}
+          <div className="line-settings"></div>
           <div className="detail-info-settings">
             <p className="value-info">About App</p>
             <ArrowrightIcon />
           </div>
+          </div>
+          <div className="container-value-settings">
+
           <div className="line-settings"></div>
-          {/* <p className="attribute-info">Phone number</p> */}
           <div className="detail-info-settings">
             <p className="value-info">Help</p>
             <ArrowrightIcon />
           </div>
-          <div className="line-settings"></div>
+          </div>
+          <div className="container-value-settings">
 
-          {/* <p className="attribute-info">E-mail</p> */}
+          <div className="line-settings"></div>
           <div
             className="detail-info-settings"
             onClick={() => {
@@ -51,6 +55,9 @@ function Settings({ logOut }) {
             <p className="value-info">Log out</p>
             <LogoutIcon />
           </div>
+          </div>
+          <div className="container-value-settings">
+
           <div className="line-settings"></div>
           <div className="detail-info-settings">
             <p className="value-info" style={{ color: "red" }}>
@@ -59,6 +66,8 @@ function Settings({ logOut }) {
             <DeleteAccountIcon />
           </div>
           <div className="line-settings"></div>
+
+          </div>
         </div>
       </div>
     </div>

@@ -193,8 +193,7 @@
     color: var(--grey-1, #dcdcdc);
     text-align: center;
     /* font-family:; */
-    font-size: 14px;
-    font-style: normal;
+    font-size: 90%;    font-style: normal;
     font-weight: 600;
     line-height: normal;
     align-self: center;

@@ -15,8 +15,6 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   useEffect(() => {
     reorganizeReservation();
   }, []);
-  console.log("dataUserClient", dataUser.reservation);
-  console.log("newData", newData);
 
   const days = getWeekDaysInfo();
   function getFutureDates(array, inputNumber) {
@@ -99,7 +97,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                         navigate("/DomaineCoaching",{state:index});
                       }}
                     >
-                      <p className="see-coachs">SEE THE AVAILABLE COACHS</p>
+                      <p className="see-coachs">See the available coachs</p>
                     </div>
                     <div className="icon">
                       <ArrowrightIcon />
@@ -168,7 +166,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                               <div className="detail-user">
                                 <img
                                   className="image-user"
-                                  // src={elem.coach.image_user}
+                                  src={elem.coach.image_user}
                                 />
                                 <div className="style-user-detail">
                                   <p className="text-name">
