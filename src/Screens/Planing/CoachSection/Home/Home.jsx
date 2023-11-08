@@ -46,7 +46,6 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
 
     return daysInfo;
   }
-
   function getFutureDates(array, inputNumber) {
     const result = [];
     for (let i = inputNumber; i < array.length; i++) {

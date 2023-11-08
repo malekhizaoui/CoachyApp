@@ -53,16 +53,16 @@ export const dataClient = [
         //   from: 17,
         //   to: 18,
         //   reservation: "pending",
-          // coach: {
-          //   firstName: "Fedi",
-          //   lastName: "dghim",
-          //   location: {
-          //     city: "Genéve",
-          //     latitude: "47.183706",
-          //     longitude: "8.547383",
-          //   },
-          //   image_user: require("../MalekPhoto.jpg"),
-          // },
+        //   coach: {
+        //     firstName: "Fedi",
+        //     lastName: "dghim",
+        //     location: {
+        //       city: "Genéve",
+        //       latitude: "47.183706",
+        //       longitude: "8.547383",
+        //     },
+        //     image_user: require("../MalekPhoto.jpg"),
+        //   },
         // },
       ],
       [],

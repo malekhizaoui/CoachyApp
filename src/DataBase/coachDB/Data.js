@@ -5,6 +5,7 @@ export const dataCoach = [
     coachs: [
       {
         id: 1,
+        domaine: "fitness",
         bio: "dedicated fitness enthusiast and certified personal trainer. He has a passion for helping individuals of all fitness levels achieve their health and wellness goals.",
         firstName: "John",
         type: "Coach",
@@ -27,117 +28,107 @@ export const dataCoach = [
         "": "",
         reservation: [
           [
-            {
-              from: 8,
-              to: 12,
-              reservationState: "accepted",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
-            {
-              from: 14,
-              to: 16,
-              reservationState: "Pending",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
-            {
-              from: 20,
-              to: 24,
-              reservationState: "noRequest",
-            },
+            // {
+            //   from: 8,
+            //   to: 12,
+            //   reservationState: "accepted",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //     location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "Pending",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //     location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
+            // {
+            //   from: 20,
+            //   to: 24,
+            //   reservationState: "noRequest",
+            // },
           ],
           [],
           [
-            {
-              from: 14,
-              to: 16,
-              reservationState: "Pending",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "Pending",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //     location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
           ],
           [],
           [
-            {
-              from: 8,
-              to: 12,
-              reservationState: "accepted",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
-            {
-              from: 14,
-              to: 16,
-              reservationState: "Pending",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                 location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
+            // {
+            //   from: 8,
+            //   to: 12,
+            //   reservationState: "accepted",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //     location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //     location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "Pending",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //      location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
           ],
           [],
           [],
         ],
-        availability: [
+        availability: [ 
           [
             {
               from: 8,
@@ -309,6 +300,7 @@ export const dataCoach = [
       {
         
         id: 2,
+        domaine: "fitness",
         bio: "dedicated fitness enthusiast and certified personal trainer. He has a passion for helping individuals of all fitness levels achieve their health and wellness goals.",
         firstName: "David",
         type: "Coach",
@@ -331,102 +323,102 @@ export const dataCoach = [
         "": "",
         reservation: [
           [
-            {
-              from: 8,
-              to: 12,
-              reservationState: "accepted",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                 location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
-            {
-              from: 14,
-              to: 16,
-              reservationState: "Pending",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                 location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
-            {
-              from: 20,
-              to: 24,
-              reservationState: "noRequest",
-            },
+            // {
+            //   from: 8,
+            //   to: 12,
+            //   reservationState: "accepted",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //     location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //      location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "Pending",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //      location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
+            // {
+            //   from: 20,
+            //   to: 24,
+            //   reservationState: "noRequest",
+            // },
           ],
           [],
           [
-            {
-              from: 14,
-              to: 16,
-              reservationState: "Pending",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                 location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "Pending",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //      location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
           ],
           [],
           [
-            {
-              from: 8,
-              to: 12,
-              reservationState: "accepted",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
-            {
-              from: 14,
-              to: 16,
-              reservationState: "Pending",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                 location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
+            // {
+            //   from: 8,
+            //   to: 12,
+            //   reservationState: "accepted",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //     location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "Pending",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //      location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
           ],
           [],
           [],
@@ -602,6 +594,8 @@ export const dataCoach = [
       },
       {
         id: 3,
+        domaine: "fitness",
+
         bio: "experienced fitness instructor who focuses on weight management and cardiovascular fitness",
         firstName: "Michael",
         type: "Coach",
@@ -624,63 +618,63 @@ export const dataCoach = [
         "": "",
         reservation: [
           [
-            {
-              from: 8,
-              to: 12,
-              reservationState: "accepted",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
-            {
-              from: 14,
-              to: 16,
-              reservationState: "noRequest",
-            },
-            {
-              from: 14,
-              to: 16,
-              reservationState: "Pending",
-              client: {
-                firstName: "Malek",
-                lastName: "Hizaoui",
-                 location: {
-                  city: "Genève",
-                  latitude: "8.547383",
-                  longitude: "47.183706",
-                },
-                image_user: require("../MalekPhoto.jpg"),
-              },
-            },
+            // {
+            //   from: 8,
+            //   to: 12,
+            //   reservationState: "accepted",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //     location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "noRequest",
+            // },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "Pending",
+            //   client: {
+            //     firstName: "Malek",
+            //     lastName: "Hizaoui",
+            //      location: {
+            //       city: "Genève",
+            //       latitude: "8.547383",
+            //       longitude: "47.183706",
+            //     },
+            //     image_user: require("../MalekPhoto.jpg"),
+            //   },
+            // },
           ],
           [],
           [
-            {
-              from: 14,
-              to: 16,
-              reservationState: "noRequest",
-            },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "noRequest",
+            // },
           ],
           [],
           [
-            {
-              from: 8,
-              reservationState: "noRequest",
+            // {
+            //   from: 8,
+            //   reservationState: "noRequest",
 
-              to: 12,
-            },
-            {
-              from: 14,
-              to: 16,
-              reservationState: "noRequest",
-            },
+            //   to: 12,
+            // },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "noRequest",
+            // },
           ],
           [],
           [],
@@ -856,6 +850,8 @@ export const dataCoach = [
       },
       {
         id: 4,
+        domaine: "fitness",
+
         bio: "Passionate fitness trainer dedicated to helping individuals achieve a healthier lifestyle through personalized workout plans.",
         firstName: "Lisa",
         type: "Coach",
@@ -878,42 +874,42 @@ export const dataCoach = [
         "": "",
         reservation: [
           [
-            {
-              from: 8,
-              to: 12,
-              reservationState: "noRequest",
-            },
-            {
-              from: 14,
-              to: 16,
-              reservationState: "noRequest",
-            },
-            {
-              from: 20,
-              to: 24,
-              reservationState: "noRequest",
-            },
+            // {
+            //   from: 8,
+            //   to: 12,
+            //   reservationState: "noRequest",
+            // },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "noRequest",
+            // },
+            // {
+            //   from: 20,
+            //   to: 24,
+            //   reservationState: "noRequest",
+            // },
           ],
           [],
           [
-            {
-              from: 14,
-              to: 16,
-              reservationState: "noRequest",
-            },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "noRequest",
+            // },
           ],
           [],
           [
-            {
-              from: 8,
-              to: 12,
-              reservationState: "noRequest",
-            },
-            {
-              from: 14,
-              to: 16,
-              reservationState: "noRequest",
-            },
+            // {
+            //   from: 8,
+            //   to: 12,
+            //   reservationState: "noRequest",
+            // },
+            // {
+            //   from: 14,
+            //   to: 16,
+            //   reservationState: "noRequest",
+            // },
           ],
           [],
           [],
@@ -1089,7 +1085,9 @@ export const dataCoach = [
         ]
       },
       {
+
         id: 5,
+        domaine: "fitness",
         bio: "dedicated fitness trainer with a holistic approach to health and wellness. She specializes in yoga and mindfulness along with traditional fitness training",
         firstName: "Emily",
         type: "Coach",
@@ -1210,140 +1208,141 @@ export const dataCoach = [
           [],
           [],
         ],
+        sessionHistory:[
+          {
+            day:"Thursday , 17 septembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "¨Pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Thursday , 17 septembre",
+    
+            from: 17,
+            to: 18,
+            reservation: "declined",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 October",
+            from: 17,
+            to: 18,
+            reservation: "decline",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Friday , 2 Novembre",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "accepted",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+          {
+            day:"Monday , 11 october",
+            from: 17,
+            to: 18,
+            reservation: "pending",
+            coach: {
+              firstName: "Fedi",
+              lastName: "dghim",
+              location: {
+                city: "Genéve",
+                latitude: "47.183706",
+                longitude: "8.547383",
+              },
+              image_user: require("../MalekPhoto.jpg"),
+            },
+          },
+        ]
       },
     ],
-    sessionHistory:[
-      {
-        day:"Thursday , 17 septembre",
-        from: 17,
-        to: 18,
-        reservation: "accepted",
-        coach: {
-          firstName: "Fedi",
-          lastName: "dghim",
-          location: {
-            city: "Genéve",
-            latitude: "47.183706",
-            longitude: "8.547383",
-          },
-          image_user: require("../MalekPhoto.jpg"),
-        },
-      },
-      {
-        day:"Thursday , 17 septembre",
-
-        from: 17,
-        to: 18,
-        reservation: "¨Pending",
-        coach: {
-          firstName: "Fedi",
-          lastName: "dghim",
-          location: {
-            city: "Genéve",
-            latitude: "47.183706",
-            longitude: "8.547383",
-          },
-          image_user: require("../MalekPhoto.jpg"),
-        },
-      },
-      {
-        day:"Thursday , 17 septembre",
-
-        from: 17,
-        to: 18,
-        reservation: "declined",
-        coach: {
-          firstName: "Fedi",
-          lastName: "dghim",
-          location: {
-            city: "Genéve",
-            latitude: "47.183706",
-            longitude: "8.547383",
-          },
-          image_user: require("../MalekPhoto.jpg"),
-        },
-      },
-      {
-        day:"Monday , 11 October",
-        from: 17,
-        to: 18,
-        reservation: "decline",
-        coach: {
-          firstName: "Fedi",
-          lastName: "dghim",
-          location: {
-            city: "Genéve",
-            latitude: "47.183706",
-            longitude: "8.547383",
-          },
-          image_user: require("../MalekPhoto.jpg"),
-        },
-      },
-      {
-        day:"Friday , 2 Novembre",
-        from: 17,
-        to: 18,
-        reservation: "accepted",
-        coach: {
-          firstName: "Fedi",
-          lastName: "dghim",
-          location: {
-            city: "Genéve",
-            latitude: "47.183706",
-            longitude: "8.547383",
-          },
-          image_user: require("../MalekPhoto.jpg"),
-        },
-      },
-      {
-        day:"Monday , 11 october",
-        from: 17,
-        to: 18,
-        reservation: "accepted",
-        coach: {
-          firstName: "Fedi",
-          lastName: "dghim",
-          location: {
-            city: "Genéve",
-            latitude: "47.183706",
-            longitude: "8.547383",
-          },
-          image_user: require("../MalekPhoto.jpg"),
-        },
-      },
-      {
-        day:"Monday , 11 october",
-        from: 17,
-        to: 18,
-        reservation: "pending",
-        coach: {
-          firstName: "Fedi",
-          lastName: "dghim",
-          location: {
-            city: "Genéve",
-            latitude: "47.183706",
-            longitude: "8.547383",
-          },
-          image_user: require("../MalekPhoto.jpg"),
-        },
-      },
-      {
-        day:"Monday , 11 october",
-        from: 17,
-        to: 18,
-        reservation: "pending",
-        coach: {
-          firstName: "Fedi",
-          lastName: "dghim",
-          location: {
-            city: "Genéve",
-            latitude: "47.183706",
-            longitude: "8.547383",
-          },
-          image_user: require("../MalekPhoto.jpg"),
-        },
-      },
-    ]
+    
   },
   {
     domaine: "Diet",
@@ -1351,6 +1350,7 @@ export const dataCoach = [
     coachs: [
       {
         id: 1,
+        domaine: "Diet",
         bio: "Dedicated dietitian with expertise in weight management and balanced nutrition.",
         firstName: "Diana",
         type: "Coach",
@@ -1633,6 +1633,7 @@ export const dataCoach = [
       },
       {
         id: 2,
+        domaine: "Diet",
         bio: "Experienced diet coach specializing in nutrition planning and dietary guidance.",
         firstName: "Laura",
         type: "Coach",
@@ -1914,6 +1915,7 @@ export const dataCoach = [
       },
       {
         id: 3,
+        domaine: "Diet",
         bio: "Certified dietitian with a focus on weight management and dietary planning.",
         firstName: "Sarah",
         type: "Coach",
@@ -2201,6 +2203,7 @@ export const dataCoach = [
     coachs: [
       {
         id: 1,
+        domaine: "Mental",
         bio: "Experienced mental health counselor specializing in stress management and mindfulness.",
         firstName: "Alice",
         type: "Coach",
@@ -2436,6 +2439,7 @@ export const dataCoach = [
       },
       {
         id: 2,
+        domaine: "Mental",
         bio: "Experienced mental health coach with a focus on mindfulness and emotional well-being.",
         firstName: "Eva",
 
@@ -2539,6 +2543,7 @@ export const dataCoach = [
       },
       {
         id: 3,
+        domaine: "Mental",
         bio: "Certified mental health counselor specializing in anxiety management and psychological well-being.",
         firstName: "Olivia",
         // type:"Coach",

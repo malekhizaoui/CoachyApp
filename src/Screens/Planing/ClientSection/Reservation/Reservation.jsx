@@ -12,8 +12,10 @@ function Reservation() {
   const [pickTime, setPickTime] = useState(null);
   const [show, setShow] = useState(false);
   const data = location.state;
-  const dataClient=localStorage.getItem('dataUser')
-  const dataParsed=JSON.parse(dataClient)
+  const dataParsed=JSON.parse(localStorage.getItem('dataUser'))
+  const allDataCoach=JSON.parse(localStorage.getItem('dataCoach'))
+  const allDataClient=JSON.parse(localStorage.getItem('dataClient'))
+
   const days = [
     "Monday",
     "Tuesday",
@@ -24,8 +26,84 @@ function Reservation() {
     "Sunday",
   ];
 
+  const reserveSession =(day)=>{
+    const newUserData=bookSession(day);
+    const updatAlldataCoach=allDataCoach.map((element,index)=>{
+      if(element.domaine=data.domaine){
+        const coachUpdate=element.coachs.map((elem,i)=>{
+          if(elem.firstName===data.firstName){
+            const updateReservation=elem.reservation.map((dayResrvation,place)=>{
+              if(day===place){
+                const coachReservationUpdate = dayResrvation
+                coachReservationUpdate.push({
+                  from:pickTime,
+                  to:pickTime+1,
+                  reservation:"pending",
+                  client:{
+                    firstName:dataParsed.firstName,
+                    image_user:dataParsed.image_user,
+                    lastName:dataParsed.firstName,
+                    location:{
+                      city:dataParsed.location.city,
+                      latitude:dataParsed.location.latitude,
+                      longitude:dataParsed.location.longitude
+                    }
+                  }
+                })
+                return coachReservationUpdate
+              }else{
+                return [...dayResrvation] 
+              }
+            })
+            return {...elem,reservation :updateReservation}
+          }
+          else{
+            return {...elem} 
+          }
+        })
+        return {...element,coachs:coachUpdate}
+      }else{
+        return {...element}
+      }
+    })
+    const updatClient=allDataClient.map((element,index)=>{
+      if(element.firstName===dataParsed.firstName){
+       const updatedReservation= element.reservation.map((elem,i)=>{
+          if(i===day){
+            const clientReservationUpdate = elem
+            elem.push({
+          from: pickTime,
+          to: pickTime+1,
+          reservation: "pending",
+          coach: {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            location: {
+              city: data.location.city,
+              latitude: data.location.latitude,
+              longitude: data.location.longitude,
+            },
+            image_user:data.image_user ,
+          },
+            })
+            return clientReservationUpdate
+          }
+          else{
+            return [...elem]
+          }
+        })
+        return {...element,updatedReservation}
+      }else{
+        return {...element}
+      }
+    })
+    localStorage.setItem("dataCoach",JSON.stringify(updatAlldataCoach))
+    localStorage.setItem("dataClient",JSON.stringify(updatClient))
+    localStorage.setItem("dataUser",JSON.stringify(newUserData))
+    navigate('/')
+  }
+
   const bookSession=(day)=>{
-    console.log("data.location.image_user",data.location.image_user);
    const newReservation= dataParsed.reservation.map((element,index)=>{
       if(day===index){
         return[...element,
@@ -229,11 +307,11 @@ function Reservation() {
                             {show === i && (
                               <button
                                 onClick={()=>{
-                                  const result = bookSession(index)
-                                  console.log("result",result);
+                              reserveSession(index)
+                                  // console.log("result",index);
 
-                                  localStorage.setItem('dataUser',JSON.stringify(result))
-                                  navigate('/')
+                                  // localStorage.setItem('dataUser',JSON.stringify(result))
+                                  // navigate('/')
                                 }}
                                 style={{
                                   backgroundColor: pickTime

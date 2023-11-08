@@ -23,6 +23,10 @@ import RouteMessages from "./Routes/RouteMessages/RouteMessages";
 import Cookies from "universal-cookie";
 import BackIconComponent from "./Components/componentBack/BackIconComponent";
 import DirectionMap from "./Components/directionMap/DirectionMap";
+import { dataClient } from "./DataBase/clientDB/Data";
+import { dataCoach } from "./DataBase/coachDB/Data";
+// import dataCoach from "./DataBase/coachDB/Data"
+// import dataClient from "./DataBase/clientDB/Data"
 function App() {
   const cookies = new Cookies();
 
@@ -51,6 +55,14 @@ function App() {
     setIsLoggedIn(false);
   };
 
+  const getAllData=()=>{
+    const checkDataCoach=localStorage.getItem('dataCoach')
+    const checkDataClient=localStorage.getItem('dataClient')
+    if(checkDataCoach===null ||checkDataClient===null ){
+      localStorage.setItem('dataClient',JSON.stringify(dataClient))
+      localStorage.setItem('dataCoach',JSON.stringify(dataCoach))
+    }
+  }
 
   const retrieveUserSession = () => {
     if (token) {
@@ -83,7 +95,8 @@ function App() {
 
   useEffect(() => {
     retrieveUserSession();
-  });
+    getAllData()
+  },[]);
 
   return (
     <div className="App">

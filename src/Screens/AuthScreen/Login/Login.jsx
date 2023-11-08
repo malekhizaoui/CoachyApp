@@ -3,17 +3,19 @@ import axios from "axios";
 import "../auth.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import { StreamChat } from "stream-chat";
-import Cookies from "universal-cookie";
-import { dataClient } from "../../../DataBase/clientDB/Data";
-import { dataCoach } from "../../../DataBase/coachDB/Data";
+// import { dataClient } from "../../../DataBase/clientDB/Data";
+// import { dataCoach } from "../../../DataBase/coachDB/Data";
 function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
   const api_key = "dcqq9m3xdtzr";
   const client = StreamChat.getInstance(api_key);
   const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
-  const cookies = new Cookies();
+  const dataCoach=JSON.parse(localStorage.getItem('dataCoach'))
+  const dataClient=JSON.parse(localStorage.getItem('dataClient') )
 
+console.log('dataCoach',dataCoach);
+console.log('dataClient',dataClient);
   const login = () => {
     dataClient.map((element, index) => {
       if (username === element.phoneNumber && password === element.Password) {
