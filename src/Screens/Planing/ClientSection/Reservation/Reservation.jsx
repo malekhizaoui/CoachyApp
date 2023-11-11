@@ -36,9 +36,10 @@ function Reservation() {
               if(day===place){
                 const coachReservationUpdate = dayResrvation
                 coachReservationUpdate.push({
+                  day:days[day],
                   from:pickTime,
                   to:pickTime+1,
-                  reservation:"pending",
+                  reservationState:"pending",
                   client:{
                     firstName:dataParsed.firstName,
                     image_user:dataParsed.image_user,
@@ -72,9 +73,10 @@ function Reservation() {
           if(i===day){
             const clientReservationUpdate = elem
             elem.push({
+          day:days[day],
           from: pickTime,
           to: pickTime+1,
-          reservation: "pending",
+          reservationState: "pending",
           coach: {
             firstName: data.firstName,
             lastName: data.lastName,
@@ -108,6 +110,7 @@ function Reservation() {
       if(day===index){
         return[...element,
           {
+          day:days[day],
           from:pickTime,
           to:pickTime+1,
           reservation:"pending",

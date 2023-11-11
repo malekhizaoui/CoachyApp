@@ -106,12 +106,12 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                 ) : (
                   <>
                     {element.map((elem, i) => {
-                      if (elem.reservation === "accepted") {
+                      if (elem.reservationState === "accepted") {
                         return (
                           <div
-                          key={i}
-                            className="reservation"
-                            onClick={() => {
+                              key={i}
+                              className="reservation"
+                              onClick={() => {
                               navigate("/CoachLocation", { state: elem.coach });
                               setHideTabBar(true);
                               sethideTabBarforCoachDetail(true);
@@ -127,7 +127,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                               <div className="detail-user">
                                 <img
                                   className="image-user"
-                                  src={elem.coach.image_user}
+                                  src={elem.coach.image_user?elem.coach.image_user:""}
                                 />
                                 <div className="style-user-detail">
                                   <p className="text-name">
@@ -166,7 +166,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                               <div className="detail-user">
                                 <img
                                   className="image-user"
-                                  src={elem.coach.image_user}
+                                  src={elem.coach.image_user?elem.coach.image_user:""}
                                 />
                                 <div className="style-user-detail">
                                   <p className="text-name">

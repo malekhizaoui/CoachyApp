@@ -11,6 +11,16 @@ import CallIcon from "../../../../assets/icons/Planing/CallIcon";
 import { useNavigate, useLocation } from "react-router-dom";
 import Cookies from "universal-cookie";
 
+const days = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+
 function ClientLocation({ setlong, setlat, setHideTabBar }) {
   const position = [47.184475, 8.505185];
   const [location, setLocation] = useState(null);
@@ -20,41 +30,117 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
   const cookies = new Cookies();
   const data = localStorage.getItem("dataUser");
   const dataUser=JSON.parse(data)
+  const allDataCoach=JSON.parse(localStorage.getItem('dataCoach'))
+  const allDataClient=JSON.parse(localStorage.getItem('dataClient'))
   const dataCoach = locationForstate.state.dataCoach;
+  const getIndex=days.indexOf(locationForstate.state.reservation[0].day)
 
+  console.log("getIndex", getIndex);
   console.log("dataUser", dataUser);
-  console.log("newDataa", locationForstate.state.dataUsers);
+  console.log("dataCoach", dataCoach);
+  console.log("newDataa", locationForstate.state);
 
   const acceptReservation = () => {
-    const newReservation = locationForstate.state.dataUsers.map((element, index) => {
-      if (index === locationForstate.state.indexReservation) {
-        const result = [];
-
-        element.map((elem, i) => {
-          if (i === locationForstate.state.indexsession) {
-            result.push({ ...elem, reservationState: "accepted" });
-            return;
-          }
-          result.push({ ...elem });
-          return;
-        });
-        return result;
-      }
-      return [...element];
+      const updateAllClient = allDataClient.map((client, indice) => {
+        if (client.firstName === dataCoach.firstName) {
+          const updateReservation = client.reservation.map((element, index) => {
+            if (getIndex === index) {
+              return  element.map((session,i)=>{
+                if(i === locationForstate.state.indexsession){
+                  return{...session,reservationState:"accepted"}
+                }
+              })
+            } else {
+              return [...element];
+            }
+          });
+          return {...client,reservation:updateReservation}
+        } else {
+          return { ...client };
+        }
     });
-    const newDataUser = { ...dataUser, reservation: newReservation };
-    localStorage.setItem("dataUser", JSON.stringify(newDataUser));
-    navigate("/");
-    setHideTabBar(false);
-  };
+      const newReservation =(array,day)=>{
+      return  array.map((element, index) => {
+        if (index === day) {
+          const result = [];
+  
+          element.map((elem, i) => {
+            if (i === locationForstate.state.indexsession) {
+              result.push({ ...elem ,reservationState:"accepted"});
+              return;
+            }
+            result.push({ ...elem });
+            return;
+          });
+          return result;
+        }
+        return [...element];
+      });
+      } 
+      const updateReservation1=newReservation(locationForstate.state.dataUsers,locationForstate.state.indexReservation)
+      const newDataUser = { ...dataUser, reservation: updateReservation1 };
+
+      const updateAllCoach=allDataCoach.map((domaine)=>{
+        if(dataUser.domaine===domaine.domaine){
+         const updateCoachs= domaine.coachs.map((coach,indice)=>{
+          const updateReservation2=newReservation(coach.reservation,getIndex)
+            if(coach.firstName===dataUser.firstName){
+              console.log("updateReservation2",updateReservation2);
+
+              return{...coach ,reservation:updateReservation2}
+            }
+            else{
+              return {...coach}
+            }
+          })
+          return {...domaine,coachs:updateCoachs}
+        }else{
+          return {...domaine}
+        }
+      })
+      // console.log("locationForstate.state.dataUsers",newDataUser);
+      // console.log("coach.reservation",updateAllCoach);
+      localStorage.setItem('dataCoach',JSON.stringify(updateAllCoach))
+      localStorage.setItem("dataUser", JSON.stringify(newDataUser));
+      localStorage.setItem('dataClient',JSON.stringify(updateAllClient))
+      navigate("/");
+      setHideTabBar(false);
+    };
+
+
   const cancelReservation = () => {
+
+    const updateAllClient = allDataClient.map((client, indice) => {
+      if (client.firstName === dataCoach.firstName) {
+        const updateReservation = client.reservation.map((element, index) => {
+          if (getIndex === index) {
+            return [
+              ...element.slice(1).map((session, i) => {
+                if (i === locationForstate.state.indexsession) {
+                  return "";
+                } else {
+                  return { ...session };
+                }
+              }),
+            ];
+          } else {
+            console.log("dkj");
+            return [...element];
+          }
+        });
+        return {...client,reservation:updateReservation}
+      } else {
+        return { ...client };
+      }
+  });
+  
+
     const newReservation = locationForstate.state.dataUsers.map((element, index) => {
       if (index === locationForstate.state.indexReservation) {
         const result = [];
 
         element.map((elem, i) => {
           if (i === locationForstate.state.indexsession) {
-            result.push({ ...elem, reservationState: "noRequest" });
             return;
           }
           result.push({ ...elem });
@@ -65,10 +151,31 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
       return [...element];
     });
     const newDataUser = { ...dataUser, reservation: newReservation };
+
+
+    const updateAllCoach=allDataCoach.map((domaine)=>{
+      if(dataUser.domaine===domaine.domaine){
+       const updateCoachs= domaine.coachs.map((coach,indice)=>{
+          if(coach.firstName===dataUser.firstName){
+            return{...coach ,reservation:newReservation}
+          }
+          else{
+            return {...coach}
+          }
+        })
+        return{...domaine,coachs:updateCoachs}
+      }else{
+        return {...domaine}
+      }
+    })
+    localStorage.setItem('dataCoach',JSON.stringify(updateAllCoach))
     localStorage.setItem("dataUser", JSON.stringify(newDataUser));
+    localStorage.setItem('dataClient',JSON.stringify(updateAllClient))
     navigate("/");
     setHideTabBar(false);
   };
+
+
   useEffect(() => {
     getCurrentPosition();
     setlong(dataCoach.location.longitude);

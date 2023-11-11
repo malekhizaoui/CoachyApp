@@ -8,6 +8,7 @@
     width: 97%;
     height: 100%;
     flex-direction: column;
+
   }
   
   .title-page {
@@ -16,6 +17,7 @@
   .container-coach {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     margin: 0px;
   }

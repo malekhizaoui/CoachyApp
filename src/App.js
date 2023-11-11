@@ -117,7 +117,7 @@ function App() {
         ) : null}
 
         {!isLoggedIn ? (
-          <RouteAuth setIsLoggedIn={setIsLoggedIn} />
+          <RouteAuth setIsLoggedIn={setIsLoggedIn} setTypeUser={setTypeUser}/>
         ) : (
           <div style={{ height: "100%", position: "relative", zIndex: 1 }}>
             {tabItem === "Planing" ? (

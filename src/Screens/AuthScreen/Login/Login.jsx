@@ -5,7 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { StreamChat } from "stream-chat";
 // import { dataClient } from "../../../DataBase/clientDB/Data";
 // import { dataCoach } from "../../../DataBase/coachDB/Data";
-function Login({ setIsLoggedIn }) {
+function Login({ setIsLoggedIn,setTypeUser }) {
   const navigate = useNavigate();
   const api_key = "dcqq9m3xdtzr";
   const client = StreamChat.getInstance(api_key);
@@ -19,12 +19,14 @@ console.log('dataClient',dataClient);
   const login = () => {
     dataClient.map((element, index) => {
       if (username === element.phoneNumber && password === element.Password) {
+        localStorage.setItem('token', "kqjhdbmkqsjhdmqksjhdmsqkjhd");
+        localStorage.setItem('dataUser', JSON.stringify(element));
+        localStorage.setItem('typeUser',"client")
+        setTypeUser('client')
         setIsLoggedIn(true);
         navigate("/");
         // Convert the element object to a JSON string and save it in cookies
-        localStorage.setItem('dataUser', JSON.stringify(element));
-        localStorage.setItem('token', "kqjhdbmkqsjhdmqksjhdmsqkjhd");
-        localStorage.setItem('typeUser',"client")
+        
       }
     });
     dataCoach.map((element,index)=>{
@@ -40,6 +42,7 @@ console.log('dataClient',dataClient);
           navigate("/");
           // Convert the element object to a JSON string and save it in localStorage
           console.log("elementttt",element);
+          setTypeUser('coach')
           localStorage.setItem('dataUser', JSON.stringify(coach));
           localStorage.setItem('token', "kqjhdbmkqsjhdmqksjhdmsqkjhd");
           localStorage.setItem('typeUser',"coach")

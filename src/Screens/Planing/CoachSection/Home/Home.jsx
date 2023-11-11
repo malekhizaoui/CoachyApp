@@ -9,7 +9,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const dataUser = JSON.parse(data);
   const navigate = useNavigate();
   const [newData, setNewData] = useState(dataUser.reservation);
-
+console.log("newData",newData);
   useEffect(() => {
     reorganizeReservation();
   }, []);
@@ -70,10 +70,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
           ? getFutureDates(dataUser.reservation, 6)
           : getFutureDates(dataUser.reservation, dayOfWeek - 1);
       setNewData(newDataReservation);
-      localStorage.setItem(
-        "dataUser",
-        JSON.stringify({ ...dataUser, reservation: newDataReservation })
-      );
+      localStorage.setItem("dataUser",JSON.stringify({ ...dataUser, reservation: newDataReservation }));
       localStorage.setItem("today", JSON.stringify(days[0]));
     }
   };
@@ -123,6 +120,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                     </div>
                   </div> */}
                   {element.map((booking, i) => {
+                    console.log("booking.client.image_user",booking.client);
                     if (booking.reservationState === "noRequest") {
                       return (
                         <div className="RestDayContainer">
@@ -157,7 +155,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                         // <></>
                       );
                     }
-                    if (booking.reservationState === "accepted") {
+                    else if (booking.reservationState === "accepted") {
                       return (
                         <div
                           className="reservation"
@@ -194,7 +192,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                             <div className="detail-user">
                               <img
                                 className="image-user"
-                                src={booking.client.image_user}
+                                src={booking.client.image_user?booking.client.image_user:""}
                               />
                               <div className="style-user-detail">
                                 <p className="text-name">
@@ -216,7 +214,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                         </div>
                       );
                     }
-                    {
+                    else{
                       return (
                         <div
                           className="reservation"
@@ -228,6 +226,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                                 indexReservation: index,
                                 indexsession: i,
                                 dataUsers: newData,
+                                reservation:newData[index]
                               },
                             });
                             setHideTabBar(true);
@@ -252,7 +251,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                             <div className="detail-user">
                               <img
                                 className="image-user"
-                                src={booking.client.image_user}
+                                src={booking.client.image_user?booking.client.image_user:""}
                               />
                               <div className="style-user-detail">
                                 <p className="text-name">
