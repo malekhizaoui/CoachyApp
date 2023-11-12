@@ -21,7 +21,8 @@ const days = [
   "Sunday",
 ];
 
-function ClientLocation({ setlong, setlat, setHideTabBar }) {
+function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDetail }) {
+  
   const position = [47.184475, 8.505185];
   const [location, setLocation] = useState(null);
   const [newDataa, setnewDataa] = useState(null);
@@ -39,7 +40,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
   console.log("dataUser", dataUser);
   console.log("dataCoach", dataCoach);
   console.log("newDataa", locationForstate.state);
-
+  
   const acceptReservation = () => {
       const updateAllClient = allDataClient.map((client, indice) => {
         if (client.firstName === dataCoach.firstName) {
@@ -104,7 +105,8 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
       localStorage.setItem("dataUser", JSON.stringify(newDataUser));
       localStorage.setItem('dataClient',JSON.stringify(updateAllClient))
       navigate("/");
-      setHideTabBar(false);
+      setHideTabBar(true);
+      sethideTabBarforCoachDetail(false)
     };
 
 
@@ -172,7 +174,8 @@ function ClientLocation({ setlong, setlat, setHideTabBar }) {
     localStorage.setItem("dataUser", JSON.stringify(newDataUser));
     localStorage.setItem('dataClient',JSON.stringify(updateAllClient))
     navigate("/");
-    setHideTabBar(false);
+    setHideTabBar(true);
+    sethideTabBarforCoachDetail(false)
   };
 
 

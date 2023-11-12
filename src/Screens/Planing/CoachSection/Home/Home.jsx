@@ -168,6 +168,8 @@ console.log("newData",newData);
                                 indexReservation: index,
                                 indexsession: i,
                                 dataUsers: newData,
+                                reservation:newData[index]
+
                               },
                             });
                             setHideTabBar(true);

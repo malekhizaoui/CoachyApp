@@ -143,7 +143,7 @@ function App() {
             ) : tabItem === "Messages" ? (
               <RouteMessages />
             ) : null}
-            {!hideTabBar ? (
+            {hideTabBar ? (
               <TabBar tabItem={tabItem} handleTabItem={handleTabItem} />
             ) : null}
           </div>

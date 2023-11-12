@@ -9,8 +9,8 @@ function BackIconComponent({ setHideTabBar,sethideTabBarforCoachDetail }) {
       className="backIconContainer"
       onClick={() => {
         navigate(-1);
-        setHideTabBar(false);
-        sethideTabBarforCoachDetail(true)
+        setHideTabBar(true);
+        sethideTabBarforCoachDetail(false)
       }}
     >
       <div className="circle-container">

@@ -16,7 +16,7 @@ function CoachLocation({setlong,setlat,setHideTabBar}) {
   const locationForstate = useLocation();
   const navigate = useNavigate();
   const dataCoach = locationForstate.state;
-
+  
   console.log("dataCoach.location.longitude,dataCoach.location.latitude",dataCoach.location.longitude,dataCoach.location.latitude);
   useEffect(() => {
     getCurrentPosition();

@@ -6,6 +6,7 @@ function CoachDetail({sethideTabBarforCoachDetail,setHideTabBar}) {
   const location = useLocation();
   const navigate = useNavigate();
   const data = location.state;
+  console.log("dataaa",data);
   return (
     <div className="container-coachDetail">
       <div className="couverture-image">
