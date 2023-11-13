@@ -295,6 +295,30 @@ export const dataCoach = [
               image_user: require("../MalekPhoto.jpg"),
             },
           },
+        ],
+        messages:[
+          {
+            user:{
+              firstName:"Malek",
+              lastName:"Hizaoui",
+              image_user: require("../../assets/images/david.jpg"),
+            },
+            allMessages:[
+              {
+                type:"Client",
+                firstName:"Malek",
+                message:"Bonjour Comment ca va ?",
+                phoneNumber:""
+              },
+              {
+                type:"Coach",
+                firstName:"John",
+                message:"Oui ca va et toi ?",
+                phoneNumber:""
+    
+              },
+            ]
+          },
         ]
       },
       {
@@ -590,6 +614,30 @@ export const dataCoach = [
               image_user: require("../MalekPhoto.jpg"),
             },
           },
+        ],
+        messages:[
+          {
+            user:{
+              firstName:"Malek",
+              lastName:"Hizaoui",
+              image_user: require("../../assets/images/david.jpg"),
+            },
+            allMessages:[
+              {
+                type:"Client",
+                firstName:"Malek",
+                message:"Bonjour Comment ca va ?",
+                phoneNumber:""
+              },
+              {
+                type:"Coach",
+                firstName:"David",
+                message:"Oui ca va et toi ?",
+                phoneNumber:""
+    
+              },
+            ]
+          },
         ]
       },
       {
@@ -846,6 +894,30 @@ export const dataCoach = [
               image_user: require("../MalekPhoto.jpg"),
             },
           },
+        ],
+        messages:[
+          {
+            user:{
+              firstName:"Malek",
+              lastName:"Hizaoui",
+              image_user: require("../../assets/images/david.jpg"),
+            },
+            allMessages:[
+              {
+                type:"Client",
+                firstName:"Malek",
+                message:"Bonjour Comment ca va ?",
+                phoneNumber:""
+              },
+              {
+                type:"Coach",
+                firstName:"Michael",
+                message:"Oui ca va et toi ?",
+                phoneNumber:""
+    
+              },
+            ]
+          },
         ]
       },
       {
@@ -1081,6 +1153,30 @@ export const dataCoach = [
               },
               image_user: require("../MalekPhoto.jpg"),
             },
+          },
+        ],
+        messages:[
+          {
+            user:{
+              firstName:"Malek",
+              lastName:"Hizaoui",
+              image_user: require("../../assets/images/david.jpg"),
+            },
+            allMessages:[
+              {
+                type:"Client",
+                firstName:"Malek",
+                message:"Bonjour Comment ca va ?",
+                phoneNumber:""
+              },
+              {
+                type:"Coach",
+                firstName:"Lisa",
+                message:"Oui ca va et toi ?",
+                phoneNumber:""
+    
+              },
+            ]
           },
         ]
       },
@@ -1629,6 +1725,30 @@ export const dataCoach = [
               image_user: require("../MalekPhoto.jpg"),
             },
           },
+        ],
+        messages:[
+          {
+            user:{
+              firstName:"Malek",
+              lastName:"Hizaoui",
+              image_user: require("../../assets/images/david.jpg"),
+            },
+            allMessages:[
+              {
+                type:"Client",
+                firstName:"Malek",
+                message:"Bonjour Comment ca va ?",
+                phoneNumber:""
+              },
+              {
+                type:"Coach",
+                firstName:"Diana",
+                message:"Oui ca va et toi ?",
+                phoneNumber:""
+    
+              },
+            ]
+          },
         ]
       },
       {
@@ -1910,6 +2030,30 @@ export const dataCoach = [
               },
               image_user: require("../MalekPhoto.jpg"),
             },
+          },
+        ],
+        messages:[
+          {
+            user:{
+              firstName:"Malek",
+              lastName:"Hizaoui",
+              image_user: require("../../assets/images/david.jpg"),
+            },
+            allMessages:[
+              {
+                type:"Client",
+                firstName:"Malek",
+                message:"Bonjour Comment ca va ?",
+                phoneNumber:""
+              },
+              {
+                type:"Coach",
+                firstName:"Laura",
+                message:"Oui ca va et toi ?",
+                phoneNumber:""
+    
+              },
+            ]
           },
         ]
       },
@@ -2193,6 +2337,30 @@ export const dataCoach = [
               image_user: require("../MalekPhoto.jpg"),
             },
           },
+        ],
+        messages:[
+          {
+            user:{
+              firstName:"Malek",
+              lastName:"Hizaoui",
+              image_user: require("../../assets/images/david.jpg"),
+            },
+            allMessages:[
+              {
+                type:"Client",
+                firstName:"Malek",
+                message:"Bonjour Comment ca va ?",
+                phoneNumber:""
+              },
+              {
+                type:"Coach",
+                firstName:"Sarah",
+                message:"Oui ca va et toi ?",
+                phoneNumber:""
+    
+              },
+            ]
+          },
         ]
       },
     ],
@@ -2435,6 +2603,30 @@ export const dataCoach = [
               image_user: require("../MalekPhoto.jpg"),
             },
           },
+        ],
+        messages:[
+          {
+            user:{
+              firstName:"Malek",
+              lastName:"Hizaoui",
+              image_user: require("../../assets/images/david.jpg"),
+            },
+            allMessages:[
+              {
+                type:"Client",
+                firstName:"Malek",
+                message:"Bonjour Comment ca va ?",
+                phoneNumber:""
+              },
+              {
+                type:"Coach",
+                firstName:"Alice",
+                message:"Oui ca va et toi ?",
+                phoneNumber:""
+    
+              },
+            ]
+          },
         ]
       },
       {
@@ -2540,6 +2732,30 @@ export const dataCoach = [
           [],
           [],
         ],
+        messages:[
+          {
+            user:{
+              firstName:"Malek",
+              lastName:"Hizaoui",
+              image_user: require("../../assets/images/david.jpg"),
+            },
+            allMessages:[
+              {
+                type:"Client",
+                firstName:"Malek",
+                message:"Bonjour Comment ca va ?",
+                phoneNumber:""
+              },
+              {
+                type:"Coach",
+                firstName:"Eva",
+                message:"Oui ca va et toi ?",
+                phoneNumber:""
+    
+              },
+            ]
+          },
+        ]
       },
       {
         id: 3,
@@ -2820,6 +3036,30 @@ export const dataCoach = [
               },
               image_user: require("../MalekPhoto.jpg"),
             },
+          },
+        ],
+        messages:[
+          {
+            user:{
+              firstName:"Malek",
+              lastName:"Hizaoui",
+              image_user: require("../../assets/images/david.jpg"),
+            },
+            allMessages:[
+              {
+                type:"Client",
+                firstName:"Malek",
+                message:"Bonjour Comment ca va ?",
+                phoneNumber:""
+              },
+              {
+                type:"Coach",
+                firstName:"Olivia",
+                message:"Oui ca va et toi ?",
+                phoneNumber:""
+    
+              },
+            ]
           },
         ]
       },

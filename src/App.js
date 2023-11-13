@@ -44,7 +44,7 @@ function App() {
   const [long, setlong] = useState([]);
   const [typeUser, setTypeUser] = useState(typeOfUser);
 
-  console.log("typeUser",typeUser);
+  console.log("typeUser", typeUser);
 
   const logOut = () => {
     localStorage.removeItem("token");
@@ -55,19 +55,20 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  const getAllData=()=>{
-    const checkDataCoach=localStorage.getItem('dataCoach')
-    const checkDataClient=localStorage.getItem('dataClient')
-    if(checkDataCoach===null ||checkDataClient===null ){
-      localStorage.setItem('dataClient',JSON.stringify(dataClient))
-      localStorage.setItem('dataCoach',JSON.stringify(dataCoach))
+  const getAllData = () => {
+    const checkDataCoach = localStorage.getItem("dataCoach");
+    const checkDataClient = localStorage.getItem("dataClient");
+    if (checkDataCoach === null || checkDataClient === null) {
+      localStorage.setItem("dataClient", JSON.stringify(dataClient));
+      localStorage.setItem("dataCoach", JSON.stringify(dataCoach));
     }
-  }
+  };
 
   const retrieveUserSession = () => {
     if (token) {
       setIsLoggedIn(true);
       setTypeUser(typeOfUser);
+      setHideTabBar(true);
       // console.log("helloToken");
       // client
       //   .connectUser(
@@ -95,8 +96,8 @@ function App() {
 
   useEffect(() => {
     retrieveUserSession();
-    getAllData()
-  },[]);
+    getAllData();
+  }, []);
 
   return (
     <div className="App">
@@ -117,12 +118,16 @@ function App() {
         ) : null}
 
         {!isLoggedIn ? (
-          <RouteAuth setIsLoggedIn={setIsLoggedIn} setTypeUser={setTypeUser}/>
+          <RouteAuth
+            setIsLoggedIn={setIsLoggedIn}
+            setTypeUser={setTypeUser}
+            setHideTabBar={setHideTabBar}
+          />
         ) : (
           <div style={{ height: "100%", position: "relative", zIndex: 1 }}>
             {tabItem === "Planing" ? (
               <>
-                {typeUser !== "client" ? (
+                {typeUser !== "Client" ? (
                   <RoutePlaningCaoch
                     setHideTabBar={setHideTabBar}
                     sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}
@@ -141,7 +146,7 @@ function App() {
             ) : tabItem === "Profile" ? (
               <RouteProfile logOut={logOut} />
             ) : tabItem === "Messages" ? (
-              <RouteMessages />
+              <RouteMessages setHideTabBar={setHideTabBar} />
             ) : null}
             {hideTabBar ? (
               <TabBar tabItem={tabItem} handleTabItem={handleTabItem} />

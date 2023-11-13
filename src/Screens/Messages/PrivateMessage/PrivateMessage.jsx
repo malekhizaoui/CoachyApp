@@ -1,9 +1,123 @@
-import React from 'react'
+import React, { useState } from "react";
+import BackIcon from "../../../assets/icons/BackIcon";
+import "./privateMessage.css";
+import CustomInput from "./CustomInput";
+import { useLocation } from "react-router-dom";
+function PrivateMessage({ setHideTabBar }) {
+  const location = useLocation();
+  const getUser = JSON.parse(localStorage.getItem("dataUser"));
+  const getClients = JSON.parse(localStorage.getItem("dataClient"));
+  const getCoachs = JSON.parse(localStorage.getItem("dataCoach"));
+  const [newMessage, setNewMessage] = useState("");
+  const [allmessages, setAllMessages] = useState(
+    getUser.messages[location.state.index ? location.state.index : 0]
+      .allMessages
+  );
+  console.log("getUser", getUser);
+  console.log("location.state", location.state);
+  const user = location.state.index ? location.state.index : 0;
 
-function PrivateMessage() {
+  const sendMessage = () => {
+    if (newMessage.length !== 0) {
+      const newDataUserMessages = getUser.messages.map((element, index) => {
+        if (index === user) {
+          console.log("element", element.allMessages);
+          const updateMessages = element.allMessages;
+          updateMessages.push({
+            firstName: getUser.firstName,
+            type: getUser.type,
+            message: newMessage,
+          });
+          return { ...element, allMessages: updateMessages };
+        } else {
+          return { ...element };
+        }
+      });
+      const newUser = { ...getUser, messages: newDataUserMessages };
+      if (getUser.type === "Client") {
+        const updateAllClient = getClients.map((element, index) => {
+          if (element.firstName === getUser.firstName) {
+            return newUser;
+          } else {
+            return { ...element };
+          }
+        });
+      //  const updatAllCoachsbyDomaine=getCoachs.map((element,index)=>{
+
+      //   })
+        localStorage.setItem("dataClient", JSON.stringify(updateAllClient));
+
+      } else {
+        const updatAllCoachsbyDomaine = getCoachs.map((element, index) => {
+          if (element.domaine === getUser.domaine) {
+            const updateAllCoachs = element.coachs.map((coach, ind) => {
+              if (coach.firstName === getUser.firstName) {
+                return { ...coach, messages: newDataUserMessages };
+              } else {
+                return { ...coach };
+              }
+            });
+            return { ...element, coachs: updateAllCoachs };
+          } else {
+            return { ...element };
+          }
+        });
+        localStorage.setItem("dataCoach",JSON.stringify(updatAllCoachsbyDomaine));
+
+      }
+
+      localStorage.setItem("dataUser", JSON.stringify(newUser));
+      setAllMessages(
+        newUser.messages[location.state.index ? location.state.index : 0]
+          .allMessages
+      );
+    }
+  };
   return (
-    <div>PrivateMessage</div>
-  )
+    <div className="container-private-message">
+      <div className="container-class">
+        <div className="header-private-message">
+          <div
+            onClick={() => {
+              setHideTabBar(true);
+            }}
+          >
+            <BackIcon />
+          </div>
+          <img
+            className="image-user"
+            src={location.state.user.image_user}
+            style={{ marginLeft: 30 }}
+          />
+          <p className="name-user-private-message">Malek Hizaoui</p>
+        </div>
+        <div className="container-class"></div>
+      </div>
+      <div className="allMessagesPrivate-container">
+        {allmessages.map((message, index) => {
+          if (message.type === getUser.type) {
+            return (
+              <div className="message-container-me" key={index}>
+                <div className="message-content">
+                  <p className="message-txt-me">{message.message}</p>
+                </div>
+              </div>
+            );
+          } else {
+            return (
+              <div className="message-container-destination" key={index}>
+                <div className="message-content-destination">
+                  <p className="message-txt-destination">{message.message}</p>
+                </div>
+              </div>
+            );
+          }
+        })}
+      </div>
+
+      <CustomInput sendMessage={sendMessage} setNewMessage={setNewMessage} />
+    </div>
+  );
 }
 
-export default PrivateMessage
+export default PrivateMessage;

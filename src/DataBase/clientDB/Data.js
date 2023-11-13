@@ -154,6 +154,54 @@ export const dataClient = [
           image_user: require("../MalekPhoto.jpg"),
         },
       },
+    ],
+    messages:[
+      {
+        user:{
+          firstName:"John",
+          lastName:"Smith",
+          image_user: require("../../assets/images/john.png"),
+        },
+        allMessages:[
+          {
+            type:"Client",
+            firstName:"Malek",
+            message:"Bonjour Comment ca va ?",
+            phoneNumber:""
+          },
+          {
+            type:"Coach",
+            firstName:"David",
+            message:"Oui ca va et toi ?",
+            phoneNumber:""
+
+          },
+        ]
+      },
+      {
+        user:{
+          firstName:"diana",
+          lastName:"Wilson",
+          image_user: require("../../assets/images/diana.jpg"),
+        },
+        allMessages:[
+          {
+            type:"Client",
+            firstName:"Malek",
+            message:"Bonjour Comment ca va ?",
+            phoneNumber:""
+
+          },
+          {
+            type:"Coach",
+            firstName:"David",
+            message:"Oui ca va et toi ?",
+            phoneNumber:""
+
+          },
+        ]
+      }
     ]
+
   },
 ];
