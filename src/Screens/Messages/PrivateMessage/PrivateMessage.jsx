@@ -42,11 +42,34 @@ function PrivateMessage({ setHideTabBar }) {
             return { ...element };
           }
         });
-      //  const updatAllCoachsbyDomaine=getCoachs.map((element,index)=>{
+        const updatAllCoachsbyDomaine = getCoachs.map((element, index) => {
+          const updatingCoachs = element.coachs.map((coach) => {
+            if (coach.firstName === location.state.user.firstName) {
+             const updateMessages= coach.messages.map((message) => {
+                if (message.user.firstName === getUser.firstName) {
+                  const addnewMessage = message.allMessages;
+                  addnewMessage.push({
+                    type: "Client",
+                    firstName: getUser.firstName,
+                    message: newMessage,
+                    phoneNumber: getUser.phoneNumber,
+                  });
 
-      //   })
+                  return{...message,allMessages:addnewMessage}
+                } else {
+                  return { ...message };
+                }
+              });
+              return{...coach,messages:updateMessages}
+            } else {
+              return { ...coach };
+            }
+          });
+          return { ...element, coachs: updatingCoachs };
+        });
+        console.log("updatAllCoachsbyDomaine", updatAllCoachsbyDomaine);
         localStorage.setItem("dataClient", JSON.stringify(updateAllClient));
-
+        localStorage.setItem("dataCoach",JSON.stringify(updatAllCoachsbyDomaine));
       } else {
         const updatAllCoachsbyDomaine = getCoachs.map((element, index) => {
           if (element.domaine === getUser.domaine) {
@@ -62,15 +85,35 @@ function PrivateMessage({ setHideTabBar }) {
             return { ...element };
           }
         });
+        const updateAllClientFromCoach = getClients.map((element, index) => {
+          if (element.firstName === location.state.user.firstName) {
+            const updateMessages = element.messages.map((message, indice) => {
+              console.log("message", message);
+              if (message.user.firstName === getUser.firstName) {
+                const addnewMessage = message.allMessages;
+                addnewMessage.push({
+                  type: "Coach",
+                  firstName: getUser.firstName,
+                  message: newMessage,
+                  phoneNumber: getUser.phoneNumber,
+                });
+                console.log("addnewMessage", addnewMessage);
+                return { ...message, allMessages: addnewMessage };
+              } else {
+                return { ...message };
+              }
+            });
+            return { ...element, messages: updateMessages };
+          } else {
+            return { ...element };
+          }
+        });
         localStorage.setItem("dataCoach",JSON.stringify(updatAllCoachsbyDomaine));
-
+        localStorage.setItem("dataClient",JSON.stringify(updateAllClientFromCoach));
       }
 
       localStorage.setItem("dataUser", JSON.stringify(newUser));
-      setAllMessages(
-        newUser.messages[location.state.index ? location.state.index : 0]
-          .allMessages
-      );
+      setAllMessages(newUser.messages[location.state.index ? location.state.index : 0].allMessages);
     }
   };
   return (
