@@ -7,8 +7,8 @@ import Login from '../../Screens/AuthScreen/Login/Login';
 function RouteAuth({setIsLoggedIn,setTypeUser,setHideTabBar}) {
   return (
     <Routes>
-    <Route path="/" exact element={<Login setIsLoggedIn={setIsLoggedIn}  setTypeUser={setTypeUser} setHideTabBar={setHideTabBar}/>} />
-    <Route path="/Login"  element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
+    <Route path="/" exact element={<SignUp setIsLoggedIn={setIsLoggedIn}/>} />
+    <Route path="/Login"  element={<Login setIsLoggedIn={setIsLoggedIn}  setTypeUser={setTypeUser} setHideTabBar={setHideTabBar}/>} />
   </Routes>
   )
 }

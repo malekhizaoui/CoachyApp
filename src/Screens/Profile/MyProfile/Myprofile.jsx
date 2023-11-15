@@ -37,7 +37,7 @@ function Myprofile() {
           <p className="info">Session history </p>
           <ArrowrightIcon />
         </div>
-        {typeUser === "coach" ? (
+        {typeUser === "Coach" ? (
           <>
             <div className="line"></div>
             <div

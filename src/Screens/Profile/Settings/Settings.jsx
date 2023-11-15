@@ -49,7 +49,7 @@ function Settings({ logOut }) {
             className="detail-info-settings"
             onClick={() => {
               logOut();
-              navigate("/");
+              navigate("/Login");
             }}
           >
             <p className="value-info">Log out</p>

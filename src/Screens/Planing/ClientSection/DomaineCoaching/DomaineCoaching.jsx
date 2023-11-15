@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import './domaine.css'
 import { useNavigate,useLocation } from "react-router-dom";
 import BackIcon from '../../../../assets/icons/BackIcon';
-import {dataCoach} from '../../../../DataBase/coachDB/Data'
+// import {dataCoach} from '../../../../DataBase/coachDB/Data'
 function DomaineCoaching() {
     const navigate = useNavigate();
     const location = useLocation();
     const [dataCoachFiltredbyDay,setDataCoachFiltredbyDay]=useState([])
-    console.log("datacoach",dataCoach);
+    // console.log("datacoach",dataCoach);
     console.log("location.state",location.state);
-    
+    const dataCoach=JSON.parse(localStorage.getItem('dataCoach'))
 
     
 

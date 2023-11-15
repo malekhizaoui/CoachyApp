@@ -20,7 +20,7 @@
 .logo-img {
   margin-top: 20px;
   width: 300px;
-  height: 300px;
+  height: 20%;
   
 }
 
@@ -34,7 +34,6 @@
   transition: 0.2s;
   color: #727272;
   margin-top: 50px;
-
   color: var(--Black, #3f3c3c);
   text-shadow: 0px 12px 4px rgba(0, 0, 0, 0.5);
   font-family: Inter;
@@ -48,7 +47,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 0px;
   width: 100%;
   flex-direction: column;
 }
@@ -60,7 +59,24 @@
   width: 100%;
   flex-direction: column;
 }
-
+.input-firstName{
+  border: none;
+  border-bottom: 2px solid #47474e;
+  background: none;
+  padding: 10px;
+  padding-left: 24px;
+  width: 70%;
+  transition: 0.2s;
+  color: #727272;
+  /* margin-top: 20px; */
+  color: var(--Black, #3f3c3c);
+  text-shadow: 0px 12px 4px rgba(0, 0, 0, 0.5);
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
 .check-type-user {
   margin-top: 20px;
   margin-left: 40px;

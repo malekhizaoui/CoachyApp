@@ -67,7 +67,7 @@ function PrivateMessage({ setHideTabBar }) {
           });
           return { ...element, coachs: updatingCoachs };
         });
-        console.log("updatAllCoachsbyDomaine", updatAllCoachsbyDomaine);
+        // console.log("updatAllCoachsbyDomaine", updatAllCoachsbyDomaine);
         localStorage.setItem("dataClient", JSON.stringify(updateAllClient));
         localStorage.setItem("dataCoach",JSON.stringify(updatAllCoachsbyDomaine));
       } else {
@@ -132,7 +132,7 @@ function PrivateMessage({ setHideTabBar }) {
             src={location.state.user.image_user}
             style={{ marginLeft: 30 }}
           />
-          <p className="name-user-private-message">Malek Hizaoui</p>
+          <p className="name-user-private-message">{location.state.user.firstName} {location.state.user.lastName}</p>
         </div>
         <div className="container-class"></div>
       </div>
