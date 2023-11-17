@@ -10,7 +10,10 @@ function PersonalInfo() {
   const navigate = useNavigate();
   const Location = useLocation();
   const [photo, setPhoto] = useState(null);
-
+  console.log("Location.state",Location.state);
+  const getAllCoachs = JSON.parse(localStorage.getItem("dataCoach"));
+  const getAllClients = JSON.parse(localStorage.getItem("dataClient"));
+  const data= Location.state
   const createShortUrl = (dataUrl) => {
     const blob = dataURItoBlob(dataUrl);
     const url = URL.createObjectURL(blob);
@@ -37,6 +40,35 @@ function PersonalInfo() {
     });
     const shortenedUrl = createShortUrl(image.dataUrl);
     console.log("shortenedUrl",shortenedUrl);
+    if(data.type==="Client"){ 
+     const updateAllClients= getAllClients.map((client)=>{
+        if(client.firstName===data.firstName){
+          localStorage.setItem('dataUser',JSON.stringify({...client,image_user:image.dataUrl}))
+          return{...client,image_user:image.dataUrl}
+        }else{
+          return{...client}
+        }
+      })
+      localStorage.setItem('dataClient',JSON.stringify(updateAllClients))
+
+    }else{
+      const updateAllCoachs=getAllCoachs.map((element)=>{
+        if(element.domaine===data.domaine){
+         const updateCoachs= element.coachs.map((coach)=>{
+            if(coach.firstName===data.firstName){
+              localStorage.setItem('dataUser',JSON.stringify({...coach,image_user:image.dataUrl}))
+              return {...coach,image_user:image.dataUrl}
+            }else{
+              return {...coach}
+            }
+          })
+          return {...element,coachs:updateCoachs}
+        }else{
+          return {...element}
+        }
+      })
+      localStorage.setItem('dataCoach',JSON.stringify(updateAllCoachs))
+    }
     setPhoto(shortenedUrl);
   };
 
@@ -54,7 +86,7 @@ function PersonalInfo() {
 
         <div className="img-container">
           <div className="profile-imag" onClick={takePhoto}>
-            <img src={photo?photo:Location.state.image_user} className="profile-imag"/>
+            <img src={photo?photo:data.image_user} className="profile-imag"/>
             <div className='camera-icon'>
             <AddPicIcon/>
             </div>
@@ -64,28 +96,28 @@ function PersonalInfo() {
         <div className="perso-conatiner">
           <div className="line"></div>
           <p className="attribute-info">Full Name</p>
-          <div className="detail-info" onClick={()=>{navigate('/UpdateName',{state:Location.state})}}>
-            <p className="value-info">{Location.state.firstName} {Location.state.lastName}</p>
+          <div className="detail-info" onClick={()=>{navigate('/UpdateName',{state:data})}}>
+            <p className="value-info">{data.firstName} {data.lastName}</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
 
           <p className="attribute-info">Age</p>
-          <div className="detail-info" onClick={()=>{navigate('/UpdateAge',{state:Location.state})}}>
-            <p className="value-info">{Location.state.age} yo</p>
+          <div className="detail-info" onClick={()=>{navigate('/UpdateAge',{state:data})}}>
+            <p className="value-info">{data.age} yo</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
           <p className="attribute-info">Phone number</p>
           <div className="detail-info">
-            <p className="value-info">+41 {Location.state.phoneNumber}</p>
+            <p className="value-info">+41 {data.phoneNumber}</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
 
           <p className="attribute-info">E-mail</p>
           <div className="detail-info">
-            <p className="value-info">{Location.state.email}</p>
+            <p className="value-info">{data.email}</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
