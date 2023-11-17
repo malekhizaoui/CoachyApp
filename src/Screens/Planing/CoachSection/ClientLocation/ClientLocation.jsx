@@ -50,6 +50,8 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
               return  element.map((session,i)=>{
                 if(i === locationForstate.state.indexsession){
                   return{...session,reservationState:"accepted"}
+                }else{
+                  return {...session}
                 }
               })
             } else {

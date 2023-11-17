@@ -8,6 +8,7 @@ import { useNavigate,useLocation } from "react-router-dom";
 function PersonalInfo() {
   const navigate = useNavigate();
   const Location = useLocation();
+  console.log("Location",Location.state);
 
   return (
     <div className="perso-info-container">
@@ -30,14 +31,14 @@ function PersonalInfo() {
         <div className="perso-conatiner">
           <div className="line"></div>
           <p className="attribute-info">Full Name</p>
-          <div className="detail-info">
+          <div className="detail-info" onClick={()=>{navigate('/UpdateName',{state:Location.state})}}>
             <p className="value-info">{Location.state.firstName} {Location.state.lastName}</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
 
           <p className="attribute-info">Age</p>
-          <div className="detail-info">
+          <div className="detail-info" onClick={()=>{navigate('/UpdateAge',{state:Location.state})}}>
             <p className="value-info">{Location.state.age} yo</p>
             <ArrowrightIcon/>
           </div>
