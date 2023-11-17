@@ -20,7 +20,7 @@ function TabBar({ handleTabItem, tabItem }) {
 
         {/* Tab Messages */}
 
-        <div className="tabItem1" onClick={() => {handleTabItem("Messages")}}>
+        <div className="tabItem1" onClick={() => {handleTabItem("Messages");navigate('/')}}>
             {tabItem !== "Messages" ? <MessagesIcon /> : <MessageFocusedIcon />}
             <p className="p-tabBar" style={tabItem === "Messages"?{color:"#5D54A0"}:null}>Messages</p>
           </div>
