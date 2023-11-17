@@ -37,7 +37,7 @@ function SignUp() {
             Tarification: `${firstName} offers his coaching services at a competitive rate of $60 per session.`,
             modeDePaiment: ` pay ${firstName} using PayPal or Credit Card for convenience.`,
             age: 30,
-            image_user: "",
+            image_user: require('../../../assets/images/annonyme.jpg'),
             experience: `over 8 years of experience, ${firstName} has successfully trained clients in weight management, strength building, and overall ${domaine} improvement. `,
             location: {
               city: "genéve",
@@ -77,7 +77,7 @@ function SignUp() {
               Tarification: `${firstName} offers his coaching services at a competitive rate of $60 per session.`,
               modeDePaiment: ` pay ${firstName} using PayPal or Credit Card for convenience.`,
               age: 30,
-              image_user: "",
+              image_user: require('../../../assets/images/annonyme.jpg'),
               experience: `over 8 years of experience, ${firstName} has successfully trained clients in weight management, strength building, and overall ${domaine} improvement. `,
               location: {
                 city: "genéve",
@@ -116,7 +116,7 @@ function SignUp() {
             phoneNumber: phoneNumber,
             Password: password,
             // email: "hizaoui.malek.habib@gmail.com",
-            image_user: "",
+            image_user: require('../../../assets/images/annonyme.jpg'),
             location: {
               city: "Genève",
               latitude: "47.183706",
@@ -148,7 +148,7 @@ function SignUp() {
             phoneNumber: phoneNumber,
             Password: password,
             // email: "hizaoui.malek.habib@gmail.com",
-            image_user: "",
+            image_user: require('../../../assets/images/annonyme.jpg'),
             location: {
               city: "Genève",
               latitude: "47.183706",

@@ -119,7 +119,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
             return [
               ...element.slice(1).map((session, i) => {
                 if (i === locationForstate.state.indexsession) {
-                  return "";
+                  return ;
                 } else {
                   return { ...session };
                 }
