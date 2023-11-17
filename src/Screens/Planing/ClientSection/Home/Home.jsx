@@ -106,7 +106,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                 ) : (
                   <>
                     {element.map((elem, i) => {
-                      if (elem.reservationState === "accepted") {
+                      if (elem!==null&&(elem.reservationState === "accepted")) {
                         return (
                           <div
                               key={i}
@@ -147,7 +147,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                             </p>
                           </div>
                         );
-                      } else {
+                      } else if(elem!==null) {
                         return (
                           <div className="reservation"
                           key={i}

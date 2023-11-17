@@ -91,8 +91,8 @@ function Reservation() {
               ],
             }
             const addNewMessageFromCoach=updateMessages
-            addNewMessageFromCoach.push(newMessage)
-            const messages=elem.messages.length === 0 ? [newMessage] :checkIsFound?addNewMessageFromCoach: updateMessages
+            checkIsFound&&addNewMessageFromCoach.push(newMessage)
+            const messages=elem.messages.length === 0 ? [newMessage] :!checkIsFound? updateMessages: addNewMessageFromCoach
             const newUserData=bookSession(day,messages);
             localStorage.setItem("dataUser",JSON.stringify(newUserData))
             return {...elem,reservation: updateReservation,messages};
@@ -132,8 +132,10 @@ function Reservation() {
           }
         });
         let checkIsFound =true
-        var updateMessagesClient = element.messages.map((message) => {
-          if (message.user.firstName === data.firstName) {
+        var updateMessagesClient = element.messages.map((message,i) => {
+          console.log("index",i);
+          if (message.user.firstName === data.firstName && checkIsFound) {
+            console.log("here1");
             checkIsFound=checkIsFound&&false
             const addMessage = message.allMessages;
             addMessage.push({
@@ -144,9 +146,12 @@ function Reservation() {
             });
             return { ...message, allMessages: addMessage };
           }else{
+            console.log("here2");
+
            return  {...message}
           }
         });
+        console.log("updateMessagesClient111111",updateMessagesClient);
         const newMessage = 
           {
             user: {
@@ -164,8 +169,9 @@ function Reservation() {
             ],
           }
         ;
+        console.log("updateMessagesClient",updateMessagesClient);
         const addNewMessageFromClient=updateMessagesClient
-        addNewMessageFromClient.push(newMessage)
+        checkIsFound&&addNewMessageFromClient.push(newMessage)
         const messages=element.messages.length === 0 ? [newMessage] :checkIsFound?addNewMessageFromClient: updateMessagesClient
         const newUserData=bookSession(day,messages);
         localStorage.setItem("dataUser",JSON.stringify(newUserData))

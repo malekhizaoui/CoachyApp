@@ -40,6 +40,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
   console.log("dataUser", dataUser);
   console.log("dataCoach", dataCoach);
   console.log("newDataa", locationForstate.state);
+  console.log("locationForstate.state.indexsession", locationForstate.state.indexsession);
   
   const acceptReservation = () => {
       const updateAllClient = allDataClient.map((client, indice) => {
