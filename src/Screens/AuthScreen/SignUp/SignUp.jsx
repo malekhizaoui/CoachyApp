@@ -240,7 +240,7 @@ function SignUp() {
             }}
           />
         </div>
-        <div style={{ width: "100%" }}>
+        <div style={{ width: "100%" ,display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
           <div className="check-type-user">
             <input
               type="checkbox"

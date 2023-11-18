@@ -25,6 +25,7 @@ import BackIconComponent from "./Components/componentBack/BackIconComponent";
 import DirectionMap from "./Components/directionMap/DirectionMap";
 import { dataClient } from "./DataBase/clientDB/Data";
 import { dataCoach } from "./DataBase/coachDB/Data";
+import SplashScreen from "./Screens/splachScreen/SplachScreen";
 // import dataCoach from "./DataBase/coachDB/Data"
 // import dataClient from "./DataBase/clientDB/Data"
 function App() {
@@ -154,6 +155,7 @@ function App() {
           </div>
         )}
       </Router>
+      {/* <SplashScreen/> */}
     </div>
   );
 }
