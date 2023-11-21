@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 // import { Geolocation } from "@capacitor/geolocation";
-import { CallNumber } from 'capacitor-call-number';
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import BackIcon from "../../../../assets/icons/BackIcon";
@@ -193,51 +192,14 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
   useEffect(() => {
     // getDistance();
   }, []);
-  const callNumber = async () => {
-    try {
-      await CallNumber.call({ number: '111111', bypassAppChooser: true });
-      // The above call should open the default dialer screen and pre-fill the number '111111'
-    } catch (error) {
-      console.error('Error calling phone number', error);
-    }
-  };
   const customIcon = L.icon({
     iconUrl: require("../../../../assets/images/marker-icon.png"),
     shadowUrl: require("../../../../assets/images/marker-shadow.png"),
     iconAnchor: [16, 32],
     popupAnchor: [0, -32],
   });
-  const apiKey = "52594ed767394cba8b91276dce863b21";
-  const start = "46.193673,6.101839";
-  const end = "47.186530,8.501407";
-  const mode = "driving-car";
+  
 
-  const url = `https://api.geoapify.com/v1/routing?waypoints=${start}|${end}&mode=${mode}&apiKey=${apiKey}`;
-
-  const getDistance = async () => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify({
-      mode: "drive",
-      sources: [{ location: location }],
-      targets: [{ location: position }],
-    });
-
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-    };
-
-    fetch(
-      "https://api.geoapify.com/v1/routematrix?apiKey=52594ed767394cba8b91276dce863b21",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => console.log("result",result))
-      .catch((error) => console.log("error", error));
-  };
 
  
   return (
@@ -284,7 +246,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
               </p>
             </div>
           </div>
-          <div className="design-icons" onClick={callNumber}>
+          <div className="design-icons"  onClick={()=>{}}>
             <CallIcon />
           </div>
         </div>

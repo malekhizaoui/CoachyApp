@@ -1208,13 +1208,6 @@
     tslib "^2.4.0"
     xml2js "^0.5.0"
 
-"@capacitor/core@^3.1.1":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-3.9.0.tgz#ab5eccbeb02e140382e983b794ead296f1db7e6d"
-  integrity sha512-j1lL0+/7stY8YhIq1Lm6xixvUqIn89vtyH5ZpJNNmcZ0kwz6K9eLkcG6fvq1UWMDgSVZg9JrRGSFhb4LLoYOsw==
-  dependencies:
-    tslib "^2.1.0"
-
 "@capacitor/core@^5.5.0":
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-5.5.1.tgz#bd2a969a1149a480aed3483d8867677e85606058"
@@ -3584,13 +3577,6 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001538, caniuse-lite@^1.0.30001541:
   version "1.0.30001563"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001563.tgz#aa68a64188903e98f36eb9c56e48fba0c1fe2a32"
   integrity sha512-na2WUmOxnwIZtwnFI2CZ/3er0wdNzU7hN+cPYz/z2ajHThnkWjNBOpEPP4n+4r2WPM847JaMotaJE3bnfzjyKw==
-
-capacitor-call-number@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/capacitor-call-number/-/capacitor-call-number-1.0.3.tgz#d988bc5a085ea3272d1729e3ea456d736c205223"
-  integrity sha512-pcqu/V4WroxqilvWZH53U0VfFZESe0kE5D8YNrLCUNV3l2zIchgmZwTwGUZy0c6zr3bPqXNxVoUHpvERf+vfJA==
-  dependencies:
-    "@capacitor/core" "^3.1.1"
 
 case-sensitive-paths-webpack-plugin@^2.4.0:
   version "2.4.0"

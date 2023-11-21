@@ -15,7 +15,6 @@ function Reservation() {
   const dataParsed = JSON.parse(localStorage.getItem("dataUser"));
   const allDataCoach = JSON.parse(localStorage.getItem("dataCoach"));
   const allDataClient = JSON.parse(localStorage.getItem("dataClient"));
-  console.log("dataaaaaaaaa", data);
   const days = [
     "Monday",
     "Tuesday",
@@ -189,7 +188,7 @@ function Reservation() {
     });
     localStorage.setItem("dataCoach", JSON.stringify(updatAlldataCoach));
     localStorage.setItem("dataClient", JSON.stringify(updatClient));
-    navigate("/");
+    navigate("/PaymentScreen");
   };
   //   else{
   //     const addMessage=message
