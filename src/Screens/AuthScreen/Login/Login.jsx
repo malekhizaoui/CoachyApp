@@ -121,6 +121,11 @@ console.log('dataClient',dataClient);
         >
           Log in
         </button>
+        <p 
+        onClick={()=>{
+          navigate('/SignUp')
+        }}
+        className="txt-auth">Create account</p>
       </div>
     </div>
   );

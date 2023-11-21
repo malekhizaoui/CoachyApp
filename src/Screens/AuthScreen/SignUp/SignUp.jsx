@@ -266,6 +266,7 @@ function SignUp() {
         >
           Create Account
         </button>
+        <p>I already have account <a className="txt-auth" onClick={()=>{navigate('/Login')}}>Sign In</a></p>
       </div>
     </div>
   );

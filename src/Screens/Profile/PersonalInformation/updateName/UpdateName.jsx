@@ -88,7 +88,7 @@ function UpdateName() {
               placeholder="Last Name"
             />
           </div>
-          <button onClick={updateFullName}>Save</button>
+          <button className="btn-update-Profile"onClick={updateFullName}>Save</button>
         </div>
       </div>
     </div>

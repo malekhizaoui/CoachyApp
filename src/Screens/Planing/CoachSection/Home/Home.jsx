@@ -4,19 +4,35 @@ import CalendarIcon from "../../../../assets/icons/Planing/CalendarIcon";
 import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
 import ArrowTime from "../../../../assets/icons/Planing/ArrowTime";
 import { useNavigate } from "react-router-dom";
+import { Geolocation } from "@capacitor/geolocation";
+
 function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const data = localStorage.getItem("dataUser");
   const dataUser = JSON.parse(data);
   const navigate = useNavigate();
   const [newData, setNewData] = useState(dataUser.reservation);
-console.log("newData",newData);
+
+  const getCurrentPosition = async () => {
+    try {
+      const coordinates = await Geolocation.getCurrentPosition({
+        enableHighAccuracy: true,
+      });
+        localStorage.setItem('position',JSON.stringify([
+          coordinates.coords.latitude,
+          coordinates.coords.longitude,
+        ]))
+
+    } catch (error) {
+      console.error("Error getting location", error);
+    }
+  };
+
   useEffect(() => {
     reorganizeReservation();
+    getCurrentPosition()
   }, []);
 
-  const days = getWeekDaysInfo();
-
-  function getWeekDaysInfo() {
+  const getWeekDaysInfo=()=> {
     const today = new Date();
     const daysInfo = [];
     daysInfo.push(
@@ -46,6 +62,7 @@ console.log("newData",newData);
 
     return daysInfo;
   }
+  const days = getWeekDaysInfo();
   function getFutureDates(array, inputNumber) {
     const result = [];
     for (let i = inputNumber; i < array.length; i++) {
@@ -55,7 +72,6 @@ console.log("newData",newData);
     for (let i = 0; i < inputNumber; i++) {
       result.push(array[i]);
     }
-    console.log("result", result);
     return result;
   }
 

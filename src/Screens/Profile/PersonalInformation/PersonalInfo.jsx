@@ -115,12 +115,12 @@ function PersonalInfo() {
           </div>
           <div className="line"></div>
 
-          <p className="attribute-info">E-mail</p>
+          {data.email?.length>0?<><p className="attribute-info">E-mail</p>
           <div className="detail-info">
             <p className="value-info">{data.email}</p>
             <ArrowrightIcon/>
           </div>
-          <div className="line"></div>
+          <div className="line"></div></>:null}
         </div>
       </div>
     </div>

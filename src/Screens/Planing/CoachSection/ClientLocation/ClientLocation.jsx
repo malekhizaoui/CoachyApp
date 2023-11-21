@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Geolocation } from "@capacitor/geolocation";
+// import { Geolocation } from "@capacitor/geolocation";
+import { CallNumber } from 'capacitor-call-number';
+
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import BackIcon from "../../../../assets/icons/BackIcon";
 import "leaflet/dist/leaflet.css";
@@ -35,12 +37,14 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
   const allDataClient=JSON.parse(localStorage.getItem('dataClient'))
   const dataCoach = locationForstate.state.dataCoach;
   const getIndex=days.indexOf(locationForstate.state.reservation[0].day)
+  const getPostion = JSON.parse(localStorage.getItem('position'))
 
-  console.log("getIndex", getIndex);
-  console.log("dataUser", dataUser);
-  console.log("dataCoach", dataCoach);
-  console.log("newDataa", locationForstate.state);
-  console.log("locationForstate.state.indexsession", locationForstate.state.indexsession);
+  console.log("dataCoach",dataCoach);
+  // console.log("getIndex", getIndex);
+  // console.log("dataUser", dataUser);
+  // console.log("dataCoach", dataCoach);
+  // console.log("newDataa", locationForstate.state);
+  // console.log("locationForstate.state.indexsession", locationForstate.state.indexsession);
   
   const acceptReservation = () => {
       const updateAllClient = allDataClient.map((client, indice) => {
@@ -89,7 +93,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
          const updateCoachs= domaine.coachs.map((coach,indice)=>{
           const updateReservation2=newReservation(coach.reservation,getIndex)
             if(coach.firstName===dataUser.firstName){
-              console.log("updateReservation2",updateReservation2);
+              // console.log("updateReservation2",updateReservation2);
 
               return{...coach ,reservation:updateReservation2}
             }
@@ -102,8 +106,6 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
           return {...domaine}
         }
       })
-      // console.log("locationForstate.state.dataUsers",newDataUser);
-      // console.log("coach.reservation",updateAllCoach);
       localStorage.setItem('dataCoach',JSON.stringify(updateAllCoach))
       localStorage.setItem("dataUser", JSON.stringify(newDataUser));
       localStorage.setItem('dataClient',JSON.stringify(updateAllClient))
@@ -129,7 +131,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
               }),
             ];
           } else {
-            console.log("dkj");
+            // console.log("dkj");
             return [...element];
           }
         });
@@ -183,15 +185,22 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
 
 
   useEffect(() => {
-    getCurrentPosition();
+    // getCurrentPosition();
     setlong(dataCoach.location.longitude);
     setlat(dataCoach.location.latitude);
   }, []);
 
   useEffect(() => {
-    getDistance();
+    // getDistance();
   }, []);
-
+  const callNumber = async () => {
+    try {
+      await CallNumber.call({ number: '111111', bypassAppChooser: true });
+      // The above call should open the default dialer screen and pre-fill the number '111111'
+    } catch (error) {
+      console.error('Error calling phone number', error);
+    }
+  };
   const customIcon = L.icon({
     iconUrl: require("../../../../assets/images/marker-icon.png"),
     shadowUrl: require("../../../../assets/images/marker-shadow.png"),
@@ -226,26 +235,11 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => console.log(result))
+      .then((result) => console.log("result",result))
       .catch((error) => console.log("error", error));
   };
 
-  const getCurrentPosition = async () => {
-    try {
-      const coordinates = await Geolocation.getCurrentPosition({
-        enableHighAccuracy: true,
-      });
-      if (location) {
-        setLocation([
-          coordinates.coords.latitude,
-          coordinates.coords.longitude,
-        ]);
-      }
-    } catch (error) {
-      console.error("Error getting location", error);
-    }
-  };
-
+ 
   return (
     <div className="hole-map">
       <MapContainer
@@ -262,7 +256,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
         </Marker>
 
         <Marker
-          position={[dataCoach.location.longitude, dataCoach.location.latitude]}
+          position={getPostion}
           icon={customIcon}
         >
           <Popup>
@@ -290,7 +284,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
               </p>
             </div>
           </div>
-          <div className="design-icons">
+          <div className="design-icons" onClick={callNumber}>
             <CallIcon />
           </div>
         </div>

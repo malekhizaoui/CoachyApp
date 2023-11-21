@@ -27,7 +27,8 @@
     width: 90%;
     color: #3a3838;
     margin-top: 20px;
-    font-family: "Inter";
+      font-family:'Inter'
+;
     font-size: 17px;
     font-style: normal;
     font-weight: 600;
@@ -47,7 +48,8 @@
     width: 90%;
     color: #3a3838;
     margin-top: 20px;
-    font-family: "Inter";
+      font-family:'Inter'
+;
     font-size: 17px;
     font-style: normal;
     font-weight: 600;
@@ -72,7 +74,7 @@
   
   .text {
     color: #000;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-family:'Inter';
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -113,7 +115,7 @@
   }
   .text-name {
     color: #000;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-family:'Inter';
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -124,7 +126,7 @@
   
   .text-location {
     color: var(--grey-2, rgba(119, 114, 114, 0.6));
-    font-family: Inter;
+    font-family:'Inter';
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -132,7 +134,7 @@
   }
   .text-checkReservation {
     color: var(--grey-2, rgba(119, 114, 114, 0.6));
-    font-family: Inter;
+    font-family:'Inter';
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -141,7 +143,7 @@
   }
   .text-pendingReservation {
     color: #d18326;
-    font-family: Inter;
+    font-family:'Inter';
     font-size: 16px;
     font-style: normal;
     font-weight: 700;

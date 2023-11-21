@@ -27,6 +27,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-top: 20px;
+    align-items: center;
   }
   .img-user {
     display: flex;
@@ -50,14 +51,19 @@
     margin-top: 20px;
   }
   .design-icons {
-    height: 100%;
+    height: 60%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center ;
     align-items: center;
-    width: 70px; /* Note the unit 'px' for width */
+    width: 60px; /* Note the unit 'px' for width */
     margin-right: 20px;
     margin-top: 10px;
+    /* background-color: red; */
+    border:1px solid grey;
+    border-radius:55% ;
+    border-color: #727272;
+
   }
   .descirption-coach {
     display: flex;
@@ -72,7 +78,7 @@
   .bioCoach {
     color: #727272;
     /* Text */
-    font-family: Inter;
+    font-family:'Inter';
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -86,7 +92,7 @@
   background: #5D54A0;
   color: var(--white, #FFFBFB);
   text-align: center;
-  font-family: "Inter";
+  font-family:'Inter';
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -98,7 +104,7 @@
   .txt-train{
     margin: 4px;
     color: var(--grey-2, rgba(119, 114, 114, 0.60));
-    font-family: "Inter";
+      font-family:'Inter';
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
