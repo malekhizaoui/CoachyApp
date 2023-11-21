@@ -3,10 +3,11 @@ import CalendarIcon from "../../../../assets/icons/Planing/CalendarIcon";
 import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
 import "./home.css";
 import Cookies from "universal-cookie";
-// import { data } from "../../../../DataBase/clientDB/Data";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const cookies = new Cookies();
   const data = localStorage.getItem("dataUser");
@@ -33,14 +34,14 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
     const today = new Date();
     const daysInfo = [];
     daysInfo.push(
-      `Today,${today.getDate()} ${today.toLocaleDateString("en-US", {
+      `${t("today")},${today.getDate()} ${today.toLocaleDateString("en-US", {
         month: "long",
       })}`
     );
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
     daysInfo.push(
-      `Tomorrow, ${tomorrow.getDate()} ${tomorrow.toLocaleDateString("en-US", {
+      `${t('tomorow')}, ${tomorrow.getDate()} ${tomorrow.toLocaleDateString("en-US", {
         month: "long",
       })}`
     );
@@ -73,7 +74,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
     <div>
       <div className="container-homeClient">
         <div className="welcome-page">
-          <p className="look-coach">I’m looking for a coach</p>
+          <p className="look-coach">{t('lookCoach')}</p>
           <CalendarIcon />
         </div>
         <div
@@ -97,7 +98,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                         navigate("/DomaineCoaching",{state:index});
                       }}
                     >
-                      <p className="see-coachs">See the available coachs</p>
+                      <p className="see-coachs">{t('seeAvailable')}</p>
                     </div>
                     <div className="icon">
                       <ArrowrightIcon />
@@ -143,7 +144,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                               </div>
                             </div>
                             <p className="text-checkReservation">
-                              Check reservation
+                              {t("checkReservation")}
                             </p>
                           </div>
                         );
@@ -182,7 +183,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                               </div>
                             </div>
                             <p className="text-checkReservation">
-                              Pending reservation
+                              {t('pendingReservation')}
                             </p>
                           </div>
                         );

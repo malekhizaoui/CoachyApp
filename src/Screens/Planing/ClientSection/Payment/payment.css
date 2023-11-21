@@ -61,3 +61,10 @@
   stroke-width: 1px;
   border-radius: 8%;
 }
+
+.tick-place{
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    top:10px
+}

@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function BackIcon() {
+function BackIcon({hide=false,setHideTabBar=null}) {
   const navigate = useNavigate();
-
+  console.log("hide",hide);
   return (
     <svg
-    onClick={()=>{navigate(-1)}}
+    onClick={()=>{!hide?navigate(-1):navigate(-1);setHideTabBar&&setHideTabBar(true)}}
       xmlns="http://www.w3.org/2000/svg"
       width="22"
       height="22"

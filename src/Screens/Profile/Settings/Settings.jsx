@@ -6,7 +6,7 @@ import LogoutIcon from "../../../assets/icons/Profile/LogoutIcon";
 import DeleteAccountIcon from "../../../assets/icons/Profile/DeleteAccountIcon";
 import { useNavigate } from "react-router-dom";
 
-function Settings({ logOut }) {
+function Settings({ logOut,setHideTabBar }) {
   const navigate = useNavigate();
 
   return (
@@ -21,7 +21,7 @@ function Settings({ logOut }) {
         <div className="settings-conatiner">
           <div className="container-value-settings">
           <div className="line-settings"></div>
-          <div className="detail-info-settings">
+          <div className="detail-info-settings" onClick={()=>{navigate('/Language');setHideTabBar(false)}}>
             <p className="value-info">Langue</p>
             <ArrowrightIcon />
           </div>

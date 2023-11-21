@@ -10,7 +10,7 @@ import "./availability.css";
 function Availability() {
   const data = localStorage.getItem("dataUser");
   const dataParsed = JSON.parse(data);
-  const getAllCoachs=JSON.parse(localStorage.getItem("dataCoach"))
+  const getAllCoachs = JSON.parse(localStorage.getItem("dataCoach"));
   const [dataUser, setDataUser] = useState(dataParsed);
   const [bookFrom, setBookFrom] = useState({ hour: 0, min: 0 });
   const [bookTo, setBookTo] = useState({ hour: 0, min: 0 });
@@ -28,9 +28,9 @@ function Availability() {
   const editTime = (day, session) => {
     const newDataAvailibility = dataUser.availability.map((element, index) => {
       if (day === index) {
-        if(element.length===0){
-          return [{from: bookFrom.hour,to: bookTo.hour}]
-        }else{
+        if (element.length === 0) {
+          return [{ from: bookFrom.hour, to: bookTo.hour }];
+        } else {
           return element.map((elem, i) => {
             if (session === i) {
               return { from: bookFrom.hour, to: bookTo.hour };
@@ -38,28 +38,30 @@ function Availability() {
             return { ...elem };
           });
         }
-        
       }
       return [...element];
     });
-   const updatAllCoachsbyDomaine=getAllCoachs.map((element)=>{
-      if(element.domaine===dataParsed.domaine){
-       const UpdateAllCoachs =element.coachs.map((coach)=>{
-          if(coach.firstName===dataParsed.firstName){
-            return {...coach,availability:newDataAvailibility}
-          }else{
-            return {...coach}
+    const updatAllCoachsbyDomaine = getAllCoachs.map((element) => {
+      if (element.domaine === dataParsed.domaine) {
+        const UpdateAllCoachs = element.coachs.map((coach) => {
+          if (coach.firstName === dataParsed.firstName) {
+            return { ...coach, availability: newDataAvailibility };
+          } else {
+            return { ...coach };
           }
-        })
-        return {...element,coachs:UpdateAllCoachs}
-      }else{
-        return {...element}
+        });
+        return { ...element, coachs: UpdateAllCoachs };
+      } else {
+        return { ...element };
       }
-    })
+    });
     // console.log("updatAllCoachsbyDomaine",updatAllCoachsbyDomaine);
-    setEditAvailability(null)
-    localStorage.setItem("dataCoach",JSON.stringify(updatAllCoachsbyDomaine))
-    localStorage.setItem("dataUser",JSON.stringify({ ...dataUser, availability: newDataAvailibility }));
+    setEditAvailability(null);
+    localStorage.setItem("dataCoach", JSON.stringify(updatAllCoachsbyDomaine));
+    localStorage.setItem(
+      "dataUser",
+      JSON.stringify({ ...dataUser, availability: newDataAvailibility })
+    );
     setDataUser({ ...dataUser, availability: newDataAvailibility });
   };
 
@@ -72,13 +74,14 @@ function Availability() {
       {dataUser.availability.map((element, index) => (
         <div className="container" key={index}>
           <div className="day-available">
-            
             <p className="day">{days[index]}</p>
-            <div onClick={()=>{
-              setEditAvailability(days[index])
-            }}>
-            <AddIcon />
-          </div>
+            <div
+              onClick={() => {
+                setEditAvailability(days[index]);
+              }}
+            >
+              <AddIcon />
+            </div>
           </div>
           {element.length !== 0 ? (
             <>
@@ -127,7 +130,10 @@ function Availability() {
                                     });
                                   }}
                                 >
-                                  <ArrowIncrementTime />
+                                  <ArrowIncrementTime
+                                    width={"10"}
+                                    height={"6"}
+                                  />
                                 </div>
                                 <p style={{ margin: 0 }}>
                                   {bookFrom.hour > 9
@@ -145,7 +151,10 @@ function Availability() {
                                     });
                                   }}
                                 >
-                                  <ArrowDecrementTime />
+                                  <ArrowDecrementTime
+                                    width={"10"}
+                                    height={"6"}
+                                  />
                                 </div>
                               </div>
                               <p>:</p>
@@ -161,7 +170,10 @@ function Availability() {
                                     });
                                   }}
                                 >
-                                  <ArrowIncrementTime />
+                                  <ArrowIncrementTime
+                                    width={"10"}
+                                    height={"6"}
+                                  />
                                 </div>
                                 <p style={{ margin: 0 }}>
                                   {bookFrom.min > 9
@@ -179,7 +191,10 @@ function Availability() {
                                     });
                                   }}
                                 >
-                                  <ArrowDecrementTime />
+                                  <ArrowDecrementTime
+                                    width={"10"}
+                                    height={"6"}
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -192,17 +207,41 @@ function Availability() {
                             <div className="time-editing">
                               <div className="edit-hour">
                                 <div
-                                  onClick={() => {setBookTo({...bookTo,hour:bookTo.hour === 23 ? 0: bookTo.hour + 1})}}
+                                  onClick={() => {
+                                    setBookTo({
+                                      ...bookTo,
+                                      hour:
+                                        bookTo.hour === 23
+                                          ? 0
+                                          : bookTo.hour + 1,
+                                    });
+                                  }}
                                 >
-                                  <ArrowIncrementTime />
+                                  <ArrowIncrementTime
+                                    width={"10"}
+                                    height={"6"}
+                                  />
                                 </div>
                                 <p style={{ margin: 0 }}>
-                                  {bookTo.hour > 9? bookTo.hour + "": "0" + bookTo.hour}
+                                  {bookTo.hour > 9
+                                    ? bookTo.hour + ""
+                                    : "0" + bookTo.hour}
                                 </p>
                                 <div
-                                  onClick={() => {setBookTo({...bookTo,hour:bookTo.hour === 0? 23: bookTo.hour - 1})  }}
+                                  onClick={() => {
+                                    setBookTo({
+                                      ...bookTo,
+                                      hour:
+                                        bookTo.hour === 0
+                                          ? 23
+                                          : bookTo.hour - 1,
+                                    });
+                                  }}
                                 >
-                                  <ArrowDecrementTime />
+                                  <ArrowDecrementTime
+                                    width={"10"}
+                                    height={"6"}
+                                  />
                                 </div>
                               </div>
                               <p>:</p>
@@ -216,7 +255,10 @@ function Availability() {
                                     });
                                   }}
                                 >
-                                  <ArrowIncrementTime />
+                                  <ArrowIncrementTime
+                                    width={"10"}
+                                    height={"6"}
+                                  />
                                 </div>
                                 <p style={{ margin: 0 }}>
                                   {bookTo.min > 9
@@ -232,7 +274,10 @@ function Availability() {
                                     });
                                   }}
                                 >
-                                  <ArrowDecrementTime />
+                                  <ArrowDecrementTime
+                                    width={"10"}
+                                    height={"6"}
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -256,151 +301,165 @@ function Availability() {
               ))}
             </>
           ) : (
-            <div style={{width:"100%",display:"flex",justifyContent:"center"}}>
-            <div className="RestDayContainer">
-              <div className="rest-Day">
-                <p>RestDay</p>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <div className="RestDayContainer">
+                <div className="rest-Day">
+                  <p>RestDay</p>
+                </div>
               </div>
             </div>
-            </div>
           )}
-        {editAvailability===days[index]&&
+          {editAvailability === days[index] && (
             <>
-                      <p className="text-hour">heure :</p>
-                      <div className="edit-container">
-                        <div className="bookFrom-container">
-                          <div className="edit-book">
-                            <div className="time-editing">
-                              <div className="edit-hour">
-                                <div onClick={() => {setBookFrom({...bookFrom,hour:bookFrom.hour === 23? 0: bookFrom.hour + 1, }); }}>
-                                  <ArrowIncrementTime />
-                                </div>
-                                <p style={{ margin: 0 }}>
-                                  {bookFrom.hour > 9
-                                    ? bookFrom.hour + ""
-                                    : "0" + bookFrom.hour}
-                                </p>
-                                <div
-                                  onClick={() => {
-                                    setBookFrom({
-                                      ...bookFrom,
-                                      hour:
-                                        bookFrom.hour === 0
-                                          ? 23
-                                          : bookFrom.hour - 1,
-                                    });
-                                  }}
-                                >
-                                  <ArrowDecrementTime />
-                                </div>
-                              </div>
-                              <p>:</p>
-                              <div className="edit-min">
-                                <div
-                                  onClick={() => {
-                                    setBookFrom({
-                                      ...bookFrom,
-                                      min:
-                                        bookFrom.min === 59
-                                          ? 0
-                                          : bookFrom.min + 1,
-                                    });
-                                  }}
-                                >
-                                  <ArrowIncrementTime />
-                                </div>
-                                <p style={{ margin: 0 }}>
-                                  {bookFrom.min > 9
-                                    ? bookFrom.min + ""
-                                    : "0" + bookFrom.min}
-                                </p>
-                                <div
-                                  onClick={() => {
-                                    setBookFrom({
-                                      ...bookFrom,
-                                      min:
-                                        bookFrom.min === 0
-                                          ? 59
-                                          : bookFrom.min - 1,
-                                    });
-                                  }}
-                                >
-                                  <ArrowDecrementTime />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="edit-am">
-                              <p style={{ color: "white" }}>Am</p>
-                            </div>
-                          </div>
-                          <div>Jusqu'à</div>
-                          <div className="edit-book">
-                            <div className="time-editing">
-                              <div className="edit-hour">
-                                <div
-                                  onClick={() => {setBookTo({...bookTo,hour:bookTo.hour === 23 ? 0: bookTo.hour + 1})}}
-                                >
-                                  <ArrowIncrementTime />
-                                </div>
-                                <p style={{ margin: 0 }}>
-                                  {bookTo.hour > 9? bookTo.hour + "": "0" + bookTo.hour}
-                                </p>
-                                <div
-                                  onClick={() => {setBookTo({...bookTo,hour:bookTo.hour === 0? 23: bookTo.hour - 1})  }}
-                                >
-                                  <ArrowDecrementTime />
-                                </div>
-                              </div>
-                              <p>:</p>
-                              <div className="edit-min">
-                                <div
-                                  onClick={() => {
-                                    setBookTo({
-                                      ...bookTo,
-                                      min:
-                                        bookTo.min === 59 ? 0 : bookTo.min + 1,
-                                    });
-                                  }}
-                                >
-                                  <ArrowIncrementTime />
-                                </div>
-                                <p style={{ margin: 0 }}>
-                                  {bookTo.min > 9
-                                    ? bookTo.min + ""
-                                    : "0" + bookTo.min}
-                                </p>
-                                <div
-                                  onClick={() => {
-                                    setBookTo({
-                                      ...bookTo,
-                                      min:
-                                        bookTo.min === 0 ? 59 : bookTo.min - 1,
-                                    });
-                                  }}
-                                >
-                                  <ArrowDecrementTime />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="edit-am">
-                              <p style={{ color: "white" }}>Am</p>
-                            </div>
-                          </div>
-                        </div>
-                        <button
+              <p className="text-hour">heure :</p>
+              <div className="edit-container">
+                <div className="bookFrom-container">
+                  <div className="edit-book">
+                    <div className="time-editing">
+                      <div className="edit-hour">
+                        <div
                           onClick={() => {
-                            editTime(index, 0);
+                            setBookFrom({
+                              ...bookFrom,
+                              hour:
+                                bookFrom.hour === 23 ? 0 : bookFrom.hour + 1,
+                            });
                           }}
-                          className="btn-edit"
                         >
-                          Save
-                        </button>
+                          <ArrowIncrementTime width={"10"} height={"6"} />
+                        </div>
+                        <p style={{ margin: 0 }}>
+                          {bookFrom.hour > 9
+                            ? bookFrom.hour + ""
+                            : "0" + bookFrom.hour}
+                        </p>
+                        <div
+                          onClick={() => {
+                            setBookFrom({
+                              ...bookFrom,
+                              hour:
+                                bookFrom.hour === 0 ? 23 : bookFrom.hour - 1,
+                            });
+                          }}
+                        >
+                          <ArrowDecrementTime width={"10"} height={"6"} />
+                        </div>
                       </div>
-                       </>}
+                      <p>:</p>
+                      <div className="edit-min">
+                        <div
+                          onClick={() => {
+                            setBookFrom({
+                              ...bookFrom,
+                              min: bookFrom.min === 59 ? 0 : bookFrom.min + 1,
+                            });
+                          }}
+                        >
+                          <ArrowIncrementTime width={"10"} height={"6"} />
+                        </div>
+                        <p style={{ margin: 0 }}>
+                          {bookFrom.min > 9
+                            ? bookFrom.min + ""
+                            : "0" + bookFrom.min}
+                        </p>
+                        <div
+                          onClick={() => {
+                            setBookFrom({
+                              ...bookFrom,
+                              min: bookFrom.min === 0 ? 59 : bookFrom.min - 1,
+                            });
+                          }}
+                        >
+                          <ArrowDecrementTime width={"10"} height={"6"} />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="edit-am">
+                      <p style={{ color: "white" }}>Am</p>
+                    </div>
+                  </div>
+                  <div>Jusqu'à</div>
+                  <div className="edit-book">
+                    <div className="time-editing">
+                      <div className="edit-hour">
+                        <div
+                          onClick={() => {
+                            setBookTo({
+                              ...bookTo,
+                              hour: bookTo.hour === 23 ? 0 : bookTo.hour + 1,
+                            });
+                          }}
+                        >
+                          <ArrowIncrementTime width={"10"} height={"6"} />
+                        </div>
+                        <p style={{ margin: 0 }}>
+                          {bookTo.hour > 9
+                            ? bookTo.hour + ""
+                            : "0" + bookTo.hour}
+                        </p>
+                        <div
+                          onClick={() => {
+                            setBookTo({
+                              ...bookTo,
+                              hour: bookTo.hour === 0 ? 23 : bookTo.hour - 1,
+                            });
+                          }}
+                        >
+                          <ArrowDecrementTime width={"10"} height={"6"} />
+                        </div>
+                      </div>
+                      <p>:</p>
+                      <div className="edit-min">
+                        <div
+                          onClick={() => {
+                            setBookTo({
+                              ...bookTo,
+                              min: bookTo.min === 59 ? 0 : bookTo.min + 1,
+                            });
+                          }}
+                        >
+                          <ArrowIncrementTime width={"10"} height={"6"} />
+                        </div>
+                        <p style={{ margin: 0 }}>
+                          {bookTo.min > 9 ? bookTo.min + "" : "0" + bookTo.min}
+                        </p>
+                        <div
+                          onClick={() => {
+                            setBookTo({
+                              ...bookTo,
+                              min: bookTo.min === 0 ? 59 : bookTo.min - 1,
+                            });
+                          }}
+                        >
+                          <ArrowDecrementTime width={"10"} height={"6"} />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="edit-am">
+                      <p style={{ color: "white" }}>Am</p>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    editTime(index, 0);
+                  }}
+                  className="btn-edit"
+                >
+                  Save
+                </button>
+              </div>
+            </>
+          )}
         </div>
-
       ))}
-      <div style={{marginBottom:120,height:"100%"}}></div>
+      <div style={{ marginBottom: 120, height: "100%" }}></div>
     </div>
   );
 }

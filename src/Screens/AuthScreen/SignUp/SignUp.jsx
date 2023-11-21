@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../auth.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
+import { useTranslation } from 'react-i18next';
 
 function SignUp() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const cookies = new Cookies();
   const getAllClient = JSON.parse(localStorage.getItem("dataClient"));
   const getAllCoach = JSON.parse(localStorage.getItem("dataCoach"));
@@ -115,7 +116,6 @@ function SignUp() {
             lastName: lastName,
             phoneNumber: phoneNumber,
             Password: password,
-            // email: "hizaoui.malek.habib@gmail.com",
             image_user: require('../../../assets/images/annonyme.jpg'),
             location: {
               city: "Genève",
@@ -147,7 +147,6 @@ function SignUp() {
             lastName: lastName,
             phoneNumber: phoneNumber,
             Password: password,
-            // email: "hizaoui.malek.habib@gmail.com",
             image_user: require('../../../assets/images/annonyme.jpg'),
             location: {
               city: "Genève",
@@ -168,7 +167,6 @@ function SignUp() {
    if(checkIfFound){
     navigate('/Login')
   }
-  //  console.log("addClient",addClient);
   };
 
   const handleCheckBoxCoach = () => {
@@ -196,35 +194,32 @@ function SignUp() {
           <input
             type="text"
             className="input-firstName"
-            placeholder="First Name"
+            placeholder={t("firstName")}
             onChange={(event) => {
               setFirstName(event.target.value);
-              // setUser({ ...user, firstName: event.target.value });
             }}
           />
           <input
             type="text"
             className="input"
-            placeholder="Last Name"
+            placeholder={t('lastName')}
             onChange={(event) => {
               setLastName(event.target.value);
-              // setUser({ ...user, lastName: event.target.value });
             }}
           />
           <input
             type="text"
             className="input"
-            placeholder="Phone Number"
+            placeholder={t("phoneNumber")}
             onChange={(event) => {
               setPhoneNumber(event.target.value);
-              // setUser({ ...user, username: event.target.value });
             }}
           />
           {typeUser === "Coach" && (
             <input
               type="text"
               className="input"
-              placeholder="Domaine"
+              placeholder={t("domaine")}
               onChange={(event) => {
                 setDomaine(event.target.value);
               }}
@@ -233,11 +228,10 @@ function SignUp() {
           <input
             type="password"
             className="input"
-            placeholder="Password"
+            placeholder={t('password')}
             onChange={(event) => {
               setPassword(event.target.value);
-              // setUser({ ...user, password: event.target.value });
-            }}
+          }}
           />
         </div>
         <div style={{ width: "100%" ,display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
@@ -247,7 +241,7 @@ function SignUp() {
               checked={checkboxCoach}
               onChange={handleCheckBoxCoach}
             />
-            <label>s'inscrire entant que Coach</label>
+            <label>{t('signUpAsCoach')}</label>
           </div>
           <div className="check-type-user">
             <input
@@ -255,7 +249,7 @@ function SignUp() {
               checked={checkboxClient}
               onChange={handleCheckBoxClient}
             />
-            <label>s'inscrire entant que Client</label>
+            <label>{t('signupAsClient')}</label>
           </div>
         </div>
         <button
@@ -264,63 +258,12 @@ function SignUp() {
             typeUser === "Coach" ? signUpAsCoach() :typeUser === "Client" ? signUpAsClient():alert('pick you type');
           }}
         >
-          Create Account
+          {t('createAcc')}
         </button>
-        <p>I already have account <a className="txt-auth" onClick={()=>{navigate('/Login')}}>Sign In</a></p>
+        <p>{t('alreadyHaveAcc')} <a className="txt-auth" onClick={()=>{navigate('/Login')}}>{t('sign')}</a></p>
       </div>
     </div>
   );
 }
 
 export default SignUp;
-// const signUp = () => {
-//   console.log("user", user);
-//   console.log("checkboxCoach", checkboxCoach);
-//   console.log("checkboxClient", checkboxClient);
-//   if (checkboxCoach || checkboxClient) {
-//       axios
-//         .post("https://memorixappgameserver.onrender.com/signup", user)
-//         .then((res) => {
-//           const {
-//             token,
-//             userId,
-//             firstName,
-//             lastName,
-//             username,
-//             hashedPassword,
-//           } = res.data;
-//           cookies.set("token", token);
-//           cookies.set("userId", userId);
-//           cookies.set("username", username);
-//           cookies.set("firstName", firstName);
-//           cookies.set("lastName", lastName);
-//           cookies.set("hashedPassword", hashedPassword);
-//           cookies.set("typeUser", typeUser);
-//           navigate("/Login");
-//         });
-//     axios.post("https://memorixappgameserver.onrender.com/signup", user).then(
-//       (res) => {
-//         const {
-//           token,
-//           userId,
-//           firstName,
-//           lastName,
-//           username,
-//           hashedPassword,
-//         } = res.data;
-//         console.log("dataa",res.data);
-//         localStorage.setItem("token", token);
-//         localStorage.setItem("userId", userId);
-//         localStorage.setItem("username", username);
-//         localStorage.setItem("firstName", firstName);
-//         localStorage.setItem("lastName", lastName);
-//         localStorage.setItem("hashedPassword", hashedPassword);
-//         localStorage.setItem("typeUser", typeUser);
-
-//         navigate("/Login");
-//       }
-//     );
-//   } else {
-//     alert("you need to specify which type of user you are");
-//   }
-// };

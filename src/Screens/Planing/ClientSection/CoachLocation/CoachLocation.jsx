@@ -9,8 +9,10 @@ import "./coachLocation.css";
 import BackIconComponent from "../../../../Components/componentBack/BackIconComponent";
 import CallIcon from "../../../../assets/icons/Planing/CallIcon";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 function CoachLocation({setlong,setlat,setHideTabBar}) {
+  const { t } = useTranslation();
   const position = [47.184475, 8.505185];
   const [location, setLocation] = useState(null);
   const locationForstate = useLocation();
@@ -92,13 +94,6 @@ function CoachLocation({setlong,setlat,setHideTabBar}) {
         className="map-container"
       >
         <TileLayer url="https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=TNPJ9dvE72iHCMuBVwD7" />
-
-        {/* <Marker position={position} icon={customIcon}>
-          <Popup>
-            destination <br />
-          </Popup>
-        </Marker> */}
-
         <Marker
           position={[dataCoach.location.longitude,dataCoach.location.latitude]}
           icon={customIcon}
@@ -107,14 +102,8 @@ function CoachLocation({setlong,setlat,setHideTabBar}) {
             Mylocation <br />
           </Popup>
         </Marker>
-
-        {/* Add a routing itinerary between position and location */}
-        {/* {waypoints[0] && waypoints[1] && (
-          <L.Routing.Itinerary waypoints={waypoints} />
-        )} */}
       </MapContainer>
-      {/* <button onClick={openGoogleMaps}>ss</button>
-      <div></div> */}
+     
       <div className="user-detail-location">
         <div className="header-detail-user">
           <div
@@ -138,7 +127,7 @@ function CoachLocation({setlong,setlat,setHideTabBar}) {
                   lineHeight: "normal",
                 }}
               >
-                train with
+                {t("trainWith")}
               </p>
               <p style={{ margin: 2 }}>
                 {dataCoach.firstName} {dataCoach.lastName}
@@ -172,7 +161,7 @@ function CoachLocation({setlong,setlat,setHideTabBar}) {
               textTransform: "capitalize",
             }}
           >
-            More detail
+            {t('moreDeatil')}
           </button>
         </div>
       </div>

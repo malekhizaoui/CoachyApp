@@ -78,8 +78,7 @@
   .bioCoach {
     color: #727272;
     /* Text */
-    font-family:'Inter';
-    font-size: 18px;
+      font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -92,7 +91,6 @@
   background: #5D54A0;
   color: var(--white, #FFFBFB);
   text-align: center;
-  font-family:'Inter';
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -104,8 +102,7 @@
   .txt-train{
     margin: 4px;
     color: var(--grey-2, rgba(119, 114, 114, 0.60));
-      font-family:'Inter';
-    font-size: 16px;
+        font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;

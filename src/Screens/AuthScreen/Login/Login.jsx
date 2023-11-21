@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "../auth.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import { StreamChat } from "stream-chat";
-// import { dataClient } from "../../../DataBase/clientDB/Data";
-// import { dataCoach } from "../../../DataBase/coachDB/Data";
+import { useTranslation } from 'react-i18next';
+
 function Login({ setIsLoggedIn,setTypeUser,setHideTabBar }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const api_key = "dcqq9m3xdtzr";
   const client = StreamChat.getInstance(api_key);
@@ -14,8 +14,6 @@ function Login({ setIsLoggedIn,setTypeUser,setHideTabBar }) {
   const dataCoach=JSON.parse(localStorage.getItem('dataCoach'))
   const dataClient=JSON.parse(localStorage.getItem('dataClient') )
 
-console.log('dataCoach',dataCoach);
-console.log('dataClient',dataClient);
   const login = () => {
     dataClient.map((element, index) => {
       if (username === element.phoneNumber && password === element.Password) {
@@ -29,18 +27,11 @@ console.log('dataClient',dataClient);
       }
     });
     dataCoach.map((element,index)=>{
-
       element.coachs.map((coach,place)=>{
-        
-        // console.log("password",coach.password ,"number",coach.phoneNumber);
-        // console.log("password",password ,"number",username);
-
         if (username === coach.phoneNumber && password === coach.password) {
           console.log("donnnnne");
           setIsLoggedIn(true);
           navigate("/");
-          // Convert the element object to a JSON string and save it in localStorage
-          console.log("elementttt",element);
           setTypeUser('Coach')
           setHideTabBar(true)
           localStorage.setItem('dataUser', JSON.stringify(coach));
@@ -53,40 +44,6 @@ console.log('dataClient',dataClient);
     
    
   };
- // const userId=cookies.get("userId")
-    // setIsLoggedIn(true);
-    // navigate("/");
-    // axios
-    //   .post("https://memorixappgameserver.onrender.com/login", {
-    //     username,
-    //     password,
-    //   })
-    //   .then((res) => {
-
-    //     const { firstName, lastName, username, token, userId } = res.data;
-    //     console.log("data", res);
-    //     client.connectUser(
-    //       {
-    //         id: userId,
-    //         name: username,
-    //         firstName: firstName,
-    //         lastName: lastName,
-    //         // hashedPassword: cookies.get("hashedPassword"),
-    //       },
-    //       token
-    //     );
-    //     cookies.set("token", token);
-    //     cookies.set("userId", userId);
-    //     cookies.set("username", username);
-    //     cookies.set("firstName", firstName);
-    //     cookies.set("lastName", lastName);
-    //     setIsLoggedIn(true);
-    //     navigate("/");
-    //   })
-    //     .catch((err)=>{
-    //       console.log("errr",err);
-    //     })
-    //   ;
   return (
     <div className="container-auth">
       <div className="container-page-auth">
@@ -98,7 +55,7 @@ console.log('dataClient',dataClient);
           <input
             type="text"
             className="input"
-            placeholder="Phone Number"
+            placeholder={t("phoneNumber")}
             onChange={(event) => {
               setusername(event.target.value);
             }}
@@ -106,7 +63,7 @@ console.log('dataClient',dataClient);
           <input
             type="password"
             className="input"
-            placeholder="Password"
+            placeholder={t("password")}
             onChange={(event) => {
               setPassword(event.target.value);
             }}
@@ -119,13 +76,13 @@ console.log('dataClient',dataClient);
             login();
           }}
         >
-          Log in
+          {t("login")}
         </button>
         <p 
         onClick={()=>{
           navigate('/SignUp')
         }}
-        className="txt-auth">Create account</p>
+        className="txt-auth">{t('createAcc')}</p>
       </div>
     </div>
   );

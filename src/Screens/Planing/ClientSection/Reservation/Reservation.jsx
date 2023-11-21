@@ -4,8 +4,10 @@ import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
 import BackIcon from "../../../../assets/icons/BackIcon";
 import ArrowTime from "../../../../assets/icons/Planing/ArrowTime";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 function Reservation() {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const [seeAvailableDay, setSeeAvailableDay] = useState(999);
@@ -16,13 +18,13 @@ function Reservation() {
   const allDataCoach = JSON.parse(localStorage.getItem("dataCoach"));
   const allDataClient = JSON.parse(localStorage.getItem("dataClient"));
   const days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+    t('monday'),
+    t('tuesday'),
+    t('wednesday'),
+    t('thursday'),
+    t('friday'),
+    t('saturday'),
+    t('sunday'),
   ];
 
   const reserveSession = (day) => {
@@ -190,23 +192,7 @@ function Reservation() {
     localStorage.setItem("dataClient", JSON.stringify(updatClient));
     navigate("/PaymentScreen");
   };
-  //   else{
-  //     const addMessage=message
-  //     addMessage.user={
-  //       firstName: data.firstName,
-  //       lastName:  data.lastName,
-  //       image_user: data.image_user
-  //   }
-  //   addMessage.allMessages=[
-  //     {
-  //         type: "Client",
-  //         firstName:  dataParsed.firstName,
-  //         message: `Bonjour Est ce que vous pouvez checker ton planning pour le jour ${days[day]} car je vous ai envoyé une reservation `,
-  //         phoneNumber: dataParsed.phoneNumber
-  //     }
-  // ]
 
-  //   }
   const bookSession = (day, messages) => {
     const newReservation = dataParsed.reservation.map((element, index) => {
       if (day === index) {
@@ -244,7 +230,7 @@ function Reservation() {
             <BackIcon />
           </div>
 
-          <p className="name-page">Reservation</p>
+          <p className="name-page">{t('reservation')}</p>
         </div>
 
         {data.availability.map((element, index) => {
@@ -286,7 +272,7 @@ function Reservation() {
                         // marginTop:16
                       }}
                     >
-                      Check my availablility
+                    {t('checkAvailability')}
                     </p>
                     {element.length > 0 ? (
                       <p
@@ -302,7 +288,7 @@ function Reservation() {
                           textAlign: "left",
                         }}
                       >
-                        Disponible
+                        {t("disponible")}
                       </p>
                     ) : (
                       <p
@@ -318,7 +304,7 @@ function Reservation() {
                           textAlign: "left",
                         }}
                       >
-                        not disponible
+                        {t("notDisponible")}
                       </p>
                     )}
                   </div>
@@ -410,23 +396,19 @@ function Reservation() {
                               <button
                                 onClick={() => {
                                   reserveSession(index);
-                                  // console.log("result",index);
-
-                                  // localStorage.setItem('dataUser',JSON.stringify(result))
-                                  // navigate('/')
                                 }}
                                 style={{
                                   backgroundColor: pickTime
                                     ? "#5D54A0"
                                     : "#DCDCDC",
-                                  width: 70,
+                                  width:"30%",
                                   height: 30,
                                   borderRadius: 10,
                                   color: "white",
                                   border: "none",
                                 }}
                               >
-                                Save
+                                {t('save')}
                               </button>
                             )}
                           </div>
@@ -434,7 +416,7 @@ function Reservation() {
                       })}
                     </div>
                   ) : (
-                    <p>Rest Day</p>
+                    <p>{t('restday')}</p>
                   )}
                 </div>
               ) : null}

@@ -24,7 +24,6 @@
 
 .name-user-private-message {
   color: var(--Black, #3f3c3c);
-  font-family:'Inter';
   font-size: 15px;
   font-style: normal;
   font-weight: 600;
@@ -56,7 +55,6 @@
   padding: 8px;
   outline: none; /* Supprime la bordure d'accentuation sur le focus */
   color: var(--grey-1, #bcbaba);
-  font-family:'Inter';
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -80,7 +78,6 @@
 
 .message-txt-me {
   color: white;
-  font-family:'Inter';
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
@@ -136,7 +133,6 @@
 }
 .message-txt-destination {
   color: rgb(104, 98, 98);
-  font-family:'Inter';
   font-size: 15px;
   font-style: normal;
   font-weight: 500;

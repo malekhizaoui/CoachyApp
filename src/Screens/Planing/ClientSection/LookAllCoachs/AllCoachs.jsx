@@ -6,20 +6,21 @@ import PinIcon from "../../../../assets/icons/Planing/PinIcon";
 import Unchecked from "../../../../assets/icons/Planing/Unchecked";
 // import { data } from "../../../../DataBase/coachDB/Data";
 import { useNavigate, useLocation } from "react-router-dom";
-
-function AllCoachs({setHideTabBar,sethideTabBarforCoachDetail}) {
+import { useTranslation } from "react-i18next";
+function AllCoachs({ setHideTabBar, sethideTabBarforCoachDetail }) {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const data = location.state;
   const [checkedOrNot, setCheckedOrNot] = useState(999);
-  const [chooseCoach,setChooseCoach]=useState({})
-  const bookCoach=()=>{
-    if(checkedOrNot!==999){
-      navigate('/Reservation',{state:chooseCoach})
-    }else{
+  const [chooseCoach, setChooseCoach] = useState({});
+  const bookCoach = () => {
+    if (checkedOrNot !== 999) {
+      navigate("/Reservation", { state: chooseCoach });
+    } else {
       console.log("Choose Coach");
     }
-  }
+  };
 
   return (
     <div className="container">
@@ -38,7 +39,7 @@ function AllCoachs({setHideTabBar,sethideTabBarforCoachDetail}) {
               lineHeight: "normal",
             }}
           >
-            Sending booking requests to caochs
+            {t("sendBook")}
           </p>
           <p
             style={{
@@ -52,7 +53,7 @@ function AllCoachs({setHideTabBar,sethideTabBarforCoachDetail}) {
               marginTop: 8,
             }}
           >
-            The first to accept your request will share your session
+            {t("firstToAccept")}
           </p>
           <div className="line"></div>
         </div>
@@ -61,23 +62,22 @@ function AllCoachs({setHideTabBar,sethideTabBarforCoachDetail}) {
           {/* coach checked */}
           {data.map((element, index) => {
             return (
-              <div key={index} className="detail-coach" >
+              <div key={index} className="detail-coach">
                 <div className="header-coach">
                   <div
-                  onClick={()=>{navigate('/CoachLocation',{state:element}); setHideTabBar(true);sethideTabBarforCoachDetail(true)}}
-                    // className={
-                    //   checkedOrNot === index
-                    //     ? "image-user"
-                    //     : "image-user noChecked"
-                    // }
+                    onClick={() => {
+                      navigate("/CoachLocation", { state: element });
+                      setHideTabBar(true);
+                      sethideTabBarforCoachDetail(true);
+                    }}
                   >
-                    <img  className={
-                      checkedOrNot === index
-                        ? "image-user"
-                        : "image-user noChecked"
-                    }
-                    src={element.image_user}
-                    
+                    <img
+                      className={
+                        checkedOrNot === index
+                          ? "image-user"
+                          : "image-user noChecked"
+                      }
+                      src={element.image_user}
                     />
                   </div>
                   <div
@@ -87,7 +87,8 @@ function AllCoachs({setHideTabBar,sethideTabBarforCoachDetail}) {
                     onClick={() => {
                       checkedOrNot === index
                         ? setCheckedOrNot(999)
-                        : setCheckedOrNot(index);setChooseCoach(element)
+                        : setCheckedOrNot(index);
+                      setChooseCoach(element);
                     }}
                   >
                     {checkedOrNot == index ? <Checked /> : <Unchecked />}
@@ -120,7 +121,7 @@ function AllCoachs({setHideTabBar,sethideTabBarforCoachDetail}) {
                       padding: 1,
                     }}
                   >
-                    disponible
+                    {t('disponible')}
                   </p>
                   <div style={{ flexDirection: "row", display: "flex" }}>
                     <PinIcon />
@@ -147,7 +148,7 @@ function AllCoachs({setHideTabBar,sethideTabBarforCoachDetail}) {
       </div>
       <footer style={{ width: "100%" }}>
         <button
-        onClick={bookCoach}
+          onClick={bookCoach}
           style={{
             // position: "fixed",
             marginBottom: 100,
@@ -165,7 +166,7 @@ function AllCoachs({setHideTabBar,sethideTabBarforCoachDetail}) {
             textTransform: "capitalize",
           }}
         >
-          Book this Coach
+          {t('bookCoach')}
         </button>
       </footer>
     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BackIcon from "../../../../assets/icons/BackIcon";
 import ToggleOff from "../../../../assets/icons/Planing/ToggleOff";
 import ToggleOn from "../../../../assets/icons/Planing/ToggleOn";
@@ -8,9 +8,14 @@ import AmexIcon from "../../../../assets/icons/Planing/AmexIcon";
 import DinerIcon from "../../../../assets/icons/Planing/DinerIcon";
 import VisaIcon from "../../../../assets/icons/Planing/VisaIcon";
 import TickIcon from "../../../../assets/icons/Planing/TickIcon";
+import { useNavigate } from "react-router-dom";
 import "./payment.css";
 
 function PaymentScreen() {
+    const navigate=useNavigate()
+  const [methodePayment, setMethodPayment] = useState("");
+  const [save, setSave] = useState(false);
+  console.log("methodePayment", methodePayment);
   return (
     <div className="reservation-container">
       <div className="page-container">
@@ -23,26 +28,99 @@ function PaymentScreen() {
         </div>
         <div className="container-pay">
           <div className="container-choose-Method">
-            <div className="iconStyle">
-              <PayPalIcon />
-              <TickIcon/>
-
+            <div style={{ position: "relative" }}>
+              <div
+                className="iconStyle"
+                onClick={() => {
+                  setMethodPayment("Visa");
+                }}
+              >
+                <VisaIcon />
+                {methodePayment === "Visa" && (
+                  <div
+                    className="tick-place"
+                    style={{ position: "absolute", bottom: 0, right: 0 }}
+                  >
+                    <TickIcon />
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="iconStyle">
-              <MasterCardIcon />
+            <div style={{ position: "relative" }}>
+              <div
+                className="iconStyle"
+                onClick={() => {
+                  setMethodPayment("PayPal");
+                }}
+              >
+                <PayPalIcon />
+                {methodePayment === "PayPal" && (
+                  <div
+                    className="tick-place"
+                    style={{ position: "absolute", bottom: 0, right: 0 }}
+                  >
+                    <TickIcon />
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="iconStyle">
-              <AmexIcon />
+            <div style={{ position: "relative" }}>
+              <div
+                className="iconStyle"
+                onClick={() => {
+                  setMethodPayment("Diner");
+                }}
+              >
+                <DinerIcon />
+                {methodePayment === "Diner" && (
+                  <div
+                    className="tick-place"
+                    style={{ position: "absolute", bottom: 0, right: 0 }}
+                  >
+                    <TickIcon />
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="iconStyle">
-              <DinerIcon />
+            <div style={{ position: "relative" }}>
+              <div
+                className="iconStyle"
+                onClick={() => {
+                  setMethodPayment("Amex");
+                }}
+              >
+                <AmexIcon />
+                {methodePayment === "Amex" && (
+                  <div
+                    className="tick-place"
+                    style={{ position: "absolute", bottom: 0, right: 0 }}
+                  >
+                    <TickIcon />
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="iconStyle">
-              <VisaIcon />
+            <div style={{ position: "relative" }}>
+              <div
+                className="iconStyle"
+                onClick={() => {
+                  setMethodPayment("Master");
+                }}
+              >
+                <MasterCardIcon />
+                {methodePayment === "Master" && (
+                  <div
+                    className="tick-place"
+                    style={{ position: "absolute", bottom: 0, right: 0 }}
+                  >
+                    <TickIcon />
+                  </div>
+                )}
+              </div>
             </div>
           </div>
           <input className="input-card" placeholder="Name on Card" />
-          <input className="input-card" placeholder="Number on Card" />
+          <input className="input-card" placeholder="1234 5678 3456 4567" />
           <div className="conatiner-detail-card">
             <input className="input-card" placeholder="Month" />
             <input className="input-card" placeholder="Year" />
@@ -61,11 +139,29 @@ function PaymentScreen() {
               alignItems: "center",
             }}
           >
-            <ToggleOn />
+            {save ? (
+              <div
+                onClick={() => {
+                  setSave(false);
+                }}
+              >
+                <ToggleOn />
+              </div>
+            ) : (
+              <div
+                onClick={() => {
+                  setSave(true);
+                }}
+              >
+                <ToggleOff />
+              </div>
+            )}
             <p className="text-payment"> Save your card</p>
           </div>
         </div>
-        <button className="btn-pay">Pay</button>
+        <button
+        onClick={()=>{navigate('/')}}
+        className="btn-pay">Pay</button>
       </div>
     </div>
   );
