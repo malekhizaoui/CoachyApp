@@ -24,7 +24,7 @@ function Language({ setHideTabBar }) {
       <div className="container-settings">
         <div className="navigate">
           <BackIcon hide={true} setHideTabBar={setHideTabBar}/>
-          <p className="name-page">Language</p>
+          <p className="name-page">{t('language')}</p>
         </div>
         <div style={{ width: "100%z" }}>
           <img
@@ -69,7 +69,7 @@ function Language({ setHideTabBar }) {
           </div>
         </div>
 
-        <button className="btn-pay" onClick={()=>{changeLang(language)}}>Save</button>
+        <button className="btn-pay" onClick={()=>{changeLang(language)}}>{t('save')}</button>
       </div>
     </div>
   );

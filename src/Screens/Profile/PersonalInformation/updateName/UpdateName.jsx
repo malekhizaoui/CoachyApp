@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import "./updatName.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import BackIcon from "../../../../assets/icons/BackIcon";
+import { useTranslation } from 'react-i18next'
+
 function UpdateName() {
+  const {t}=useTranslation()
   const Location = useLocation();
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
@@ -60,11 +63,11 @@ function UpdateName() {
         <div className="navigate">
           <BackIcon />
 
-          <p className="name-page">Update Name</p>
+          <p className="name-page">{t('updateName')}</p>
         </div>
         <div className="container-input">
           <div className="input-container">
-            <label for="firstName">First Name</label>
+            <label for="firstName">{t('firstName')}</label>
             <input
               onChange={(e) => {
                 setFirstName(e.target.value);
@@ -72,7 +75,7 @@ function UpdateName() {
               type="text"
               id="input1"
               className="bottom-border"
-              placeholder="First Name"
+              placeholder={t('firstName')}
             />
           </div>
 
@@ -85,7 +88,7 @@ function UpdateName() {
               type="text"
               id="input2"
               className="bottom-border"
-              placeholder="Last Name"
+              placeholder={t('lastName')}
             />
           </div>
           <button className="btn-update-Profile"onClick={updateFullName}>Save</button>

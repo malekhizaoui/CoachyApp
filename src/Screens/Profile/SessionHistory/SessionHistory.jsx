@@ -2,7 +2,9 @@ import React from "react";
 import BackIcon from "../../../assets/icons/BackIcon";
 import "./history.css";
 import ArrowrightIcon from "../../../assets/icons/ArrowrightIcon";
+import { useTranslation } from "react-i18next";
 function SessionHistory() {
+  const {t}=useTranslation()
   const data = localStorage.getItem("dataUser");
   const sessionHistory = JSON.parse(data);
   return (
@@ -10,7 +12,7 @@ function SessionHistory() {
       <div className="container-session-history">
         <div className="navigate">
           <BackIcon />
-          <p className="name-page">Session History</p>
+          <p className="name-page">{t('sessionHistory')}</p>
         </div>
      
       <div style={{ display: "flex", flexDirection: "column" }}>

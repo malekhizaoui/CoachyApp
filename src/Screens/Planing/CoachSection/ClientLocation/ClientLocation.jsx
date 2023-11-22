@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 // import { Geolocation } from "@capacitor/geolocation";
+import { useTranslation } from "react-i18next";
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import BackIcon from "../../../../assets/icons/BackIcon";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "leaflet-routing-machine";
 import "./clientLocation.css";
-import BackIconComponent from "../../../../Components/componentBack/BackIconComponent";
 import CallIcon from "../../../../assets/icons/Planing/CallIcon";
 import { useNavigate, useLocation } from "react-router-dom";
-import Cookies from "universal-cookie";
-
 const days = [
   "Monday",
   "Tuesday",
@@ -26,10 +23,8 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
   
   const position = [47.184475, 8.505185];
   const [location, setLocation] = useState(null);
-  const [newDataa, setnewDataa] = useState(null);
   const locationForstate = useLocation();
   const navigate = useNavigate();
-  const cookies = new Cookies();
   const data = localStorage.getItem("dataUser");
   const dataUser=JSON.parse(data)
   const allDataCoach=JSON.parse(localStorage.getItem('dataCoach'))
@@ -37,14 +32,8 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
   const dataCoach = locationForstate.state.dataCoach;
   const getIndex=days.indexOf(locationForstate.state.reservation[0].day)
   const getPostion = JSON.parse(localStorage.getItem('position'))
+  const {t}=useTranslation()
 
-  console.log("dataCoach",dataCoach);
-  // console.log("getIndex", getIndex);
-  // console.log("dataUser", dataUser);
-  // console.log("dataCoach", dataCoach);
-  // console.log("newDataa", locationForstate.state);
-  // console.log("locationForstate.state.indexsession", locationForstate.state.indexsession);
-  
   const acceptReservation = () => {
       const updateAllClient = allDataClient.map((client, indice) => {
         if (client.firstName === dataCoach.firstName) {
@@ -92,8 +81,6 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
          const updateCoachs= domaine.coachs.map((coach,indice)=>{
           const updateReservation2=newReservation(coach.reservation,getIndex)
             if(coach.firstName===dataUser.firstName){
-              // console.log("updateReservation2",updateReservation2);
-
               return{...coach ,reservation:updateReservation2}
             }
             else{
@@ -184,14 +171,11 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
 
 
   useEffect(() => {
-    // getCurrentPosition();
     setlong(dataCoach.location.longitude);
     setlat(dataCoach.location.latitude);
   }, []);
 
-  useEffect(() => {
-    // getDistance();
-  }, []);
+
   const customIcon = L.icon({
     iconUrl: require("../../../../assets/images/marker-icon.png"),
     shadowUrl: require("../../../../assets/images/marker-shadow.png"),
@@ -239,7 +223,7 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
             <img className="img-user" src={dataCoach.image_user} />
             <div className="train-name-user">
               <p className="txt-train">
-                train with
+                {t('trainWith')}
               </p>
               <p style={{ margin: 2 }}>
                 {dataCoach.firstName} {dataCoach.lastName}
@@ -255,16 +239,16 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
           {locationForstate.state.reservationState === "pending" ? (
             <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
               <button className="btn-location" onClick={() => { cancelReservation()}}>
-                Cancel Request
+                {t('cancelReq')}
               </button>
               <button
                 className="btn-location" onClick={() => {acceptReservation()}}>
-                Accept Request
+                {t('acceptReq')}
               </button>
             </div>
           ) : (
             <button className="btn-location" onClick={() => { cancelReservation()}}>
-              Cancel Request
+                {t('cancelReq')}
             </button>
           )}
         </div>

@@ -5,8 +5,9 @@ import ArrowrightIcon from '../../../assets/icons/ArrowrightIcon'
 import AddPicIcon from '../../../assets/icons/Profile/AddPicIcon'
 import { useNavigate,useLocation } from "react-router-dom";
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
-
+import { useTranslation } from 'react-i18next'
 function PersonalInfo() {
+  const {t}=useTranslation()
   const navigate = useNavigate();
   const Location = useLocation();
   const [photo, setPhoto] = useState(null);
@@ -81,7 +82,7 @@ function PersonalInfo() {
 
         <div className="navigate" >
           <BackIcon/>
-          <p className="name-page">Personal information</p>
+          <p className="name-page">{t('personalInfo')}</p>
         </div>
 
         <div className="img-container">
@@ -95,27 +96,27 @@ function PersonalInfo() {
 
         <div className="perso-conatiner">
           <div className="line"></div>
-          <p className="attribute-info">Full Name</p>
+          <p className="attribute-info">{t('fullName')}</p>
           <div className="detail-info" onClick={()=>{navigate('/UpdateName',{state:data})}}>
             <p className="value-info">{data.firstName} {data.lastName}</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
 
-          <p className="attribute-info">Age</p>
+          <p className="attribute-info">{t('age')}</p>
           <div className="detail-info" onClick={()=>{navigate('/UpdateAge',{state:data})}}>
             <p className="value-info">{data.age} yo</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
-          <p className="attribute-info">Phone number</p>
+          <p className="attribute-info">{t('phoneNumber')}</p>
           <div className="detail-info">
             <p className="value-info">+41 {data.phoneNumber}</p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
 
-          {data.email?.length>0?<><p className="attribute-info">E-mail</p>
+          {data.email?.length>0?<><p className="attribute-info">{t('email')}</p>
           <div className="detail-info">
             <p className="value-info">{data.email}</p>
             <ArrowrightIcon/>

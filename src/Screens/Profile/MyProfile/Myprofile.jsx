@@ -7,10 +7,10 @@ import ProfileIcon from "../../../assets/icons/Profile/ProfileIcon";
 import Wallet from "../../../assets/icons/Profile/Wallet";
 import SettingsIcon from "../../../assets/icons/Profile/SettingsIcon";
 import ArrowrightIcon from "../../../assets/icons/ArrowrightIcon";
-import Cookies from "universal-cookie";
+import { useTranslation } from "react-i18next";
 function Myprofile() {
+  const {t}=useTranslation()
   const navigate = useNavigate();
-  const cookies = new Cookies();
   const userData = localStorage.getItem("dataUser");
   const data = JSON.parse(userData);
   const typeUser = localStorage.getItem("typeUser");
@@ -26,7 +26,7 @@ function Myprofile() {
         </div>
       </div>
       <div className="profile-info">
-        <p style={{ marginTop: 5 }}>My profile</p>
+        <p style={{ marginTop: 5 }}>My {t('profile')}</p>
         <div
           className="session-history"
           onClick={() => {
@@ -34,7 +34,7 @@ function Myprofile() {
           }}
         >
           <HistorySessionIcon />
-          <p className="info">Session history </p>
+          <p className="info">{t('sessionHistory')} </p>
           <ArrowrightIcon />
         </div>
         {typeUser === "Coach" ? (
@@ -47,13 +47,13 @@ function Myprofile() {
               }}
             >
               <AvailablityIcon />
-              <p className="info">Availibilty</p>
+              <p className="info">{t('availability')}</p>
               <ArrowrightIcon />
             </div>
           </>
         ) : null}
         <div className="line"></div>
-        <p style={{ marginTop: 5 }}>Prefernces</p>
+        <p style={{ marginTop: 5 }}>{t('prefernces')}</p>
         <div
           className="session-history"
           onClick={() => {
@@ -61,7 +61,7 @@ function Myprofile() {
           }}
         >
           <SettingsIcon />
-          <p className="info">Settings </p>
+          <p className="info">{t('settings')}</p>
           <ArrowrightIcon />
         </div>
         <div className="line"></div>
@@ -72,13 +72,13 @@ function Myprofile() {
           }}
         >
           <ProfileIcon />
-          <p className="info">Personal information </p>
+          <p className="info">{t('personalInfo')} </p>
           <ArrowrightIcon />
         </div>
         <div className="line"></div>
         <div className="session-history">
           <Wallet />
-          <p className="info">Bank Card </p>
+          <p className="info">{t('bankCard')}</p>
           <ArrowrightIcon />
         </div>
         <div className="line"></div>

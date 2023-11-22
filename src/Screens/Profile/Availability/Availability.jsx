@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import ArrowrightIcon from "../../../assets/icons/ArrowrightIcon";
 import ArrowTime from "../../../assets/icons/Planing/ArrowTime";
 import AddIcon from "../../../assets/icons/Profile/AddIcon";
-import Cookies from "universal-cookie";
 import BackIcon from "../../../assets/icons/BackIcon";
 import ArrowDecrementTime from "../../../assets/icons/Profile/ArrowDecrementTime";
 import ArrowIncrementTime from "../../../assets/icons/Profile/ArrowIncrementTime";
+import { useTranslation } from "react-i18next";
 import "./availability.css";
 function Availability() {
+  const {t}=useTranslation()
   const data = localStorage.getItem("dataUser");
   const dataParsed = JSON.parse(data);
   const getAllCoachs = JSON.parse(localStorage.getItem("dataCoach"));
@@ -16,13 +17,13 @@ function Availability() {
   const [bookTo, setBookTo] = useState({ hour: 0, min: 0 });
   const [editAvailability, setEditAvailability] = useState(null);
   const days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+    t('monday'),
+    t('tuesday'),
+    t('wednesday'),
+    t('thursday'),
+    t('friday'),
+    t('saturday'),
+    t('sunday'),
   ];
 
   const editTime = (day, session) => {
@@ -69,7 +70,7 @@ function Availability() {
     <div className="container-avail-profile">
       <div className="navigate-Available">
         <BackIcon />
-        <p className="name-page">My availability</p>
+        <p className="name-page">{t('availability')}</p>
       </div>
       {dataUser.availability.map((element, index) => (
         <div className="container" key={index}>
@@ -113,7 +114,7 @@ function Availability() {
                   </div>
                   {editAvailability === days[index] + "+" + i && (
                     <>
-                      <p className="text-hour">heure :</p>
+                      <p className="text-hour">{t("time")} :</p>
                       <div className="edit-container">
                         <div className="bookFrom-container">
                           <div className="edit-book">
@@ -202,7 +203,7 @@ function Availability() {
                               <p style={{ color: "white" }}>Am</p>
                             </div>
                           </div>
-                          <div>Jusqu'à</div>
+                          <div>{t("to")}</div>
                           <div className="edit-book">
                             <div className="time-editing">
                               <div className="edit-hour">
@@ -292,7 +293,7 @@ function Availability() {
                           }}
                           className="btn-edit"
                         >
-                          Save
+                          {t('save')}
                         </button>
                       </div>
                     </>
@@ -310,14 +311,14 @@ function Availability() {
             >
               <div className="RestDayContainer">
                 <div className="rest-Day">
-                  <p>RestDay</p>
+                  <p>{t('restday')}</p>
                 </div>
               </div>
             </div>
           )}
           {editAvailability === days[index] && (
             <>
-              <p className="text-hour">heure :</p>
+              <p className="text-hour">{t('time')} :</p>
               <div className="edit-container">
                 <div className="bookFrom-container">
                   <div className="edit-book">
@@ -384,7 +385,7 @@ function Availability() {
                       <p style={{ color: "white" }}>Am</p>
                     </div>
                   </div>
-                  <div>Jusqu'à</div>
+                  <div>{t('to')}</div>
                   <div className="edit-book">
                     <div className="time-editing">
                       <div className="edit-hour">
@@ -452,7 +453,8 @@ function Availability() {
                   }}
                   className="btn-edit"
                 >
-                  Save
+              {t('save')}
+
                 </button>
               </div>
             </>

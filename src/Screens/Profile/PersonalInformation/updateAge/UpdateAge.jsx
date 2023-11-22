@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import "../updateName/updatName.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import BackIcon from "../../../../assets/icons/BackIcon";
+import { useTranslation } from 'react-i18next'
+
 function UpdateAge() {
+  const {t}=useTranslation()
   const Location = useLocation();
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
@@ -60,11 +63,11 @@ function UpdateAge() {
         <div className="navigate">
           <BackIcon />
 
-          <p className="name-page">Update Age</p>
+          <p className="name-page">{t('updateAge')}</p>
         </div>
         <div className="container-input">
           <div className="input-container">
-            <label for="firstName">Age</label>
+            <label for="firstName">{t('age')}</label>
             <input
               onChange={(e) => {
                 setFirstName(e.target.value);
@@ -76,7 +79,7 @@ function UpdateAge() {
             />
           </div>
 
-          <button className="btn-update-Profile" onClick={updateFullName}>Save</button>
+          <button className="btn-update-Profile" onClick={updateFullName}>{t('save')}</button>
         </div>
       </div>
     </div>

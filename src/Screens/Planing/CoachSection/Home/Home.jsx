@@ -5,13 +5,14 @@ import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
 import ArrowTime from "../../../../assets/icons/Planing/ArrowTime";
 import { useNavigate } from "react-router-dom";
 import { Geolocation } from "@capacitor/geolocation";
-
+import { useTranslation } from "react-i18next";
 function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const data = localStorage.getItem("dataUser");
   const dataUser = JSON.parse(data);
   const navigate = useNavigate();
   const [newData, setNewData] = useState(dataUser.reservation);
-
+  const {t}=useTranslation()
+  const getLang=localStorage.getItem('language')
   const getCurrentPosition = async () => {
     try {
       const coordinates = await Geolocation.getCurrentPosition({
@@ -36,14 +37,14 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
     const today = new Date();
     const daysInfo = [];
     daysInfo.push(
-      `Today,${today.getDate()} ${today.toLocaleDateString("en-US", {
+      `${t("today")},${today.getDate()} ${today.toLocaleDateString(getLang==='fr' ?"fr-FR":"en-US", {
         month: "long",
       })}`
     );
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
     daysInfo.push(
-      `Tomorrow, ${tomorrow.getDate()} ${tomorrow.toLocaleDateString("en-US", {
+      `${t("tomorow")}, ${tomorrow.getDate()} ${tomorrow.toLocaleDateString(getLang==='fr' ?"fr-FR":"en-US", {
         month: "long",
       })}`
     );
@@ -52,9 +53,9 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
       const nextDay = new Date(today);
       nextDay.setDate(today.getDate() + i);
       daysInfo.push(
-        `${nextDay.toLocaleDateString("en-US", {
+        `${nextDay.toLocaleDateString(getLang==='fr' ?"fr-FR":"en-US", {
           weekday: "long",
-        })}, ${nextDay.getDate()} ${nextDay.toLocaleDateString("en-US", {
+        })}, ${nextDay.getDate()} ${nextDay.toLocaleDateString(getLang==='fr' ?"fr-FR":"en-US", {
           month: "long",
         })}`
       );
@@ -95,7 +96,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
     <div>
       <div className="container">
         <div className="welcome-page">
-          <p className="look-coach">My Planing</p>
+          <p className="look-coach">{t('planing')}</p>
           <CalendarIcon />
         </div>
         {/*  RESERVATION ACCEPTED */}
@@ -115,7 +116,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                   {/* <p className="Restday">Rest Day</p> */}
                   <div className="RestDayContainer">
                     <div className="rest-Day">
-                      <p>RestDay</p>
+                      <p>{t('restday')}</p>
                     </div>
                   </div>
                 </>
@@ -227,7 +228,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                             </div>
                           </div>
                           <p className="text-checkReservation">
-                            check your reservation
+                            {t('checkReservation')}
                           </p>
                         </div>
                       );
@@ -287,7 +288,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                             </div>
                           </div>
                           <p className="text-pendingReservation">
-                            Pending reservation
+                            {t('pendingReservation')}
                           </p>
                         </div>
                       );
