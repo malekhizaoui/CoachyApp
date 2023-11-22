@@ -1,6 +1,5 @@
 import "./App.css";
 import { Navigate, BrowserRouter as Router } from "react-router-dom";
-
 import RouteAuth from "./Routes/RouteAuth/RouteAuth";
 import { useEffect, useState } from "react";
 import RoutePlaningClient from "./Routes/RoutesPlaning/ClientSection/RoutePlaningClient";
@@ -12,14 +11,12 @@ import BackIconComponent from "./Components/componentBack/BackIconComponent";
 import DirectionMap from "./Components/directionMap/DirectionMap";
 import { dataClient } from "./DataBase/clientDB/Data";
 import { dataCoach } from "./DataBase/coachDB/Data";
-import { useTranslation } from 'react-i18next';
-
+import { useTranslation } from "react-i18next";
 
 function App() {
-
   const token = localStorage.getItem("token");
   const typeOfUser = localStorage.getItem("typeUser");
-  const { t,i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [hideTabBar, setHideTabBar] = useState(false);
   const [hideTabBarforCoachDetail, sethideTabBarforCoachDetail] =
@@ -28,7 +25,7 @@ function App() {
   const [lat, setlat] = useState([]);
   const [long, setlong] = useState([]);
   const [typeUser, setTypeUser] = useState(typeOfUser);
-
+  const [openModal, setOpenModal] = useState(false);
 
   const logOut = () => {
     localStorage.removeItem("token");
@@ -68,21 +65,21 @@ function App() {
     getAllData();
   }, []);
 
-  const changeLang=(lang)=>{
-    localStorage.setItem("language",lang)
-    i18n.changeLanguage(lang)
-  }
-  const getLang=async()=>{
-    const lang= localStorage.getItem('language')
-    if(lang){
-     changeLang(lang)
-   }else{
-     changeLang('fr')
-   }
-   }
-   useEffect(()=>{
-     getLang()
-   },[])
+  const changeLang = (lang) => {
+    localStorage.setItem("language", lang);
+    i18n.changeLanguage(lang);
+  };
+  const getLang = async () => {
+    const lang = localStorage.getItem("language");
+    if (lang) {
+      changeLang(lang);
+    } else {
+      changeLang("fr");
+    }
+  };
+  useEffect(() => {
+    getLang();
+  }, []);
   return (
     <div className="App">
       <Router>
@@ -90,7 +87,10 @@ function App() {
           <div>
             {hideTabBarforCoachDetail ? (
               <div style={{ height: 0 }}>
-                <DirectionMap openGoogleMaps={openGoogleMaps} />
+                <DirectionMap
+                  openGoogleMaps={openGoogleMaps}
+                  setOpenModal={setOpenModal}
+                />
                 <BackIconComponent
                   setHideTabBar={setHideTabBar}
                   sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}
@@ -112,6 +112,8 @@ function App() {
               <>
                 {typeUser !== "Client" ? (
                   <RoutePlaningCaoch
+                   openModal={openModal}
+                   setOpenModal={setOpenModal}
                     setHideTabBar={setHideTabBar}
                     sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}
                     setlat={setlat}
@@ -119,6 +121,8 @@ function App() {
                   />
                 ) : (
                   <RoutePlaningClient
+                  setOpenModal={setOpenModal}
+                    openModal={openModal}
                     setHideTabBar={setHideTabBar}
                     sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}
                     setlat={setlat}
@@ -127,8 +131,7 @@ function App() {
                 )}
               </>
             ) : tabItem === "Profile" ? (
-              <RouteProfile logOut={logOut}setHideTabBar={setHideTabBar}
-              />
+              <RouteProfile logOut={logOut} setHideTabBar={setHideTabBar} />
             ) : tabItem === "Messages" ? (
               <RouteMessages setHideTabBar={setHideTabBar} />
             ) : null}

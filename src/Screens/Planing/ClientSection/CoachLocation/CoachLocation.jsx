@@ -10,81 +10,27 @@ import BackIconComponent from "../../../../Components/componentBack/BackIconComp
 import CallIcon from "../../../../assets/icons/Planing/CallIcon";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-
-function CoachLocation({setlong,setlat,setHideTabBar}) {
+import Modal from "../../../../Components/modal/Modal";
+function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
   const { t } = useTranslation();
   const position = [47.184475, 8.505185];
   const [location, setLocation] = useState(null);
   const locationForstate = useLocation();
   const navigate = useNavigate();
   const dataCoach = locationForstate.state;
-  
-  console.log("dataCoach.location.longitude,dataCoach.location.latitude",dataCoach.location.longitude,dataCoach.location.latitude);
-  useEffect(() => {
-    getCurrentPosition();
-    setlong(dataCoach.location.longitude)
-    setlat(dataCoach.location.latitude)
-  }, []);
-
-  useEffect(() => {
-      getDistance();
-    
-  }, []);
-
+ 
   const customIcon = L.icon({
     iconUrl: require("../../../../assets/images/marker-icon.png"),
     shadowUrl: require("../../../../assets/images/marker-shadow.png"),
     iconAnchor: [16, 32],
     popupAnchor: [0, -32],
   });
-  const apiKey = "52594ed767394cba8b91276dce863b21";
-  const start = "46.193673,6.101839";
-  const end = "47.186530,8.501407";
-  const mode = "driving-car";
-
-  const url = `https://api.geoapify.com/v1/routing?waypoints=${start}|${end}&mode=${mode}&apiKey=${apiKey}`;
-
-  const getDistance = async () => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify({
-      mode: "drive",
-      sources: [{ location: location }],
-      targets: [{ location: position }],
-    });
-
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-    };
-
-    fetch(
-      "https://api.geoapify.com/v1/routematrix?apiKey=52594ed767394cba8b91276dce863b21",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
+ 
+  const openGoogleMaps = () => {
+    const googleMapsUrl = `https://www.google.com/maps?q=${dataCoach.location.longitude},${dataCoach.location.latitude}`;
+    window.open(googleMapsUrl, "_blank");
+    setOpenModal(false)
   };
-
-  const getCurrentPosition = async () => {
-    try {
-      const coordinates = await Geolocation.getCurrentPosition({
-        enableHighAccuracy: true,
-      });
-      if (location) {
-        setLocation([
-          coordinates.coords.latitude,
-          coordinates.coords.longitude,
-        ]);
-      }
-    } catch (error) {
-      console.error("Error getting location", error);
-    }
-  };
-  
 
   return (
     <div className="hole-map">
@@ -165,6 +111,17 @@ function CoachLocation({setlong,setlat,setHideTabBar}) {
           </button>
         </div>
       </div>
+      {openModal&&<Modal>
+          <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+          <p>
+            Vous allez être redirigé vers l'application Google Maps lors de la
+            navigation vers le monument. Une fois sur place,appuyez sur le
+            bouton précédent en bas de l'écran de votre téléphone pour revenir à
+            l'application Dourbia
+          </p>
+          <button onClick={openGoogleMaps}className="btn-auth" >OK</button>
+          </div>
+        </Modal>}
     </div>
   );
 }

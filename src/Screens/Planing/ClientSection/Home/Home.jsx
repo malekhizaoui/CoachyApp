@@ -4,14 +4,14 @@ import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
 import "./home.css";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
-
+import { useTranslation } from "react-i18next";
+import Modal from "../../../../Components/modal/Modal";
 function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const cookies = new Cookies();
   const data = localStorage.getItem("dataUser");
-  const dataUser=JSON.parse(data)
+  const dataUser = JSON.parse(data);
   const [newData, setNewData] = useState(dataUser.reservation);
   useEffect(() => {
     reorganizeReservation();
@@ -41,9 +41,12 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
     daysInfo.push(
-      `${t('tomorow')}, ${tomorrow.getDate()} ${tomorrow.toLocaleDateString("en-US", {
-        month: "long",
-      })}`
+      `${t("tomorow")}, ${tomorrow.getDate()} ${tomorrow.toLocaleDateString(
+        "en-US",
+        {
+          month: "long",
+        }
+      )}`
     );
 
     for (let i = 2; i < 7; i++) {
@@ -66,7 +69,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
     const newDataReservation =
       dayOfWeek === 0
         ? getFutureDates(dataUser.reservation, 6)
-        : getFutureDates(dataUser.reservation, dayOfWeek-1);
+        : getFutureDates(dataUser.reservation, dayOfWeek - 1);
 
     setNewData(newDataReservation);
   };
@@ -74,7 +77,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
     <div>
       <div className="container-homeClient">
         <div className="welcome-page">
-          <p className="look-coach">{t('lookCoach')}</p>
+          <p className="look-coach">{t("lookCoach")}</p>
           <CalendarIcon />
         </div>
         <div
@@ -87,18 +90,18 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
         >
           {newData.map((element, index) => {
             return (
-              < >
+              <>
                 <p className="day">{days[index]}</p>
                 {element.length <= 0 ? (
                   <div className="noReservation">
                     <div style={{ flex: 0.5 }}></div>
-                    <div  
+                    <div
                       className="available"
                       onClick={() => {
-                        navigate("/DomaineCoaching",{state:index});
+                        navigate("/DomaineCoaching", { state: index });
                       }}
                     >
-                      <p className="see-coachs">{t('seeAvailable')}</p>
+                      <p className="see-coachs">{t("seeAvailable")}</p>
                     </div>
                     <div className="icon">
                       <ArrowrightIcon />
@@ -107,12 +110,15 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                 ) : (
                   <>
                     {element.map((elem, i) => {
-                      if (elem!==null&&(elem.reservationState === "accepted")) {
+                      if (
+                        elem !== null &&
+                        elem.reservationState === "accepted"
+                      ) {
                         return (
                           <div
-                              key={i}
-                              className="reservation"
-                              onClick={() => {
+                            key={i}
+                            className="reservation"
+                            onClick={() => {
                               navigate("/CoachLocation", { state: elem.coach });
                               setHideTabBar(true);
                               sethideTabBarforCoachDetail(true);
@@ -128,7 +134,11 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                               <div className="detail-user">
                                 <img
                                   className="image-user"
-                                  src={elem.coach.image_user?elem.coach.image_user:""}
+                                  src={
+                                    elem.coach.image_user
+                                      ? elem.coach.image_user
+                                      : ""
+                                  }
                                 />
                                 <div className="style-user-detail">
                                   <p className="text-name">
@@ -148,12 +158,9 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                             </p>
                           </div>
                         );
-                      } else if(elem!==null) {
+                      } else if (elem !== null) {
                         return (
-                          <div className="reservation"
-                          key={i}
-
-                          >
+                          <div className="reservation" key={i}>
                             <div className="line-pending"></div>
 
                             <div
@@ -167,7 +174,11 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                               <div className="detail-user">
                                 <img
                                   className="image-user"
-                                  src={elem.coach.image_user?elem.coach.image_user:""}
+                                  src={
+                                    elem.coach.image_user
+                                      ? elem.coach.image_user
+                                      : ""
+                                  }
                                 />
                                 <div className="style-user-detail">
                                   <p className="text-name">
@@ -183,7 +194,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                               </div>
                             </div>
                             <p className="text-checkReservation">
-                              {t('pendingReservation')}
+                              {t("pendingReservation")}
                             </p>
                           </div>
                         );

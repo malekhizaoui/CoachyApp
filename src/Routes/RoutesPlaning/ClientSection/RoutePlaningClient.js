@@ -10,7 +10,7 @@ import PaymentScreen from '../../../Screens/Planing/ClientSection/Payment/Paymen
 import Reservation from '../../../Screens/Planing/ClientSection/Reservation/Reservation'
 import Availability from '../../../Screens/Profile/Availability/Availability';
 import SessionHistory from '../../../Screens/Profile/SessionHistory/SessionHistory';
-function RoutePlaningClient({setHideTabBar,setlong,setlat,sethideTabBarforCoachDetail}) {
+function RoutePlaningClient({setOpenModal,setHideTabBar,setlong,setlat,sethideTabBarforCoachDetail,openModal}) {
   return (
     <Routes>
         <Route path="/" exact element={<Home setHideTabBar={setHideTabBar} sethideTabBarforCoachDetail={sethideTabBarforCoachDetail} />} />
@@ -18,7 +18,7 @@ function RoutePlaningClient({setHideTabBar,setlong,setlat,sethideTabBarforCoachD
         <Route path="/PaymentScreen" element={<PaymentScreen/>} />
         <Route path="/AllCoachs" element={<AllCoachs setHideTabBar={setHideTabBar} sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}/>} />
         <Route path="/DomaineCoaching" element={<DomaineCoaching/>} />
-        <Route path="/CoachLocation" element={<CoachLocation setlat={setlat} setlong={setlong} setHideTabBar={setHideTabBar} />} />
+        <Route path="/CoachLocation" element={<CoachLocation setOpenModal={setOpenModal}openModal={openModal} setlat={setlat} setlong={setlong} setHideTabBar={setHideTabBar} />} />
         <Route path="/CoachDetail" element={<CoachDetail sethideTabBarforCoachDetail={sethideTabBarforCoachDetail} setHideTabBar={setHideTabBar}/>} />
         <Route path="/Availability" element={<Availability/>} />
         <Route path="/SessionHistory" element={<SessionHistory/>} />

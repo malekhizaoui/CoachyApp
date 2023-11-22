@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   background-image: url("./background.png");
+  background-color: #47474e;
   background-size: cover;
   align-items: center;
 }
@@ -18,9 +19,8 @@
 }
 
 .logo-img {
-  margin-top: 20px;
-  width: 81%;
-  height: 26%;
+  width: 300px;
+  height: 260px;
   
 }
 
@@ -47,7 +47,7 @@
   color: white;
 font-size: 18px;
 font-style: normal;
-font-weight: 500;
+font-weight: 600;
 line-height: normal;
 text-decoration-line: underline;
 }
@@ -96,7 +96,7 @@ text-decoration-line: underline;
 label {
   color: #393939;
   color: var(--white, #fffbfb);
-  font-size: 14px;
+  font-size: 80%;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -116,7 +116,6 @@ label {
   box-shadow: 0px 6px 4px 0px rgba(0, 0, 0, 0.25);
   color: var(--Purple-1, #5d54a0);
   text-align: center;
-  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;

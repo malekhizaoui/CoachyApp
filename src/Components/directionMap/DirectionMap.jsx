@@ -2,13 +2,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import DirectionIcon from '../../assets/icons/Planing/DirectionIcon'
 import "./direction.css";
-function DirectionMap({openGoogleMaps}) {
+function DirectionMap({setOpenModal}) {
   const navigate = useNavigate();
   return (
     <div
       className="DirectionContainer"
       onClick={() => {
-        openGoogleMaps()
+        // openGoogleMaps()
+        setOpenModal(true)
       }}
     >
       <div className="circle-container">

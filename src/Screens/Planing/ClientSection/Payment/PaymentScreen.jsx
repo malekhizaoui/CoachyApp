@@ -9,10 +9,12 @@ import DinerIcon from "../../../../assets/icons/Planing/DinerIcon";
 import VisaIcon from "../../../../assets/icons/Planing/VisaIcon";
 import TickIcon from "../../../../assets/icons/Planing/TickIcon";
 import { useNavigate } from "react-router-dom";
+import Modal from "../../../../Components/modal/Modal";
 import "./payment.css";
 
 function PaymentScreen() {
     const navigate=useNavigate()
+    const [openModal,setOpenModal]=useState(true)
   const [methodePayment, setMethodPayment] = useState("");
   const [save, setSave] = useState(false);
   console.log("methodePayment", methodePayment);
@@ -163,6 +165,17 @@ function PaymentScreen() {
         onClick={()=>{navigate('/')}}
         className="btn-pay">Pay</button>
       </div>
+      {openModal&&<Modal>
+      <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+          <p>
+           Resumé de votre Reservation:<br/>
+           montant à payer : 60 Chf <br/>
+           la session commencera : Monday 27 novembre<br/>
+           a partir de 10 am jusqu'à 11 am
+          </p>
+          <button className="btn-auth" onClick={()=>{setOpenModal(false)}}>OK</button>
+          </div>
+      </Modal>}
     </div>
   );
 }

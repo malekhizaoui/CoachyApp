@@ -9,17 +9,11 @@ import "leaflet-routing-machine";
 import "./clientLocation.css";
 import CallIcon from "../../../../assets/icons/Planing/CallIcon";
 import { useNavigate, useLocation } from "react-router-dom";
-const days = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-];
+import Modal from "../../../../Components/modal/Modal";
 
-function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDetail }) {
+
+
+function ClientLocation({setHideTabBar,sethideTabBarforCoachDetail,openModal,setOpenModal }) {
   
   const position = [47.184475, 8.505185];
   const [location, setLocation] = useState(null);
@@ -30,9 +24,18 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
   const allDataCoach=JSON.parse(localStorage.getItem('dataCoach'))
   const allDataClient=JSON.parse(localStorage.getItem('dataClient'))
   const dataCoach = locationForstate.state.dataCoach;
-  const getIndex=days.indexOf(locationForstate.state.reservation[0].day)
   const getPostion = JSON.parse(localStorage.getItem('position'))
   const {t}=useTranslation()
+  const days = [
+    t('monday'),
+    t('tuesday'),
+    t('wednesday'),
+    t('thursday'),
+    t('friday'),
+    t('saturday'),
+    t('sunday'),
+  ];
+  const getIndex=days.indexOf(locationForstate.state.reservation[0].day)
 
   const acceptReservation = () => {
       const updateAllClient = allDataClient.map((client, indice) => {
@@ -170,11 +173,11 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
   };
 
 
-  useEffect(() => {
-    setlong(dataCoach.location.longitude);
-    setlat(dataCoach.location.latitude);
-  }, []);
-
+  const openGoogleMaps = () => {
+    const googleMapsUrl = `https://www.google.com/maps?q=${dataCoach.location.longitude},${dataCoach.location.latitude}`;
+    window.open(googleMapsUrl, "_blank");
+    setOpenModal(false)
+  };
 
   const customIcon = L.icon({
     iconUrl: require("../../../../assets/images/marker-icon.png"),
@@ -253,6 +256,17 @@ function ClientLocation({ setlong, setlat, setHideTabBar,sethideTabBarforCoachDe
           )}
         </div>
       </div>
+      {openModal&&<Modal>
+          <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+          <p>
+            Vous allez être redirigé vers l'application Google Maps lors de la
+            navigation vers le monument. Une fois sur place,appuyez sur le
+            bouton précédent en bas de l'écran de votre téléphone pour revenir à
+            l'application Dourbia
+          </p>
+          <button onClick={openGoogleMaps} className="btn-auth" >OK</button>
+          </div>
+        </Modal>}
     </div>
   );
 }

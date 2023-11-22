@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../auth.css";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ function SignUp() {
             Tarification: `${firstName} offers his coaching services at a competitive rate of $60 per session.`,
             modeDePaiment: ` pay ${firstName} using PayPal or Credit Card for convenience.`,
             age: 30,
-            image_user: require('../../../assets/images/annonyme.jpg'),
+            image_user: require("../../../assets/images/annonyme.jpg"),
             experience: `over 8 years of experience, ${firstName} has successfully trained clients in weight management, strength building, and overall ${domaine} improvement. `,
             location: {
               city: "genéve",
@@ -78,7 +78,7 @@ function SignUp() {
               Tarification: `${firstName} offers his coaching services at a competitive rate of $60 per session.`,
               modeDePaiment: ` pay ${firstName} using PayPal or Credit Card for convenience.`,
               age: 30,
-              image_user: require('../../../assets/images/annonyme.jpg'),
+              image_user: require("../../../assets/images/annonyme.jpg"),
               experience: `over 8 years of experience, ${firstName} has successfully trained clients in weight management, strength building, and overall ${domaine} improvement. `,
               location: {
                 city: "genéve",
@@ -99,8 +99,8 @@ function SignUp() {
       }
     });
     localStorage.setItem("dataCoach", JSON.stringify(updateAllCoachs));
-    if(checkIfFound){
-      navigate('/Login')
+    if (checkIfFound) {
+      navigate("/Login");
     }
   };
 
@@ -116,7 +116,7 @@ function SignUp() {
             lastName: lastName,
             phoneNumber: phoneNumber,
             Password: password,
-            image_user: require('../../../assets/images/annonyme.jpg'),
+            image_user: require("../../../assets/images/annonyme.jpg"),
             location: {
               city: "Genève",
               latitude: "47.183706",
@@ -129,10 +129,12 @@ function SignUp() {
           },
         ];
       } else {
-
         let checkIfFound = true;
         const updateAllClients = getAllClient.map((client) => {
-          if (client.firstName === firstName || client.phoneNumber === phoneNumber) {
+          if (
+            client.firstName === firstName ||
+            client.phoneNumber === phoneNumber
+          ) {
             checkIfFound = false;
             return { ...client };
           } else {
@@ -147,7 +149,7 @@ function SignUp() {
             lastName: lastName,
             phoneNumber: phoneNumber,
             Password: password,
-            image_user: require('../../../assets/images/annonyme.jpg'),
+            image_user: require("../../../assets/images/annonyme.jpg"),
             location: {
               city: "Genève",
               latitude: "47.183706",
@@ -159,14 +161,14 @@ function SignUp() {
             messages: [],
           });
         }
-        return updateAllClients
+        return updateAllClients;
       }
     };
-   const addClient= updateAllClient()
-   localStorage.setItem('dataClient',JSON.stringify(addClient))
-   if(checkIfFound){
-    navigate('/Login')
-  }
+    const addClient = updateAllClient();
+    localStorage.setItem("dataClient", JSON.stringify(addClient));
+    if (checkIfFound) {
+      navigate("/Login");
+    }
   };
 
   const handleCheckBoxCoach = () => {
@@ -183,7 +185,8 @@ function SignUp() {
       setTypeUser("");
     } else {
       setTypeUser("Client");
-    }    setCheckboxClient(!checkboxClient);
+    }
+    setCheckboxClient(!checkboxClient);
     setCheckboxCoach(false);
   };
   return (
@@ -202,7 +205,7 @@ function SignUp() {
           <input
             type="text"
             className="input"
-            placeholder={t('lastName')}
+            placeholder={t("lastName")}
             onChange={(event) => {
               setLastName(event.target.value);
             }}
@@ -228,20 +231,27 @@ function SignUp() {
           <input
             type="password"
             className="input"
-            placeholder={t('password')}
+            placeholder={t("password")}
             onChange={(event) => {
               setPassword(event.target.value);
-          }}
+            }}
           />
         </div>
-        <div style={{ width: "100%" ,display:"flex",flexDirection:"column",justifyContent:"flex-start"}}>
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+          }}
+        >
           <div className="check-type-user">
             <input
               type="checkbox"
               checked={checkboxCoach}
               onChange={handleCheckBoxCoach}
             />
-            <label>{t('signUpAsCoach')}</label>
+            <label>{t("signUpAsCoach")}</label>
           </div>
           <div className="check-type-user">
             <input
@@ -249,18 +259,32 @@ function SignUp() {
               checked={checkboxClient}
               onChange={handleCheckBoxClient}
             />
-            <label>{t('signupAsClient')}</label>
+            <label>{t("signupAsClient")}</label>
           </div>
         </div>
         <button
           className="btn-auth"
           onClick={() => {
-            typeUser === "Coach" ? signUpAsCoach() :typeUser === "Client" ? signUpAsClient():alert('pick you type');
+            typeUser === "Coach"
+              ? signUpAsCoach()
+              : typeUser === "Client"
+              ? signUpAsClient()
+              : alert("pick you type");
           }}
         >
-          {t('createAcc')}
+          {t("createAcc")}
         </button>
-        <p>{t('alreadyHaveAcc')} <a className="txt-auth" onClick={()=>{navigate('/Login')}}>{t('sign')}</a></p>
+        <p style={{ color: "white" }}>
+          {t("alreadyHaveAcc")}
+          <a
+            className="txt-auth"
+            onClick={() => {
+              navigate("/Login");
+            }}
+          >
+            {t("sign")}
+          </a>
+        </p>
       </div>
     </div>
   );
