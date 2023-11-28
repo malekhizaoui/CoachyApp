@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React from "react";
 import ArrowrightIcon from "../../../assets/icons/ArrowrightIcon";
 import "./allMessages.css";
 import { useNavigate } from "react-router-dom";
@@ -6,30 +6,7 @@ import { useNavigate } from "react-router-dom";
 function AllMessages({setHideTabBar}) {
   const navigate= useNavigate()
   const getUserMessages = JSON.parse(localStorage.getItem("dataUser"));
-  const getAllClient = JSON.parse(localStorage.getItem("dataClient"));
-  const getAllCoach = JSON.parse(localStorage.getItem("dataCoach"));
-  // const [searchTerm, setSearchTerm] = useState('');
 
-  // const [coachFiltred,setCoachFiltred]=useState(getAllCoach[0].coachs)
-  // const [clientFiltred,setClientFiltred]=useState()
-  // const searchUser=(e)=>{
-  //   const coachFilter=[]
-  //   if(searchTerm.length>=2){ 
-  //     getAllCoach.forEach((element) => {
-  //     element.coachs.map((coach)=>{
-  //      if(coach.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //      coach.lastName.toLowerCase().includes(searchTerm.toLowerCase())){
-  //       coachFilter.push(coach)
-  //      }
-  //       })
-  //   });
-  //   setCoachFiltred(coachFilter)
-  // }else{
-  //   setCoachFiltred(getAllCoach[0].coachs)
-  // }
-   
-  // }
-  // console.log("coachFiltred",coachFiltred);
 
   return (
     <div className="allMessages">

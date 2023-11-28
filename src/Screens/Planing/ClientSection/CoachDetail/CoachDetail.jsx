@@ -1,19 +1,23 @@
 import React from "react";
 import "./coachDetail.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import {useLocation } from "react-router-dom";
 import BackIcon from "../../../../assets/icons/BackIcon";
-function CoachDetail({sethideTabBarforCoachDetail,setHideTabBar}) {
+function CoachDetail({ sethideTabBarforCoachDetail, setHideTabBar }) {
   const location = useLocation();
-  const navigate = useNavigate();
   const data = location.state;
-  console.log("dataaa",data);
   return (
     <div className="container-coachDetail">
       <div className="couverture-image">
-        <div className="container-backIcon" onClick={()=>{sethideTabBarforCoachDetail(true);setHideTabBar(true)}}>
+        <div
+          className="container-backIcon"
+          onClick={() => {
+            sethideTabBarforCoachDetail(true);
+            setHideTabBar(true);
+          }}
+        >
           <BackIcon />
         </div>
-      </div>              
+      </div>
       <div className="image-container">
         <img className="profile-image" src={data.image_user} />
         <p>
@@ -34,6 +38,7 @@ function CoachDetail({sethideTabBarforCoachDetail,setHideTabBar}) {
           {data.modeDePaiment}
         </p>
       </div>
+      <button>Reserver</button>
     </div>
   );
 }

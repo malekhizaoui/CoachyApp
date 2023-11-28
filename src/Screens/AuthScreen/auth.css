@@ -3,8 +3,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background-image: url("./background.png");
-  background-color: #47474e;
+  /* background-image: url("./background.png"); */
+  /* background-color: #5D54A0; */
   background-size: cover;
   align-items: center;
 }
@@ -32,9 +32,8 @@
   padding-left: 24px;
   width: 70%;
   transition: 0.2s;
-  color: #727272;
+  color: #3f3c3c;
   margin-top: 10%;
-  color: var(--Black, #3f3c3c);
   text-shadow: 0px 12px 4px rgba(0, 0, 0, 0.5);
   font-size: 15px;
   font-style: normal;
@@ -44,7 +43,7 @@
 
 .txt-auth{
   margin-top: 20px;
-  color: white;
+  color: #47474e;
 font-size: 18px;
 font-style: normal;
 font-weight: 600;
@@ -95,7 +94,7 @@ text-decoration-line: underline;
 
 label {
   color: #393939;
-  color: var(--white, #fffbfb);
+  color: var(--white, #47474e);
   font-size: 80%;
   font-style: normal;
   font-weight: 700;

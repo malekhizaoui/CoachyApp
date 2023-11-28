@@ -11,7 +11,7 @@ function PersonalInfo() {
   const navigate = useNavigate();
   const Location = useLocation();
   const [photo, setPhoto] = useState(null);
-  console.log("Location.state",Location.state);
+
   const getAllCoachs = JSON.parse(localStorage.getItem("dataCoach"));
   const getAllClients = JSON.parse(localStorage.getItem("dataClient"));
   const data= Location.state
@@ -31,7 +31,6 @@ function PersonalInfo() {
   
     return new Blob([ab], { type: 'image/png' }); 
   };
-  console.log("Location",Location.state);
 
   const takePhoto = async () => {
     const image = await Camera.getPhoto({
@@ -40,7 +39,6 @@ function PersonalInfo() {
       resultType: CameraResultType.DataUrl,
     });
     const shortenedUrl = createShortUrl(image.dataUrl);
-    console.log("shortenedUrl",shortenedUrl);
     if(data.type==="Client"){ 
      const updateAllClients= getAllClients.map((client)=>{
         if(client.firstName===data.firstName){
@@ -105,7 +103,7 @@ function PersonalInfo() {
 
           <p className="attribute-info">{t('age')}</p>
           <div className="detail-info" onClick={()=>{navigate('/UpdateAge',{state:data})}}>
-            <p className="value-info">{data.age} yo</p>
+            <p className="value-info">{data.age} yo </p>
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
@@ -115,13 +113,7 @@ function PersonalInfo() {
             <ArrowrightIcon/>
           </div>
           <div className="line"></div>
-
-          {data.email?.length>0?<><p className="attribute-info">{t('email')}</p>
-          <div className="detail-info">
-            <p className="value-info">{data.email}</p>
-            <ArrowrightIcon/>
-          </div>
-          <div className="line"></div></>:null}
+          
         </div>
       </div>
     </div>

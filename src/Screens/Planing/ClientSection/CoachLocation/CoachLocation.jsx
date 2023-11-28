@@ -117,7 +117,7 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
             Vous allez être redirigé vers l'application Google Maps lors de la
             navigation vers le monument. Une fois sur place,appuyez sur le
             bouton précédent en bas de l'écran de votre téléphone pour revenir à
-            l'application Dourbia
+            l'application Coachy app
           </p>
           <button onClick={openGoogleMaps}className="btn-auth" >OK</button>
           </div>

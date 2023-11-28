@@ -8,6 +8,7 @@ function UpdateAge() {
   const {t}=useTranslation()
   const Location = useLocation();
   const navigate = useNavigate();
+  const [age,setAge]=useState(null)
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const getAllCoachs = JSON.parse(localStorage.getItem("dataCoach"));
@@ -15,15 +16,15 @@ function UpdateAge() {
   const getDataUser = JSON.parse(localStorage.getItem("dataUser"));
   const data = Location.state;
   console.log("Locaction.state", Location.state);
-  const updateFullName = () => {
-    if(firstName.length!==0 && lastName.length!==0){
+  const updateAge = () => {
+    if(age.length!==0){
       if (data.type === "Client") {
       const UpdateClient = getAllClients.map((client) => {
         if (client.firstName === data.firstName) {
           console.log("dataUser",{ ...client, firstName, lastName });
-          localStorage.setItem("dataUser",JSON.stringify({ ...client, firstName, lastName }))
+          localStorage.setItem("dataUser",JSON.stringify({ ...client, age}))
 
-          return { ...client, firstName, lastName };
+          return { ...client, age };
         } else {
           return { ...client };
         }
@@ -37,9 +38,8 @@ function UpdateAge() {
         if (element.domaine === data.domaine) {
          const updateCoachs=element.coachs.map((coach) => {
             if (coach.firstName === data.firstName) {
-              localStorage.setItem("dataUser",JSON.stringify({ ...coach, firstName, lastName }))
-              console.log("dataUser",{ ...coach, firstName, lastName });
-              return { ...coach, firstName, lastName };
+              localStorage.setItem("dataUser",JSON.stringify({ ...coach, age }))
+              return { ...coach, age };
             } else {
               return { ...coach };
             }
@@ -67,19 +67,18 @@ function UpdateAge() {
         </div>
         <div className="container-input">
           <div className="input-container">
-            <label for="firstName">{t('age')}</label>
             <input
               onChange={(e) => {
-                setFirstName(e.target.value);
+                setAge(e.target.value);
               }}
-              type="text"
+              type="number"
               id="input1"
               className="bottom-border"
               placeholder="Age"
             />
           </div>
 
-          <button className="btn-update-Profile" onClick={updateFullName}>{t('save')}</button>
+          <button className="btn-update-Profile" onClick={updateAge}>{t('save')}</button>
         </div>
       </div>
     </div>
