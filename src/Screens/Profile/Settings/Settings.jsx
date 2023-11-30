@@ -49,7 +49,7 @@ function Settings({ logOut,setHideTabBar }) {
             className="detail-info-settings"
             onClick={() => {
               logOut();
-              navigate("/SignUp");
+              navigate("/Login");
             }}
           >
             <p className="value-info">{t('logOut')}</p>

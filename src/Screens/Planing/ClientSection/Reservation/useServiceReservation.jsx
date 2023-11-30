@@ -93,7 +93,8 @@ const useReservationService =()=> {
               const messages=elem.messages.length === 0 ? [newMessage] :!checkIsFound? updateMessages: addNewMessageFromCoach
               const newUserData=bookSession(day,messages);
               localStorage.setItem("dataUser",JSON.stringify(newUserData))
-              return {...elem,reservation: updateReservation,messages};
+              return {...elem,reservation: updateReservation,messages,notificationPlaning:true,
+                notificationMessage:true};
             } else {
               return { ...elem };
             }
@@ -149,7 +150,6 @@ const useReservationService =()=> {
              return  {...message}
             }
           });
-          console.log("updateMessagesClient111111",updateMessagesClient);
           const newMessage = 
             {
               user: {
@@ -173,7 +173,9 @@ const useReservationService =()=> {
           localStorage.setItem("dataUser",JSON.stringify(newUserData))
           return {...element,
             reservation: updatedReservation,
-            messages
+            messages,
+            notificationPlaning:true,
+            notificationMessage:true
           };
          
         } else {
@@ -214,7 +216,8 @@ const useReservationService =()=> {
           return [...element];
         }
       });
-      return { ...dataParsed, reservation: newReservation, messages };
+      return { ...dataParsed, reservation: newReservation, messages,notificationPlaning:true,
+        notificationMessage:true };
     };
   return {data,days,seeAvailableDay,setSeeAvailableDay,location,t,setShow,setPickTime,show,pickTime,reserveSession}
 }

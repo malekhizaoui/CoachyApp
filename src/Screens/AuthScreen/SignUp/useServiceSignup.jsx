@@ -48,7 +48,9 @@ function useServiceSignup() {
             availability: [[], [], [], [], [], [], []],
             sessionHistory: [],
             messages: [],
-          };
+            notificationPlaning:false,
+            notificationMessage:false         
+           };
           return { ...element, coachs: [updateCoachs] };
         } else {
           const updateCoachs = element.coachs.map((coach) => {
@@ -87,7 +89,8 @@ function useServiceSignup() {
               availability: [[], [], [], [], [], [], []],
               sessionHistory: [],
               messages: [],
-            });
+              notificationPlaning:false,
+              notificationMessage:false            });
           }
 
           return { ...element, coachs: updateCoachs };
@@ -124,7 +127,8 @@ function useServiceSignup() {
             reservation: [[], [], [], [], [], [], []],
             sessionHistory: [],
             messages: [],
-          },
+            notificationPlaning:false,
+            notificationMessage:false          },
         ];
       } else {
         let checkIfFound = true;
@@ -157,6 +161,8 @@ function useServiceSignup() {
             reservation: [[], [], [], [], [], [], []],
             sessionHistory: [],
             messages: [],
+            notificationPlaning:false,
+            notificationMessage:false
           });
         }
         return updateAllClients;
