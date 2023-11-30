@@ -5,6 +5,7 @@ import BackIcon from "../../../../assets/icons/BackIcon";
 function CoachDetail({ sethideTabBarforCoachDetail, setHideTabBar }) {
   const location = useLocation();
   const data = location.state;
+  console.log("data",data);
   return (
     <div className="container-coachDetail">
       <div className="couverture-image">

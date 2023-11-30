@@ -12,7 +12,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Modal from "../../../../Components/modal/Modal";
 import "./payment.css";
 
-function PaymentScreen() {
+function PaymentScreen({setHideTabBar}) {
   const navigate = useNavigate();
   const location = useLocation();
   const [openModal, setOpenModal] = useState(true);
@@ -166,6 +166,7 @@ function PaymentScreen() {
         <button
           onClick={() => {
             navigate("/");
+            setHideTabBar(true)
           }}
           className="btn-pay"
         >

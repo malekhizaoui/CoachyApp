@@ -14,18 +14,17 @@ import Modal from "../../../../Components/modal/Modal";
 function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
   const { t } = useTranslation();
   const position = [47.184475, 8.505185];
-  const [location, setLocation] = useState(null);
   const locationForstate = useLocation();
   const navigate = useNavigate();
   const dataCoach = locationForstate.state;
- 
+  const location =  JSON.parse(localStorage.getItem('position'))
   const customIcon = L.icon({
     iconUrl: require("../../../../assets/images/marker-icon.png"),
     shadowUrl: require("../../../../assets/images/marker-shadow.png"),
     iconAnchor: [16, 32],
     popupAnchor: [0, -32],
   });
- 
+ console.log("dataCoach",dataCoach);
   const openGoogleMaps = () => {
     const googleMapsUrl = `https://www.google.com/maps?q=${dataCoach.location.longitude},${dataCoach.location.latitude}`;
     window.open(googleMapsUrl, "_blank");
@@ -41,11 +40,19 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
       >
         <TileLayer url="https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=TNPJ9dvE72iHCMuBVwD7" />
         <Marker
-          position={[dataCoach.location.longitude,dataCoach.location.latitude]}
+          position={location}
           icon={customIcon}
         >
           <Popup >
-            Mylocation <br />
+            Mylocation 
+          </Popup>
+        </Marker>
+        <Marker
+          position={position}
+          icon={customIcon}
+        >
+          <Popup >
+            destination 
           </Popup>
         </Marker>
       </MapContainer>

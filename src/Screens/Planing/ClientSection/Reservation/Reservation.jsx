@@ -5,7 +5,7 @@ import BackIcon from "../../../../assets/icons/BackIcon";
 import ArrowTime from "../../../../assets/icons/Planing/ArrowTime";
 
 import useServiceReservation from "./useServiceReservation";
-function Reservation() {
+function Reservation({setHideTabBar}) {
   const {
     data,
     days,
@@ -18,7 +18,7 @@ function Reservation() {
     show,
     pickTime,
     reserveSession,
-  } = useServiceReservation();
+  } = useServiceReservation(setHideTabBar);
 
   return (
     <div className="reservation-container">

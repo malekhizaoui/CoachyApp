@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
-const useReservationService =()=> {
+const useReservationService =(setHideTabBar)=> {
     const { t } = useTranslation();
     const location = useLocation();
     const navigate = useNavigate();
@@ -187,7 +187,9 @@ const useReservationService =()=> {
       });
       localStorage.setItem("dataCoach", JSON.stringify(updatAlldataCoach));
       localStorage.setItem("dataClient", JSON.stringify(updatClient));
+      setHideTabBar(false)
       navigate("/PaymentScreen",{state:{day:days[day],sessionFrom:pickTime}});
+
     };
   
     const bookSession = (day, messages) => {

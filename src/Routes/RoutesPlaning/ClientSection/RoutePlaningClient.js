@@ -14,8 +14,8 @@ function RoutePlaningClient({setOpenModal,setHideTabBar,setlong,setlat,sethideTa
   return (
     <Routes>
         <Route path="/" exact element={<Home setHideTabBar={setHideTabBar} sethideTabBarforCoachDetail={sethideTabBarforCoachDetail} />} />
-        <Route path="/Reservation"  element={<Reservation />} />
-        <Route path="/PaymentScreen" element={<PaymentScreen/>} />
+        <Route path="/Reservation"  element={<Reservation setHideTabBar={setHideTabBar}/>} />
+        <Route path="/PaymentScreen" element={<PaymentScreen setHideTabBar={setHideTabBar}/>} />
         <Route path="/AllCoachs" element={<AllCoachs setHideTabBar={setHideTabBar} sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}/>} />
         <Route path="/DomaineCoaching" element={<DomaineCoaching/>} />
         <Route path="/CoachLocation" element={<CoachLocation setOpenModal={setOpenModal}openModal={openModal} setlat={setlat} setlong={setlong} setHideTabBar={setHideTabBar} />} />
