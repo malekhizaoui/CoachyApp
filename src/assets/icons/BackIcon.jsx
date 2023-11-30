@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 function BackIcon({hide=false,setHideTabBar=null}) {
   const navigate = useNavigate();
-  console.log("hide",hide);
   return (
     <svg
     onClick={()=>{!hide?navigate(-1):navigate(-1);setHideTabBar&&setHideTabBar(true)}}

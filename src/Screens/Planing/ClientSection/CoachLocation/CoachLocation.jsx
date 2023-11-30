@@ -16,7 +16,7 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
   const position = [47.184475, 8.505185];
   const locationForstate = useLocation();
   const navigate = useNavigate();
-  const dataCoach = locationForstate.state;
+  const dataDomaineCoaching = locationForstate.state;
   const location =  JSON.parse(localStorage.getItem('position'))
   const customIcon = L.icon({
     iconUrl: require("../../../../assets/images/marker-icon.png"),
@@ -24,9 +24,9 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
     iconAnchor: [16, 32],
     popupAnchor: [0, -32],
   });
- console.log("dataCoach",dataCoach);
+ console.log("dataDomaineCoaching",dataDomaineCoaching);
   const openGoogleMaps = () => {
-    const googleMapsUrl = `https://www.google.com/maps?q=${dataCoach.location.longitude},${dataCoach.location.latitude}`;
+    const googleMapsUrl = `https://www.google.com/maps?q=${dataDomaineCoaching.location.longitude},${dataDomaineCoaching.location.latitude}`;
     window.open(googleMapsUrl, "_blank");
     setOpenModal(false)
   };
@@ -67,7 +67,7 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
               alignItems: "center",
             }}
           >
-            <img className="img-user" src={dataCoach.image_user} />
+            <img className="img-user" src={dataDomaineCoaching.image_user} />
             <div className="train-name-user">
               <p
                 style={{
@@ -83,7 +83,7 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
                 {t("trainWith")}
               </p>
               <p style={{ margin: 2 }}>
-                {dataCoach.firstName} {dataCoach.lastName}
+                {dataDomaineCoaching.firstName} {dataDomaineCoaching.lastName}
               </p>
             </div>
           </div>
@@ -93,10 +93,10 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
         </div>
         <div className="descirption-coach">
           <p className="bioCoach">
-            {dataCoach.bio}
+            {dataDomaineCoaching.bio}
           </p>
           <button
-          onClick={()=>{navigate('/CoachDetail',{state:dataCoach});setHideTabBar(false)}}
+          onClick={()=>{navigate('/CoachDetail',{state:dataDomaineCoaching});setHideTabBar(false)}}
             style={{
               // position: "fixed",
               marginBottom: 100,

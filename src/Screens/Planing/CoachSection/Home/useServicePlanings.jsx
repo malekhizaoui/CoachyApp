@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./coach.css";
-import CalendarIcon from "../../../../assets/icons/Planing/CalendarIcon";
-import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
-import ArrowTime from "../../../../assets/icons/Planing/ArrowTime";
+
 import { useNavigate } from "react-router-dom";
 import { Geolocation } from "@capacitor/geolocation";
 import { useTranslation } from "react-i18next";
@@ -33,7 +31,7 @@ function useServicePlanings() {
       reorganizeReservation();
       getCurrentPosition()
     }, []);
-  
+    console.log("newData",newData);
     const getWeekDaysInfo=()=> {
       const today = new Date();
       const daysInfo = [];
@@ -88,6 +86,7 @@ function useServicePlanings() {
             ? getFutureDates(dataUser.reservation, 6)
             : getFutureDates(dataUser.reservation, dayOfWeek - 1);
         setNewData(newDataReservation);
+        console.log("newDataReservation",newDataReservation);
         localStorage.setItem("dataUser",JSON.stringify({ ...dataUser, reservation: newDataReservation }));
         localStorage.setItem("today", JSON.stringify(days[0]));
       }

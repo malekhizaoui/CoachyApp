@@ -58,7 +58,7 @@
   height: 48px;
   flex-shrink: 0;
   background-color: #bcbaba;
-  stroke-width: 1px;
+  strokeWidth: 1px;
   border-radius: 8%;
 }
 

@@ -16,7 +16,7 @@ function UpdateName() {
         </div>
         <div className="container-input">
           <div className="input-container">
-            <label for="firstName"></label>
+            <label htmlFor="firstName"></label>
             <input
               onChange={(e) => {
                 setFirstName(e.target.value);
@@ -29,7 +29,7 @@ function UpdateName() {
           </div>
 
           <div className="input-container">
-            <label for="input2"></label>
+            <label htmlFor="input2"></label>
             <input
               onChange={(e) => {
                 setLastName(e.target.value);

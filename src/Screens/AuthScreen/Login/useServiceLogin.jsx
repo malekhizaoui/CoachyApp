@@ -7,7 +7,7 @@ function useServiceLogin(setIsLoggedIn,setTypeUser,setHideTabBar) {
     const navigate = useNavigate();
     const [username, setusername] = useState("");
     const [password, setPassword] = useState("");
-    const dataCoach=JSON.parse(localStorage.getItem('dataCoach'))
+    const dataDomaineCoaching=JSON.parse(localStorage.getItem('dataDomaineCoaching'))
     const dataClient=JSON.parse(localStorage.getItem('dataClient') )
   
     const login = () => {
@@ -22,7 +22,7 @@ function useServiceLogin(setIsLoggedIn,setTypeUser,setHideTabBar) {
           navigate("/");
         }
       });
-      dataCoach.map((element,index)=>{
+      dataDomaineCoaching.map((element,index)=>{
         element.coachs.map((coach,place)=>{
           if (username === coach.phoneNumber && password === coach.password) {
             console.log("donnnnne");

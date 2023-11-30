@@ -18,7 +18,7 @@ function Unchecked() {
         height="29"
         rx="7.5"
         stroke="#777272"
-        stroke-opacity="0.6"
+        strokeOpacity="0.6"
       />
     </svg>
   );

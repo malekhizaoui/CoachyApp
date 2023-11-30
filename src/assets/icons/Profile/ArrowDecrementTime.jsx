@@ -12,14 +12,14 @@ function ArrowDecrementTime({width,height,color="#777272"}) {
       <path
         d="M1.03956 1.0791L5.07148 4.5791ZM5.07148 4.5791L9.10339 1.0791Z"
         fill={color}
-        fill-opacity="0.6"
+        fillOpacity="0.6"
       />
       <path
         d="M1.03956 1.0791L5.07148 4.5791L9.10339 1.0791"
         stroke={color}
-        stroke-opacity="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeOpacity="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

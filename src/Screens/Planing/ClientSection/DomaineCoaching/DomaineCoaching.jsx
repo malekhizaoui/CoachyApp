@@ -10,7 +10,7 @@ function DomaineCoaching() {
   const { t } = useTranslation();
 
   console.log("location.state", location.state);
-  const dataCoach = JSON.parse(localStorage.getItem("dataCoach"));
+  const dataDomaineCoaching = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
   return (
     <div className="Domain-container">
       <div className="navigate-fromDomain">
@@ -32,7 +32,7 @@ function DomaineCoaching() {
         
       </div>
       <div className="content-domain">
-        {dataCoach.map((element, index) => {
+        {dataDomaineCoaching.map((element, index) => {
           return (
             <div
               key={index}

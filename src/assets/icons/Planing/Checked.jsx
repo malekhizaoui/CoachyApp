@@ -13,9 +13,9 @@ function Checked() {
       <path
         d="M25.5749 8.25L11.6249 21.75L4.6499 15"
         stroke="white"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

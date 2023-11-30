@@ -4,7 +4,7 @@ function useServiceAvailability() {
     const {t}=useTranslation()
     const data = localStorage.getItem("dataUser");
     const dataParsed = JSON.parse(data);
-    const getAllCoachs = JSON.parse(localStorage.getItem("dataCoach"));
+    const getAllCoachs = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const [dataUser, setDataUser] = useState(dataParsed);
     const [bookFrom, setBookFrom] = useState({ hour: 0, min: 0 });
     const [bookTo, setBookTo] = useState({ hour: 0, min: 0 });
@@ -51,7 +51,7 @@ function useServiceAvailability() {
       });
       // console.log("updatAllCoachsbyDomaine",updatAllCoachsbyDomaine);
       setEditAvailability(null);
-      localStorage.setItem("dataCoach", JSON.stringify(updatAllCoachsbyDomaine));
+      localStorage.setItem("dataDomaineCoaching", JSON.stringify(updatAllCoachsbyDomaine));
       localStorage.setItem(
         "dataUser",
         JSON.stringify({ ...dataUser, availability: newDataAvailibility })

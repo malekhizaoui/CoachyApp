@@ -12,14 +12,14 @@ function ArrowIncrementTime({width,height,color="#777272"}) {
       <path
         d="M9.10338 4.0791L5.07147 0.579102ZM5.07147 0.579102L1.03955 4.0791Z"
         fill={color}
-        fill-opacity="0.6"
+        fillOpacity="0.6"
       />
       <path
         d="M9.10338 4.0791L5.07147 0.579102L1.03955 4.0791"
         stroke={color}
-        stroke-opacity="1"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeOpacity="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

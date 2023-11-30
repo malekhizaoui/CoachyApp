@@ -26,33 +26,20 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
           {newData.map((element, index) => {
             if (element.length === 0) {
               return (
-                <>
+                <div key={index} style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column"}}>
                   <p className="day">{days[index]}</p>
-                  {/* <p className="Restday">Rest Day</p> */}
                   <div className="RestDayContainer">
                     <div className="rest-Day">
                       <p>{t('restday')}</p>
                     </div>
                   </div>
-                </>
+                </div>
               );
             } else {
               return (
-                <>
+                <div key={index} style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column"}}>
                   <p className="day">{days[index]}</p>
-                  {/* <div className="RestDayContainer">
-                    <div style={{ flex: 0.5 }}>
-                      <img className="image-user" src={dataUser.image_user} />
-                    </div>
-                    <div className="check-Day">
-                      <p>Check Your Planing</p>
-                    </div>
-                    <div style={{ flex: 0.5, alignSelf: "center" }}>
-                      <ArrowrightIcon />
-                    </div>
-                  </div> */}
                   {element.map((booking, i) => {
-                    console.log("booking.client.image_user",booking.client);
                     if (booking.reservationState === "noRequest") {
                       return (
                         <div className="RestDayContainer">
@@ -95,7 +82,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                             console.log("days[index]", days[index]);
                             navigate("/ClientLocation", {
                               state: {
-                                dataCoach: booking.client,
+                                dataDomaineCoaching: booking.client,
                                 reservationState: "accepted",
                                 indexReservation: index,
                                 indexsession: i,
@@ -155,7 +142,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                           onClick={() => {
                             navigate("/ClientLocation", {
                               state: {
-                                dataCoach: booking.client,
+                                dataDomaineCoaching: booking.client,
                                 reservationState: "pending",
                                 indexReservation: index,
                                 indexsession: i,
@@ -209,7 +196,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                       );
                     }
                   })}
-                </>
+                </div>
               );
             }
           })}

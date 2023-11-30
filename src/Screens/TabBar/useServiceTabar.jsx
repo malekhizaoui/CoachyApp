@@ -4,13 +4,13 @@ import { useTranslation } from "react-i18next";
 
 function useServiceTabar(handleTabItem, tabItem) {
     const dataUser = JSON.parse(localStorage.getItem("dataUser"));
-  const allDataCoachs = JSON.parse(localStorage.getItem("dataCoach"));
+  const alldataDomaineCoachings = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
   const allDataClient = JSON.parse(localStorage.getItem("dataClient"));
   const navigate = useNavigate();
   const { t } = useTranslation();
   const showNotif = (tabBarName) => {
     if (dataUser.type === "Coach") {
-      const updateallDataCoachs = allDataCoachs.map((domaine) => {
+      const updatealldataDomaineCoachings = alldataDomaineCoachings.map((domaine) => {
         if (domaine.domaine === dataUser.domaine) {
           const updateCoach = domaine.coachs.map((coach) => {
             if (coach.firstName === dataUser.firstName) {
@@ -28,7 +28,7 @@ function useServiceTabar(handleTabItem, tabItem) {
           return { ...domaine };
         }
       });
-      localStorage.setItem("dataCoach", JSON.stringify(updateallDataCoachs));
+      localStorage.setItem("dataDomaineCoaching", JSON.stringify(updatealldataDomaineCoachings));
     } else {
       const updateAllDataClients = allDataClient.map((client) => {     
         if (client.firstName === dataUser.firstName) {

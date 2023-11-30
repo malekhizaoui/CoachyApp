@@ -9,7 +9,7 @@ function useServiceName() {
     const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const getAllCoachs = JSON.parse(localStorage.getItem("dataCoach"));
+    const getAllCoachs = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const getAllClients = JSON.parse(localStorage.getItem("dataClient"));
     const getDataUser = JSON.parse(localStorage.getItem("dataUser"));
     const data = Location.state;
@@ -45,7 +45,7 @@ function useServiceName() {
             return { ...element };
           }
         });
-        localStorage.setItem("dataCoach",JSON.stringify(UpdateCoach))
+        localStorage.setItem("dataDomaineCoaching",JSON.stringify(UpdateCoach))
         navigate('/')
       }
       }else{

@@ -128,7 +128,7 @@
   display: flex;
   justify-content: flex-start;
   margin-top: 20px;
-  stroke-width: 1px;
+  strokeWidth: 1px;
   stroke: var(--grey-1, #bcbaba);
 }
 .message-txt-destination {

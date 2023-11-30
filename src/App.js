@@ -10,7 +10,7 @@ import RouteMessages from "./Routes/RouteMessages/RouteMessages";
 import BackIconComponent from "./Components/componentBack/BackIconComponent";
 import DirectionMap from "./Components/directionMap/DirectionMap";
 import { dataClient } from "./DataBase/clientDB/Data";
-import { dataCoach } from "./DataBase/coachDB/Data";
+import { dataDomaineCoaching } from "./DataBase/coachDB/Data";
 import { useTranslation } from "react-i18next";
 
 function App() {
@@ -37,11 +37,11 @@ function App() {
   };
 
   const getAllData = () => {
-    const checkDataCoach = localStorage.getItem("dataCoach");
+    const checkdataDomaineCoaching = localStorage.getItem("dataDomaineCoaching");
     const checkDataClient = localStorage.getItem("dataClient");
-    if (checkDataCoach === null || checkDataClient === null) {
+    if (checkdataDomaineCoaching === null || checkDataClient === null) {
       localStorage.setItem("dataClient", JSON.stringify(dataClient));
-      localStorage.setItem("dataCoach", JSON.stringify(dataCoach));
+      localStorage.setItem("dataDomaineCoaching", JSON.stringify(dataDomaineCoaching));
     }
   };
 

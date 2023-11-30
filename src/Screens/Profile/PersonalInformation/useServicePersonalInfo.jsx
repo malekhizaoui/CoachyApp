@@ -9,7 +9,7 @@ function useServicePersonalInfo() {
     const Location = useLocation();
     const [photo, setPhoto] = useState(null);
   
-    const getAllCoachs = JSON.parse(localStorage.getItem("dataCoach"));
+    const getAllCoachs = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const getAllClients = JSON.parse(localStorage.getItem("dataClient"));
     const data= Location.state
     const createShortUrl = (dataUrl) => {
@@ -63,7 +63,7 @@ function useServicePersonalInfo() {
             return {...element}
           }
         })
-        localStorage.setItem('dataCoach',JSON.stringify(updateAllCoachs))
+        localStorage.setItem('dataDomaineCoaching',JSON.stringify(updateAllCoachs))
       }
       setPhoto(shortenedUrl);
     };

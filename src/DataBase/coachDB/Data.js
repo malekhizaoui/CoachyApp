@@ -1,4 +1,4 @@
-export const dataCoach = [
+export const dataDomaineCoaching = [
   {
     domaine: "fitness",
     picDomaine: require("../../assets/images/fitness-backgound.jpg"),

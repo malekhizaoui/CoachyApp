@@ -17,9 +17,9 @@ function useServiceClientLocation(
   const navigate = useNavigate();
   const data = localStorage.getItem("dataUser");
   const dataUser = JSON.parse(data);
-  const allDataCoach = JSON.parse(localStorage.getItem("dataCoach"));
+  const alldataDomaineCoaching = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
   const allDataClient = JSON.parse(localStorage.getItem("dataClient"));
-  const dataCoach = locationForstate.state.dataCoach;
+  const dataDomaineCoaching = locationForstate.state.dataDomaineCoaching;
   const getPostion = JSON.parse(localStorage.getItem("position"));
   const { t } = useTranslation();
   const days = [
@@ -35,7 +35,7 @@ function useServiceClientLocation(
 
   const acceptReservation = () => {
     const updateAllClient = allDataClient.map((client, indice) => {
-      if (client.firstName === dataCoach.firstName) {
+      if (client.firstName === dataDomaineCoaching.firstName) {
         const updateReservation = client.reservation.map((element, index) => {
           if (getIndex === index) {
             return element.map((session, i) => {
@@ -83,7 +83,7 @@ function useServiceClientLocation(
     );
     const newDataUser = { ...dataUser, reservation: updateReservation1 ,notificationPlaning:true};
 
-    const updateAllCoach = allDataCoach.map((domaine) => {
+    const updateAllCoach = alldataDomaineCoaching.map((domaine) => {
       if (dataUser.domaine === domaine.domaine) {
         const updateCoachs = domaine.coachs.map((coach, indice) => {
           const updateReservation2 = newReservation(
@@ -101,7 +101,7 @@ function useServiceClientLocation(
         return { ...domaine };
       }
     });
-    localStorage.setItem("dataCoach", JSON.stringify(updateAllCoach));
+    localStorage.setItem("dataDomaineCoaching", JSON.stringify(updateAllCoach));
     localStorage.setItem("dataUser", JSON.stringify(newDataUser));
     localStorage.setItem("dataClient", JSON.stringify(updateAllClient));
     navigate("/");
@@ -111,7 +111,7 @@ function useServiceClientLocation(
 
   const cancelReservation = () => {
     const updateAllClient = allDataClient.map((client, indice) => {
-      if (client.firstName === dataCoach.firstName) {
+      if (client.firstName === dataDomaineCoaching.firstName) {
         const updateReservation = client.reservation.map((element, index) => {
           if (getIndex === index) {
             return [
@@ -152,7 +152,7 @@ function useServiceClientLocation(
     );
     const newDataUser = { ...dataUser, reservation: newReservation,notificationPlaning:true };
 
-    const updateAllCoach = allDataCoach.map((domaine) => {
+    const updateAllCoach = alldataDomaineCoaching.map((domaine) => {
       if (dataUser.domaine === domaine.domaine) {
         const updateCoachs = domaine.coachs.map((coach, indice) => {
           if (coach.firstName === dataUser.firstName) {
@@ -166,7 +166,7 @@ function useServiceClientLocation(
         return { ...domaine };
       }
     });
-    localStorage.setItem("dataCoach", JSON.stringify(updateAllCoach));
+    localStorage.setItem("dataDomaineCoaching", JSON.stringify(updateAllCoach));
     localStorage.setItem("dataUser", JSON.stringify(newDataUser));
     localStorage.setItem("dataClient", JSON.stringify(updateAllClient));
     navigate("/");
@@ -175,7 +175,7 @@ function useServiceClientLocation(
   };
 
   const openGoogleMaps = () => {
-    const googleMapsUrl = `https://www.google.com/maps?q=${dataCoach.location.longitude},${dataCoach.location.latitude}`;
+    const googleMapsUrl = `https://www.google.com/maps?q=${dataDomaineCoaching.location.longitude},${dataDomaineCoaching.location.latitude}`;
     window.open(googleMapsUrl, "_blank");
     setOpenModal(false);
   };
@@ -192,7 +192,7 @@ function useServiceClientLocation(
     position,
     customIcon,
     getPostion,
-    dataCoach,
+    dataDomaineCoaching,
     locationForstate,
     cancelReservation,
     acceptReservation,

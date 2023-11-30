@@ -8,7 +8,7 @@ function useServiceAge() {
     const navigate = useNavigate();
     const [age,setAge]=useState(null)
     
-    const getAllCoachs = JSON.parse(localStorage.getItem("dataCoach"));
+    const getAllCoachs = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const getAllClients = JSON.parse(localStorage.getItem("dataClient"));
     const getDataUser = JSON.parse(localStorage.getItem("dataUser"));
     const data = Location.state;
@@ -44,7 +44,7 @@ function useServiceAge() {
             return { ...element };
           }
         });
-        localStorage.setItem("dataCoach",JSON.stringify(UpdateCoach))
+        localStorage.setItem("dataDomaineCoaching",JSON.stringify(UpdateCoach))
         navigate('/')
       }
       }else{

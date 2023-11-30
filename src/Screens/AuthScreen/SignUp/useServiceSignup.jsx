@@ -7,7 +7,7 @@ function useServiceSignup() {
   const { t } = useTranslation();
   const cookies = new Cookies();
   const getAllClient = JSON.parse(localStorage.getItem("dataClient"));
-  const getAllCoach = JSON.parse(localStorage.getItem("dataCoach"));
+  const getAllCoach = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
 
   const [checkboxCoach, setCheckboxCoach] = useState(false);
   const [checkboxClient, setCheckboxClient] = useState(false);
@@ -99,7 +99,7 @@ function useServiceSignup() {
         return { ...element };
       }
     });
-    localStorage.setItem("dataCoach", JSON.stringify(updateAllCoachs));
+    localStorage.setItem("dataDomaineCoaching", JSON.stringify(updateAllCoachs));
     if (checkIfFound) {
       navigate("/Login");
     }

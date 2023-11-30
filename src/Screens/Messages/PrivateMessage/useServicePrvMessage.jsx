@@ -5,7 +5,7 @@ function useServicePrvMessage() {
     const location = useLocation();
     const getUser = JSON.parse(localStorage.getItem("dataUser"));
     const getClients = JSON.parse(localStorage.getItem("dataClient"));
-    const getCoachs = JSON.parse(localStorage.getItem("dataCoach"));
+    const getCoachs = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const [newMessage, setNewMessage] = useState("");
     const [allmessages, setAllMessages] = useState(
       getUser.messages[location.state.index ? location.state.index : 0]
@@ -67,7 +67,7 @@ function useServicePrvMessage() {
           });
           // console.log("updatAllCoachsbyDomaine", updatAllCoachsbyDomaine);
           localStorage.setItem("dataClient", JSON.stringify(updateAllClient));
-          localStorage.setItem("dataCoach",JSON.stringify(updatAllCoachsbyDomaine));
+          localStorage.setItem("dataDomaineCoaching",JSON.stringify(updatAllCoachsbyDomaine));
         } else {
           const updatAllCoachsbyDomaine = getCoachs.map((element, index) => {
             if (element.domaine === getUser.domaine) {
@@ -106,7 +106,7 @@ function useServicePrvMessage() {
               return { ...element };
             }
           });
-          localStorage.setItem("dataCoach",JSON.stringify(updatAllCoachsbyDomaine));
+          localStorage.setItem("dataDomaineCoaching",JSON.stringify(updatAllCoachsbyDomaine));
           localStorage.setItem("dataClient",JSON.stringify(updateAllClientFromCoach));
         }
   

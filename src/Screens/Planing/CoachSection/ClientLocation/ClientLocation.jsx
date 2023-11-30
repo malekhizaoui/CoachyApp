@@ -19,7 +19,7 @@ function ClientLocation({setHideTabBar,sethideTabBarforCoachDetail,openModal,set
     position,
     customIcon,
     getPostion,
-    dataCoach,
+    dataDomaineCoaching,
     locationForstate,
     cancelReservation,
     acceptReservation,
@@ -60,13 +60,13 @@ function ClientLocation({setHideTabBar,sethideTabBarforCoachDetail,openModal,set
               alignItems: "center",
             }}
           >
-            <img className="img-user" src={dataCoach.image_user} />
+            <img className="img-user" src={dataDomaineCoaching.image_user} />
             <div className="train-name-user">
               <p className="txt-train">
                 {t('trainWith')}
               </p>
               <p style={{ margin: 2 }}>
-                {dataCoach.firstName} {dataCoach.lastName}
+                {dataDomaineCoaching.firstName} {dataDomaineCoaching.lastName}
               </p>
             </div>
           </div>
@@ -75,7 +75,7 @@ function ClientLocation({setHideTabBar,sethideTabBarforCoachDetail,openModal,set
           </div>
         </div>
         <div className="descirption-coach">
-          <p className="bioCoach">{dataCoach.bio}</p>
+          <p className="bioCoach">{dataDomaineCoaching.bio}</p>
           {locationForstate.state.reservationState === "pending" ? (
             <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
               <button className="btn-location" onClick={() => { cancelReservation()}}>

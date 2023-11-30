@@ -24,11 +24,12 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent:"center"
           }}
         >
           {newData.map((element, index) => {
             return (
-              <>
+              <div key={index} style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column"}}>
                 <p className="day">{days[index]}</p>
                 {element.length <= 0 ? (
                   <div className="noReservation">
@@ -140,7 +141,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                     })}
                   </>
                 )}
-              </>
+              </div>
             );
           })}
         </div>

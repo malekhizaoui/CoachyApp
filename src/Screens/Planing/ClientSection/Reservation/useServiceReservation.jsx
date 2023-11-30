@@ -12,7 +12,7 @@ const useReservationService =(setHideTabBar)=> {
     const data = location.state;
     console.log("data",data);
     const dataParsed = JSON.parse(localStorage.getItem("dataUser"));
-    const allDataCoach = JSON.parse(localStorage.getItem("dataCoach"));
+    const alldataDomaineCoaching = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const allDataClient = JSON.parse(localStorage.getItem("dataClient"));
     const days = [
       t('monday'),
@@ -25,7 +25,7 @@ const useReservationService =(setHideTabBar)=> {
     ];
   
     const reserveSession = (day) => {
-      const updatAlldataCoach = allDataCoach.map((element, index) => {
+      const updatAlldataDomaineCoaching = alldataDomaineCoaching.map((element, index) => {
         if (element.domaine === data.domaine) {
           const coachUpdate = element.coachs.map((elem, i) => {
             if (elem.firstName === data.firstName) {
@@ -185,7 +185,7 @@ const useReservationService =(setHideTabBar)=> {
           return { ...element };
         }
       });
-      localStorage.setItem("dataCoach", JSON.stringify(updatAlldataCoach));
+      localStorage.setItem("dataDomaineCoaching", JSON.stringify(updatAlldataDomaineCoaching));
       localStorage.setItem("dataClient", JSON.stringify(updatClient));
       setHideTabBar(false)
       navigate("/PaymentScreen",{state:{day:days[day],sessionFrom:pickTime}});
