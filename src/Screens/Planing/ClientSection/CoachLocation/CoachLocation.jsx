@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Geolocation } from "@capacitor/geolocation";
+import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import BackIcon from "../../../../assets/icons/BackIcon";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "leaflet-routing-machine";
 import "./coachLocation.css";
-import BackIconComponent from "../../../../Components/componentBack/BackIconComponent";
 import CallIcon from "../../../../assets/icons/Planing/CallIcon";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
@@ -59,25 +56,12 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
       <div className="user-detail-location">
         <div className="header-detail-user">
           <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
+           className="conatiner-detail"
           >
             <img className="img-user" src={dataDomaineCoaching.image_user} />
             <div className="train-name-user">
               <p
-                style={{
-                  margin: 4,
-                  color: "var(--grey-2, rgba(119, 114, 114, 0.60))",
-                  fontFamily: "Inter",
-                  fontSize: "16px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "normal",
-                }}
+               className="txt-train"
               >
                 {t("trainWith")}
               </p>
@@ -96,22 +80,7 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
           </p>
           <button
           onClick={()=>{navigate('/CoachDetail',{state:dataDomaineCoaching});setHideTabBar(false)}}
-            style={{
-              // position: "fixed",
-              marginBottom: 100,
-              width: "80%",
-              height: 50,
-              borderRadius: "20px",
-              background: "#5D54A0",
-              color: "var(--white, #FFFBFB)",
-              textAlign: "center",
-              fontFamily: "Inter",
-              fontSize: "20px",
-              fontStyle: "normal",
-              fontWeight: 700,
-              lineHeight: "normal",
-              textTransform: "capitalize",
-            }}
+            className="btn-forMoreDetail"
           >
             {t('moreDeatil')}
           </button>
@@ -121,7 +90,7 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
           <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
           <p>
             Vous allez être redirigé vers l'application Google Maps lors de la
-            navigation vers le monument. Une fois sur place,appuyez sur le
+            navigation. Une fois sur place,appuyez sur le
             bouton précédent en bas de l'écran de votre téléphone pour revenir à
             l'application Coachy app
           </p>

@@ -13,8 +13,8 @@ export const dataDomaineCoaching = [
         phoneNumber: "1234567",
         password: "heyhey",
         Tarification:
-          " John offers his coaching services at a competitive rate of $60 per session.",
-        modeDePaiment: " pay John using PayPal or Credit Card for convenience.",
+          " 60",
+        modeDePaiment: "",
         age: 30,
         image_user: require("../../assets/images/john.png"),
         location: {

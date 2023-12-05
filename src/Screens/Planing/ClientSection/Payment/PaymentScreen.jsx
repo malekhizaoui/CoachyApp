@@ -10,9 +10,11 @@ import VisaIcon from "../../../../assets/icons/Planing/VisaIcon";
 import TickIcon from "../../../../assets/icons/Planing/TickIcon";
 import { useNavigate, useLocation } from "react-router-dom";
 import Modal from "../../../../Components/modal/Modal";
+import { useTranslation } from "react-i18next";
 import "./payment.css";
 
 function PaymentScreen({setHideTabBar}) {
+  const {t}=useTranslation()
   const navigate = useNavigate();
   const location = useLocation();
   const [openModal, setOpenModal] = useState(true);
@@ -28,7 +30,7 @@ function PaymentScreen({setHideTabBar}) {
             <BackIcon />
           </div>
 
-          <p className="name-page">Add Payment Methods</p>
+          <p className="name-page">{t('addPayment')}</p>
         </div>
         <div className="container-pay">
           <div className="container-choose-Method">
@@ -132,7 +134,7 @@ function PaymentScreen({setHideTabBar}) {
           <div className="conatiner-detail-card">
             <input className="input-card" placeholder="CVC" />
             <p className="text-payment">
-              3 or 4 digits usually found on the signature strip
+            {t('3or4Digits')}
             </p>
           </div>
           <div
@@ -160,7 +162,7 @@ function PaymentScreen({setHideTabBar}) {
                 <ToggleOff />
               </div>
             )}
-            <p className="text-payment"> Save your card</p>
+            <p className="text-payment"> {t('saveCard')}</p>
           </div>
         </div>
         <button
@@ -184,11 +186,11 @@ function PaymentScreen({setHideTabBar}) {
             }}
           >
             <p>
-              Resumé de votre Reservation:
+            {t('bookReservation')}
               <br />
-              montant à payer : {location.state.cout} Chf <br />
-              la session commencera : {location.state.day} <br />a partir de{" "}
-              {location.state.sessionFrom} am jusqu'à{" "}
+              {t('moneyToPay')} {location.state.cout} Chf <br />
+              {t('sessionStart')} {location.state.day} <br />{t('from')}
+              {location.state.sessionFrom}{t('to')}{" "}
               {location.state.sessionFrom + 1} am
             </p>
             <button

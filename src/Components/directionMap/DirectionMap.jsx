@@ -1,14 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import DirectionIcon from '../../assets/icons/Planing/DirectionIcon'
 import "./direction.css";
 function DirectionMap({setOpenModal}) {
-  const navigate = useNavigate();
   return (
     <div
       className="DirectionContainer"
       onClick={() => {
-        // openGoogleMaps()
         setOpenModal(true)
       }}
     >

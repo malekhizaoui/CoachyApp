@@ -29,7 +29,7 @@ function Settings({ logOut,setHideTabBar }) {
           <div className="container-value-settings">
 
           <div className="line-settings"></div>
-          <div className="detail-info-settings">
+          <div className="detail-info-settings" onClick={()=>{navigate('/AboutApp');setHideTabBar(false)}}>
             <p className="value-info">{t('aboutApp')}</p>
             <ArrowrightIcon />
           </div>

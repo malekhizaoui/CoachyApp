@@ -1,8 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import "../auth.css";
-import { useNavigate } from "react-router-dom";
-import Cookies from "universal-cookie";
-import { useTranslation } from "react-i18next";
 import useServiceSignup from "./useServiceSignup";
 function SignUp() {
   const {
@@ -144,7 +141,7 @@ function SignUp() {
           {t("createAcc")}
         </button>
         <p style={{ color: "#47474e" }}>
-          {t("alreadyHaveAcc")} {"    "}
+          {t("alreadyHaveAcc")}
           <a
             className="txt-auth"
             onClick={() => {

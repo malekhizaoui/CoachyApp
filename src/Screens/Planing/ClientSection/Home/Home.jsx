@@ -29,7 +29,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
         >
           {newData.map((element, index) => {
             return (
-              <div key={index} style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column"}}>
+              <div key={index} className="container-bookings">
                 <p className="day">{days[index]}</p>
                 {element.length <= 0 ? (
                   <div className="noReservation">

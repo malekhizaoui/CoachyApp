@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./privateMessage.css";
 import { useLocation } from "react-router-dom";
 function useServicePrvMessage() {

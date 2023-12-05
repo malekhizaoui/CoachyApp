@@ -2,7 +2,6 @@ import React from "react";
 import ArrowrightIcon from "../../../assets/icons/ArrowrightIcon";
 import "./allMessages.css";
 import { useNavigate } from "react-router-dom";
-// import SearchBar from "./SearchBar";
 function AllMessages({setHideTabBar}) {
   const navigate= useNavigate()
   const getUserMessages = JSON.parse(localStorage.getItem("currentUser"));
@@ -14,8 +13,6 @@ function AllMessages({setHideTabBar}) {
         <p className="text-interface">Messages</p>
         
         <div className="line"></div>
-        {/* <div style={{width:"100%",height:100,margin:10}}><SearchBar coachFiltred={coachFiltred}searchUser={searchUser} setSearchTerm={setSearchTerm}/></div> */}
-
         {getUserMessages.messages.map((element, index) => {
           return (
             <div key={index} className="allMessages" onClick={()=>{

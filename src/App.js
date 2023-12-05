@@ -52,10 +52,7 @@ function App() {
       setHideTabBar(true);
     }
   };
-  const openGoogleMaps = () => {
-    const googleMapsUrl = `https://www.google.com/maps?q=${long},${lat}`;
-    window.open(googleMapsUrl, "_blank");
-  };
+ 
   const handleTabItem = (name) => {
     setTabItem(name);
   };
@@ -88,7 +85,6 @@ function App() {
             {hideTabBarforCoachDetail ? (
               <div style={{ height: 0 }}>
                 <DirectionMap
-                  openGoogleMaps={openGoogleMaps}
                   setOpenModal={setOpenModal}
                 />
                 <BackIconComponent
@@ -96,7 +92,7 @@ function App() {
                   sethideTabBarforCoachDetail={sethideTabBarforCoachDetail}
                 />
               </div>
-            ) : null}{" "}
+            ) : null}
           </div>
         ) : null}
 

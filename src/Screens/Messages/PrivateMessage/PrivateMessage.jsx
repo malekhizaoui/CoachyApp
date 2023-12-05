@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import BackIcon from "../../../assets/icons/BackIcon";
 import "./privateMessage.css";
 import CustomInput from "./CustomInput";
-import { useLocation } from "react-router-dom";
 import useServicePrvMessage from "./useServicePrvMessage";
 function PrivateMessage({ setHideTabBar }) {
   const {

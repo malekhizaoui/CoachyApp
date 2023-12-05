@@ -66,7 +66,29 @@
         "availability": "Disponibilité",
         "time": "Heure",
         "to": "Jusqu'À",
-        "moreDeatil":"Plus de Detail"
-
+        "moreDeatil": "Plus de Detail",
+        "ourMission": "Notre Mission",
+        "missionDescription": "CoachyAssist a été créé avec une mission claire : rendre le coaching personnel accessible à tous. Nous croyons que chaque individu mérite une chance d'améliorer sa vie, et c'est ce que nous visons à offrir.",
+        "aboutUs": "À Propos de Nous",
+        "aboutDescription": "Chez CoachyAssist, nous sommes passionnés par la transformation personnelle. Notre équipe dévouée travaille sans relâche pour créer une plateforme où les aspirations rencontrent des possibilités infinies.",
+        "ourOffer": "Ce Que Nous Offrons",
+        "ourOffer1": "Diversité des Coachs :",
+        "ourOffer1Description": "Explorez une gamme diversifiée de coachs experts dans différents domaines, prêts à vous guider vers vos objectifs uniques.",
+        "ourOffer2": "Localisation Précise :",
+        "ourOffer2Description": "Notre fonction de localisation garantit que vous pouvez trouver des coachs à proximité, rendant l'expérience plus pratique et personnelle.",
+        "ourOffer3": "Messagerie en Temps Réel :",
+        "ourOffer3Description": "Établissez une communication directe avec votre coach grâce à notre fonction de messagerie en temps réel, favorisant un engagement continu.",
+        "engageFoChange": "Engagez-vous pour le Changement",
+        "engageForChangeDescription": "CoachyAssist n'est pas seulement une application, c'est un partenariat dans votre parcours de transformation. Rejoignez-nous pour découvrir comment vous pouvez élever vos aspirations et réaliser vos objectifs avec le soutien d'une communauté dédiée.",
+        "about": "À Propos",
+        "experience": "Expérience",
+        "navigateToGoogleMaps": "Vous allez être redirigé vers l'application Google Maps lors de la navigation. Une fois sur place, appuyez sur le bouton précédent en bas de l'écran de votre téléphone pour revenir à l'application Coachy.",
+        "bookReservation": "Résumé de votre Réservation :",
+        "moneyToPay": "Montant à payer :",
+        "sessionStart": "La session commencera :",
+        "from": "à partir de",
+        "addPayment": "Ajouter des Méthodes de Paiement",
+        "3or4Digits": "3 ou 4 chiffres généralement situés sur la bande de signature",
+        "saveCard": "Enregistrer votre carte"
     }
 }

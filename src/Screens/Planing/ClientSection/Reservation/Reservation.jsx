@@ -44,12 +44,7 @@ function Reservation({setHideTabBar}) {
                 }}
               >
                 <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
+                 className="container-resrve"
                 >
                   <div>
                     <img
@@ -59,47 +54,19 @@ function Reservation({setHideTabBar}) {
                   </div>
                   <div>
                     <p
-                      style={{
-                        color: "#000",
-                        fontFamily: "Inter",
-                        fontSize: "13px",
-                        fontStyle: "normal",
-                        fontWeight: 600,
-                        lineHeight: "normal",
-                        margin: 0,
-                      }}
+                      className="txt-checkAvail"
                     >
                       {t("checkAvailability")}
                     </p>
                     {element.length > 0 ? (
                       <p
-                        style={{
-                          color: "#519750",
-                          fontFamily: "Inter",
-                          fontSize: "13px",
-                          fontStyle: "normal",
-                          fontWeight: 600,
-                          lineHeight: "normal",
-                          margin: 0,
-                          marginTop: 15,
-                          textAlign: "left",
-                        }}
+                        className="txt-dispon"
                       >
                         {t("disponible")}
                       </p>
                     ) : (
                       <p
-                        style={{
-                          color: "red",
-                          fontFamily: "Inter",
-                          fontSize: "13px",
-                          fontStyle: "normal",
-                          fontWeight: 600,
-                          lineHeight: "normal",
-                          margin: 0,
-                          marginTop: 15,
-                          textAlign: "left",
-                        }}
+                        className="txt-notDispo"
                       >
                         {t("notDisponible")}
                       </p>
@@ -162,7 +129,6 @@ function Reservation({setHideTabBar}) {
                                         onClick={() => {
                                           setPickTime(i);
                                           if (pickTime && pickTime === i) {
-                                            console.log("dd");
                                             setPickTime(null);
                                           } else {
                                             setPickTime(i);

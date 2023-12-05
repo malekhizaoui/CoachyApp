@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { StreamChat } from "stream-chat";
+import {  useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 function useServiceLogin(setIsLoggedIn,setTypeUser,setHideTabBar) {
     const { t } = useTranslation();
