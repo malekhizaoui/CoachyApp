@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./reservation.css";
 import ArrowrightIcon from "../../../../assets/icons/ArrowrightIcon";
 import BackIcon from "../../../../assets/icons/BackIcon";

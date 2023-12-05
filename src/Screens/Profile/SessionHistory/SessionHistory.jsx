@@ -5,7 +5,7 @@ import ArrowrightIcon from "../../../assets/icons/ArrowrightIcon";
 import { useTranslation } from "react-i18next";
 function SessionHistory() {
   const {t}=useTranslation()
-  const data = localStorage.getItem("dataUser");
+  const data = localStorage.getItem("currentUser");
   const sessionHistory = JSON.parse(data);
   return (
     <div className="container-history">

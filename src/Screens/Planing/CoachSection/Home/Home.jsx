@@ -42,7 +42,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                   {element.map((booking, i) => {
                     if (booking.reservationState === "noRequest") {
                       return (
-                        <div className="RestDayContainer">
+                        <div key={i} className="RestDayContainer">
                           <div
                             style={{
                               flex: 1.8,
@@ -77,6 +77,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                     else if (booking.reservationState === "accepted") {
                       return (
                         <div
+                          key={i}
                           className="reservation"
                           onClick={() => {
                             console.log("days[index]", days[index]);
@@ -138,6 +139,7 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                     else{
                       return (
                         <div
+                        key={i}
                           className="reservation"
                           onClick={() => {
                             navigate("/ClientLocation", {

@@ -29,7 +29,7 @@ function App() {
 
   const logOut = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("dataUser");
+    localStorage.removeItem("currentUser");
     localStorage.removeItem("typeUser");
     localStorage.removeItem("today");
 

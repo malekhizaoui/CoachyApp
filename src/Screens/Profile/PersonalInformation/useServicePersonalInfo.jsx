@@ -39,7 +39,7 @@ function useServicePersonalInfo() {
       if(data.type==="Client"){ 
        const updateAllClients= getAllClients.map((client)=>{
           if(client.firstName===data.firstName){
-            localStorage.setItem('dataUser',JSON.stringify({...client,image_user:image.dataUrl}))
+            localStorage.setItem('currentUser',JSON.stringify({...client,image_user:image.dataUrl}))
             return{...client,image_user:image.dataUrl}
           }else{
             return{...client}
@@ -52,7 +52,7 @@ function useServicePersonalInfo() {
           if(element.domaine===data.domaine){
            const updateCoachs= element.coachs.map((coach)=>{
               if(coach.firstName===data.firstName){
-                localStorage.setItem('dataUser',JSON.stringify({...coach,image_user:image.dataUrl}))
+                localStorage.setItem('currentUser',JSON.stringify({...coach,image_user:image.dataUrl}))
                 return {...coach,image_user:image.dataUrl}
               }else{
                 return {...coach}

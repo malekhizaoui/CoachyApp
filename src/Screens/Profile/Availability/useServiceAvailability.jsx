@@ -2,7 +2,7 @@ import {useState,useEffect} from 'react'
 import { useTranslation } from 'react-i18next';
 function useServiceAvailability() {
     const {t}=useTranslation()
-    const data = localStorage.getItem("dataUser");
+    const data = localStorage.getItem("currentUser");
     const dataParsed = JSON.parse(data);
     const getAllCoachs = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const [dataUser, setDataUser] = useState(dataParsed);
@@ -53,7 +53,7 @@ function useServiceAvailability() {
       setEditAvailability(null);
       localStorage.setItem("dataDomaineCoaching", JSON.stringify(updatAllCoachsbyDomaine));
       localStorage.setItem(
-        "dataUser",
+        "currentUser",
         JSON.stringify({ ...dataUser, availability: newDataAvailibility })
       );
       setDataUser({ ...dataUser, availability: newDataAvailibility });

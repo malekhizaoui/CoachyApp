@@ -11,9 +11,10 @@ function AllCoachs({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
-  const data = location.state;
+  const data = location.state
   const [checkedOrNot, setCheckedOrNot] = useState(999);
   const [chooseCoach, setChooseCoach] = useState({});
+  console.log("data",data);
   const bookCoach = () => {
     if (checkedOrNot !== 999) {
       navigate("/Reservation", { state: chooseCoach });
@@ -32,7 +33,6 @@ function AllCoachs({ setHideTabBar, sethideTabBarforCoachDetail }) {
           <p
             style={{
               color: "#000",
-              fontFamily: "Inter",
               fontSize: "22px",
               fontStyle: "normal",
               fontWeight: 600,
@@ -45,7 +45,6 @@ function AllCoachs({ setHideTabBar, sethideTabBarforCoachDetail }) {
             style={{
               color: "var(--grey-2, rgba(119, 114, 114, 0.60))",
               textAlign: "center",
-              fontFamily: "Inter",
               fontSize: "13px",
               fontStyle: "normal",
               fontWeight: 600,
@@ -57,14 +56,15 @@ function AllCoachs({ setHideTabBar, sethideTabBarforCoachDetail }) {
           </p>
           <div className="line"></div>
         </div>
-        <p className="domaine-coaching">Fitness</p>
+        <p className="domaine-coaching">{data.domaine}</p>
         <div className="container-coach">
           {/* coach checked */}
-          {data.map((element, index) => {
+          {data.coachs.map((element, index) => {
             return (
               <div key={index} className="detail-coach">
                 <div className="header-coach">
                   <div
+                  style={{marginLeft:10}}
                     onClick={() => {
                       navigate("/CoachLocation", { state: element });
                       setHideTabBar(true);
@@ -98,7 +98,6 @@ function AllCoachs({ setHideTabBar, sethideTabBarforCoachDetail }) {
                   <p
                     style={{
                       color: "var(--Black, #3F3C3C)",
-                      fontFamily: "Inter",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -112,7 +111,6 @@ function AllCoachs({ setHideTabBar, sethideTabBarforCoachDetail }) {
                   <p
                     style={{
                       color: "var(--Green, #519750)",
-                      fontFamily: "Inter",
                       fontSize: "13px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -128,7 +126,6 @@ function AllCoachs({ setHideTabBar, sethideTabBarforCoachDetail }) {
                     <p
                       style={{
                         color: "var(--grey-2, rgba(119, 114, 114, 0.60))",
-                        fontFamily: "Inter",
                         fontSize: "13px",
                         fontStyle: "normal",
                         fontWeight: 700, // Use 700 for "font-weight" to set it to bold
@@ -158,7 +155,6 @@ function AllCoachs({ setHideTabBar, sethideTabBarforCoachDetail }) {
             background: checkedOrNot !== 999 ? "#5D54A0" : "#DCDCDC",
             color: "var(--white, #FFFBFB)",
             textAlign: "center",
-            fontFamily: "Inter",
             fontSize: "20px",
             fontStyle: "normal",
             fontWeight: 700,

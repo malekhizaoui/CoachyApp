@@ -10,7 +10,7 @@ function useServiceAge() {
     
     const getAllCoachs = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const getAllClients = JSON.parse(localStorage.getItem("dataClient"));
-    const getDataUser = JSON.parse(localStorage.getItem("dataUser"));
+    const getDataUser = JSON.parse(localStorage.getItem("currentUser"));
     const data = Location.state;
     console.log("Locaction.state", Location.state);
     const updateAge = () => {
@@ -18,7 +18,7 @@ function useServiceAge() {
         if (data.type === "Client") {
         const UpdateClient = getAllClients.map((client) => {
           if (client.firstName === data.firstName) {
-            localStorage.setItem("dataUser",JSON.stringify({ ...client, age}))
+            localStorage.setItem("currentUser",JSON.stringify({ ...client, age}))
   
             return { ...client, age };
           } else {
@@ -33,7 +33,7 @@ function useServiceAge() {
           if (element.domaine === data.domaine) {
            const updateCoachs=element.coachs.map((coach) => {
               if (coach.firstName === data.firstName) {
-                localStorage.setItem("dataUser",JSON.stringify({ ...coach, age }))
+                localStorage.setItem("currentUser",JSON.stringify({ ...coach, age }))
                 return { ...coach, age };
               } else {
                 return { ...coach };

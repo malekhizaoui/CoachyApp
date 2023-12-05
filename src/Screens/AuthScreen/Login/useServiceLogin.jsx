@@ -14,7 +14,7 @@ function useServiceLogin(setIsLoggedIn,setTypeUser,setHideTabBar) {
       dataClient.map((element, index) => {
         if (username === element.phoneNumber && password === element.Password) {
           localStorage.setItem('token', "kqjhdbmkqsjhdmqksjhdmsqkjhd");
-          localStorage.setItem('dataUser', JSON.stringify(element));
+          localStorage.setItem('currentUser', JSON.stringify(element));
           localStorage.setItem('typeUser',"Client")
           setTypeUser('Client')
           setIsLoggedIn(true);
@@ -30,7 +30,7 @@ function useServiceLogin(setIsLoggedIn,setTypeUser,setHideTabBar) {
             navigate("/");
             setTypeUser('Coach')
             setHideTabBar(true)
-            localStorage.setItem('dataUser', JSON.stringify(coach));
+            localStorage.setItem('currentUser', JSON.stringify(coach));
             localStorage.setItem('token', "kqjhdbmkqsjhdmqksjhdmsqkjhd");
             localStorage.setItem('typeUser',"Coach")
   

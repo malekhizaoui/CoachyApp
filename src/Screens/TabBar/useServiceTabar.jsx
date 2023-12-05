@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 function useServiceTabar(handleTabItem, tabItem) {
-    const dataUser = JSON.parse(localStorage.getItem("dataUser"));
+    const dataUser = JSON.parse(localStorage.getItem("currentUser"));
   const alldataDomaineCoachings = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
   const allDataClient = JSON.parse(localStorage.getItem("dataClient"));
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ function useServiceTabar(handleTabItem, tabItem) {
     handleTabItem(tabBarName);
     navigate("/");
     localStorage.setItem(
-      "dataUser",
+      "currentUser",
       tabBarName === "Messages"
         ? JSON.stringify({ ...dataUser, notificationMessage: false })
         : JSON.stringify({ ...dataUser, notificationPlaning: false })

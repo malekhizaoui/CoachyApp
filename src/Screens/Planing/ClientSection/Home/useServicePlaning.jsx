@@ -9,7 +9,7 @@ function useServicePlaning() {
     const { t } = useTranslation();
     const navigate = useNavigate();
     const cookies = new Cookies();
-    const data = localStorage.getItem("dataUser");
+    const data = localStorage.getItem("currentUser");
     const dataUser = JSON.parse(data);
     const [newData, setNewData] = useState(dataUser.reservation);
     useEffect(() => {

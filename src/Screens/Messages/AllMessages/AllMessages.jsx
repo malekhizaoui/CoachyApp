@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 // import SearchBar from "./SearchBar";
 function AllMessages({setHideTabBar}) {
   const navigate= useNavigate()
-  const getUserMessages = JSON.parse(localStorage.getItem("dataUser"));
+  const getUserMessages = JSON.parse(localStorage.getItem("currentUser"));
 
 
   return (

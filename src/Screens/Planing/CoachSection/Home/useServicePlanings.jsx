@@ -6,7 +6,7 @@ import { Geolocation } from "@capacitor/geolocation";
 import { useTranslation } from "react-i18next";
 
 function useServicePlanings() {
-    const data = localStorage.getItem("dataUser");
+    const data = localStorage.getItem("currentUser");
     const dataUser = JSON.parse(data);
     const navigate = useNavigate();
     const [newData, setNewData] = useState(dataUser.reservation);
@@ -86,8 +86,7 @@ function useServicePlanings() {
             ? getFutureDates(dataUser.reservation, 6)
             : getFutureDates(dataUser.reservation, dayOfWeek - 1);
         setNewData(newDataReservation);
-        console.log("newDataReservation",newDataReservation);
-        localStorage.setItem("dataUser",JSON.stringify({ ...dataUser, reservation: newDataReservation }));
+        localStorage.setItem("currentUser",JSON.stringify({ ...dataUser, reservation: newDataReservation }));
         localStorage.setItem("today", JSON.stringify(days[0]));
       }
     };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
@@ -11,9 +11,10 @@ const useReservationService =(setHideTabBar)=> {
     const [show, setShow] = useState(false);
     const data = location.state;
     console.log("data",data);
-    const dataParsed = JSON.parse(localStorage.getItem("dataUser"));
+    const dataParsed = JSON.parse(localStorage.getItem("currentUser"));
     const alldataDomaineCoaching = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const allDataClient = JSON.parse(localStorage.getItem("dataClient"));
+    console.log("data",data);
     const days = [
       t('monday'),
       t('tuesday'),
@@ -92,7 +93,7 @@ const useReservationService =(setHideTabBar)=> {
               checkIsFound&&addNewMessageFromCoach.push(newMessage)
               const messages=elem.messages.length === 0 ? [newMessage] :!checkIsFound? updateMessages: addNewMessageFromCoach
               const newUserData=bookSession(day,messages);
-              localStorage.setItem("dataUser",JSON.stringify(newUserData))
+              localStorage.setItem("currentUser",JSON.stringify(newUserData))
               return {...elem,reservation: updateReservation,messages,notificationPlaning:true,
                 notificationMessage:true};
             } else {
@@ -170,7 +171,7 @@ const useReservationService =(setHideTabBar)=> {
           checkIsFound&&addNewMessageFromClient.push(newMessage)
           const messages=element.messages.length === 0 ? [newMessage] :checkIsFound?addNewMessageFromClient: updateMessagesClient
           const newUserData=bookSession(day,messages);
-          localStorage.setItem("dataUser",JSON.stringify(newUserData))
+          localStorage.setItem("currentUser",JSON.stringify(newUserData))
           return {...element,
             reservation: updatedReservation,
             messages,
@@ -180,7 +181,7 @@ const useReservationService =(setHideTabBar)=> {
          
         } else {
           const newUserData = bookSession(day, updateMessagesClient);
-          localStorage.setItem("dataUser", JSON.stringify(newUserData));
+          localStorage.setItem("currentUser", JSON.stringify(newUserData));
   
           return { ...element };
         }
@@ -188,7 +189,7 @@ const useReservationService =(setHideTabBar)=> {
       localStorage.setItem("dataDomaineCoaching", JSON.stringify(updatAlldataDomaineCoaching));
       localStorage.setItem("dataClient", JSON.stringify(updatClient));
       setHideTabBar(false)
-      navigate("/PaymentScreen",{state:{day:days[day],sessionFrom:pickTime}});
+      navigate("/PaymentScreen",{state:{day:days[day],sessionFrom:pickTime,cout:data.Tarification}});
 
     };
   

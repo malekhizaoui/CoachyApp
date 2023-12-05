@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 function Myprofile() {
   const {t}=useTranslation()
   const navigate = useNavigate();
-  const userData = localStorage.getItem("dataUser");
+  const userData = localStorage.getItem("currentUser");
   const data = JSON.parse(userData);
   const typeUser = localStorage.getItem("typeUser");
   return (
@@ -19,6 +19,7 @@ function Myprofile() {
       <div style={{display:"flex",flexDirection:"column",justifyContent:"center",height:"30%",width:"100%"}}>
         <div className="couverture-image"></div>
         <div className="image-container">
+          
           <img className="profile-image" src={data.image_user} />
           <p>
             {data.firstName} {data.lastName}

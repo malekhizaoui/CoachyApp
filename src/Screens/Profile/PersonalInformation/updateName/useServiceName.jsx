@@ -11,7 +11,7 @@ function useServiceName() {
     const [lastName, setLastName] = useState("");
     const getAllCoachs = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const getAllClients = JSON.parse(localStorage.getItem("dataClient"));
-    const getDataUser = JSON.parse(localStorage.getItem("dataUser"));
+    const getDataUser = JSON.parse(localStorage.getItem("currentUser"));
     const data = Location.state;
   
     const updateFullName = () => {
@@ -19,7 +19,7 @@ function useServiceName() {
         if (data.type === "Client") {
         const UpdateClient = getAllClients.map((client) => {
           if (client.firstName === data.firstName) {
-            localStorage.setItem("dataUser",JSON.stringify({ ...client, firstName, lastName }))
+            localStorage.setItem("currentUser",JSON.stringify({ ...client, firstName, lastName }))
   
             return { ...client, firstName, lastName };
           } else {
@@ -34,7 +34,7 @@ function useServiceName() {
           if (element.domaine === data.domaine) {
            const updateCoachs=element.coachs.map((coach) => {
               if (coach.firstName === data.firstName) {
-                localStorage.setItem("dataUser",JSON.stringify({ ...coach, firstName, lastName }))
+                localStorage.setItem("currentUser",JSON.stringify({ ...coach, firstName, lastName }))
                 return { ...coach, firstName, lastName };
               } else {
                 return { ...coach };

@@ -3,7 +3,7 @@ import "./privateMessage.css";
 import { useLocation } from "react-router-dom";
 function useServicePrvMessage() {
     const location = useLocation();
-    const getUser = JSON.parse(localStorage.getItem("dataUser"));
+    const getUser = JSON.parse(localStorage.getItem("currentUser"));
     const getClients = JSON.parse(localStorage.getItem("dataClient"));
     const getCoachs = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const [newMessage, setNewMessage] = useState("");
@@ -110,7 +110,7 @@ function useServicePrvMessage() {
           localStorage.setItem("dataClient",JSON.stringify(updateAllClientFromCoach));
         }
   
-        localStorage.setItem("dataUser", JSON.stringify(newUser));
+        localStorage.setItem("currentUser", JSON.stringify(newUser));
         setAllMessages(newUser.messages[location.state.index ? location.state.index : 0].allMessages);
       }
     };

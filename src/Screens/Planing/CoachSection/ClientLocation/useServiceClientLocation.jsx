@@ -15,7 +15,7 @@ function useServiceClientLocation(
   const [location, setLocation] = useState(null);
   const locationForstate = useLocation();
   const navigate = useNavigate();
-  const data = localStorage.getItem("dataUser");
+  const data = localStorage.getItem("currentUser");
   const dataUser = JSON.parse(data);
   const alldataDomaineCoaching = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
   const allDataClient = JSON.parse(localStorage.getItem("dataClient"));
@@ -102,7 +102,7 @@ function useServiceClientLocation(
       }
     });
     localStorage.setItem("dataDomaineCoaching", JSON.stringify(updateAllCoach));
-    localStorage.setItem("dataUser", JSON.stringify(newDataUser));
+    localStorage.setItem("currentUser", JSON.stringify(newDataUser));
     localStorage.setItem("dataClient", JSON.stringify(updateAllClient));
     navigate("/");
     setHideTabBar(true);
@@ -167,7 +167,7 @@ function useServiceClientLocation(
       }
     });
     localStorage.setItem("dataDomaineCoaching", JSON.stringify(updateAllCoach));
-    localStorage.setItem("dataUser", JSON.stringify(newDataUser));
+    localStorage.setItem("currentUser", JSON.stringify(newDataUser));
     localStorage.setItem("dataClient", JSON.stringify(updateAllClient));
     navigate("/");
     setHideTabBar(true);

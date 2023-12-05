@@ -24,7 +24,6 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
     iconAnchor: [16, 32],
     popupAnchor: [0, -32],
   });
- console.log("dataDomaineCoaching",dataDomaineCoaching);
   const openGoogleMaps = () => {
     const googleMapsUrl = `https://www.google.com/maps?q=${dataDomaineCoaching.location.longitude},${dataDomaineCoaching.location.latitude}`;
     window.open(googleMapsUrl, "_blank");
@@ -35,7 +34,7 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
     <div className="hole-map">
       <MapContainer
         center={location !== null ? location : position}
-        zoom={13.5}
+        zoom={10}
         className="map-container"
       >
         <TileLayer url="https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=TNPJ9dvE72iHCMuBVwD7" />
@@ -93,7 +92,7 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
         </div>
         <div className="descirption-coach">
           <p className="bioCoach">
-            {dataDomaineCoaching.bio}
+            {`dedicated ${dataDomaineCoaching.domaine} enthusiast and certified personal trainer.passion for helping individuals of all ${dataDomaineCoaching.domaine} levels achieve their health and wellness goals.`}
           </p>
           <button
           onClick={()=>{navigate('/CoachDetail',{state:dataDomaineCoaching});setHideTabBar(false)}}

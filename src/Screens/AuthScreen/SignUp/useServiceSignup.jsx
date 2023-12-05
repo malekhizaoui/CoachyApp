@@ -28,17 +28,17 @@ function useServiceSignup() {
           const updateCoachs = {
             id: element.coachs.length + 1,
             domaine: domaine,
-            bio: `dedicated ${domaine} enthusiast and certified personal trainer.passion for helping individuals of all ${domaine} levels achieve their health and wellness goals.`,
+            bio: '',
             firstName: firstName,
             type: "Coach",
             lastName: lastName,
             phoneNumber: phoneNumber,
             password: password,
-            Tarification: `${firstName} offers his coaching services at a competitive rate of ${cout} $ per session.`,
-            modeDePaiment: ` pay ${firstName} using PayPal or Credit Card for convenience.`,
+            Tarification: cout,
+            modeDePaiment: ``,
             age: age,
             image_user: require("../../../assets/images/annonyme.jpg"),
-            experience: `over ${experience} years of experience, ${firstName} has successfully trained clients in weight management, strength building, and overall ${domaine} improvement. `,
+            experience: experience,
             location: {
               city: "genéve",
               longitude: "47.183322",
@@ -48,9 +48,9 @@ function useServiceSignup() {
             availability: [[], [], [], [], [], [], []],
             sessionHistory: [],
             messages: [],
-            notificationPlaning:false,
-            notificationMessage:false         
-           };
+            notificationPlaning: false,
+            notificationMessage: false,
+          };
           return { ...element, coachs: [updateCoachs] };
         } else {
           const updateCoachs = element.coachs.map((coach) => {
@@ -69,17 +69,17 @@ function useServiceSignup() {
               id: element.coachs.length + 1,
               type: "Coach",
               domaine: domaine,
-              bio: `dedicated ${domaine} enthusiast and certified personal trainer. He has a passion for helping individuals of all ${domaine} levels achieve their health and wellness goals.`,
+              bio: ``,
               firstName: firstName,
               type: typeUser,
               lastName: lastName,
               phoneNumber: phoneNumber,
               password: password,
-              Tarification: `${firstName} offers his coaching services at a competitive rate of ${cout} $ per session.`,
-              modeDePaiment: ` pay ${firstName} using PayPal or Credit Card for convenience.`,
+              Tarification: cout,
+              modeDePaiment: ``,
               age: age,
               image_user: require("../../../assets/images/annonyme.jpg"),
-              experience: `over ${experience} years of experience, ${firstName} has successfully trained clients in weight management, strength building, and overall ${domaine} improvement. `,
+              experience: experience,
               location: {
                 city: "genéve",
                 longitude: "47.183322",
@@ -89,8 +89,9 @@ function useServiceSignup() {
               availability: [[], [], [], [], [], [], []],
               sessionHistory: [],
               messages: [],
-              notificationPlaning:false,
-              notificationMessage:false            });
+              notificationPlaning: false,
+              notificationMessage: false,
+            });
           }
 
           return { ...element, coachs: updateCoachs };
@@ -99,7 +100,10 @@ function useServiceSignup() {
         return { ...element };
       }
     });
-    localStorage.setItem("dataDomaineCoaching", JSON.stringify(updateAllCoachs));
+    localStorage.setItem(
+      "dataDomaineCoaching",
+      JSON.stringify(updateAllCoachs)
+    );
     if (checkIfFound) {
       navigate("/Login");
     }
@@ -127,8 +131,9 @@ function useServiceSignup() {
             reservation: [[], [], [], [], [], [], []],
             sessionHistory: [],
             messages: [],
-            notificationPlaning:false,
-            notificationMessage:false          },
+            notificationPlaning: false,
+            notificationMessage: false,
+          },
         ];
       } else {
         let checkIfFound = true;
@@ -161,8 +166,8 @@ function useServiceSignup() {
             reservation: [[], [], [], [], [], [], []],
             sessionHistory: [],
             messages: [],
-            notificationPlaning:false,
-            notificationMessage:false
+            notificationPlaning: false,
+            notificationMessage: false,
           });
         }
         return updateAllClients;
@@ -210,7 +215,7 @@ function useServiceSignup() {
     typeUser,
     signUpAsClient,
     navigate,
-    t
+    t,
   };
 }
 

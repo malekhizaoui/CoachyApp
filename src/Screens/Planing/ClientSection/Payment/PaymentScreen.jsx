@@ -186,7 +186,7 @@ function PaymentScreen({setHideTabBar}) {
             <p>
               Resumé de votre Reservation:
               <br />
-              montant à payer : 60 Chf <br />
+              montant à payer : {location.state.cout} Chf <br />
               la session commencera : {location.state.day} <br />a partir de{" "}
               {location.state.sessionFrom} am jusqu'à{" "}
               {location.state.sessionFrom + 1} am

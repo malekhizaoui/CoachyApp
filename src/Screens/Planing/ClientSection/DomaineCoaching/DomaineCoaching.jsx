@@ -32,16 +32,16 @@ function DomaineCoaching() {
         
       </div>
       <div className="content-domain">
-        {dataDomaineCoaching.map((element, index) => {
+        {dataDomaineCoaching.map((domaine, index) => {
           return (
             <div
               key={index}
               className="img-domain"
               onClick={() => {
-                navigate("/AllCoachs", { state: element.coachs });
+                navigate("/AllCoachs", { state: {coachs:domaine.coachs,domaine:domaine.domaine} });
               }}
             >
-              <img className="img-background" src={element.picDomaine} />
+              <img className="img-background" src={domaine.picDomaine} />
             </div>
           );
         })}

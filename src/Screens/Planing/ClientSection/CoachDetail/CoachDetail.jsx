@@ -1,45 +1,56 @@
 import React from "react";
 import "./coachDetail.css";
-import {useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import BackIcon from "../../../../assets/icons/BackIcon";
 function CoachDetail({ sethideTabBarforCoachDetail, setHideTabBar }) {
   const location = useLocation();
   const data = location.state;
-  console.log("data",data);
   return (
     <div className="container-coachDetail">
-      <div className="couverture-image">
-        <div
-          className="container-backIcon"
-          onClick={() => {
-            sethideTabBarforCoachDetail(true);
-            setHideTabBar(true);
-          }}
-        >
-          <BackIcon />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          height: "50%",
+          width: "100%",
+        }}
+      >
+        <div className="couverture-image">
+          <div
+            className="container-backIcon"
+            onClick={() => {
+              sethideTabBarforCoachDetail(true);
+              setHideTabBar(true);
+            }}
+          >
+            <BackIcon />
+          </div>
         </div>
-      </div>
-      <div className="image-container">
-        <img className="profile-image" src={data.image_user} />
-        <p>
-          {data.firstName} {data.lastName}
-        </p>
+        <div className="image-container">
+          <img className="profile-image" src={data.image_user} />
+          <p>
+            {data.firstName} {data.lastName}
+          </p>
+        </div>
       </div>
       <div className="bio-coach">
         <div className="line"></div>
         <p className="attribute-coach">About {data.firstName}</p>
-        <p className="value-coach">{data.bio}</p>
+        <p className="value-coach">
+        
+          {`dedicated ${data.domaine} enthusiast and certified personal trainer.passion for helping individuals of all ${data.domaine} levels achieve their health and wellness goals.`}
+        </p>
         <div className="line"></div>
         <p className="attribute-coach">Expérience</p>
-        <p>{data.experience}</p>
+        <p>{`over ${data.experience} years of experience, ${data.firstName} has successfully trained clients in weight management, strength building, and overall ${data.domaine} improvement. `}</p>
         <div className="line"></div>
         <p className="attribute-coach">Tarification</p>
         <p className="value-coach">
-          {data.Tarification}
-          {data.modeDePaiment}
+          {`${data.firstName} offers his coaching services at a competitive rate of ${data.Tarification} $ per session.`}
+          {` pay ${data.firstName} using PayPal or Credit Card for convenience.`}
         </p>
       </div>
-      <button>Reserver</button>
     </div>
   );
 }
