@@ -84,7 +84,7 @@ function useServiceClientLocation(
     const newDataUser = { ...dataUser, reservation: updateReservation1 ,notificationPlaning:true};
 
     const updateAllCoach = alldataDomaineCoaching.map((domaine) => {
-      if (dataUser.domaine === domaine.domaine) {
+      if (dataUser.domaine === domaine.name) {
         const updateCoachs = domaine.coachs.map((coach, indice) => {
           const updateReservation2 = newReservation(
             coach.reservation,
@@ -153,7 +153,7 @@ function useServiceClientLocation(
     const newDataUser = { ...dataUser, reservation: newReservation,notificationPlaning:true };
 
     const updateAllCoach = alldataDomaineCoaching.map((domaine) => {
-      if (dataUser.domaine === domaine.domaine) {
+      if (dataUser.domaine === domaine.name) {
         const updateCoachs = domaine.coachs.map((coach, indice) => {
           if (coach.firstName === dataUser.firstName) {
             return { ...coach, reservation: newReservation,notificationPlaning:true };

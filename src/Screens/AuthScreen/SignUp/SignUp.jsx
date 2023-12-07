@@ -60,7 +60,7 @@ function SignUp() {
             }}
           />
           {typeUser === "Coach" && (<><div style={{display:"flex",flexDirection:"row",justifyContent:"center"}}>
-            <input
+            {/* <input
             type="text"
             className="input"
             placeholder="$ heure"
@@ -68,7 +68,19 @@ function SignUp() {
               setCout(event.target.value);
             }}
             style={{width:"30%"}}
-          />
+          /> */}
+            <select
+                        style={{width:"50%"}}
+              className="input"
+              onChange={(event) => {
+                setCout(event.target.value);
+              }}
+            >
+              <option value="">Tarification</option>
+              <option value="30">30 CHF</option>
+              <option value="40">40 CHF</option>
+              <option value="50">50 CHF</option>  
+            </select>
             <input
             type="text"
             className="input"

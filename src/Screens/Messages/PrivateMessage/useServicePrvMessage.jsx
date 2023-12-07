@@ -58,7 +58,7 @@ function useServicePrvMessage() {
                     return { ...message };
                   }
                 });
-                return{...coach,messages:updateMessages}
+                return{...coach,messages:updateMessages,notificationMessage:true}
               } else {
                 return { ...coach };
               }
@@ -70,7 +70,7 @@ function useServicePrvMessage() {
           localStorage.setItem("dataDomaineCoaching",JSON.stringify(updatAllCoachsbyDomaine));
         } else {
           const updatAllCoachsbyDomaine = getCoachs.map((element, index) => {
-            if (element.domaine === getUser.domaine) {
+            if (element.name === getUser.domaine) {
               const updateAllCoachs = element.coachs.map((coach, ind) => {
                 if (coach.firstName === getUser.firstName) {
                   return { ...coach, messages: newDataUserMessages };
@@ -101,7 +101,7 @@ function useServicePrvMessage() {
                   return { ...message };
                 }
               });
-              return { ...element, messages: updateMessages };
+              return { ...element, messages: updateMessages,notificationMessage:true };
             } else {
               return { ...element };
             }

@@ -36,7 +36,7 @@ function useServiceAvailability() {
         return [...element];
       });
       const updatAllCoachsbyDomaine = getAllCoachs.map((element) => {
-        if (element.domaine === dataParsed.domaine) {
+        if (element.name === dataParsed.domaine) {
           const UpdateAllCoachs = element.coachs.map((coach) => {
             if (coach.firstName === dataParsed.firstName) {
               return { ...coach, availability: newDataAvailibility };

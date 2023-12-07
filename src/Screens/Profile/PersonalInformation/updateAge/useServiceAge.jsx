@@ -30,7 +30,7 @@ function useServiceAge() {
       } else {
   
         const UpdateCoach = getAllCoachs.map((element) => {
-          if (element.domaine === data.domaine) {
+          if (element.name === data.domaine) {
            const updateCoachs=element.coachs.map((coach) => {
               if (coach.firstName === data.firstName) {
                 localStorage.setItem("currentUser",JSON.stringify({ ...coach, age }))

@@ -27,7 +27,7 @@ const useReservationService =(setHideTabBar)=> {
   
     const reserveSession = (day) => {
       const updatAlldataDomaineCoaching = alldataDomaineCoaching.map((element, index) => {
-        if (element.domaine === data.domaine) {
+        if (element.name === data.domaine) {
           const coachUpdate = element.coachs.map((elem, i) => {
             if (elem.firstName === data.firstName) {
               const updateReservation = elem.reservation.map(

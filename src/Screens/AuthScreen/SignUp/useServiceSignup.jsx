@@ -23,7 +23,7 @@ function useServiceSignup() {
   const signUpAsCoach = () => {
     var checkIfFound = true;
     const updateAllCoachs = getAllCoach.map((element) => {
-      if (element.domaine === domaine) {
+      if (element.name === domaine) {
         if (element.coachs.length === 0) {
           const updateCoachs = {
             id: element.coachs.length + 1,

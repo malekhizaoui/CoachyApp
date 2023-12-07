@@ -10,7 +10,7 @@ function useServiceTabar(handleTabItem, tabItem) {
   const showNotif = (tabBarName) => {
     if (dataUser.type === "Coach") {
       const updatealldataDomaineCoachings = alldataDomaineCoachings.map((domaine) => {
-        if (domaine.domaine === dataUser.domaine) {
+        if (domaine.name === dataUser.domaine) {
           const updateCoach = domaine.coachs.map((coach) => {
             if (coach.firstName === dataUser.firstName) {
               if (tabBarName === "Messages") {

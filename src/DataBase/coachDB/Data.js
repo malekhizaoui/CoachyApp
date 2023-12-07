@@ -1,6 +1,6 @@
 export const dataDomaineCoaching = [
   {
-    domaine: "fitness",
+    name: "fitness",
     picDomaine: require("../../assets/images/fitness-backgound.jpg"),
     coachs: [
       {
@@ -1464,7 +1464,7 @@ export const dataDomaineCoaching = [
     
   },
   {
-    domaine: "Diet",
+    name: "Diet",
     picDomaine: require("../../assets/images/diet-background.jpg"),
     coachs: [
       // {
@@ -2389,7 +2389,7 @@ export const dataDomaineCoaching = [
     ],
   },
   {
-    domaine: "Mental",
+    name: "Mental",
     picDomaine: require("../../assets/images/menatlBackground.jpg"),
     coachs: [
       // {

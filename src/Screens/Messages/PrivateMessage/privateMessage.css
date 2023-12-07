@@ -73,7 +73,7 @@
 
 /* Change la couleur du bouton lorsqu'il est survolé */
 .send-button:hover {
-  background-color: #45a049;
+  background-color: #5d54a0;
 }
 
 .message-txt-me {
@@ -128,7 +128,6 @@
   display: flex;
   justify-content: flex-start;
   margin-top: 20px;
-  strokeWidth: 1px;
   stroke: var(--grey-1, #bcbaba);
 }
 .message-txt-destination {
