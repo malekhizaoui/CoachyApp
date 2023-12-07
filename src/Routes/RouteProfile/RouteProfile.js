@@ -9,6 +9,7 @@ import UpdateAge from '../../Screens/Profile/PersonalInformation/updateAge/Updat
 import UpdateName from '../../Screens/Profile/PersonalInformation/updateName/UpdateName'
 import Language from '../../Screens/Profile/Settings/languages/Language';
 import AboutApp from '../../Screens/Profile/Settings/aboutApp/AboutApp';
+import CardDetail from '../../Screens/Profile/CardDetail/CardDetail';
 function RouteProfile({logOut,setHideTabBar}) {
   return (
     <Routes>
@@ -21,6 +22,7 @@ function RouteProfile({logOut,setHideTabBar}) {
         <Route path="/UpdateName" element={<UpdateName/>}/>
         <Route path="/Language" element={<Language setHideTabBar={setHideTabBar}/>}/>
         <Route path="/AboutApp" element={<AboutApp setHideTabBar={setHideTabBar}/>}/>
+        <Route path="/CardDetail" element={<CardDetail/>}/>
       </Routes>
   )
 }

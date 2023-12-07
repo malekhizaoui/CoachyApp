@@ -77,7 +77,7 @@ function Myprofile() {
           <ArrowrightIcon />
         </div>
         <div className="line"></div>
-        <div className="session-history">
+        <div className="session-history" onClick={()=>{navigate('/CardDetail')}}>
           <Wallet />
           <p className="info">{t('bankCard')}</p>
           <ArrowrightIcon />

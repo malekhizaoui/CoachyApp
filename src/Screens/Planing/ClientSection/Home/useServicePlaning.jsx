@@ -60,9 +60,9 @@ function useServicePlaning() {
     }
   
     const reorganizeReservation = () => {
-      const data = localStorage.getItem("today");
-      const getToday = JSON.parse(data);
-      if (!getToday) {
+      // const data = localStorage.getItem("today");
+      // const getToday = JSON.parse(data);
+     
         const today = new Date();
         const dayOfWeek = today.getDay();
         const newDataReservation =
@@ -70,9 +70,9 @@ function useServicePlaning() {
             ? getFutureDates(dataUser.reservation, 6)
             : getFutureDates(dataUser.reservation, dayOfWeek - 1);
         setNewData(newDataReservation);
-        localStorage.setItem("currentUser",JSON.stringify({ ...dataUser, reservation: newDataReservation }));
+        // localStorage.setItem("currentUser",JSON.stringify({ ...dataUser, reservation: newDataReservation }));
         localStorage.setItem("today", JSON.stringify(days[0]));
-      }
+      
     };
   return {
     newData,

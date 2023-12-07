@@ -193,6 +193,10 @@ const useReservationService =(setHideTabBar)=> {
 
     };
   
+
+
+
+    
     const bookSession = (day, messages) => {
       const newReservation = dataParsed.reservation.map((element, index) => {
         if (day === index) {

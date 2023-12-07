@@ -12,6 +12,7 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
   const { t } = useTranslation();
   const position = [47.184475, 8.505185];
   const locationForstate = useLocation();
+  console.log("locationForstate",locationForstate);
   const navigate = useNavigate();
   const dataDomaineCoaching = locationForstate.state;
   const location =  JSON.parse(localStorage.getItem('position'))
@@ -30,8 +31,8 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
   return (
     <div className="hole-map">
       <MapContainer
-        center={location !== null ? location : position}
-        zoom={10}
+        center={position}
+        zoom={6}
         className="map-container"
       >
         <TileLayer url="https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=TNPJ9dvE72iHCMuBVwD7" />

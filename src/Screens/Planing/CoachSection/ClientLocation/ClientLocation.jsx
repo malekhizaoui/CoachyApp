@@ -30,13 +30,13 @@ function ClientLocation({setHideTabBar,sethideTabBarforCoachDetail,openModal,set
     <div className="hole-map">
       <MapContainer
         center={location !== null ? location : position}
-        zoom={15}
+        zoom={6}
         className="map-container"
       >
         <TileLayer url="https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=TNPJ9dvE72iHCMuBVwD7" />
 
-        <Marker position={position} icon={customIcon}>
-          <Popup>
+        <Marker position={position} icon={customIcon} >
+          <Popup autoOpen={true} autoPan={false} >
             destination <br />
           </Popup>
         </Marker>
