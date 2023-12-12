@@ -20,14 +20,14 @@ function useServicePlaning() {
       const today = new Date();
       const daysInfo = [];
       daysInfo.push(
-        `${t("today")},${today.getDate()} ${today.toLocaleDateString(getLang==='fr' ?"fr-FR":"en-US", {
+        `${t("today")},${today.getDate()} ${today.toLocaleDateString(getLang==='fr' ?"fr-FR":getLang==='en' ?"en-US":getLang==='it' ?"it-IT":getLang==='all' &&"de-DE", {
           month: "long",
         })}`
       );
       const tomorrow = new Date(today);
       tomorrow.setDate(today.getDate() + 1);
       daysInfo.push(
-        `${t("tomorow")}, ${tomorrow.getDate()} ${tomorrow.toLocaleDateString(getLang==='fr' ?"fr-FR":"en-US", {
+        `${t("tomorow")}, ${tomorrow.getDate()} ${tomorrow.toLocaleDateString(getLang==='fr' ?"fr-FR":getLang==='en' ?"en-US":getLang==='it' ?"it-IT":getLang==='all' &&"de-DE", {
           month: "long",
         })}`
       );
@@ -36,9 +36,9 @@ function useServicePlaning() {
         const nextDay = new Date(today);
         nextDay.setDate(today.getDate() + i);
         daysInfo.push(
-          `${nextDay.toLocaleDateString(getLang==='fr' ?"fr-FR":"en-US", {
+          `${nextDay.toLocaleDateString(getLang==='fr' ?"fr-FR":getLang==='en' ?"en-US":getLang==='it' ?"it-IT":getLang==='all' &&"de-DE", {
             weekday: "long",
-          })}, ${nextDay.getDate()} ${nextDay.toLocaleDateString(getLang==='fr' ?"fr-FR":"en-US", {
+          })}, ${nextDay.getDate()} ${nextDay.toLocaleDateString(getLang==='fr' ?"fr-FR":getLang==='en' ?"en-US":getLang==='it' ?"it-IT":getLang==='all' &&"de-DE", {
             month: "long",
           })}`
         );

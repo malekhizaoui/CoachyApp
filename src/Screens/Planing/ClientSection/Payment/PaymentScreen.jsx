@@ -188,7 +188,7 @@ function PaymentScreen({setHideTabBar}) {
             <p>
             {t('bookReservation')}
               <br />
-              {t('moneyToPay')} {location.state.cout} Chf <br />
+              {t('moneyToPay')} {Number(location.state.cout)+Number((location.state.cout*10)/100)} Chf <br />
               {t('sessionStart')} {location.state.day} <br />{t('from')}
               {location.state.sessionFrom}{t('to')}{" "}
               {location.state.sessionFrom + 1} am

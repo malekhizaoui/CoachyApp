@@ -80,6 +80,7 @@ function SignUp() {
               <option value="30">30 CHF</option>
               <option value="40">40 CHF</option>
               <option value="50">50 CHF</option>  
+              <option value="60">60 CHF</option>  
             </select>
             <input
             type="text"

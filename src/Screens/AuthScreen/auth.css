@@ -3,9 +3,9 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  /* background-image: url("./background.png"); */
+  background-image: url("./background.png");
   /* background-color: #5D54A0; */
-  background-size: cover;
+  background-size:cover;
   align-items: center;
 }
 

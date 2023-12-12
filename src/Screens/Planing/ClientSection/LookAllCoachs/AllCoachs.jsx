@@ -11,6 +11,7 @@ function AllCoachs({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const location = useLocation();
   const navigate = useNavigate();
   const data = location.state;
+  console.log("data",data);
   const [checkedOrNot, setCheckedOrNot] = useState(999);
   const [chooseCoach, setChooseCoach] = useState({});
   const bookCoach = () => {

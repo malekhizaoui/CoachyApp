@@ -27,7 +27,7 @@ function Myprofile() {
         </div>
       </div>
       <div className="profile-info">
-        <p style={{ marginTop: 5 }}>My {t('profile')}</p>
+        <p style={{ marginTop: 5 }}>{t('profile')}</p>
         <div
           className="session-history"
           onClick={() => {

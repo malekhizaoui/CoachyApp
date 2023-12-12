@@ -18,7 +18,7 @@ function AboutApp({setHideTabBar}) {
     </div>
     <div>
         <h2>{t("aboutUs")}</h2>
-        <p className='txt-description'>{t("aboutDescription")}</p>
+        <p >{t("aboutDescription")}</p>
     </div>
     <div>
         <h2>{t("ourOffer")}</h2>
@@ -30,7 +30,7 @@ function AboutApp({setHideTabBar}) {
     </div>
     <div>
         <h2>{t("engageForChange")}</h2>
-        <p className='txt-description'>{t("engageForChangeDescription")}</p>
+        <p >{t("engageForChangeDescription")}</p>
     </div>
 </div>
 
