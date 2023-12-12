@@ -49,7 +49,6 @@ function useServiceAvailability() {
           return { ...element };
         }
       });
-      // console.log("updatAllCoachsbyDomaine",updatAllCoachsbyDomaine);
       setEditAvailability(null);
       localStorage.setItem("dataDomaineCoaching", JSON.stringify(updatAllCoachsbyDomaine));
       localStorage.setItem(

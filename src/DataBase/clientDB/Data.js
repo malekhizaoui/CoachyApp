@@ -7,7 +7,7 @@ export const dataClient = [
     phoneNumber: "21345350",
     Password: "hello",
     email: "hizaoui.malek.habib@gmail.com",
-    image_user: require("../MalekPhoto.jpg"),
+    image_user: require("../../assets/images/MalekPhoto.jpg"),
     location: {
       city: "Genève",
       latitude: "47.183706",
@@ -38,7 +38,7 @@ export const dataClient = [
             latitude: "47.183706",
             longitude: "8.547383",
           },
-          image_user: require("../MalekPhoto.jpg"),
+          image_user: require("../../assets/images/MalekPhoto.jpg"),
         },
       },
       {
@@ -54,7 +54,7 @@ export const dataClient = [
             latitude: "47.183706",
             longitude: "8.547383",
           },
-          image_user: require("../MalekPhoto.jpg"),
+          image_user: require("../../assets/images/MalekPhoto.jpg"),
         },
       },
       {
@@ -71,7 +71,7 @@ export const dataClient = [
             latitude: "47.183706",
             longitude: "8.547383",
           },
-          image_user: require("../MalekPhoto.jpg"),
+          image_user: require("../../assets/images/MalekPhoto.jpg"),
         },
       },
       {
@@ -87,7 +87,7 @@ export const dataClient = [
             latitude: "47.183706",
             longitude: "8.547383",
           },
-          image_user: require("../MalekPhoto.jpg"),
+          image_user: require("../../assets/images/MalekPhoto.jpg"),
         },
       },
       {
@@ -103,7 +103,7 @@ export const dataClient = [
             latitude: "47.183706",
             longitude: "8.547383",
           },
-          image_user: require("../MalekPhoto.jpg"),
+          image_user: require("../../assets/images/MalekPhoto.jpg"),
         },
       },
       {
@@ -119,7 +119,7 @@ export const dataClient = [
             latitude: "47.183706",
             longitude: "8.547383",
           },
-          image_user: require("../MalekPhoto.jpg"),
+          image_user: require("../../assets/images/MalekPhoto.jpg"),
         },
       },
       {
@@ -135,7 +135,7 @@ export const dataClient = [
             latitude: "47.183706",
             longitude: "8.547383",
           },
-          image_user: require("../MalekPhoto.jpg"),
+          image_user: require("../../assets/images/MalekPhoto.jpg"),
         },
       },
       {
@@ -151,7 +151,7 @@ export const dataClient = [
             latitude: "47.183706",
             longitude: "8.547383",
           },
-          image_user: require("../MalekPhoto.jpg"),
+          image_user: require("../../assets/images/MalekPhoto.jpg"),
         },
       },
     ],

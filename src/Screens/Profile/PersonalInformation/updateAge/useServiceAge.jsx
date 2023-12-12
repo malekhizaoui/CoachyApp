@@ -10,9 +10,7 @@ function useServiceAge() {
     
     const getAllCoachs = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const getAllClients = JSON.parse(localStorage.getItem("dataClient"));
-    const getDataUser = JSON.parse(localStorage.getItem("currentUser"));
     const data = Location.state;
-    console.log("Locaction.state", Location.state);
     const updateAge = () => {
       if(age.length!==0){
         if (data.type === "Client") {

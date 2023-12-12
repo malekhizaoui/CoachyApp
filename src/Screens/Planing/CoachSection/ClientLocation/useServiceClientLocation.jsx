@@ -34,6 +34,7 @@ function useServiceClientLocation(
   const getIndex = days.indexOf(locationForstate.state.reservation[0].day);
 
   const acceptReservation = () => {
+    // Update reservation state for the selected session in the client's data
     const updateAllClient = allDataClient.map((client, indice) => {
       if (client.firstName === dataDomaineCoaching.firstName) {
         const updateReservation = client.reservation.map((element, index) => {
@@ -58,11 +59,13 @@ function useServiceClientLocation(
         return { ...client };
       }
     });
+  
+    // Helper function to update reservation state in a specific day's session
     const newReservation = (array, day) => {
       return array.map((element, index) => {
         if (index === day) {
           const result = [];
-
+  
           element.map((elem, i) => {
             if (i === locationForstate.state.indexsession) {
               result.push({ ...elem, reservationState: "accepted" });
@@ -76,22 +79,21 @@ function useServiceClientLocation(
         return [...element];
       });
     };
-
+  
+    // Update reservation state in the current user's data
     const updateReservation1 = newReservation(
       locationForstate.state.dataUsers,
       locationForstate.state.indexReservation
     );
-    const newDataUser = { ...dataUser, reservation: updateReservation1 ,notificationPlaning:true};
-
+    const newDataUser = { ...dataUser, reservation: updateReservation1, notificationPlaning: true };
+  
+    // Update reservation state in the coaches associated with the user's domain
     const updateAllCoach = alldataDomaineCoaching.map((domaine) => {
       if (dataUser.domaine === domaine.name) {
         const updateCoachs = domaine.coachs.map((coach, indice) => {
-          const updateReservation2 = newReservation(
-            coach.reservation,
-            getIndex
-          );
+          const updateReservation2 = newReservation(coach.reservation, getIndex);
           if (coach.firstName === dataUser.firstName) {
-            return { ...coach, reservation: updateReservation2,notificationPlaning:true };
+            return { ...coach, reservation: updateReservation2, notificationPlaning: true };
           } else {
             return { ...coach };
           }
@@ -101,6 +103,8 @@ function useServiceClientLocation(
         return { ...domaine };
       }
     });
+  
+    // Update local storage with the modified data and navigate to the home page
     localStorage.setItem("dataDomaineCoaching", JSON.stringify(updateAllCoach));
     localStorage.setItem("currentUser", JSON.stringify(newDataUser));
     localStorage.setItem("dataClient", JSON.stringify(updateAllClient));
@@ -108,8 +112,9 @@ function useServiceClientLocation(
     setHideTabBar(true);
     sethideTabBarforCoachDetail(false);
   };
-
+  
   const cancelReservation = () => {
+    // Update reservation state for the selected session in the client's data
     const updateAllClient = allDataClient.map((client, indice) => {
       if (client.firstName === dataDomaineCoaching.firstName) {
         const updateReservation = client.reservation.map((element, index) => {
@@ -127,36 +132,36 @@ function useServiceClientLocation(
             return [...element];
           }
         });
-        return { ...client, reservation: updateReservation,notificationPlaning:true };
+        return { ...client, reservation: updateReservation, notificationPlaning: true };
       } else {
         return { ...client };
       }
     });
-
-    const newReservation = locationForstate.state.dataUsers.map(
-      (element, index) => {
-        if (index === locationForstate.state.indexReservation) {
-          const result = [];
-
-          element.map((elem, i) => {
-            if (i === locationForstate.state.indexsession) {
-              return;
-            }
-            result.push({ ...elem });
+  
+    // Update reservation state in the current user's data
+    const newReservation = locationForstate.state.dataUsers.map((element, index) => {
+      if (index === locationForstate.state.indexReservation) {
+        const result = [];
+  
+        element.map((elem, i) => {
+          if (i === locationForstate.state.indexsession) {
             return;
-          });
-          return result;
-        }
-        return [...element];
+          }
+          result.push({ ...elem });
+          return;
+        });
+        return result;
       }
-    );
-    const newDataUser = { ...dataUser, reservation: newReservation,notificationPlaning:true };
-
+      return [...element];
+    });
+    const newDataUser = { ...dataUser, reservation: newReservation, notificationPlaning: true };
+  
+    // Update reservation state in the coaches associated with the user's domain
     const updateAllCoach = alldataDomaineCoaching.map((domaine) => {
       if (dataUser.domaine === domaine.name) {
         const updateCoachs = domaine.coachs.map((coach, indice) => {
           if (coach.firstName === dataUser.firstName) {
-            return { ...coach, reservation: newReservation,notificationPlaning:true };
+            return { ...coach, reservation: newReservation, notificationPlaning: true };
           } else {
             return { ...coach };
           }
@@ -166,6 +171,8 @@ function useServiceClientLocation(
         return { ...domaine };
       }
     });
+  
+    // Update local storage with the modified data and navigate to the home page
     localStorage.setItem("dataDomaineCoaching", JSON.stringify(updateAllCoach));
     localStorage.setItem("currentUser", JSON.stringify(newDataUser));
     localStorage.setItem("dataClient", JSON.stringify(updateAllClient));
@@ -173,6 +180,7 @@ function useServiceClientLocation(
     setHideTabBar(true);
     sethideTabBarforCoachDetail(false);
   };
+  
 
   const openGoogleMaps = () => {
     const googleMapsUrl = `https://www.google.com/maps?q=${dataDomaineCoaching.location.longitude},${dataDomaineCoaching.location.latitude}`;

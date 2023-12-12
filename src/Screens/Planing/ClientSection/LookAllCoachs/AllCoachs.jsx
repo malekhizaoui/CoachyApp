@@ -11,15 +11,12 @@ function AllCoachs({ setHideTabBar, sethideTabBarforCoachDetail }) {
   const location = useLocation();
   const navigate = useNavigate();
   const data = location.state;
-  console.log("data",data);
   const [checkedOrNot, setCheckedOrNot] = useState(999);
   const [chooseCoach, setChooseCoach] = useState({});
   const bookCoach = () => {
     if (checkedOrNot !== 999) {
       navigate("/Reservation", { state: chooseCoach });
-    } else {
-      console.log("Choose Coach");
-    }
+    } 
   };
 
   return (

@@ -1,5 +1,4 @@
 import React from "react";
-import BackIcon from "../../assets/icons/BackIcon";
 import { useNavigate } from "react-router-dom";
 import "./back.css";
 function BackIconComponent({ setHideTabBar,sethideTabBarforCoachDetail }) {

@@ -137,7 +137,6 @@ function App() {
           </div>
         )}
       </Router>
-      {/* <SplashScreen/> */}
     </div>
   );
 }

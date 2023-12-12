@@ -11,15 +11,13 @@ function useServicePrvMessage() {
       getUser.messages[location.state.index ? location.state.index : 0]
         .allMessages
     );
-    console.log("getUser", getUser);
-    console.log("location.state", location.state);
+   
     const user = location.state.index ? location.state.index : 0;
   
     const sendMessage = () => {
       if (newMessage.length !== 0) {
         const newDataUserMessages = getUser.messages.map((element, index) => {
           if (index === user) {
-            console.log("element", element.allMessages);
             const updateMessages = element.allMessages;
             updateMessages.push({
               firstName: getUser.firstName,
@@ -65,7 +63,6 @@ function useServicePrvMessage() {
             });
             return { ...element, coachs: updatingCoachs };
           });
-          // console.log("updatAllCoachsbyDomaine", updatAllCoachsbyDomaine);
           localStorage.setItem("dataClient", JSON.stringify(updateAllClient));
           localStorage.setItem("dataDomaineCoaching",JSON.stringify(updatAllCoachsbyDomaine));
         } else {
@@ -86,7 +83,6 @@ function useServicePrvMessage() {
           const updateAllClientFromCoach = getClients.map((element, index) => {
             if (element.firstName === location.state.user.firstName) {
               const updateMessages = element.messages.map((message, indice) => {
-                console.log("message", message);
                 if (message.user.firstName === getUser.firstName) {
                   const addnewMessage = message.allMessages;
                   addnewMessage.push({
@@ -95,7 +91,6 @@ function useServicePrvMessage() {
                     message: newMessage,
                     phoneNumber: getUser.phoneNumber,
                   });
-                  console.log("addnewMessage", addnewMessage);
                   return { ...message, allMessages: addnewMessage };
                 } else {
                   return { ...message };

@@ -80,7 +80,6 @@ function Home({ setHideTabBar, sethideTabBarforCoachDetail }) {
                           key={i}
                           className="reservation"
                           onClick={() => {
-                            console.log("days[index]", days[index]);
                             navigate("/ClientLocation", {
                               state: {
                                 dataDomaineCoaching: booking.client,

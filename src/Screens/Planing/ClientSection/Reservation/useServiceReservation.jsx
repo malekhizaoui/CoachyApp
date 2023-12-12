@@ -9,12 +9,10 @@ const useReservationService =(setHideTabBar)=> {
     const [seeAvailableDay, setSeeAvailableDay] = useState(999);
     const [pickTime, setPickTime] = useState(null);
     const [show, setShow] = useState(false);
-    const data = location.state;
-    console.log("data",data);
-    const dataParsed = JSON.parse(localStorage.getItem("currentUser"));
+    const otherUser = location.state;
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const alldataDomaineCoaching = JSON.parse(localStorage.getItem("dataDomaineCoaching"));
     const allDataClient = JSON.parse(localStorage.getItem("dataClient"));
-    console.log("data",data);
     const days = [
       t('monday'),
       t('tuesday'),
@@ -27,30 +25,29 @@ const useReservationService =(setHideTabBar)=> {
   
     const reserveSession = (day) => {
       const updatAlldataDomaineCoaching = alldataDomaineCoaching.map((element, index) => {
-        if (element.name === data.domaine) {
+        if (element.name === otherUser.domaine) {
           const coachUpdate = element.coachs.map((elem, i) => {
-            if (elem.firstName === data.firstName) {
+            if (elem.firstName === otherUser.firstName) {
               const updateReservation = elem.reservation.map(
                 (dayResrvation, place) => {
                   if (day === place) {
-                    const coachReservationUpdate = dayResrvation;
-                    coachReservationUpdate.push({
+                    dayResrvation.push({
                       day: days[day],
                       from: pickTime,
                       to: pickTime + 1,
                       reservationState: "pending",
                       client: {
-                        firstName: dataParsed.firstName,
-                        image_user: dataParsed.image_user,
-                        lastName: dataParsed.firstName,
+                        firstName: currentUser.firstName,
+                        image_user: currentUser.image_user,
+                        lastName: currentUser.firstName,
                         location: {
-                          city: dataParsed.location.city,
-                          latitude: dataParsed.location.latitude,
-                          longitude: dataParsed.location.longitude,
+                          city: currentUser.location.city,
+                          latitude: currentUser.location.latitude,
+                          longitude: currentUser.location.longitude,
                         },
                       },
                     });
-                    return coachReservationUpdate;
+                    return dayResrvation;
                   } else {
                     return [...dayResrvation];
                   }
@@ -58,14 +55,14 @@ const useReservationService =(setHideTabBar)=> {
               );
               let checkIsFound =true
               const updateMessages = elem.messages.map((message) => {
-                if (message.user.firstName === dataParsed.firstName) {
+                if (message.user.firstName === currentUser.firstName) {
                   checkIsFound=checkIsFound&&false
                   const addMessage = message.allMessages;
                   addMessage.push({
                     type: "Client",
-                    firstName: dataParsed.firstName,
+                    firstName: currentUser.firstName,
                     message: `Bonjour Est ce que vous pouvez checker ton planning pour le jour ${days[day]} car je vous ai envoyé une reservation `,
-                    phoneNumber: dataParsed.phoneNumber,
+                    phoneNumber: currentUser.phoneNumber,
                   });
                   return { ...message, allMessages: addMessage };
                 }
@@ -76,16 +73,16 @@ const useReservationService =(setHideTabBar)=> {
               const newMessage = 
               {
                 user: {
-                  firstName: dataParsed.firstName,
-                  lastName: dataParsed.lastName,
-                  image_user: dataParsed.image_user,
+                  firstName: currentUser.firstName,
+                  lastName: currentUser.lastName,
+                  image_user: currentUser.image_user,
                 },
                 allMessages: [
                   {
                     type: "Client",
-                    firstName: dataParsed.firstName,
+                    firstName: currentUser.firstName,
                     message: `Bonjour Est ce que vous pouvez checker ton planning pour le jour ${days[day]} car je vous ai envoyé une reservation `,
-                    phoneNumber: dataParsed.phoneNumber,
+                    phoneNumber: currentUser.phoneNumber,
                   },
                 ],
               }
@@ -106,7 +103,7 @@ const useReservationService =(setHideTabBar)=> {
         }
       });
       const updatClient = allDataClient.map((element, index) => {
-        if (element.firstName === dataParsed.firstName) {
+        if (element.firstName === currentUser.firstName) {
           const updatedReservation = element.reservation.map((elem, i) => {
             if (i === day) {
               const clientReservationUpdate = elem;
@@ -116,14 +113,14 @@ const useReservationService =(setHideTabBar)=> {
                 to: pickTime + 1,
                 reservationState: "pending",
                 coach: {
-                  firstName: data.firstName,
-                  lastName: data.lastName,
+                  firstName: otherUser.firstName,
+                  lastName: otherUser.lastName,
                   location: {
-                    city: data.location.city,
-                    latitude: data.location.latitude,
-                    longitude: data.location.longitude,
+                    city: otherUser.location.city,
+                    latitude: otherUser.location.latitude,
+                    longitude: otherUser.location.longitude,
                   },
-                  image_user: data.image_user,
+                  image_user: otherUser.image_user,
                 },
               });
               return clientReservationUpdate;
@@ -133,37 +130,33 @@ const useReservationService =(setHideTabBar)=> {
           });
           let checkIsFound =true
           var updateMessagesClient = element.messages.map((message,i) => {
-            console.log("index",i);
-            if (message.user.firstName === data.firstName && checkIsFound) {
-              console.log("here1");
+            if (message.user.firstName === otherUser.firstName && checkIsFound) {
               checkIsFound=checkIsFound&&false
               const addMessage = message.allMessages;
               addMessage.push({
                 type: "Client",
-                firstName: dataParsed.firstName,
+                firstName: currentUser.firstName,
                 message: `Bonjour Est ce que vous pouvez checker ton planning pour le jour ${days[day]} car je vous ai envoyé une reservation `,
-                phoneNumber: dataParsed.phoneNumber,
+                phoneNumber: currentUser.phoneNumber,
               });
               return { ...message, allMessages: addMessage };
-            }else{
-              console.log("here2");
-  
+            }else{  
              return  {...message}
             }
           });
           const newMessage = 
             {
               user: {
-                firstName: data.firstName,
-                lastName: data.lastName,
-                image_user: data.image_user,
+                firstName: otherUser.firstName,
+                lastName: otherUser.lastName,
+                image_user: otherUser.image_user,
               },
               allMessages: [
                 {
                   type: "Client",
-                  firstName: dataParsed.firstName,
+                  firstName: currentUser.firstName,
                   message: `Bonjour Est ce que vous pouvez checker ton planning pour le jour ${days[day]} car je vous ai envoyé une reservation `,
-                  phoneNumber: dataParsed.phoneNumber,
+                  phoneNumber: currentUser.phoneNumber,
                 },
               ],
             };
@@ -189,7 +182,7 @@ const useReservationService =(setHideTabBar)=> {
       localStorage.setItem("dataDomaineCoaching", JSON.stringify(updatAlldataDomaineCoaching));
       localStorage.setItem("dataClient", JSON.stringify(updatClient));
       setHideTabBar(false)
-      navigate("/PaymentScreen",{state:{day:days[day],sessionFrom:pickTime,cout:data.Tarification}});
+      navigate("/PaymentScreen",{state:{day:days[day],sessionFrom:pickTime,cout:otherUser.Tarification}});
 
     };
   
@@ -198,7 +191,7 @@ const useReservationService =(setHideTabBar)=> {
 
     
     const bookSession = (day, messages) => {
-      const newReservation = dataParsed.reservation.map((element, index) => {
+      const newReservation = currentUser.reservation.map((element, index) => {
         if (day === index) {
           return [
             ...element,
@@ -208,12 +201,12 @@ const useReservationService =(setHideTabBar)=> {
               to: pickTime + 1,
               reservation: "pending",
               coach: {
-                firstName: data.firstName,
-                lastName: data.lastName,
+                firstName: otherUser.firstName,
+                lastName: otherUser.lastName,
                 location: {
-                  city: data.location.city,
-                  latitude: data.location.latitude,
-                  longitude: data.location.longitude,
+                  city: otherUser.location.city,
+                  latitude: otherUser.location.latitude,
+                  longitude: otherUser.location.longitude,
                 },
                 image_user: location.state.image_user,
               },
@@ -223,10 +216,10 @@ const useReservationService =(setHideTabBar)=> {
           return [...element];
         }
       });
-      return { ...dataParsed, reservation: newReservation, messages,notificationPlaning:true,
+      return { ...currentUser, reservation: newReservation, messages,notificationPlaning:true,
         notificationMessage:true };
     };
-  return {data,days,seeAvailableDay,setSeeAvailableDay,location,t,setShow,setPickTime,show,pickTime,reserveSession}
+  return {otherUser,days,seeAvailableDay,setSeeAvailableDay,location,t,setShow,setPickTime,show,pickTime,reserveSession}
 }
 
 export default useReservationService 

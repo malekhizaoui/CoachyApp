@@ -16,7 +16,6 @@ function AllMessages({setHideTabBar}) {
         {getUserMessages.messages.map((element, index) => {
           return (
             <div key={index} className="allMessages" onClick={()=>{
-              console.log("elemeeent",element);
               navigate('/PrivateMessage',{state:{user:element.user,index}});
               setHideTabBar(false)
             }}>

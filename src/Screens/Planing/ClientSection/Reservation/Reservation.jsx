@@ -7,7 +7,7 @@ import ArrowTime from "../../../../assets/icons/Planing/ArrowTime";
 import useServiceReservation from "./useServiceReservation";
 function Reservation({setHideTabBar}) {
   const {
-    data,
+    otherUser,
     days,
     seeAvailableDay,
     setSeeAvailableDay,
@@ -31,7 +31,7 @@ function Reservation({setHideTabBar}) {
           <p className="name-page">{t("reservation")}</p>
         </div>
 
-        {data.availability.map((element, index) => {
+        {otherUser.availability.map((element, index) => {
           return (
             <div key={index}>
               <p className="day">{days[index]}</p>

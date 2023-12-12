@@ -12,7 +12,6 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
   const { t } = useTranslation();
   const position = [47.184475, 8.505185];
   const locationForstate = useLocation();
-  console.log("locationForstate",locationForstate);
   const navigate = useNavigate();
   const dataDomaineCoaching = locationForstate.state;
   const location =  JSON.parse(localStorage.getItem('position'))

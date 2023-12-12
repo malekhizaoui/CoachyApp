@@ -98,7 +98,6 @@ function SignUp() {
             <select
               className="input"
               onChange={(event) => {
-                console.log("event.target.value",event.target.value);
                 setDomaine(event.target.value);
               }}
             >

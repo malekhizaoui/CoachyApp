@@ -31,7 +31,6 @@ function useServicePlanings() {
       reorganizeReservation();
       getCurrentPosition()
     }, []);
-    console.log("newData",newData);
     const getWeekDaysInfo=()=> {
       const today = new Date();
       const daysInfo = [];

@@ -24,7 +24,6 @@ function useServiceLogin(setIsLoggedIn,setTypeUser,setHideTabBar) {
       dataDomaineCoaching.map((element,index)=>{
         element.coachs.map((coach,place)=>{
           if (username === coach.phoneNumber && password === coach.password) {
-            console.log("donnnnne");
             setIsLoggedIn(true);
             navigate("/");
             setTypeUser('Coach')
