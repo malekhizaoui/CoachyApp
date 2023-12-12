@@ -90,6 +90,8 @@
         "from": "from",
         "addPayment": "Add Payment Methods",
         "3or4Digits": "3 or 4 digits usually found on the signature strip",
-        "saveCard": "Save your card"
+        "saveCard": "Save your card",
+        "redirectVersMap": "You will be redirected to the Google Maps app during navigation. Once there, press the back button at the bottom of your phone's screen to return to the Coachy app."
+
     }
 }

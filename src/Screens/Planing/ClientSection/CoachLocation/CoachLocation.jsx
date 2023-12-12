@@ -90,10 +90,7 @@ function CoachLocation({setHideTabBar,openModal,setOpenModal}) {
       {openModal&&<Modal>
           <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
           <p>
-            Vous allez être redirigé vers l'application Google Maps lors de la
-            navigation. Une fois sur place,appuyez sur le
-            bouton précédent en bas de l'écran de votre téléphone pour revenir à
-            l'application Coachy app
+           {t('redirectVersMap')}
           </p>
           <button onClick={openGoogleMaps}className="btn-auth" >OK</button>
           </div>

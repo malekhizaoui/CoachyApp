@@ -89,6 +89,7 @@
         "from": "à partir de",
         "addPayment": "Ajouter des Méthodes de Paiement",
         "3or4Digits": "3 ou 4 chiffres généralement situés sur la bande de signature",
-        "saveCard": "Enregistrer votre carte"
+        "saveCard": "Enregistrer votre carte",
+        "redirectVersMap":"Vous allez être redirigé vers l'application Google Maps lors de la navigation. Une fois sur place,appuyez sur le bouton précédent en bas de l'écran de votre téléphone pour revenir à l'application Coachy app"
     }
 }
